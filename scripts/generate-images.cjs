@@ -2,7 +2,6 @@ const fs = require("node:fs");
 const path = require("node:path");
 const dotenv = require("dotenv");
 const OpenAI = require("openai");
-const os = require("node:os");
 
 const envPaths = [".env.local", ".env"];
 for (const envPath of envPaths) {
@@ -74,69 +73,20 @@ async function generateWithOpenAI({ id, prompt }, client) {
   return filepath;
 }
 
-async function generateWithStability({ id, prompt }, apiKey) {
-  const endpoint = "https://api.stability.ai/v2beta/stable-image/generate/core";
-  const form = new FormData();
-  form.append("prompt", prompt);
-  form.append("aspect_ratio", "3:2"); // ~1536x1024
-  form.append("output_format", "png");
-  // Keep imagery brand-safe and text-free
-  form.append("safety", "true");
-
-  const res = await fetch(endpoint, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      Accept: "image/*",
-    },
-    body: form,
-  });
-
-  if (!res.ok) {
-    const text = await res.text().catch(() => "");
-    throw new Error(`Stability generation failed for ${id}: ${res.status} ${res.statusText} ${text}`);
-  }
-
-  const arrayBuffer = await res.arrayBuffer();
-  const buffer = Buffer.from(arrayBuffer);
-  const filename = `${id}.png`;
-  const filepath = path.join(OUTPUT_DIR, filename);
-  await fs.promises.writeFile(filepath, buffer);
-  console.log(`Generated ${filename} (Stability)`);
-  return filepath;
-}
-
 async function main() {
   const openaiKey = process.env.OPENAI_API_KEY;
-  const stabilityKey = process.env.STABILITY_API_KEY || process.env.STABILTY_API_KEY; // handle common typo
-  const preferStability = Boolean(stabilityKey);
+  if (!openaiKey) {
+    throw new Error("Missing OPENAI_API_KEY environment variable.");
+  }
 
-  const client = openaiKey ? new OpenAI({ apiKey: openaiKey }) : null;
+  const client = new OpenAI({ apiKey: openaiKey });
   await ensureDir(OUTPUT_DIR);
 
   for (const variant of VARIANTS) {
-    // Prefer Stability if available
-    if (preferStability) {
-      await generateWithStability(variant, stabilityKey);
-      continue;
-    }
-
-    if (!client) {
-      throw new Error("No provider available: set STABILITY_API_KEY or OPENAI_API_KEY");
-    }
-
     try {
       await generateWithOpenAI(variant, client);
     } catch (err) {
-      const msg = String(err && err.message || err);
-      // Fallback to Stability on OpenAI org gate or permission errors
-      const canFallback = stabilityKey && /403|must be verified|permission/i.test(msg);
-      if (canFallback) {
-        console.warn(`OpenAI blocked (${msg}). Falling back to Stability for ${variant.id}.`);
-        await generateWithStability(variant, stabilityKey);
-      } else {
-        throw err;
-      }
+      throw err;
     }
   }
 }

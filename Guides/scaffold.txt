@@ -172,7 +172,7 @@ For every page:
 - **Base branch:** main
 - **GitHub repo:** [https://github.com/Uptonr3421/bespoke-ethos.git](https://github.com/Uptonr3421/bespoke-ethos.git)
     - SSH: git@github.com:Uptonr3421/bespoke-ethos.git
-- **Vercel project name:** vercel.com/bespoke-ethos/uton-rands-projects/
+- **Vercel project name:** vercel.com/upton-rands-projects/bespoke-ethos
     - Project ID: prj_8cbai6JzE169NUytyFtCpSohZVka
 
 **Main only deployment. No gold or yellow. Use only a modern teal/white/dark gray theme.  
