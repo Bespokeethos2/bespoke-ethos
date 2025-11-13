@@ -1,13 +1,15 @@
-import type { Metadata, PageProps } from "next";
-
-type BlogSlugPageProps = PageProps<{ slug: string }>;
+import type { Metadata } from "next";
 
 export const metadata = {
   title: "Blog post | Bespoke Ethos",
   description: "This is a placeholder post.",
 } satisfies Metadata;
 
-export default async function BlogSlugPage({ params }: BlogSlugPageProps) {
+export default async function BlogSlugPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const title = slug.replace(/-/g, " ");
   return (
