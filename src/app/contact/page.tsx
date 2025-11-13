@@ -4,6 +4,7 @@ import { SuccessNotice } from "./success-notice";
 // Render on each request to honor querystring messages like ?sent=1
 export const dynamic = "force-dynamic";
 import Link from "next/link";
+import type { PageProps } from "next";
 import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
 
 export const metadata = {
@@ -12,8 +13,13 @@ export const metadata = {
   alternates: { canonical: "/contact" },
 };
 
-export default async function ContactPage({ searchParams }: { searchParams: Promise<{ sent?: string; error?: string }> }) {
-  const params = await searchParams;
+type ContactPageSearchParams = {
+  sent?: string;
+  error?: string;
+};
+
+export default async function ContactPage(props: PageProps) {
+  const params = (await props.searchParams) as ContactPageSearchParams;
   const sent = params?.sent === "1";
   const error = params?.error;
 
