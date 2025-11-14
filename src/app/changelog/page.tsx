@@ -1,15 +1,20 @@
+import dynamic from "next/dynamic";
 import { draftMode } from "next/headers";
 
 import { Pump } from "basehub/react-pump";
 import { Heading } from "@/common/heading";
 
-import { ChangelogList } from "./_components/changelog-list";
 import { ChangelogLayout } from "./_components/changelog-header";
 import { changelogListFragment } from "./_components/changelog.fragment";
 import { PageView } from "../_components/page-view";
 import type { Metadata } from "next";
 import { basehub } from "basehub";
 import { notFound } from "next/navigation";
+
+const ChangelogList = dynamic(
+  () => import("./_components/changelog-list").then((mod) => mod.ChangelogList),
+  { ssr: false },
+);
 
 export const dynamic = "force-static";
 
