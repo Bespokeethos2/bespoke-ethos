@@ -1,4 +1,4 @@
-import dynamic from "next/dynamic";
+import nextDynamic from "next/dynamic";
 import { draftMode } from "next/headers";
 
 import { Pump } from "basehub/react-pump";
@@ -11,7 +11,7 @@ import type { Metadata } from "next";
 import { basehub } from "basehub";
 import { notFound } from "next/navigation";
 
-const ChangelogList = dynamic(
+const ChangelogList = nextDynamic(
   () => import("./_components/changelog-list").then((mod) => mod.ChangelogList),
   { ssr: false },
 );
