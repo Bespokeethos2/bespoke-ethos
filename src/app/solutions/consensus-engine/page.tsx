@@ -22,10 +22,10 @@ export default function ConsensusEnginePage() {
       <ProductJsonLd />
       <Heading subtitle="Clarity from multiple AI perspectives" align="left">
         <h1>Consensus Engine™</h1>
-        <p className="text-lg font-medium text-text-secondary">
-          {formatMoney(PRICING.consensusEngine.monthly)}/mo for up to {PRICING.consensusEngine.queryLimit} research queries.
-        </p>
       </Heading>
+      <p className="text-lg font-medium text-text-secondary">
+        {formatMoney(PRICING.consensusEngine.monthly)}/mo for up to {PRICING.consensusEngine.queryLimit} research queries.
+      </p>
       <div className="space-y-4 text-text-secondary">
         <p>
           When you&rsquo;re running a business alone, every big decision feels paralyzing. Should I raise prices? Pivot my messaging? Hire someone? I built Consensus Engine™ because I needed a trusted advisor who could see all sides of a problem—without the $10,000 consulting bill.
