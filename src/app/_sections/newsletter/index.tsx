@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import { Section } from "@/common/layout";
 import { Pump } from "basehub/react-pump";
@@ -9,7 +11,6 @@ type NewsletterCopy = {
 };
 
 function NewsletterForm({ copy }: { copy: NewsletterCopy }) {
-  "use client";
 
   const [email, setEmail] = React.useState("");
   const [status, setStatus] = React.useState<"idle" | "loading" | "success" | "error">("idle");
