@@ -20,7 +20,7 @@ import { ChangelogLayout } from "../_components/changelog-header";
 import { PageView } from "@/app/_components/page-view";
 import { draftMode } from "next/headers";
 
-const SKIP_REMOTE_DATA = process.env.SKIP_REMOTE_DATA === "1";
+const SKIP_REMOTE_DATA = (process.env.SKIP_REMOTE_DATA ?? "").trim() === "1";
 
 // Pre-render known slugs at build and allow ISR fallback
 export const revalidate = 1800;
@@ -58,11 +58,23 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async ({
   params: _params,
 }: ChangelogPageParams): Promise<Metadata | undefined> => {
+  const params = await _params;
+
   if (SKIP_REMOTE_DATA) {
-    return undefined;
+    const siteUrl =
+      process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
+
+    return {
+      title: "Changelog entry",
+      description:
+        "Changelog content will return once the Sanity migration is complete.",
+      alternates: { canonical: `/changelog/${params.slug}` },
+      openGraph: {
+        url: `${siteUrl}/changelog/${params.slug}`,
+      },
+    };
   }
 
-  const params = await _params;
   const data = await basehub({ draft: (await draftMode()).isEnabled }).query({
     site: {
       settings: {
@@ -111,12 +123,7 @@ export const generateMetadata = async ({
   };
 };
 
-export default async function ChangelogPage({ params: _params }: ChangelogPageParams) {
-  if (SKIP_REMOTE_DATA) {
-    return notFound();
-  }
-
-  const params = await _params;
+async function renderBaseHubSlugPage(params: { slug: string }) {
   return (
     <Pump
       queries={[
@@ -198,21 +205,35 @@ export default async function ChangelogPage({ params: _params }: ChangelogPagePa
           "@type": "BreadcrumbList",
           itemListElement: [
             { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
-            { "@type": "ListItem", position: 2, name: "Changelog", item: `${siteUrl}/changelog` },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Changelog",
+              item: `${siteUrl}/changelog`,
+            },
             { "@type": "ListItem", position: 3, name: post._title, item: postUrl },
           ],
         } as const;
 
-        const postIndex = allPosts.site.changelog.posts.items.findIndex(
-          (p) => p._slug === post._slug,
-        );
+        const postsList =
+          allPosts && allPosts.site && allPosts.site.changelog.posts.items;
+
+        const postIndex = postsList
+          ? postsList.findIndex((p) => p._slug === post._slug)
+          : -1;
         const nextPost =
-          allPosts.site.changelog.posts.items[postIndex + 1] ??
-          allPosts.site.changelog.posts.items[0];
+          postsList && postIndex >= 0
+            ? postsList[postIndex + 1] ?? postsList[0]
+            : null;
 
         return (
           <>
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify(breadcrumb),
+              }}
+            />
             <PageView ingestKey={generalEvents.ingestKey} />
             <ChangelogLayout>
               <div className="flex flex-col gap-1">
@@ -248,7 +269,10 @@ export default async function ChangelogPage({ params: _params }: ChangelogPagePa
               <div className={richTextClasses}>
                 <RichText
                   blocks={post.body.json.blocks}
-                  components={{ ...richTextBaseComponents, CodeSnippetComponent: CodeSnippet }}
+                  components={{
+                    ...richTextBaseComponents,
+                    CodeSnippetComponent: CodeSnippet,
+                  }}
                 >
                   {post.body.json.content}
                 </RichText>
@@ -256,7 +280,7 @@ export default async function ChangelogPage({ params: _params }: ChangelogPagePa
               <div className="flex items-center justify-between">
                 {post.authors.length > 1 ? (
                   <AvatarsGroup animate>
-                    {post.authors.map((author) => (
+                    {post.authors.map((author: (typeof post.authors)[number]) => (
                       <Author {...author} key={author._id} />
                     ))}
                   </AvatarsGroup>
@@ -288,4 +312,32 @@ export default async function ChangelogPage({ params: _params }: ChangelogPagePa
       }}
     </Pump>
   );
+}
+
+export default async function ChangelogPage({ params: _params }: ChangelogPageParams) {
+  const params = await _params;
+
+  if (SKIP_REMOTE_DATA) {
+    return (
+      <ChangelogLayout>
+        <div className="flex flex-col gap-1">
+          <Link
+            className="text-text-tertiary dark:text-dark-text-tertiary flex w-max items-center gap-1 text-sm hover:underline md:text-sm"
+            href="/changelog"
+          >
+            <ArrowLeftIcon /> Back to changelog
+          </Link>
+          <Heading align="left">
+            <h1>Changelog entry</h1>
+          </Heading>
+          <p className="text-text-tertiary dark:text-dark-text-tertiary text-sm md:text-base">
+            Changelog detail pages are temporarily disabled while we migrate to
+            Sanity. The URL {params.slug} will become active once the new CMS is live.
+          </p>
+        </div>
+      </ChangelogLayout>
+    );
+  }
+
+  return renderBaseHubSlugPage(params);
 }

@@ -48,7 +48,7 @@ export const headerFragment = fragmentOn("Header", {
 
 export type HeaderFragment = fragmentOn.infer<typeof headerFragment>;
 
-const SKIP_REMOTE_DATA = process.env.SKIP_REMOTE_DATA === "1";
+const SKIP_REMOTE_DATA = (process.env.SKIP_REMOTE_DATA ?? "").trim() === "1";
 
 const pageRef = (pathname: string, title: string) => ({
   __typename: "PageReferenceComponent" as const,

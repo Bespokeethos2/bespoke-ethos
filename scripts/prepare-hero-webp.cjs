@@ -40,7 +40,15 @@ async function convertOne(srcPng, baseName) {
   for (const v of VARIANTS) {
     const out = path.join(DIR, `${baseName}-${v.suffix}.webp`);
     try {
-      await sharp(srcPng).resize({ width: v.width }).webp({ quality: 82 }).toFile(out);
+      await sharp(srcPng)
+        .resize({
+          width: v.width,
+          height: Math.round((v.width * 9) / 16),
+          fit: "cover",
+          position: sharp.strategy.attention,
+        })
+        .webp({ quality: 82 })
+        .toFile(out);
       console.log(`Wrote ${out}`);
     } catch (e) {
       console.warn(`Skip ${out}: ${e.message}`);

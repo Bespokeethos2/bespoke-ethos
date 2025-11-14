@@ -9,7 +9,7 @@ import { ThemeSwitcher } from "../theme-switcher";
 import { ButtonLink } from "@/common/button";
 import { DarkLightImageAutoscale } from "@/common/dark-light-image";
 
-const SKIP_REMOTE_DATA = process.env.SKIP_REMOTE_DATA === "1";
+const SKIP_REMOTE_DATA = (process.env.SKIP_REMOTE_DATA ?? "").trim() === "1";
 
 type NavLink = { title: string; url: string };
 type SocialLink = {

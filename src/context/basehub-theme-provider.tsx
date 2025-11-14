@@ -7,7 +7,7 @@ export const themeFragment = fragmentOn("Theme", { accent: true, grayScale: true
 
 export type BaseHubTheme = fragmentOn.infer<typeof themeFragment>;
 
-const SKIP_REMOTE_DATA = process.env.SKIP_REMOTE_DATA === "1";
+const SKIP_REMOTE_DATA = (process.env.SKIP_REMOTE_DATA ?? "").trim() === "1";
 
 const CONTRAST_WARNING_COLORS: (keyof typeof colors)[] = [
   "amber",

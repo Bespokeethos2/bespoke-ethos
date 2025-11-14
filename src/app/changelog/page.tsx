@@ -10,7 +10,7 @@ import type { Metadata } from "next";
 import { basehub } from "basehub";
 import { notFound } from "next/navigation";
 
-const SKIP_REMOTE_DATA = process.env.SKIP_REMOTE_DATA === "1";
+const SKIP_REMOTE_DATA = (process.env.SKIP_REMOTE_DATA ?? "").trim() === "1";
 
 export const dynamic = "force-dynamic";
 

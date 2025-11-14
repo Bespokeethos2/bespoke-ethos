@@ -39,7 +39,7 @@ import { SideFeatures, featuresSideBySideFragment } from "../_sections/features/
 import { TestimonialsGrid, testimonialsGridFragment } from "../_sections/testimonials-grid";
 import { Testimonials, testimonialsSliderFragment } from "../_sections/testimonials";
 
-const SKIP_REMOTE_DATA = process.env.SKIP_REMOTE_DATA === "1";
+const SKIP_REMOTE_DATA = (process.env.SKIP_REMOTE_DATA ?? "").trim() === "1";
 
 const SOLUTION_DATA = [
   {

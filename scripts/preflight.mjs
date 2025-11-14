@@ -34,8 +34,9 @@ else log('Canonical URL OK');
 
 // 4) BASEHUB_TOKEN presence
 const requireBasehub = process.env.VERCEL === '1' || process.env.CI === '1';
+const skipFlag = (process.env.SKIP_REMOTE_DATA ?? '').trim();
 if (!process.env.BASEHUB_TOKEN) {
-  if (requireBasehub && process.env.SKIP_REMOTE_DATA !== '1') {
+  if (requireBasehub && skipFlag !== '1') {
     fail('BASEHUB_TOKEN missing but required for CI/Vercel builds. Sync it via Vercel env vars.');
   }
   warn('BASEHUB_TOKEN missing (OK locally when SKIP_REMOTE_DATA=1). Ensure it is set in Vercel.');

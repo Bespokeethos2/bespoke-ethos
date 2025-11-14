@@ -18,6 +18,9 @@ run('node', ['scripts/maybe-basehub.cjs']);
 
 // Force local fallbacks unless explicitly disabled in env
 const env = { ...process.env };
+if (typeof env.SKIP_REMOTE_DATA === 'string') {
+  env.SKIP_REMOTE_DATA = env.SKIP_REMOTE_DATA.trim();
+}
 if (!env.SKIP_REMOTE_DATA) env.SKIP_REMOTE_DATA = '1';
 const workspaceRoot = resolve(root, '..');
 env.TURBOPACK_ROOT = workspaceRoot;

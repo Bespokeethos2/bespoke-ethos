@@ -6,7 +6,7 @@ import { TooltipProvider } from "@/common/tooltip";
 import { FeatureFlagProvider } from "@/context/feature-flag-provider";
 import { getServerFeatureFlags } from "@/config/feature-flags";
 
-const SKIP_REMOTE_DATA = process.env.SKIP_REMOTE_DATA === "1";
+const SKIP_REMOTE_DATA = (process.env.SKIP_REMOTE_DATA ?? "").trim() === "1";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const initialFeatureFlags = getServerFeatureFlags();
