@@ -1,10 +1,7 @@
 import { draftMode } from "next/headers";
 
 import { Pump } from "basehub/react-pump";
-
-const SKIP_REMOTE_DATA = process.env.SKIP_REMOTE_DATA === "1";
 import { Heading } from "@/common/heading";
-
 import { ChangelogLayout } from "./_components/changelog-header";
 import { changelogListFragment } from "./_components/changelog.fragment";
 import { ChangelogListWrapper as ChangelogList } from "./_components/changelog-list-wrapper";
@@ -13,11 +10,18 @@ import type { Metadata } from "next";
 import { basehub } from "basehub";
 import { notFound } from "next/navigation";
 
+const SKIP_REMOTE_DATA = process.env.SKIP_REMOTE_DATA === "1";
+
 export const dynamic = "force-dynamic";
 
 export const generateMetadata = async (): Promise<Metadata | undefined> => {
   if (SKIP_REMOTE_DATA) {
-    return undefined;
+    return {
+      title: "Changelog",
+      description:
+        "A changelog of Bespoke Ethos releases. Content will return once the new CMS is available.",
+      alternates: { canonical: "/changelog" },
+    };
   }
 
   const data = await basehub({ draft: (await draftMode()).isEnabled }).query({
@@ -38,11 +42,7 @@ export const generateMetadata = async (): Promise<Metadata | undefined> => {
   };
 };
 
-export default async function ChangelogPage() {
-  if (SKIP_REMOTE_DATA) {
-    return notFound();
-  }
-
+async function renderBaseHubChangelog() {
   return (
     <Pump
       queries={[
@@ -97,4 +97,22 @@ export default async function ChangelogPage() {
       }}
     </Pump>
   );
+}
+
+export default async function ChangelogPage() {
+  if (SKIP_REMOTE_DATA) {
+    return (
+      <ChangelogLayout>
+        <Heading
+          align="left"
+          className="flex-1 flex-col-reverse!"
+          subtitle="Content is being migrated to Sanity."
+        >
+          <h1>Changelog</h1>
+        </Heading>
+      </ChangelogLayout>
+    );
+  }
+
+  return renderBaseHubChangelog();
 }

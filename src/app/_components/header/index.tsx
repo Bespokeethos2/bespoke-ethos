@@ -371,6 +371,7 @@ export async function Header() {
           },
           { _id: "nav-about", _title: "About", href: "/about", sublinks: { items: [] } },
           { _id: "nav-testimonials", _title: "Testimonials", href: "/#testimonials", sublinks: { items: [] } },
+          { _id: "nav-pricing", _title: "Pricing", href: "/pricing", sublinks: { items: [] } },
           { _id: "nav-faq", _title: "FAQ", href: "/faq", sublinks: { items: [] } },
           { _id: "nav-contact", _title: "Contact", href: "/contact", sublinks: { items: [] } },
           { _id: "nav-linkedin", _title: "LinkedIn", href: "https://www.linkedin.com/company/bespoke-ethos", sublinks: { items: [] } },

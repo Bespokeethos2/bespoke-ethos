@@ -12,6 +12,12 @@ const variants = [
 ];
 // Optional square variant for cards/left hero (1:1, center crop)
 const squareVariant = { suffix: "square", size: 1200 };
+const heroSlides = new Set([
+  "hero-flowstack",
+  "hero-chatbots",
+  "hero-consensus",
+  "hero-redbridging",
+]);
 
 async function ensureDir(dir) {
   await fs.promises.mkdir(dir, { recursive: true });
@@ -23,10 +29,17 @@ async function optimize(file) {
 
   for (const variant of variants) {
     const dest = path.join(OUTPUT_DIR, `${parsed.name}-${variant.suffix}.webp`);
-    await sharp(src)
-      .resize({ width: variant.width })
-      .webp({ quality: 82 })
-      .toFile(dest);
+    const isHeroSlide = heroSlides.has(parsed.name);
+    const resizeOptions = isHeroSlide
+      ? {
+          width: variant.width,
+          height: Math.round((variant.width * 9) / 16),
+          fit: "cover",
+          position: sharp.strategy.attention,
+        }
+      : { width: variant.width };
+
+    await sharp(src).resize(resizeOptions).webp({ quality: 82 }).toFile(dest);
     console.log(`Optimized ${dest}`);
   }
 
