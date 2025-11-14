@@ -20,6 +20,8 @@ import { ChangelogLayout } from "../_components/changelog-header";
 import { PageView } from "@/app/_components/page-view";
 import { draftMode } from "next/headers";
 
+const SKIP_REMOTE_DATA = process.env.SKIP_REMOTE_DATA === "1";
+
 // Pre-render known slugs at build and allow ISR fallback
 export const revalidate = 1800;
 
@@ -30,6 +32,10 @@ interface ChangelogPageParams {
 }
 
 export const generateStaticParams = async () => {
+  if (SKIP_REMOTE_DATA) {
+    return [];
+  }
+
   const data = await basehub({ cache: "no-store" }).query({
     site: {
       changelog: {
@@ -52,6 +58,10 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async ({
   params: _params,
 }: ChangelogPageParams): Promise<Metadata | undefined> => {
+  if (SKIP_REMOTE_DATA) {
+    return undefined;
+  }
+
   const params = await _params;
   const data = await basehub({ draft: (await draftMode()).isEnabled }).query({
     site: {
@@ -102,6 +112,10 @@ export const generateMetadata = async ({
 };
 
 export default async function ChangelogPage({ params: _params }: ChangelogPageParams) {
+  if (SKIP_REMOTE_DATA) {
+    return notFound();
+  }
+
   const params = await _params;
   return (
     <Pump

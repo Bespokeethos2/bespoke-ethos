@@ -1,6 +1,8 @@
 import { draftMode } from "next/headers";
 
 import { Pump } from "basehub/react-pump";
+
+const SKIP_REMOTE_DATA = process.env.SKIP_REMOTE_DATA === "1";
 import { Heading } from "@/common/heading";
 
 import { ChangelogLayout } from "./_components/changelog-header";
@@ -14,6 +16,10 @@ import { notFound } from "next/navigation";
 export const dynamic = "force-dynamic";
 
 export const generateMetadata = async (): Promise<Metadata | undefined> => {
+  if (SKIP_REMOTE_DATA) {
+    return undefined;
+  }
+
   const data = await basehub({ draft: (await draftMode()).isEnabled }).query({
     site: {
       changelog: {
@@ -33,6 +39,10 @@ export const generateMetadata = async (): Promise<Metadata | undefined> => {
 };
 
 export default async function ChangelogPage() {
+  if (SKIP_REMOTE_DATA) {
+    return notFound();
+  }
+
   return (
     <Pump
       queries={[
