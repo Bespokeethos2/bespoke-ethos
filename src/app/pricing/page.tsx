@@ -27,7 +27,7 @@ export default function PricingPage() {
             src="/assets/generated/hero-flowstack-desktop.webp"
             alt="Calm workspace with an automation dashboard open beside a notebook and coffee"
             fill
-            className="object-cover"
+            className="object-cover object-bottom"
             sizes="(max-width: 768px) 100vw, 960px"
             priority={false}
           />
