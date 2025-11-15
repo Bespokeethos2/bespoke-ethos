@@ -31,7 +31,7 @@ export default function HomePageBackup() {
     {
       file: "love-founders-mug.avif",
       alt: "Ceramic mug printed with the phrase 'We Founders Heart' on a founder's desk",
-      caption: "We founders - for people who are in it with you.",
+      caption: "We founders—for people who are in it with you.",
       href: "/about",
     },
     {
@@ -152,8 +152,8 @@ export default function HomePageBackup() {
               We take the busywork. You keep control.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-text-tertiary dark:text-dark-text-tertiary">
-              Auditable AI workflows, on-brand chatbots, and decision clarity-built for small business. Keep human approvals, regain your time, and stay in charge. Web
-              Star Ready.
+              Auditable AI workflows, on-brand chatbots, and decision clarity—built for small businesses. Keep human approvals, regain your
+              time, and stay in charge. Web Star–ready.
             </p>
             <div className="mt-8 flex flex-wrap gap-3 motion-safe:animate-fadeIn">
               <Link

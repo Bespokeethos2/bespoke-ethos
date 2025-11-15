@@ -14,7 +14,7 @@ export type Slide = {
 const defaultSlides: Slide[] = [
   {
     src: "/assets/generated/hero-cadence-desktop.webp",
-    alt: "Cadence - Man in tool room working on chair",
+    alt: "Cadence™ - Man in tool room working on chair",
     caption: "Cadence — Your AI assistant that learns your workflow",
     duration: 9000,
   },
@@ -25,7 +25,7 @@ const defaultSlides: Slide[] = [
   },
   {
     src: "/assets/consensus-infographic.png",
-    alt: "Consensus Engine graphic of converging lines",
+    alt: "Consensus Engine™ graphic of converging lines",
     caption: "Consensus — Four perspectives, one answer",
   },
   {
