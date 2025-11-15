@@ -155,22 +155,22 @@ export default function HomePageBackup() {
               Auditable AI workflows, on-brand chatbots, and decision clarity—built for small businesses. Keep human approvals, regain your
               time, and stay in charge. Web Star–ready.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3 motion-safe:animate-fadeIn">
+            <div className="mt-8 flex flex-col gap-3 motion-safe:animate-fadeIn sm:flex-row sm:flex-wrap">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-md bg-accent-600 px-5 py-3 text-sm font-semibold text-white hover:brightness-110"
+                className="inline-flex w-full items-center justify-center rounded-md bg-accent-600 px-5 py-3 text-sm font-semibold text-white hover:brightness-110 sm:w-auto"
               >
                 Automate My #1 Task
               </Link>
               <Link
                 href="/solutions"
-                className="inline-flex items-center justify-center rounded-md border border-border px-5 py-3 text-sm font-semibold text-text-primary hover:bg-black/5 dark:border-dark-border dark:text-dark-text-primary dark:hover:bg-white/5"
+                className="inline-flex w-full items-center justify-center rounded-md border border-border px-5 py-3 text-sm font-semibold text-text-primary hover:bg-black/5 dark:border-dark-border dark:text-dark-text-primary dark:hover:bg-white/5 sm:w-auto"
               >
                 See Products
               </Link>
               <Link
                 href="/book"
-                className="inline-flex items-center justify-center px-3 py-3 text-sm font-semibold text-text-tertiary hover:text-text-primary dark:text-dark-text-tertiary dark:hover:text-dark-text-primary"
+                className="inline-flex w-full items-center justify-center px-3 py-3 text-sm font-semibold text-text-tertiary hover:text-text-primary dark:text-dark-text-tertiary dark:hover:text-dark-text-primary sm:w-auto"
               >
                 Free Assessment
               </Link>

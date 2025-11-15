@@ -131,14 +131,14 @@ export default async function ContactPage({
           <p className="text-sm text-red-600 dark:text-red-400">Failed to send. Please try again.</p>
         ) : null}
 
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+        <div className="mt-6 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
           <button
             type="submit"
-            className="inline-flex items-center gap-2 rounded-md bg-accent-600 px-5 py-2 text-sm font-medium text-white shadow-sm hover:brightness-110"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-accent-600 px-5 py-2 text-sm font-medium text-white shadow-sm hover:brightness-110 sm:w-auto"
           >
             Send message
           </button>
-          <Link className="text-sm text-text-secondary underline-offset-4 hover:underline dark:text-dark-text-secondary" href="/book">
+          <Link className="text-center text-sm text-text-secondary underline-offset-4 hover:underline dark:text-dark-text-secondary" href="/book">
             Prefer to book a call?
           </Link>
         </div>
