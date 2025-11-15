@@ -3,7 +3,7 @@ import { Section } from "@/common/layout";
 
 export function FounderStory() {
   return (
-    <Section className="bg-surface-secondary dark:bg-dark-surface-secondary">
+    <Section className="bg-surface-secondary dark:bg-dark-surface-secondary -mt-8 md:-mt-12">
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-12 md:grid-cols-2 md:gap-16 items-center">
           {/* Image */}
