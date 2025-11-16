@@ -137,7 +137,7 @@ export async function POST(req: NextRequest) {
       try {
         const resend = new Resend(resendApiKey);
         await resend.emails.send({
-          from: "Bespoke Ethos Contact Form <onboarding@resend.dev>",
+          from: "Bespoke Ethos Contact Form <contact@bespokeethos.com>",
           to: "contact@bespokeethos.com",
           subject: `New Contact: ${name || email}`,
           html: `
