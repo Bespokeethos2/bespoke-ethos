@@ -16,7 +16,9 @@ export const metadata: Metadata = {
 
 export default function RedbridgingPage() {
   return (
-    <Section className="gap-6">
+    <main className="be-page-slate">
+      <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
+        <div className="be-section-card space-y-6">
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Solutions", href: "/solutions" }, { name: "Redbridging" }]} />
       <ProductJsonLd />
       <RedbridgingServiceJsonLd />
@@ -86,7 +88,9 @@ export default function RedbridgingPage() {
           />
         </div>
       </div>
-    </Section>
+        </div>
+      </Section>
+    </main>
   );
 }
 

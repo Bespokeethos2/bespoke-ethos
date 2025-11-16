@@ -18,9 +18,10 @@ export const metadata: Metadata = {
 
 export default function PricingPage() {
   return (
-    <Section className="gap-6 -mt-6 md:-mt-4">
-      <OfferCatalogJsonLd />
-      <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Pricing" }]} />
+    <main className="be-page-slate">
+      <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
+        <OfferCatalogJsonLd />
+        <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Pricing" }]} />
       <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-xl">
         <div className="relative h-40 w-full sm:h-48 lg:h-56">
           <Image
@@ -184,7 +185,8 @@ export default function PricingPage() {
           Book a free consultation
         </Link>
       </div>
-    </Section>
+      </Section>
+    </main>
   );
 }
 

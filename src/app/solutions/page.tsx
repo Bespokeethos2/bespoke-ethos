@@ -51,7 +51,9 @@ const solutions = [
 
 export default function SolutionsPage() {
   return (
-    <Section className="gap-8">
+    <main className="be-page-slate">
+      <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
+        <div className="be-section-card space-y-6">
       <SolutionsItemListJsonLd />
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Solutions" }]} />
       <Heading subtitle="Small business AI, without the chaos" align="left">
@@ -99,7 +101,9 @@ export default function SolutionsPage() {
           Not sure where to start? Book a free consultation
         </Link>
       </div>
-    </Section>
+        </div>
+      </Section>
+    </main>
   );
 }
 
