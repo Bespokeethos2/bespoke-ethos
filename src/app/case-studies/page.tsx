@@ -9,7 +9,7 @@ export const revalidate = 1800;
 export const metadata: Metadata = {
   title: "Case Studies | Bespoke Ethos",
   description:
-    "See how small businesses reclaimed hours with Flowstack™, Chatbots, Consensus Engine, and Redbridging - auditable automation you control.",
+    "See how small businesses reclaimed hours with Flowstack™, Chatbots, Consensus Engine™, and Redbridging - auditable automation you control.",
   alternates: { canonical: "/case-studies" },
 };
 

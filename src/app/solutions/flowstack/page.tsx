@@ -77,6 +77,28 @@ export default function FlowstackPage() {
       <p className="mt-2 text-sm text-text-tertiary dark:text-dark-text-tertiary">
         {planSummary(PRICING.flowstack.setup, PRICING.flowstack.monthly)}
       </p>
+
+      <div className="mt-8 grid gap-4 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] items-start">
+        <div className="space-y-3 text-text-secondary">
+          <h2 className="text-base font-semibold text-text-primary dark:text-dark-text-primary">
+            See Flowstack™ in action
+          </h2>
+          <p>
+            Behind the scenes, Flowstack™ is just a clean, auditable workflow: one trigger, a few well‑designed
+            actions, and logs you can actually read. No mystery black box—just the steps you wish you had time to
+            connect yourself.
+          </p>
+        </div>
+        <div className="relative h-48 w-full overflow-hidden rounded-xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary">
+          <Image
+            src="/assets/generated/service-flowstack-builder-desktop.webp"
+            alt="Flowstack workflow automation builder showing a new customer signup sequence across forms, Airtable, email and Slack"
+            fill
+            className="h-full w-full object-cover"
+            sizes="(max-width: 768px) 100vw, 480px"
+          />
+        </div>
+      </div>
     </Section>
   );
 }
@@ -118,4 +140,3 @@ function ProductJsonLd() {
     />
   );
 }
-

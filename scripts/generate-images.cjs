@@ -90,6 +90,43 @@ const VARIANTS = [
     prompt:
       "Hero image for a blog post comparing on-brand AI chatbots to generic bots. Candid photo of a small business owner in a cozy shop smiling while looking at a laptop displaying a chat interface. Ambient warm lighting, subtle teal accent light from the screen, shelves or products softly out of focus behind them. 16:9, no visible text or logos.",
   },
+  // Service UI mockups
+  {
+    id: "service-cadence-calendar-interface",
+    prompt:
+      "Modern SaaS interface showing a multi-channel social media content calendar. Three columns side-by-side for Instagram, LinkedIn, and Twitter/X, with color-coded posts scheduled across two weeks. AI assistant sidebar on the right shows suggested posting times, a brand consistency score, and next best actions. UI styled in Bespoke Ethos colors with subtle Cleveland details in small thumbnail photography, clean and minimal, 16:9 composition, no readable text or logos.",
+  },
+  {
+    id: "service-flowstack-builder",
+    prompt:
+      "Visual workflow automation builder interface for a 'New customer signup' flow. Trigger node for a submitted form, actions to add to Airtable, send a welcome email via Resend, and notify the team in Slack. Rounded nodes connected by curved teal lines, dark on-light panel with metrics like run count and success rate on the side. Clean modern UI inspired by Zapier and Make, 16:9 composition with ample whitespace, no visible text or real app logos.",
+  },
+  {
+    id: "service-consensus-decision-interface",
+    prompt:
+      "Collaborative decision-making interface for choosing a Cleveland office location. Three option cards for Downtown, Ohio City, and University Circle, each with small photo thumbnails and abstract pros and cons bars instead of text. Bar chart summarizing team votes and an AI insight box highlighting the best option by commute and cost. Modern teal and amber color accents, 16:9 composition, no readable text or real map data.",
+  },
+  {
+    id: "service-redbridging-monitoring",
+    prompt:
+      "AI reliability monitoring dashboard with three main panels: accuracy score, bias checks, and hallucination prevention trend. Below, a simple log of recent incidents with colored status chips but no readable text. Deep blue background with teal and coral highlights, inspired by Datadog and New Relic, 16:9 composition, no actual logos or text.",
+  },
+  // About & promo
+  {
+    id: "about-team-cleveland-office",
+    prompt:
+      "Modern tech office interior in Cleveland with a diverse, LGBTQ+ inclusive team collaborating around a long wooden table. Large windows show a soft-focus Cleveland skyline. Warm natural light, casual but professional dress, laptops open with abstract dashboards (no readable text), authentic candid photojournalistic style, 16:9 composition.",
+  },
+  {
+    id: "cleveland-business-ecosystem-map",
+    prompt:
+      "Illustrated map of Cleveland highlighting small business neighborhoods: Downtown, Ohio City, Tremont, and University Circle. Minimalist flat design, soft navy and teal palette, small location pins for shops and offices, annotations represented as icons rather than text. Clean 16:9 composition suitable as a background for a section.",
+  },
+  {
+    id: "promo-lgbtq-discount-banner",
+    prompt:
+      "Wide promotional banner featuring three LGBTQ+ small business owners in Cleveland celebrating together with laptops and coffee, subtle pride flag details in the background decor, and a blurred Cleveland skyline behind them. Warm golden-hour light, authentic candid style, 21:9 composition that crops cleanly to 16:9, no visible text or logos.",
+  },
 ];
 
 async function ensureDir(dir) {
