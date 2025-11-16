@@ -34,10 +34,10 @@ export default async function ContactPage({ searchParams }: PageProps) {
 
       <Section className="gap-6 -mt-8 md:-mt-4">
         <div className="be-section-card space-y-6">
-        <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Contact" }]} />
+          <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Contact" }]} />
 
-        <div className="grid w-full items-start gap-8 -mt-4 sm:-mt-2 md:mt-0 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] md:items-stretch">
-          <div className="space-y-5 text-left md:space-y-6">
+          <div className="grid w-full items-start gap-6 -mt-1 sm:gap-8 sm:-mt-2 md:mt-0 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] md:items-stretch">
+          <div className="hidden space-y-5 text-left md:block md:space-y-6">
             <p className="inline-flex rounded-full bg-surface-secondary px-3 py-1 text-xs font-medium tracking-tight text-text-secondary dark:bg-dark-surface-secondary dark:text-dark-text-secondary">
               {isLlmSetup ? "Automation setups · Stack mapping · Guardrails" : "Small business automation • Founder-friendly"}
             </p>
@@ -89,7 +89,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
             </div>
           </div>
 
-          <div className="be-form-glass-card sm:p-6">
+          <div className="be-form-glass-card max-w-md w-full mx-auto md:max-w-none md:mx-0 sm:p-6">
             {sent ? (
               <div className="mb-6 rounded-md border border-green-700/30 bg-green-500/10 p-4 text-sm text-green-700 dark:border-green-300/20 dark:text-green-300">
                 <p className="font-medium">Thanks! Your message is on its way.</p>
@@ -127,7 +127,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
                 </label>
               </div>
 
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div className="hidden gap-4 md:grid md:grid-cols-2">
                 <label className="flex flex-col gap-1">
                   <span className="text-xs text-text-secondary dark:text-dark-text-secondary sm:text-sm">Company (optional)</span>
                   <input
@@ -150,7 +150,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
                 </label>
               </div>
 
-              <label className="flex flex-col gap-1">
+              <label className="hidden flex-col gap-1 md:flex">
                 <span className="text-xs text-text-secondary dark:text-dark-text-secondary sm:text-sm">
                   What are you hoping to achieve? <span className="text-red-600">*</span>
                 </span>
@@ -209,10 +209,10 @@ export default async function ContactPage({ searchParams }: PageProps) {
                 <p className="text-sm text-red-600 dark:text-red-400">Failed to send. Please try again.</p>
               ) : null}
 
-              <div className="mt-4 flex flex-col items-stretch justify-center gap-3 sm:mt-6 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+              <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:mt-6 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
                 <button
                   type="submit"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-accent-600 px-5 py-2 text-sm font-medium text-white shadow-sm hover:brightness-110 sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2 rounded-md bg-accent-600 px-6 py-2.5 text-sm font-medium text-white shadow-sm hover:brightness-110"
                 >
                   Send message
                 </button>
