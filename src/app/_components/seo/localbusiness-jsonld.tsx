@@ -2,7 +2,8 @@ export function LocalBusinessJsonLd() {
   const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
   const json = {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
+    "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
+    "@id": `${base}/#localbusiness`,
     name: "Bespoke Ethos",
     url: base,
     image: `${base}/assets/logo-light.png`,
@@ -22,6 +23,7 @@ export function LocalBusinessJsonLd() {
       postalCode: "44111",
       addressCountry: "US",
     },
+    priceRange: "$$",
     sameAs: ["https://www.linkedin.com/company/bespoke-ethos"],
     areaServed: "US",
   } as const;

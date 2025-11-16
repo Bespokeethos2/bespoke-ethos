@@ -3,6 +3,7 @@ export function OrganizationJsonLd() {
   const json = {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${base}/#organization`,
     name: "Bespoke Ethos",
     legalName: "Bespoke Ethos",
     url: base,
