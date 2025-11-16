@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 
 import "./globals.css";
 import { Footer } from "./_components/footer";
@@ -65,6 +65,14 @@ const inter = Inter({
   ],
 });
 
+// Playfair Display as accent / hero font (serif)
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-accent",
+  weight: ["400", "500", "600", "700"],
+});
+
 export const generateMetadata = async (): Promise<Metadata> => {
   return {
     title: {
@@ -112,7 +120,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html suppressHydrationWarning lang="en">
       <body
-        className={`min-h-svh max-w-[100vw] bg-surface-primary text-text-primary dark:bg-dark-surface-primary dark:text-dark-text-primary ${inter.variable} font-sans`}
+        className={`min-h-svh max-w-[100vw] bg-surface-primary text-text-primary dark:bg-dark-surface-primary dark:text-dark-text-primary ${inter.variable} ${playfair.variable} font-sans`}
       >
         <Providers>
           <Header />

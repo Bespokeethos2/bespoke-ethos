@@ -40,7 +40,7 @@ export default function HomePage() {
       {/* Hero */}
       <section className="home-hero">
         <div className="home-hero-inner">
-          <h1 className="home-hero-title">&quot;Am I Doing This Right?&quot;</h1>
+          <h1 className="home-hero-title font-hero-accent">&quot;Am I Doing This Right?&quot;</h1>
 
           <p className="home-hero-subtitle">We Handle Busywork. You Keep Control.</p>
 

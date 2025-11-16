@@ -624,6 +624,14 @@ html.dark .be-mobile-menu-card {
   }
 }
 
+/* Accent serif hero font (Playfair Display) */
+.font-hero-accent {
+  font-family: var(--font-accent), "Georgia", "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+
 /* Featured pricing card - warm, soft highlight (no neon) */
 .pricing-featured-card {
   position: relative;
