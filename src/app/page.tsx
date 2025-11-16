@@ -1,14 +1,10 @@
-import Image from "next/image";
-import Link from "next/link";
 import type { Metadata } from "next";
-import path from "node:path";
-import fs from "node:fs";
-import { HeroSlideshow, type Slide } from "./_sections/hero/slideshow";
+import Link from "next/link";
+
 import { FounderStory } from "./_sections/founder-story";
 import { TrustCredentials } from "./_sections/trust-credentials";
-import { LGBTQDiscountBanner } from "./_sections/lgbtq-discount-banner";
-import { TrustStrip } from "./_components/trust-strip";
 import { HomepageTestimonialsStrip } from "./_sections/testimonials";
+import { LGBTQDiscountModalTrigger } from "./_components/lgbtq-discount-modal-trigger";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -17,207 +13,520 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-export default function HomePageBackup() {
-  const publicDir = path.join(process.cwd(), "public", "assets", "generated");
-
-  // Define slides in correct order: Cadence FIRST, then others
-  const webp: Array<{
-    file: string;
-    alt: string;
-    caption: string;
-    duration?: number;
-    href?: string;
-  }> = [
-    {
-      file: "love-founders-mug.avif",
-      alt: "Ceramic mug printed with the phrase 'We Founders Heart' on a founder's desk",
-      caption: "We founders—for people who are in it with you.",
-      href: "/about",
-    },
-    {
-      file: "hero-cadence-desktop.webp",
-      alt: "Cadence\u2122 - Man in tool room working on chair",
-      caption: "Cadence\u2122 - Your AI assistant that learns your workflow",
-      duration: 9000,
-      href: "/products/cadence",
-    },
-    {
-      file: "hero-flowstack-square.webp",
-      alt: "Flowstack\u2122 automation visual with connected tasks",
-      caption: "Flowstack\u2122 - Automate your #1 task",
-      href: "/solutions/flowstack",
-    },
-    {
-      file: "hero-chatbots-desktop.webp",
-      alt: "Chatbots answering a question on mobile",
-      caption: "Chatbots - On-brand answers 24/7",
-      href: "/solutions/chatbots",
-    },
-    {
-      file: "hero-consensus-desktop.webp",
-      alt: "Consensus Engine converging lines",
-      caption: "Consensus - Four perspectives, one answer",
-      href: "/solutions/consensus-engine",
-    },
-    {
-      file: "hero-redbridging-desktop.webp",
-      alt: "Redbridging reliability bridge with shield",
-      caption: "Redbridging - Rescue brittle automations",
-      href: "/solutions/redbridging",
-    },
-    {
-      file: "love-founders-mug.avif",
-      alt: "Ceramic mug printed with the phrase 'We Founders Heart' on a founder's desk",
-      caption: "We founders — for people who are in it with you.",
-      href: "/about",
-    },
-  ];
-
-  const png: Array<{
-    file: string;
-    alt: string;
-    caption: string;
-    duration?: number;
-    href?: string;
-  }> = [
-    {
-      file: "cadence-hero.png",
-      alt: "Cadence\u2122 - Man in tool room working on chair",
-      caption: "Cadence\u2122 - Your AI assistant that learns your workflow",
-      duration: 9000,
-      href: "/products/cadence",
-    },
-    {
-      file: "flowstack-hero.png",
-      alt: "Flowstack\u2122 automation visual with connected tasks",
-      caption: "Flowstack\u2122 - Automate your #1 task",
-      href: "/solutions/flowstack",
-    },
-    {
-      file: "chatbots-hero.png",
-      alt: "Chatbots answering a question on mobile",
-      caption: "Chatbots - On-brand answers 24/7",
-      href: "/solutions/chatbots",
-    },
-    {
-      file: "chatbot-hero.png",
-      alt: "Chatbots answering a question on mobile",
-      caption: "Chatbots - On-brand answers 24/7",
-      href: "/solutions/chatbots",
-    },
-    {
-      file: "consensus-hero.png",
-      alt: "Consensus Engine converging lines",
-      caption: "Consensus - Four perspectives, one answer",
-      href: "/solutions/consensus-engine",
-    },
-    {
-      file: "redbridging-hero.png",
-      alt: "Redbridging reliability bridge with shield",
-      caption: "Redbridging - Rescue brittle automations",
-      href: "/solutions/redbridging",
-    },
-  ];
-
-  const webpSlides = webp
-    .filter((c) => fs.existsSync(path.join(publicDir, c.file)))
-    .map((c) => ({
-      src: `/assets/generated/${c.file}`,
-      alt: c.alt,
-      caption: c.caption,
-      duration: c.duration,
-      href: c.href,
-    }));
-  const pngSlides = png
-    .filter((c) => fs.existsSync(path.join(publicDir, c.file)))
-    .map((c) => ({
-      src: `/assets/generated/${c.file}`,
-      alt: c.alt,
-      caption: c.caption,
-      duration: c.duration,
-      href: c.href,
-    }));
-  const slides: Slide[] = (webpSlides.length ? webpSlides : pngSlides) as Slide[];
-
+export default function HomePage() {
   return (
     <main>
-      <section className="relative overflow-hidden">
-        <div className="be-hero-aurora absolute inset-0 -z-10" />
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-6 px-6 pb-14 pt-8 sm:pt-12 md:grid-cols-2 md:gap-10 md:pt-24 lg:pt-32">
-          <div className="order-2 text-pretty md:order-1">
-            <span className="motion-safe:animate-fadeIn text-sm font-semibold uppercase tracking-[0.3em] text-accent-500">
-              Automation handcrafted for your business
-            </span>
-            <h1 className="mt-4 text-balance text-4xl font-semibold leading-tight text-text-primary motion-safe:animate-enterFromLeft dark:text-dark-text-primary sm:text-5xl">
-              We take the busywork. You keep control.
-            </h1>
-            <p className="mt-6 max-w-xl text-lg text-text-tertiary dark:text-dark-text-tertiary">
-              Auditable AI workflows, on-brand chatbots, and decision clarity—built for small businesses. Keep human approvals, regain your
-              time, and stay in charge. Web Star–ready.
+      {/* Hero */}
+      <section
+        style={{
+          backgroundColor: "var(--cream-bg)",
+          padding: "120px 24px 80px",
+          textAlign: "center",
+        }}
+      >
+        <h1
+          style={{
+            fontSize: "56px",
+            fontWeight: 700,
+            color: "var(--charcoal-text)",
+            marginBottom: "24px",
+            lineHeight: "1.2",
+          }}
+        >
+          &quot;Am I Doing This Right?&quot;
+        </h1>
+
+        <p
+          style={{
+            fontSize: "28px",
+            fontWeight: 600,
+            color: "var(--muted-text)",
+            marginBottom: "32px",
+          }}
+        >
+          Every founder asks this. We answer it.
+        </p>
+
+        <p
+          style={{
+            fontSize: "20px",
+            color: "var(--muted-text)",
+            maxWidth: "700px",
+            margin: "0 auto 24px",
+            lineHeight: "1.6",
+          }}
+        >
+          Free 30-minute AI consultation + custom research report on your biggest uncertainty.
+          <br />
+          No jargon. No pressure. Just answers.
+        </p>
+
+        <Link href="/book" className="primary-cta inline-block" style={{ marginBottom: "32px" }}>
+          Schedule Your Free Consultation
+        </Link>
+
+        <p
+          style={{
+            fontSize: "18px",
+            color: "var(--muted-text)",
+            fontStyle: "italic",
+            maxWidth: "600px",
+            margin: "0 auto",
+            lineHeight: "1.6",
+          }}
+        >
+          You&apos;re working your day job and building nights and weekends. We get it&mdash;we&apos;re
+          doing it too. Let&apos;s figure this out together.
+        </p>
+      </section>
+
+      {/* Consensus Engine / How we work */}
+      <section
+        style={{
+          backgroundColor: "var(--soft-white)",
+          padding: "80px 24px",
+          textAlign: "center",
+        }}
+      >
+        <h2
+          style={{
+            fontSize: "42px",
+            fontWeight: 700,
+            color: "var(--charcoal-text)",
+            marginBottom: "16px",
+          }}
+        >
+          How We Take the Guesswork Out
+        </h2>
+
+        <p
+          style={{
+            fontSize: "24px",
+            fontWeight: 600,
+            color: "var(--amber-cta)",
+            marginBottom: "48px",
+          }}
+        >
+          The Consensus Engine &mdash; Proprietary Multi-Agent Research
+        </p>
+
+        <div
+          style={{
+            maxWidth: "800px",
+            margin: "0 auto",
+            textAlign: "left",
+          }}
+        >
+          <p
+            style={{
+              fontSize: "20px",
+              color: "var(--charcoal-text)",
+              marginBottom: "32px",
+              fontWeight: 600,
+            }}
+          >
+            You tell us your biggest question.
+          </p>
+
+          <p
+            style={{
+              fontSize: "18px",
+              color: "var(--muted-text)",
+              marginBottom: "16px",
+              fontStyle: "italic",
+            }}
+          >
+            (&quot;Should I automate customer service?&quot; &quot;How do I price this?&quot; &quot;Will
+            this marketing work?&quot;)
+          </p>
+
+          <p
+            style={{
+              fontSize: "20px",
+              color: "var(--charcoal-text)",
+              marginBottom: "24px",
+              fontWeight: 600,
+            }}
+          >
+            We send 4 specialized AI researchers to work on it:
+          </p>
+
+          <ul
+            style={{
+              fontSize: "18px",
+              color: "var(--muted-text)",
+              lineHeight: 2,
+              listStyle: "none",
+              paddingLeft: 0,
+              marginBottom: "32px",
+            }}
+          >
+            <li>
+              <strong>Marketing Expert</strong> researches customer behavior and positioning
+            </li>
+            <li>
+              <strong>Financial Analyst</strong> researches costs, ROI, and pricing strategies
+            </li>
+            <li>
+              <strong>Case Study Specialist</strong> finds real businesses who tried this
+            </li>
+            <li>
+              <strong>Design Strategist</strong> researches implementation approaches
+            </li>
+          </ul>
+
+          <p
+            style={{
+              fontSize: "18px",
+              color: "var(--muted-text)",
+              lineHeight: 1.8,
+              marginBottom: "16px",
+            }}
+          >
+            Each one researches independently using live internet data.
+            <br />
+            Then they cross-reference each other&apos;s findings.
+            <br />
+            Then we compile it into a founder-friendly report with actionable next steps.
+          </p>
+
+          <p
+            style={{
+              fontSize: "20px",
+              color: "var(--charcoal-text)",
+              fontWeight: 600,
+              marginBottom: "24px",
+            }}
+          >
+            All research is cited. All recommendations are verified.
+            <br />
+            You get the confidence to make the call.
+          </p>
+
+          <div
+            style={{
+              backgroundColor: "var(--cream-bg)",
+              padding: "24px",
+              borderRadius: "8px",
+              borderLeft: "4px solid var(--amber-cta)",
+              marginTop: "32px",
+            }}
+          >
+            <p
+              style={{
+                fontSize: "18px",
+                color: "var(--charcoal-text)",
+                fontWeight: 600,
+                margin: 0,
+              }}
+            >
+              Every consultation includes one free Consensus Engine report.
             </p>
-            <div className="mt-8 flex flex-col gap-3 motion-safe:animate-fadeIn sm:flex-row sm:flex-wrap">
-              <Link
-                href="/contact"
-                className="inline-flex w-full items-center justify-center rounded-md bg-accent-600 px-5 py-3 text-sm font-semibold text-white hover:brightness-110 sm:w-auto"
-              >
-                Automate My #1 Task
-              </Link>
-              <Link
-                href="/solutions"
-                className="inline-flex w-full items-center justify-center rounded-md border border-border px-5 py-3 text-sm font-semibold text-text-primary hover:bg-black/5 dark:border-dark-border dark:text-dark-text-primary dark:hover:bg-white/5 sm:w-auto"
-              >
-                See Products
-              </Link>
-              <Link
-                href="/book"
-                className="inline-flex w-full items-center justify-center px-3 py-3 text-sm font-semibold text-text-tertiary hover:text-text-primary dark:text-dark-text-tertiary dark:hover:text-dark-text-primary sm:w-auto"
-              >
-                Free Assessment
-              </Link>
-            </div>
-            <div className="mt-8 flex items-center gap-4">
-              <Image
-                src="/assets/nglcc-badge-dark.svg"
-                alt="NGLCC Certified dark version"
-                width={120}
-                height={40}
-                className="block h-6 w-auto dark:hidden"
-              />
-              <Image
-                src="/assets/nglcc-badge-light.svg"
-                alt="NGLCC Certified light version"
-                width={120}
-                height={40}
-                className="hidden h-6 w-auto dark:block"
-              />
-              <Image
-                src="/assets/catalant-badge-dark.svg"
-                alt="Catalant Vetted dark version"
-                width={120}
-                height={40}
-                className="block h-6 w-auto dark:hidden"
-              />
-              <Image
-                src="/assets/catalant-badge-light.svg"
-                alt="Catalant Vetted light version"
-                width={120}
-                height={40}
-                className="hidden h-6 w-auto dark:block"
-              />
-            </div>
-            <p className="mt-3 text-xs text-text-tertiary dark:text-dark-text-tertiary">
-              Consensus Engine\u2122 and Redbridging\u2122 are trademark pending.
-            </p>
-          </div>
-          <div className="order-1 motion-safe:animate-enterFromRight md:order-2">
-            <HeroSlideshow slides={slides.length ? slides : undefined} />
           </div>
         </div>
       </section>
+
+      {/* You&apos;re not alone */}
+      <section
+        style={{
+          backgroundColor: "var(--cream-bg)",
+          padding: "80px 24px",
+        }}
+      >
+        <h2
+          style={{
+            fontSize: "42px",
+            fontWeight: 700,
+            color: "var(--charcoal-text)",
+            marginBottom: "24px",
+            textAlign: "center",
+          }}
+        >
+          You&apos;re Not Alone
+        </h2>
+
+        <p
+          style={{
+            fontSize: "24px",
+            fontWeight: 600,
+            color: "var(--amber-cta)",
+            marginBottom: "48px",
+            textAlign: "center",
+          }}
+        >
+          We&apos;ve Been There
+        </p>
+
+        <div
+          style={{
+            maxWidth: "800px",
+            margin: "0 auto",
+            textAlign: "left",
+          }}
+        >
+          <ul
+            style={{
+              fontSize: "20px",
+              color: "var(--muted-text)",
+              lineHeight: 2,
+              listStyle: "none",
+              paddingLeft: 0,
+              marginBottom: "48px",
+            }}
+          >
+            <li>Working a day job while building your dream</li>
+            <li>Terrified you&apos;ll make the wrong call and lose everything</li>
+            <li>Knowing AI is important but feeling completely overwhelmed</li>
+            <li>Reading articles that make it sound easy, then trying and hitting walls</li>
+          </ul>
+
+          <div
+            style={{
+              backgroundColor: "var(--soft-white)",
+              padding: "32px",
+              borderRadius: "8px",
+              textAlign: "center",
+              marginBottom: "48px",
+            }}
+          >
+            <p
+              style={{
+                fontSize: "28px",
+                color: "var(--charcoal-text)",
+                fontWeight: 700,
+                marginBottom: "16px",
+              }}
+            >
+              78% of small business owners know they need AI.
+            </p>
+            <p
+              style={{
+                fontSize: "20px",
+                color: "var(--muted-text)",
+                marginBottom: 0,
+              }}
+            >
+              Most don&apos;t know where to start.
+              <br />
+              That&apos;s exactly why we exist.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* The offer */}
+      <section
+        style={{
+          backgroundColor: "var(--soft-white)",
+          padding: "80px 24px",
+        }}
+      >
+        <h2
+          style={{
+            fontSize: "42px",
+            fontWeight: 700,
+            color: "var(--charcoal-text)",
+            marginBottom: "24px",
+            textAlign: "center",
+          }}
+        >
+          What You Get
+        </h2>
+
+        <p
+          style={{
+            fontSize: "24px",
+            fontWeight: 600,
+            color: "var(--muted-text)",
+            marginBottom: "48px",
+            textAlign: "center",
+          }}
+        >
+          Free 30-Minute Consultation
+        </p>
+
+        <div
+          style={{
+            maxWidth: "800px",
+            margin: "0 auto 48px",
+            textAlign: "left",
+          }}
+        >
+          <ul
+            style={{
+              fontSize: "20px",
+              color: "var(--muted-text)",
+              lineHeight: 2.2,
+              listStyle: "none",
+              paddingLeft: 0,
+              marginBottom: "48px",
+            }}
+          >
+            <li style={{ marginBottom: "16px" }}>Plain-English explanation of how AI works</li>
+            <li style={{ marginBottom: "16px" }}>Real talk about our experience (what worked, what didn&apos;t)</li>
+            <li style={{ marginBottom: "16px" }}>Discussion of how AI could help your specific situation</li>
+            <li style={{ marginBottom: "16px" }}>
+              One free Consensus Engine research report on any topic you choose
+            </li>
+          </ul>
+
+          <div
+            style={{
+              backgroundColor: "var(--cream-bg)",
+              padding: "32px",
+              borderRadius: "8px",
+              marginBottom: "48px",
+            }}
+          >
+            <p
+              style={{
+                fontSize: "22px",
+                color: "var(--charcoal-text)",
+                fontWeight: 600,
+                marginBottom: "24px",
+              }}
+            >
+              After the consultation, you&apos;ll know:
+            </p>
+            <ul
+              style={{
+                fontSize: "18px",
+                color: "var(--muted-text)",
+                lineHeight: 2,
+                listStyle: "none",
+                paddingLeft: 0,
+                margin: 0,
+              }}
+            >
+              <li>If AI makes sense for your business right now</li>
+              <li>What your next step should be (even if it&apos;s not working with us)</li>
+              <li>Exactly what it would cost to implement</li>
+            </ul>
+          </div>
+
+          <p
+            style={{
+              fontSize: "20px",
+              color: "var(--charcoal-text)",
+              textAlign: "center",
+              fontWeight: 600,
+              marginBottom: "32px",
+            }}
+          >
+            No pressure. No sales pitch. Just clarity.
+          </p>
+        </div>
+
+        <div style={{ textAlign: "center", marginBottom: "48px" }}>
+          <Link href="/book" className="primary-cta inline-block" style={{ marginBottom: "24px" }}>
+            Schedule Your Free Consultation
+          </Link>
+        </div>
+
+        <div
+          style={{
+            backgroundColor: "var(--navy-primary)",
+            padding: "32px",
+            borderRadius: "8px",
+            textAlign: "center",
+            maxWidth: "800px",
+            margin: "0 auto",
+          }}
+        >
+          <p
+            style={{
+              fontSize: "20px",
+              color: "#ffffff",
+              marginBottom: "24px",
+              lineHeight: 1.6,
+            }}
+          >
+            <strong>LGBTQ+ small business owners:</strong> 25% off all upfront project costs*
+            <br />
+            <span style={{ fontSize: "16px", opacity: 0.9 }}>*subscription fees not included</span>
+          </p>
+          <LGBTQDiscountModalTrigger>Find Out More</LGBTQDiscountModalTrigger>
+        </div>
+      </section>
+
+      {/* About / trust */}
+      <section
+        style={{
+          backgroundColor: "var(--cream-bg)",
+          padding: "80px 24px",
+        }}
+      >
+        <h2
+          style={{
+            fontSize: "42px",
+            fontWeight: 700,
+            color: "var(--charcoal-text)",
+            marginBottom: "24px",
+            textAlign: "center",
+          }}
+        >
+          Built By Weekend Warriors, For Weekend Warriors
+        </h2>
+
+        <div
+          style={{
+            maxWidth: "800px",
+            margin: "0 auto",
+            textAlign: "center",
+          }}
+        >
+          <p
+            style={{
+              fontSize: "20px",
+              color: "var(--muted-text)",
+              lineHeight: 1.8,
+              marginBottom: "32px",
+            }}
+          >
+            We&apos;re not a fancy agency with marble lobbies.
+            <br />
+            We&apos;re founders who work manufacturing jobs and build businesses nights and weekends.
+            <br />
+            <br />
+            We&apos;ve filed for bankruptcy. We&apos;ve been terrified. We get it.
+          </p>
+
+          <div
+            style={{
+              display: "inline-block",
+              backgroundColor: "var(--soft-white)",
+              padding: "24px 48px",
+              borderRadius: "8px",
+              marginBottom: "32px",
+            }}
+          >
+            <p
+              style={{
+                fontSize: "18px",
+                color: "var(--charcoal-text)",
+                fontWeight: 600,
+                margin: "0 0 8px 0",
+              }}
+            >
+              NGLCC-Certified Gay-Owned Business
+            </p>
+            <p
+              style={{
+                fontSize: "16px",
+                color: "var(--muted-text)",
+                margin: 0,
+              }}
+            >
+              Cleveland, Ohio
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Existing trust + founder + testimonials for depth */}
       <HomepageTestimonialsStrip />
       <FounderStory />
       <TrustCredentials />
-      <LGBTQDiscountBanner />
     </main>
   );
 }

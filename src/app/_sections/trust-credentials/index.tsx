@@ -83,8 +83,11 @@ export function TrustCredentials() {
           </div>
         </div>
 
-        {/* 25% Discount Callout with Animated Button */}
-          <div className="mt-12 mx-auto max-w-4xl rounded-2xl border-2 border-accent-500/20 bg-gradient-to-br from-accent-500/5 to-accent-600/10 p-8 text-center">
+        {/* 25% Discount Callout with LGBTQ+ button */}
+          <div
+            className="mt-12 mx-auto max-w-4xl rounded-2xl border-2 border-accent-500/20 p-8 text-center"
+            style={{ backgroundColor: "var(--cream-bg)" }}
+          >
           <h3 className="text-2xl font-semibold text-text-primary dark:text-dark-text-primary">
             25% Off for LGBTQ+ Businesses
           </h3>
@@ -92,18 +95,8 @@ export function TrustCredentials() {
             Starting a business as a minority is hard as hell. I know—I&rsquo;ve been there. That&rsquo;s why LGBTQ-owned businesses get 25% off. No hoops, no fine print. Just mention it when you reach out.
           </p>
           <div className="mt-6 flex justify-center">
-            <Link
-              href="/lgbtq-discount"
-              className="group relative inline-flex items-center justify-center overflow-hidden rounded-full px-8 py-3 text-sm font-semibold transition-all duration-300 hover:scale-[1.02] lgbtq-rainbow-button"
-            >
-              <span className="absolute inset-0 rounded-full lgbtq-rainbow-ring" />
-              <span className="absolute inset-[3px] rounded-full lgbtq-button-inner" />
-              <span className="relative z-10 flex items-center bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 bg-clip-text text-transparent">
-                Learn about the 25% discount
-              </span>
-              <svg className="ml-2 h-4 w-4 text-purple-600 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
+            <Link href="/lgbtq-discount" className="inline-flex">
+              <span className="lgbtq-discount-btn text-sm">Learn about the 25% discount</span>
             </Link>
           </div>
         </div>
