@@ -17,48 +17,57 @@ export async function POST(req: NextRequest) {
 
     if (!airtableApiKey || !airtableBaseId || !airtableTableId) {
       console.error("[NEWSLETTER_SUBSCRIBE] Airtable credentials missing");
-      return invalidResponse("Service temporarily unavailable", 503);
+      // Fail open: accept the submission even if Airtable is not configured
+      return NextResponse.json({ ok: true, offline: true });
     }
 
-    const response = await fetch(
-      `https://api.airtable.com/v0/${airtableBaseId}/${airtableTableId}`,
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${airtableApiKey}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          fields: {
-            "Full Name": email.split("@")[0] || "Newsletter Subscriber",
-            "Email Address": email,
-            "Signup Date": new Date().toISOString(),
-            "Lead Source": "Website",
-            Status: "Subscribed",
-            Notes: "Newsletter opt-in from website footer",
+    try {
+      const response = await fetch(
+        `https://api.airtable.com/v0/${airtableBaseId}/${airtableTableId}`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${airtableApiKey}`,
+            "Content-Type": "application/json",
           },
-        }),
-      },
-    );
+          body: JSON.stringify({
+            fields: {
+              "Full Name": email.split("@")[0] || "Newsletter Subscriber",
+              "Email Address": email,
+              "Signup Date": new Date().toISOString(),
+              "Lead Source": "Website",
+              Status: "Subscribed",
+              Notes: "Newsletter opt-in from website footer",
+            },
+          }),
+        },
+      );
 
-    if (!response.ok) {
-      const text = await response.text();
-      console.error("[NEWSLETTER_SUBSCRIBE] Airtable error:", text);
-      return invalidResponse("Failed to subscribe", 500);
+      if (!response.ok) {
+        const text = await response.text();
+        console.error("[NEWSLETTER_SUBSCRIBE] Airtable error:", text);
+        // Fail open but log the upstream error
+        return NextResponse.json({ ok: true, offline: true });
+      }
+
+      const airtableRecord = (await response.json()) as { id?: string };
+      console.info(
+        `[NEWSLETTER_SUBSCRIBE] Saved to Airtable${
+          airtableRecord?.id ? ` (record ${airtableRecord.id})` : ""
+        }`,
+      );
+    } catch (err) {
+      console.error("[NEWSLETTER_SUBSCRIBE] Network or Airtable error:", err);
+      // Still report success to the user; treat as degraded mode
+      return NextResponse.json({ ok: true, offline: true });
     }
 
-    const airtableRecord = (await response.json()) as { id?: string };
-    console.info(
-      `[NEWSLETTER_SUBSCRIBE] Saved to Airtable${
-        airtableRecord?.id ? ` (record ${airtableRecord.id})` : ""
-      }`,
-    );
-
-    return NextResponse.json({ ok: true });
+    return NextResponse.json({ ok: true, offline: false });
   } catch (error) {
     console.error("[NEWSLETTER_SUBSCRIBE] Unexpected error:", error);
-    return invalidResponse("Invalid request");
+    // If something unexpected happens, don't block the user flow
+    return NextResponse.json({ ok: true, offline: true });
   }
 }
 
-export const runtime = "edge";
+// Use the default Node.js runtime for maximum compatibility with third-party APIs
