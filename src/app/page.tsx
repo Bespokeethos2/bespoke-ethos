@@ -40,7 +40,7 @@ export default function HomePage() {
       <section
         style={{
           backgroundColor: "var(--cream-bg)",
-          padding: "120px 24px 80px",
+          padding: "80px 24px 64px",
           textAlign: "center",
         }}
       >
@@ -64,7 +64,7 @@ export default function HomePage() {
             marginBottom: "32px",
           }}
         >
-          Every founder asks this. We answer it.
+          We Handle Busywork. You Keep Control.
         </p>
 
         <p
