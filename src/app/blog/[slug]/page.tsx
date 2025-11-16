@@ -55,6 +55,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <Section className="gap-8 items-start">
+      <BlogPostJsonLd slug={post.slug} />
       <Breadcrumbs
         items={[
           { name: "Home", href: "/" },
@@ -90,4 +91,38 @@ export default async function BlogPostPage({ params }: PageProps) {
       </article>
     </Section>
   );
+}
+
+function BlogPostJsonLd({ slug }: { slug: string }) {
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
+  const post = getPostBySlug(slug);
+  if (!post) return null;
+
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${base}/blog/${post.slug}#blogposting`,
+    url: `${base}/blog/${post.slug}`,
+    headline: post.title,
+    description: post.description,
+    image: {
+      "@type": "ImageObject",
+      url: `${base}${post.hero.src}`,
+    },
+    datePublished: post.publishedAt,
+    author: {
+      "@type": "Organization",
+      name: "Bespoke Ethos",
+      "@id": `${base}/#organization`,
+    },
+    publisher: {
+      "@id": `${base}/#organization`,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${base}/blog/${post.slug}`,
+    },
+  } as const;
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }

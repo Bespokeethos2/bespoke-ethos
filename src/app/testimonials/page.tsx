@@ -63,6 +63,7 @@ export const metadata: Metadata = {
 export default function TestimonialsPage() {
   return (
     <Section className="gap-8">
+      <TestimonialsJsonLd />
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Testimonials" }]} />
       <Heading align="left" subtitle="Proof in shipped outcomes">
         <h1>Testimonials</h1>
@@ -115,4 +116,35 @@ export default function TestimonialsPage() {
       </p>
     </Section>
   );
+}
+
+function TestimonialsJsonLd() {
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
+  const reviews = TESTIMONIALS.map((t) => ({
+    "@type": "Review",
+    name: t.title,
+    reviewBody: t.quote,
+    author: {
+      "@type": "Person",
+      name: t.author,
+    },
+    itemReviewed: {
+      "@type": "Service",
+      name: t.company || "Bespoke Ethos service",
+      provider: {
+        "@id": `${base}/#organization`,
+      },
+    },
+  }));
+
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${base}/testimonials#webpage`,
+    url: `${base}/testimonials`,
+    name: "Testimonials | Bespoke Ethos",
+    mainEntity: reviews,
+  } as const;
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }

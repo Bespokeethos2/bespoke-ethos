@@ -20,6 +20,7 @@ export default function BlogLandingPage() {
 
   return (
     <Section className="gap-8 items-start">
+      <BlogListingJsonLd />
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Blog" }]} />
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-6">
         <Heading subtitle="Field notes for busy founders" align="left">
@@ -72,4 +73,22 @@ export default function BlogLandingPage() {
       </div>
     </Section>
   );
+}
+
+function BlogListingJsonLd() {
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": `${base}/blog/#blog`,
+    url: `${base}/blog`,
+    name: "Bespoke Ethos Stories & Notes",
+    description:
+      "Founder-friendly guides on AI automation, Zapier/Make rescues, and on-brand chatbots for small businesses.",
+    publisher: {
+      "@id": `${base}/#organization`,
+    },
+  } as const;
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }

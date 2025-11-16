@@ -10,12 +10,31 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export const metadata: Metadata = {
+  title: "AI Automation for Cleveland Small Businesses | Bespoke Ethos",
+  description:
+    "Free 30-minute AI consultation and Consensus Engine™ research for Cleveland small-business founders who want clarity on their next move.",
   alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: "https://www.bespokeethos.com",
+    title: "AI Automation for Cleveland Small Businesses | Bespoke Ethos",
+    description:
+      "Free 30-minute AI consultation and founder-friendly research reports for Cleveland small businesses.",
+    images: [
+      {
+        url: "/assets/generated/logo-square-dark.png",
+        width: 1200,
+        height: 630,
+        alt: "Bespoke Ethos orange square logo",
+      },
+    ],
+  },
 };
 
 export default function HomePage() {
   return (
     <main>
+      <HomePageJsonLd />
       {/* Hero */}
       <section
         style={{
@@ -529,4 +548,23 @@ export default function HomePage() {
       <TrustCredentials />
     </main>
   );
+}
+
+function HomePageJsonLd() {
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${base}/#homepage`,
+    url: base,
+    name: "AI Automation for Cleveland Small Businesses | Bespoke Ethos",
+    isPartOf: {
+      "@id": `${base}/#website`,
+    },
+    about: {
+      "@id": `${base}/#organization`,
+    },
+  } as const;
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }
