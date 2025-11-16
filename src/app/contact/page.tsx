@@ -43,7 +43,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
             </p>
 
             <div className="space-y-3">
-              <h1 className="text-balance text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
+              <h1 className="font-hero-accent text-balance text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
                 {isLlmSetup ? "Let's map your LLM stack the right way." : "Tell us what you want off your plate."}
               </h1>
               <p className="text-base leading-relaxed text-text-secondary dark:text-dark-text-secondary">
