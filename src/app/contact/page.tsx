@@ -36,6 +36,16 @@ export default async function ContactPage({ searchParams }: PageProps) {
         <div className="be-section-card space-y-6">
           <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Contact" }]} />
 
+          {/* Mobile hero heading above the card */}
+          <div className="space-y-2 text-left md:hidden">
+            <p className="inline-flex rounded-full bg-surface-secondary px-3 py-1 text-[11px] font-medium tracking-tight text-text-secondary dark:bg-dark-surface-secondary dark:text-dark-text-secondary">
+              {isLlmSetup ? "Automation setups · Stack mapping · Guardrails" : "Small business automation · Founder-friendly"}
+            </p>
+            <h1 className="font-hero-accent text-balance text-[1.5rem] font-semibold leading-snug">
+              {isLlmSetup ? "Let's map your LLM stack the right way." : "Tell us what you want off your plate."}
+            </h1>
+          </div>
+
           <div className="grid w-full items-start gap-6 -mt-1 sm:gap-8 sm:-mt-2 md:mt-0 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] md:items-stretch">
           <div className="hidden space-y-5 text-left md:block md:space-y-6">
             <p className="inline-flex rounded-full bg-surface-secondary px-3 py-1 text-xs font-medium tracking-tight text-text-secondary dark:bg-dark-surface-secondary dark:text-dark-text-secondary">
