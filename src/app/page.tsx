@@ -99,7 +99,7 @@ export default function HomePage() {
           doing it too. Let&apos;s figure this out together.
         </p>
 
-        <div className="mt-10 mx-auto max-w-xl sm:max-w-2xl lg:max-w-3xl">
+        <div className="mt-10 mx-auto max-w-md sm:max-w-lg lg:max-w-2xl">
           <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame">
             <Image
               src="/assets/generated/hero-ai-automation-dashboard-desktop.webp"
