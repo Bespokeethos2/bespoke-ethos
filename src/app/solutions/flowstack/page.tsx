@@ -17,7 +17,8 @@ export const metadata: Metadata = {
 
 export default function FlowstackPage() {
   return (
-    <Section className="gap-6">
+    <Section className="gap-6 -mt-6 md:-mt-4">
+      <div className="be-section-card space-y-6">
       <Breadcrumbs
         items={[
           { name: "Home", href: "/" },
@@ -104,6 +105,7 @@ export default function FlowstackPage() {
             sizes="(max-width: 768px) 100vw, 480px"
           />
         </div>
+      </div>
       </div>
     </Section>
   );
