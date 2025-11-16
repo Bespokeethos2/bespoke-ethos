@@ -36,14 +36,15 @@ const metadataBaseUrl = (() => {
 const FALLBACK_METADATA = {
   sitename: "Bespoke Ethos",
   titleTemplate: "%s | Bespoke Ethos",
-  defaultTitle: "Cleveland AI Automation for Small Business | Bespoke Ethos",
+  defaultTitle:
+    "BespokeEthos AI Consulting - Ship Working Code, Not Slide Decks | Fixed-Price Cleveland AI Automation",
   defaultDescription:
     "Auditable AI workflows, chatbots, and decision clarity for small businesses. Reclaim 15+ hours per week with human-in-the-loop approvals and rollback paths.",
   favicon: {
-    url: "/assets/logo-mobile.png",
+    url: "/assets/favicon.png",
     mimeType: "image/png",
   },
-  ogImageUrl: "/assets/logo-mobile.png",
+  ogImageUrl: "/og-image.png",
   appleTouchIcon: "/apple-touch-icon.png",
   manifest: "/site.webmanifest",
 };
@@ -84,6 +85,9 @@ export const generateMetadata = async (): Promise<Metadata> => {
     manifest: FALLBACK_METADATA.manifest,
     openGraph: {
       type: "website",
+      title: FALLBACK_METADATA.defaultTitle,
+      description: FALLBACK_METADATA.defaultDescription,
+      url: DEFAULT_SITE_URL,
       images: [
         {
           url: FALLBACK_METADATA.ogImageUrl,
