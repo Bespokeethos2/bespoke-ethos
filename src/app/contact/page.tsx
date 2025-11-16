@@ -44,7 +44,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
 
             <div className="space-y-3">
               <h1 className="text-balance text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
-                {isLlmSetup ? "Let’s map your LLM stack the right way." : "Tell us what you’re trying to ship."}
+                {isLlmSetup ? "Let's map your LLM stack the right way." : "Tell us what you want off your plate."}
               </h1>
               <p className="text-base leading-relaxed text-text-secondary dark:text-dark-text-secondary">
                 You don’t need a 40-page strategy deck. You need clear next steps. Share where you’re stuck and what a win
