@@ -19,13 +19,13 @@ export const metadata: Metadata = {
 const solutions = [
   {
     slug: "cadence",
-    title: "Cadence\u2122",
+    title: "Cadence™",
     summary: "Premium chatbot trained on your products, voice, and stories-builds loyalty 24/7.",
     logo: "/assets/logos/cadence_logo.png",
   },
   {
     slug: "flowstack",
-    title: "Flowstack\u2122",
+    title: "Flowstack™",
     summary: "Proprietary general automation package. Automate any business task while keeping approvals and audit trails intact.",
     logo: "/assets/logos/flowstack_logo.png",
   },
@@ -37,13 +37,13 @@ const solutions = [
   },
   {
     slug: "consensus-engine",
-    title: "Consensus Engine\u2122",
+    title: "Consensus Engine™",
     summary: "Decision clarity from multiple AI perspectives that debate and synthesize an answer you trust.",
     logo: "/assets/logos/consensus_engine_logo.png",
   },
   {
     slug: "redbridging",
-    title: "Redbridging\u2122",
+    title: "Redbridging™",
     summary: "We rescue broken automations-stabilize, document, and maintain with alerts and rollbacks.",
     logo: "/assets/logos/redbridging_logo.png",
   },
@@ -71,7 +71,7 @@ export default function SolutionsPage() {
             priceLine = `${formatMoney(PRICING.consensusEngine.monthly)}/mo for up to ${PRICING.consensusEngine.queryLimit} queries. Includes one free report with consultation.`;
           }
           if (s.slug === "redbridging") {
-            priceLine = `From ${formatMoney(PRICING.redbridging.standaloneLow)}/mo standalone or free with Flowstack\u2122/Cadence\u2122`;
+            priceLine = `From ${formatMoney(PRICING.redbridging.standaloneLow)}/mo standalone or free with Flowstack™/Cadence™`;
           }
 
           return (
@@ -106,10 +106,10 @@ export default function SolutionsPage() {
 function SolutionsItemListJsonLd() {
   const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
   const items = [
-    { name: "Flowstack\u2122", url: `${base}/solutions/flowstack` },
+    { name: "Flowstack™", url: `${base}/solutions/flowstack` },
     { name: "Chatbots", url: `${base}/solutions/chatbots` },
-    { name: "Consensus Engine\u2122", url: `${base}/solutions/consensus-engine` },
-    { name: "Redbridging\u2122", url: `${base}/solutions/redbridging` },
+    { name: "Consensus Engine™", url: `${base}/solutions/consensus-engine` },
+    { name: "Redbridging™", url: `${base}/solutions/redbridging` },
   ];
   const json = {
     "@context": "https://schema.org",

@@ -48,13 +48,13 @@ const questions = [
     _analyticsKey: "faq-6",
     _title: "What does a typical first project cost?",
     answer:
-      "Most first projects land in the $799-$2,500 range depending on scope. The pricing page breaks down Flowstack\u2122, Chatbots, Consensus Engine\u2122, and Redbridging\u2122 packages, plus one-time services.",
+      "Most first projects land in the $799-$2,500 range depending on scope. The pricing page breaks down Flowstack™, Chatbots, Consensus Engine™, and Redbridging™ packages, plus one-time services.",
   },
   {
     _analyticsKey: "faq-7",
     _title: "Can you rescue broken automations I already have?",
     answer:
-      "Yes-that&apos;s exactly what Redbridging\u2122 is for. We stabilize brittle Zapier/Make flows, add monitoring and alerts, and document everything so you&apos;re not dependent on a single person who &quot;knows the system.&quot;",
+      "Yes-that&apos;s exactly what Redbridging™ is for. We stabilize brittle Zapier/Make flows, add monitoring and alerts, and document everything so you&apos;re not dependent on a single person who &quot;knows the system.&quot;",
   },
   {
     _analyticsKey: "faq-8",
@@ -87,7 +87,7 @@ export default function FaqPage() {
             src="/assets/generated/hero-consensus-desktop.webp"
             alt="Founder meeting at a small table reviewing clear strategy notes together"
             fill
-            className="object-cover object-center"
+            className="object-cover object-top"
             sizes="(max-width: 768px) 100vw, 960px"
           />
         </div>

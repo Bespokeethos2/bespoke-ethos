@@ -18,17 +18,17 @@ import { PRICING, formatMoney } from "@/config/pricing";
 const SOLUTION_DATA = [
   {
     slug: "flowstack",
-    name: "Flowstack\u2122",
+    name: "Flowstack™",
     summary:
       "Automate the single, soul-sucking task stealing hours from your week—while you stay in the approval loop.",
     stat: "Clients regain 15+ hours every week on average.",
     href: "/solutions/flowstack",
     Icon: IconSparkles,
-    heroEyebrow: "Flowstack\u2122",
+    heroEyebrow: "Flowstack™",
     heroTitle: "Automate Your Worst Task. Own the Results.",
     heroSubtitle: `We map your real process, keep human approvals intact, and ship a production-ready automation in days. ${formatMoney(PRICING.flowstack.setup)} setup + ${formatMoney(PRICING.flowstack.monthly)}/mo.`,
     heroDescription:
-      "Flowstack\u2122 eliminates swivel-chair work without inviting AI chaos. Discovery-first builds capture your nuance, document every dependency, and keep audit trails and rollback paths in reach.",
+      "Flowstack™ eliminates swivel-chair work without inviting AI chaos. Discovery-first builds capture your nuance, document every dependency, and keep audit trails and rollback paths in reach.",
     primaryCTA: { label: "Automate My #1 Task", href: "/contact" },
     secondaryCTA: { label: "Schedule a Free Assessment", href: "/book" },
     pricing: [
@@ -45,7 +45,7 @@ const SOLUTION_DATA = [
       {
         title: "Deep Discovery (1 hour)",
         description:
-          "We interview the people doing the work today so Flowstack\u2122 mirrors your unique rules, exceptions, and tone.",
+          "We interview the people doing the work today so Flowstack™ mirrors your unique rules, exceptions, and tone.",
       },
       {
         title: "Custom Build (2 hours)",
@@ -64,10 +64,10 @@ const SOLUTION_DATA = [
       { label: "Documentation delivered", value: "Audit + SOP" },
     ],
     caseStudy: {
-      solutionName: "Flowstack\u2122",
+      solutionName: "Flowstack™",
       title: "Molly, the Brewery Statistics Tutor",
       summary:
-        "Alex, a brewer in Marquette, Michigan, had to finish college statistics with learning disabilities and zero time. Flowstack\u2122 delivered Molly—an AI tutor that explains stats through brewery analogies.",
+        "Alex, a brewer in Marquette, Michigan, had to finish college statistics with learning disabilities and zero time. Flowstack™ delivered Molly-an AI tutor that explains stats through brewery analogies.",
       bullets: [
         "1 hour discovery, 2 hour build, ongoing 24/7 access.",
         `Costs ${formatMoney(PRICING.flowstack.setup)} down + ${formatMoney(PRICING.flowstack.monthly)}/mo—far less than $30-$50/hr tutoring.`,
@@ -80,18 +80,18 @@ const SOLUTION_DATA = [
   },
   {
     slug: "consensus-engine",
-    name: "Consensus Engine\u2122",
+    name: "Consensus Engine™",
     summary:
-      "Stop guessing on critical decisions. Consensus Engine\u2122 fuses numbers, brand tone, and customer signals into one clear brief.",
+      "Stop guessing on critical decisions. Consensus Engine™ fuses numbers, brand tone, and customer signals into one clear brief.",
     stat: "First strategic decision is always free.",
     href: "/solutions/consensus-engine",
     Icon: IconChecklist,
-    heroEyebrow: "Consensus Engine\u2122",
+    heroEyebrow: "Consensus Engine™",
     heroTitle: "Decide with Confidence. No Committee Needed.",
     heroSubtitle:
       "Upload surveys, sales data, transcripts, or competitor copy. We deliver multi-perspective analysis that ends stalemates.",
     heroDescription:
-      "Consensus Engine\u2122 compares qualitative insight and financial impact so your next rebrand, launch, or pricing move lands with certainty.",
+      "Consensus Engine™ compares qualitative insight and financial impact so your next rebrand, launch, or pricing move lands with certainty.",
     primaryCTA: { label: "Get Your Free Answer", href: "/solutions/consensus-engine" },
     secondaryCTA: { label: "Book a Strategy Session", href: "/book" },
     pricing: [
@@ -113,7 +113,7 @@ const SOLUTION_DATA = [
       {
         title: "Multi-Perspective Analysis",
         description:
-          "Consensus Engine\u2122 evaluates each scenario through customer, operator, and finance lenses with transparent rationale.",
+          "Consensus Engine™ evaluates each scenario through customer, operator, and finance lenses with transparent rationale.",
       },
       {
         title: "Actionable Brief",
@@ -127,10 +127,10 @@ const SOLUTION_DATA = [
       { label: "Conversion lift (avg.)", value: "+22%" },
     ],
     caseStudy: {
-      solutionName: "Consensus Engine\u2122",
+      solutionName: "Consensus Engine™",
       title: "Retail Co-Op Rebrand Alignment",
       summary:
-        "A Cleveland retail co-op was split on two brand directions. Consensus Engine\u2122 synthesized customer interviews, Shopify sales, and competitive audits into a clear creative brief everyone trusted.",
+        "A Cleveland retail co-op was split on two brand directions. Consensus Engine™ synthesized customer interviews, Shopify sales, and competitive audits into a clear creative brief everyone trusted.",
       bullets: [
         "Initial rebrand recommendation delivered in 48 hours.",
         "Landing-page conversion jumped 22% after implementation.",
@@ -206,16 +206,16 @@ const SOLUTION_DATA = [
   },
   {
     slug: "redbridging",
-    name: "Redbridging\u2122",
+    name: "Redbridging™",
     summary:
       "Automation rescue and monitoring that keeps revenue-critical workflows alive when Zapier or Make decide to stall out.",
     stat: "Emergency fixes delivered same day for most stacks.",
     href: "/solutions/redbridging",
     Icon: IconCircuitSwitchClosed,
-    heroEyebrow: "Redbridging\u2122",
+    heroEyebrow: "Redbridging™",
     heroTitle: "Automation Rescue. Revenue Guarded.",
     heroSubtitle:
-      "When your Zapier or Make scenario breaks, Redbridging\u2122 restores operations, adds monitoring, and prevents repeat outages.",
+      "When your Zapier or Make scenario breaks, Redbridging™ restores operations, adds monitoring, and prevents repeat outages.",
     heroDescription:
       "We treat every automation as mission-critical: restore service, document the fix, and install guardrails so the panic never returns.",
     primaryCTA: { label: "Protect My Automations", href: "/contact" },
@@ -223,7 +223,7 @@ const SOLUTION_DATA = [
     pricing: [
       "Emergency rescue: $49 one-time (credited toward plans).",
       "Standard plan: $99/mo for proactive monitoring + unlimited fixes.",
-      "Included with Flowstack\u2122 retainers.",
+      "Included with Flowstack™ retainers.",
     ],
     highlights: [
       "Covers Zapier, Make, Airtable, HubSpot, QuickBooks, and Stripe.",
@@ -253,10 +253,10 @@ const SOLUTION_DATA = [
       { label: "Alert lead time", value: "10 min" },
     ],
     caseStudy: {
-      solutionName: "Redbridging\u2122",
+      solutionName: "Redbridging™",
       title: "Accounting Workflow Revival",
       summary:
-        "LedgerLight Accounting lost two days of invoices when Zapier failed silently. Redbridging\u2122 restored their QuickBooks sync, added monitoring, and stopped revenue leakage overnight.",
+        "LedgerLight Accounting lost two days of invoices when Zapier failed silently. Redbridging™ restored their QuickBooks sync, added monitoring, and stopped revenue leakage overnight.",
       bullets: [
         "Recovered every invoice in under four hours with zero data loss.",
         "Installed proactive alerts so month-end close stays clean.",
@@ -359,14 +359,14 @@ function FallbackStaticPage({ slug }: { slug?: string[] }) {
   const slides: Slide[] = (webpSlides.length ? webpSlides : pngSlides) as Slide[];
   const offerings = [
     {
-      name: "Flowstack\u2122",
+      name: "Flowstack™",
       href: "/solutions/flowstack",
       description: "Automate the single task stealing the most hours from your week—while you keep approvals, ownership, and audit trails.",
       stat: "Clients regain 15+ hours every week on average.",
       Icon: IconSparkles,
     },
     {
-      name: "Consensus Engine\u2122",
+      name: "Consensus Engine™",
       href: "/solutions/consensus-engine",
       description: "Multi-perspective AI analysis that compares brand, customer, and financial data so you stop guessing on your next move.",
       stat: "First strategic decision is always free.",
@@ -380,7 +380,7 @@ function FallbackStaticPage({ slug }: { slug?: string[] }) {
       Icon: IconMessage2Bolt,
     },
     {
-      name: "Redbridging\u2122",
+      name: "Redbridging™",
       href: "/solutions/redbridging",
       description: "Automation rescue and monitoring that keeps your revenue-critical workflows alive when Zapier or Make decide to stall out.",
       stat: "Emergency fixes delivered same day for most SMB stacks.",
@@ -408,9 +408,9 @@ function FallbackStaticPage({ slug }: { slug?: string[] }) {
 
   const caseStudies = [
     {
-      title: "Molly, the Brewery Statistics Tutor (Flowstack\u2122)",
+      title: "Molly, the Brewery Statistics Tutor (Flowstack™)",
       summary:
-        "Alex, a brewer in Marquette, Michigan, needed statistics to finish college. Flowstack\u2122 delivered a custom Gemini tutor that speaks in fermentation batches, remembers his humor, and adapts to learning disabilities.",
+        "Alex, a brewer in Marquette, Michigan, needed statistics to finish college. Flowstack™ delivered a custom Gemini tutor that speaks in fermentation batches, remembers his humor, and adapts to learning disabilities.",
       bullets: [
         "1 hour discovery, 2 hours build, 24/7 availability forever.",
         "Time-to-understanding dropped from weeks to a single evening.",
@@ -421,9 +421,9 @@ function FallbackStaticPage({ slug }: { slug?: string[] }) {
       author: "Alex Rand, Brewer, Ore Dock Brewing Company",
     },
     {
-      title: "Brand Direction with Confidence (Consensus Engine\u2122)",
+      title: "Brand Direction with Confidence (Consensus Engine™)",
       summary:
-        "A Main Street retail co-op in Cleveland faced a rebrand showdown. Consensus Engine\u2122 synthesized survey data, Shopify sales, and competitor tone to deliver a creative brief the whole founding team trusted.",
+        "A Main Street retail co-op in Cleveland faced a rebrand showdown. Consensus Engine™ synthesized survey data, Shopify sales, and competitor tone to deliver a creative brief the whole founding team trusted.",
       bullets: [
         "First report delivered free in 48 hours with clear &lsquo;why&rsquo;.",
         "Consensus-backed direction increased landing-page conversion 22%.",
@@ -434,9 +434,9 @@ function FallbackStaticPage({ slug }: { slug?: string[] }) {
       author: "Monique Ellis, Co-Founder, Lake Effect Co-op",
     },
     {
-      title: "Accounting Workflow Revival (Redbridging\u2122)",
+      title: "Accounting Workflow Revival (Redbridging™)",
       summary:
-        "An Akron bookkeeping firm lost two days of invoices when a Zapier update broke their QuickBooks sync. Redbridging\u2122 restored the automations, added monitoring, and put approvals back in human hands.",
+        "An Akron bookkeeping firm lost two days of invoices when a Zapier update broke their QuickBooks sync. Redbridging™ restored the automations, added monitoring, and put approvals back in human hands.",
       bullets: [
         "Recovery within four hours, zero data loss.",
         "Automated alerting prevents repeat failures during month-end close.",
@@ -585,7 +585,7 @@ function FallbackStaticPage({ slug }: { slug?: string[] }) {
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
               <h2 className="text-pretty text-3xl font-semibold text-text-primary dark:text-dark-text-primary">
-                Proof that Flowstack\u2122, Consensus Engine\u2122, and Redbridging\u2122 deliver
+                Proof that Flowstack™, Consensus Engine™, and Redbridging™ deliver
               </h2>
               <p className="mt-2 max-w-3xl text-text-tertiary dark:text-dark-text-tertiary">
                 Real owners, real outcomes. Discovery-led builds that respect how your business actually runs.
@@ -636,7 +636,7 @@ function FallbackStaticPage({ slug }: { slug?: string[] }) {
             <div className="mt-6 grid gap-4 md:grid-cols-2">
               {[
                 "No one-size-fits-all playbooks—everything is trained on your approvals, brand, and risk tolerance.",
-                "We start with discovery, not dashboards. That&rsquo;s why Flowstack\u2122 builds often ship in under 3 hours.",
+                "We start with discovery, not dashboards. That&rsquo;s why Flowstack™ builds often ship in under 3 hours.",
                 "You keep control with human-in-the-loop reviews, rollback paths, and transparent pricing.",
                 "Decision support that blends qualitative brand tone and hard numbers into actionable briefs.",
               ].map((point) => (

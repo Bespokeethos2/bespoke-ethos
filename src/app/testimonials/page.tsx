@@ -18,9 +18,9 @@ type Testimonial = {
 
 const TESTIMONIALS: Testimonial[] = [
   {
-    title: "Molly, the Brewery Statistics Tutor (Flowstack\u2122)",
+    title: "Molly, the Brewery Statistics Tutor (Flowstack™)",
     summary:
-      "Flowstack\u2122 delivered a custom tutor that explains statistics using real brewery work, matching learning style and schedule.",
+      "Flowstack™ delivered a custom tutor that explains statistics using real brewery work, matching learning style and schedule.",
     quote:
       "Molly explains stats using my brewery floor. It's not generic - it's mine.",
     author: "Alex Rand",
@@ -29,9 +29,9 @@ const TESTIMONIALS: Testimonial[] = [
     imageSrc: "/assets/generated/founder2.avif",
   },
   {
-    title: "Brand Direction with Confidence (Consensus Engine\u2122)",
+    title: "Brand Direction with Confidence (Consensus Engine™)",
     summary:
-      "Consensus Engine\u2122 synthesized surveys, sales data, and competitor tone so a retail co-op could agree on a rebrand direction.",
+      "Consensus Engine™ synthesized surveys, sales data, and competitor tone so a retail co-op could agree on a rebrand direction.",
     quote:
       "We finally agreed on our brand voice without another 6-week debate.",
     author: "Monique Ellis",
@@ -40,9 +40,9 @@ const TESTIMONIALS: Testimonial[] = [
     imageSrc: "/assets/generated/founder3.avif",
   },
   {
-    title: "Accounting Workflow Revival (Redbridging\u2122)",
+    title: "Accounting Workflow Revival (Redbridging™)",
     summary:
-      "Redbridging\u2122 restored broken QuickBooks automations, added monitoring, and stopped invoice leakage for an accounting firm.",
+      "Redbridging™ restored broken QuickBooks automations, added monitoring, and stopped invoice leakage for an accounting firm.",
     quote:
       "Revenue stopped bleeding, and now we get alerts before clients feel pain.",
     author: "Derrick Patel",

@@ -63,23 +63,23 @@ const FALLBACK_HEADER_NAV: HeaderNavLink[] = [
       items: [
         {
           _id: "nav-products-cadence",
-          _title: "Cadence\u2122",
-          link: pageRef("/products/cadence", "Cadence\u2122"),
+          _title: "Cadence™",
+          link: pageRef("/products/cadence", "Cadence™"),
         },
         {
           _id: "nav-products-flowstack",
-          _title: "Flowstack\u2122",
-          link: pageRef("/solutions/flowstack", "Flowstack\u2122"),
+          _title: "Flowstack™",
+          link: pageRef("/solutions/flowstack", "Flowstack™"),
         },
         {
           _id: "nav-products-consensus",
-          _title: "Consensus Engine\u2122",
-          link: pageRef("/solutions/consensus-engine", "Consensus Engine\u2122"),
+          _title: "Consensus Engine™",
+          link: pageRef("/solutions/consensus-engine", "Consensus Engine™"),
         },
         {
           _id: "nav-products-redbridging",
-          _title: "Redbridging\u2122",
-          link: pageRef("/solutions/redbridging", "Redbridging\u2122"),
+          _title: "Redbridging™",
+          link: pageRef("/solutions/redbridging", "Redbridging™"),
         },
       ],
     },
@@ -200,27 +200,16 @@ const FALLBACK_HEADER_LOGO: LogoData = {
 type HeaderShellProps = {
   headerData: HeaderData;
   logo: LogoData;
-  accentSrc?: string;
 };
 
 function HeaderShell({
   headerData,
   logo,
-  accentSrc = "/assets/generated/header-accent.svg",
 }: HeaderShellProps) {
   return (
     <header className="sticky left-0 top-0 z-100 flex w-full flex-col border-b border-border bg-surface-primary/98 backdrop-blur-md dark:border-dark-border dark:bg-dark-surface-primary/98">
       <div className="relative flex h-16 sm:h-20 overflow-visible">
         <HeaderAccent className="absolute inset-0 -z-10" />
-        {accentSrc ? (
-          <Image
-            src={accentSrc}
-            alt=""
-            fill
-            priority
-            className="pointer-events-none select-none object-cover opacity-30"
-          />
-        ) : null}
         <div className="container relative z-10 mx-auto grid w-full grid-cols-header place-items-center items-center px-4 sm:px-6 *:first:justify-self-start">
           <ButtonLink unstyled className="flex items-center ring-offset-2 header-logo-container" href="/">
             <span className="block md:hidden">

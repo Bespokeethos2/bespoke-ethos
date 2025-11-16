@@ -9,7 +9,7 @@ import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
 export const revalidate = 1800;
 
 export const metadata: Metadata = {
-  title: "Flowstack\u2122 - Automate Your #1 Task | Bespoke Ethos",
+  title: "Flowstack™ - Automate Your #1 Task | Bespoke Ethos",
   description:
     "Proprietary general automation package. Discovery-led builds that keep human approvals, audit trails, and rollback. Enterprise-grade automation you own.",
   alternates: { canonical: "/solutions/flowstack" },
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function FlowstackPage() {
   return (
     <Section className="gap-6">
-      <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Solutions", href: "/solutions" }, { name: "Flowstack\u2122" }]} />
+      <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Solutions", href: "/solutions" }, { name: "Flowstack™" }]} />
       <ProductJsonLd />
       <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary">
         <div className="relative h-52 w-full sm:h-64 lg:h-72">
@@ -26,19 +26,19 @@ export default function FlowstackPage() {
             src="/assets/generated/hero-flowstack-desktop.webp"
             alt="Founder's desk transformed from cluttered paperwork to a calm automation dashboard"
             fill
-            className="object-cover object-center"
+            className="object-cover object-top"
             sizes="(max-width: 768px) 100vw, 960px"
             priority
           />
         </div>
       </div>
       <Heading subtitle="Proprietary general automation for any business task. Own the results." align="left">
-        <h1>Flowstack\u2122</h1>
+        <h1>Flowstack™</h1>
       </Heading>
       <div className="space-y-4 text-text-secondary">
         <p>
           When I was drowning in my publishing business, I didn&rsquo;t need a fancy AI platform. I needed someone to automate the one task that was
-          stealing hours from my week. So I built Flowstack\u2122 for myself first. It is our proprietary general automation package, designed to
+          stealing hours from my week. So I built Flowstack™ for myself first. It is our proprietary general automation package, designed to
           handle any business task-from lead routing to inventory updates.
         </p>
         <p>
@@ -74,7 +74,7 @@ function ProductJsonLd() {
   const json = {
     "@context": "https://schema.org",
     "@type": "Product",
-    name: "Flowstack\u2122",
+    name: "Flowstack™",
     description:
       "Custom automation for your most time-consuming task. Discovery-led build, human approvals, monitoring, documentation, and rollback.",
     offers: {

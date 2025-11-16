@@ -12,7 +12,7 @@ export const revalidate = 1800;
 export const metadata: Metadata = {
   title: "Pricing | Bespoke Ethos",
   description:
-    "Simple, transparent pricing for small business: Flowstack\u2122 setup $399 + $59.99/mo, with Chatbots and Redbridging options.",
+    "Simple, transparent pricing for small business: Flowstack™ setup $399 + $59.99/mo, with Chatbots and Redbridging options.",
   alternates: { canonical: "/pricing" },
 };
 
@@ -27,7 +27,7 @@ export default function PricingPage() {
             src="/assets/generated/hero-flowstack-desktop.webp"
             alt="Calm workspace with an automation dashboard open beside a notebook and coffee"
             fill
-            className="object-cover object-center"
+            className="object-cover object-top"
             sizes="(max-width: 768px) 100vw, 960px"
             priority={false}
           />
@@ -44,7 +44,7 @@ export default function PricingPage() {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         {/* Flowstack */}
         <div className="rounded-lg border border-border p-5 dark:border-dark-border">
-          <h2 className="text-lg font-semibold">Flowstack\u2122</h2>
+          <h2 className="text-lg font-semibold">Flowstack™</h2>
           <p className="mt-1 text-text-secondary dark:text-dark-text-secondary">
             {formatMoney(PRICING.flowstack.setup)} setup • {formatMoney(PRICING.flowstack.monthly)}/mo
           </p>
@@ -56,10 +56,10 @@ export default function PricingPage() {
           </ul>
         </div>
 
-        {/* Chatbots – featured plan with neon green highlight */}
+        {/* Chatbots - featured plan with warm highlight */}
         <div className="pricing-featured-card rounded-2xl border border-success bg-surface-secondary/95 p-5 dark:border-success dark:bg-dark-surface-secondary/95">
           <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-success/60 bg-success/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-success">
-            <span className="h-2 w-2 rounded-full bg-success shadow-[0_0_0_2px_rgba(0,0,0,0.75)]" />
+            <span className="h-2 w-2 rounded-full bg-success" />
             Most popular
           </div>
           <h2 className="text-lg font-semibold text-text-primary dark:text-dark-text-primary">Chatbots</h2>
@@ -75,7 +75,7 @@ export default function PricingPage() {
             <ButtonLink
               href="/book"
               unstyled
-              className="inline-flex items-center justify-center rounded-full bg-success px-4 py-2 text-sm font-semibold text-black shadow-[0_0_0_1px_rgba(0,0,0,0.85),0_0_32px_rgba(20,201,162,0.75)] transition-transform duration-200 hover:scale-[1.02]"
+              className="inline-flex items-center justify-center rounded-full bg-success px-4 py-2 text-sm font-semibold text-black shadow-md transition-transform duration-200 hover:scale-[1.02]"
             >
               Get started
             </ButtonLink>
@@ -84,20 +84,20 @@ export default function PricingPage() {
 
         {/* Redbridging */}
         <div className="rounded-lg border border-border p-5 dark:border-dark-border">
-          <h2 className="text-lg font-semibold">Redbridging\u2122</h2>
+          <h2 className="text-lg font-semibold">Redbridging™</h2>
           <p className="mt-1 text-text-secondary dark:text-dark-text-secondary">
-            {formatMoney(PRICING.redbridging.standaloneLow)}/mo standalone or free with Flowstack\u2122/Cadence\u2122
+            {formatMoney(PRICING.redbridging.standaloneLow)}/mo standalone or free with Flowstack™/Cadence™
           </p>
           <ul className="mt-3 list-disc pl-5 text-sm text-text-secondary dark:text-dark-text-secondary">
             <li>Rescue brittle automations quickly</li>
             <li>Monitoring, alerts, and retries</li>
-            <li>Included with Flowstack\u2122 and Cadence\u2122 subscriptions</li>
+            <li>Included with Flowstack™ and Cadence™ subscriptions</li>
           </ul>
         </div>
 
         {/* Consensus Engine */}
         <div className="rounded-lg border border-border p-5 dark:border-dark-border">
-          <h2 className="text-lg font-semibold">Consensus Engine\u2122</h2>
+          <h2 className="text-lg font-semibold">Consensus Engine™</h2>
           <p className="mt-1 text-text-secondary dark:text-dark-text-secondary">
             {formatMoney(PRICING.consensusEngine.monthly)}/mo for up to {PRICING.consensusEngine.queryLimit} research queries
           </p>
@@ -164,7 +164,7 @@ export default function PricingPage() {
           </ul>
         </div>
         <div className="rounded-lg border border-border p-5 dark:border-dark-border">
-          <h3 className="text-lg font-semibold">Redbridging\u2122 Rescue</h3>
+          <h3 className="text-lg font-semibold">Redbridging™ Rescue</h3>
           <p className="mt-1 text-text-secondary dark:text-dark-text-secondary">
             {formatMoney(PRICING.redbridging.standaloneALaCarte)} one-time
           </p>
@@ -200,7 +200,7 @@ function OfferCatalogJsonLd() {
       {
         "@type": "Offer",
         url: `${base}/solutions/flowstack`,
-        itemOffered: { "@type": "Service", name: "Flowstack\u2122" },
+        itemOffered: { "@type": "Service", name: "Flowstack™" },
         priceCurrency: currency,
         price: PRICING.flowstack.setup,
         priceSpecification: {
