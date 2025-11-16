@@ -10,7 +10,7 @@ export const revalidate = 1800;
 export const metadata: Metadata = {
   title: "Help & Product Overview | Bespoke Ethos",
   description:
-    "What Flowstack™, Chatbots, Consensus Engine, and Redbridging do (and don&rsquo;t). Packages, SLAs, and links to pricing.",
+    "What Flowstack™, Chatbots, Consensus Engine™,  and Redbridging™ do (and don&rsquo;t). Packages, SLAs, and links to pricing.",
   alternates: { canonical: "/help" },
 };
 
@@ -95,8 +95,8 @@ export default function HelpPage() {
           Book a free assessment
         </Link>
         {LINK_SEPARATOR}
-        <Link className="text-accent-600 hover:underline" href="/solutions">
-          View case studies
+        <Link className="text-accent-600 hover:underline" href="/case-studies">
+          View case studies & solutions
         </Link>
       </div>
     </Section>
