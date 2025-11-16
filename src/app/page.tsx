@@ -117,7 +117,7 @@ export default function HomePage() {
       <section
         style={{
           backgroundColor: "var(--soft-white)",
-          padding: "80px 24px",
+          padding: "64px 24px 72px",
           textAlign: "center",
         }}
       >
@@ -129,7 +129,7 @@ export default function HomePage() {
             marginBottom: "16px",
           }}
         >
-          How We Take the Guesswork Out
+          How we take the guesswork out of business decisions, with powerful AI.
         </h2>
 
         <p
