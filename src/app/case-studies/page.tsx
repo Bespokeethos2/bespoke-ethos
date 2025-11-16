@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function CaseStudiesPage() {
   return (
-    <Section className="gap-8">
+    <Section className="gap-8 -mt-6 md:-mt-4">
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Case Studies" }]} />
 
       <Heading

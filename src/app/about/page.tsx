@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <Section className="gap-6">
+    <Section className="gap-6 -mt-6 md:-mt-4">
       <AboutPageJsonLd />
       <div className="be-section-card space-y-6">
         <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "About" }]} />

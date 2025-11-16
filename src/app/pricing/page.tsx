@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function PricingPage() {
   return (
-    <Section className="gap-6">
+    <Section className="gap-6 -mt-6 md:-mt-4">
       <OfferCatalogJsonLd />
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Pricing" }]} />
       <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-xl">

@@ -56,13 +56,13 @@ export const revalidate = 1800;
 export const metadata: Metadata = {
   title: "Testimonials | Bespoke Ethos",
   description:
-    "Proof you can feel – stories from teams who reclaimed time and stayed in control.",
+    "Proof you can feel - stories from teams who reclaimed time and stayed in control.",
   alternates: { canonical: "/testimonials" },
 };
 
 export default function TestimonialsPage() {
   return (
-    <Section className="gap-6">
+    <Section className="gap-6 -mt-6 md:-mt-4">
       <TestimonialsJsonLd />
       <div className="be-section-card space-y-6">
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Testimonials" }]} />
