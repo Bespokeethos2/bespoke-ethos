@@ -62,9 +62,10 @@ export const metadata: Metadata = {
 
 export default function TestimonialsPage() {
   return (
-    <Section className="gap-6 -mt-6 md:-mt-4">
-      <TestimonialsJsonLd />
-      <div className="be-section-card space-y-6">
+    <main className="be-page-slate">
+      <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
+        <TestimonialsJsonLd />
+        <div className="be-section-card space-y-6">
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Testimonials" }]} />
       <Heading align="left" subtitle="Proof in shipped outcomes">
         <h1>Testimonials</h1>
@@ -115,8 +116,9 @@ export default function TestimonialsPage() {
         </Link>
         .
       </p>
-      </div>
-    </Section>
+        </div>
+      </Section>
+    </main>
   );
 }
 

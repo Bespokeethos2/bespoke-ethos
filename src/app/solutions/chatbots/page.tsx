@@ -16,7 +16,9 @@ export const metadata: Metadata = {
 
 export default function ChatbotsPage() {
   return (
-    <Section className="gap-6">
+    <main className="be-page-slate">
+      <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
+        <div className="be-section-card space-y-6">
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Solutions", href: "/solutions" }, { name: "Chatbots" }]} />
       <ProductJsonLd />
       <Heading subtitle="On-brand support that actually helps" align="left">
@@ -24,10 +26,10 @@ export default function ChatbotsPage() {
       </Heading>
       <div className="space-y-4 text-text-secondary dark:text-dark-text-secondary">
         <p>
-          As an author and publisher, I know the power of voice. Your customers don&rsquo;t want a robotic FAQ bot—they want to feel heard and helped. That&rsquo;s why I build chatbots that sound like you, not like a machine.
+          As an author and publisher, I know the power of voice. Your customers don&rsquo;t want a robotic FAQ bot-they want to feel heard and helped. That&rsquo;s why I build chatbots that sound like you, not like a machine.
         </p>
         <p>
-          We design helpful, friendly chatbots that resolve common questions and route the rest to your team. Always aligned to your tone, with clear handoffs—because your brand voice is too valuable to hand over to generic AI.
+          We design helpful, friendly chatbots that resolve common questions and route the rest to your team. Always aligned to your tone, with clear handoffs-because your brand voice is too valuable to hand over to generic AI.
         </p>
       </div>
       <ul className="mt-2 list-disc pl-6 text-text-secondary dark:text-dark-text-secondary">
@@ -44,7 +46,9 @@ export default function ChatbotsPage() {
           Schedule a free consultation
         </ButtonLink>
       </div>
-    </Section>
+        </div>
+      </Section>
+    </main>
   );
 }
 

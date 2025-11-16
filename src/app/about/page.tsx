@@ -16,10 +16,11 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <Section className="gap-6 -mt-6 md:-mt-4">
-      <AboutPageJsonLd />
-      <div className="be-section-card space-y-6">
-        <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "About" }]} />
+    <main className="be-page-slate">
+      <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
+        <AboutPageJsonLd />
+        <div className="be-section-card space-y-6">
+          <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "About" }]} />
 
       <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-xl">
         <div className="relative h-40 w-full sm:h-52 lg:h-60">
@@ -120,8 +121,9 @@ export default function AboutPage() {
           View our solutions
         </ButtonLink>
       </div>
-      </div>
-    </Section>
+        </div>
+      </Section>
+    </main>
   );
 }
 
