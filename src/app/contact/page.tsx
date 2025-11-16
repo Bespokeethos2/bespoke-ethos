@@ -28,7 +28,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
   const isLlmSetup = service === "llm-setups";
 
   return (
-    <main>
+    <main className="be-page-slate">
       <ContactPageJsonLd />
       <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="afterInteractive" async defer />
 
@@ -89,7 +89,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
             </div>
           </div>
 
-          <div className="order-1 rounded-2xl border border-border bg-surface-secondary/90 p-4 shadow-lg shadow-black/5 dark:border-dark-border dark:bg-dark-surface-secondary/90 sm:order-2 sm:p-6">
+          <div className="order-1 be-form-glass-card sm:order-2 sm:p-6">
             {sent ? (
               <div className="mb-6 rounded-md border border-green-700/30 bg-green-500/10 p-4 text-sm text-green-700 dark:border-green-300/20 dark:text-green-300">
                 <p className="font-medium">Thanks! Your message is on its way.</p>

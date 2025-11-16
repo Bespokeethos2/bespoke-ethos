@@ -197,13 +197,14 @@ html.dark .trust-square-badge {
   max-width: 72rem;
   margin: 0 auto;
   border-radius: 24px;
-  border: 1px solid rgba(246, 173, 85, 0.55);
+  border: 1px solid rgba(246, 173, 85, 0.6);
   background:
-    radial-gradient(circle at 0% 0%, rgba(246, 173, 85, 0.25), transparent 55%),
-    radial-gradient(circle at 100% 100%, rgba(236, 201, 75, 0.22), transparent 55%),
+    radial-gradient(circle at 0% 0%, rgba(246, 173, 85, 0.26), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(236, 201, 75, 0.24), transparent 55%),
     rgba(255, 250, 240, 0.96);
   box-shadow:
     0 22px 60px rgba(15, 23, 42, 0.22),
+    0 0 38px rgba(246, 173, 85, 0.24),
     0 1px 0 rgba(255, 255, 255, 0.8) inset;
   padding: 1.75rem 1.5rem;
 }
@@ -215,13 +216,14 @@ html.dark .trust-square-badge {
 }
 
 html.dark .be-section-card {
-  border-color: rgba(236, 201, 75, 0.55);
+  border-color: rgba(236, 201, 75, 0.65);
   background:
-    radial-gradient(circle at 0% 0%, rgba(246, 173, 85, 0.28), transparent 55%),
+    radial-gradient(circle at 0% 0%, rgba(246, 173, 85, 0.32), transparent 55%),
     radial-gradient(circle at 100% 100%, rgba(15, 23, 42, 0.9), transparent 55%),
     rgba(15, 23, 42, 0.98);
   box-shadow:
     0 26px 70px rgba(0, 0, 0, 0.8),
+    0 0 40px rgba(246, 173, 85, 0.26),
     0 1px 0 rgba(148, 163, 184, 0.45) inset;
 }
 
@@ -630,6 +632,61 @@ html.dark .be-mobile-menu-card {
   font-style: italic;
   font-weight: 500;
   letter-spacing: -0.035em;
+}
+
+/* Slate background with subtle tangerine light */
+.be-page-slate {
+  background:
+    radial-gradient(circle at 0% 0%, rgba(246, 173, 85, 0.22), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(236, 201, 75, 0.18), transparent 55%),
+    #0f172a;
+}
+
+html.dark .be-page-slate {
+  background:
+    radial-gradient(circle at 0% 0%, rgba(246, 173, 85, 0.30), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(236, 201, 75, 0.26), transparent 55%),
+    #020617;
+}
+
+/* Navy frosted glass card with warm glow – for high-value forms */
+.be-form-glass-card {
+  position: relative;
+  border-radius: 24px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(148, 163, 184, 0.32), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(15, 23, 42, 0.96), transparent 55%),
+    rgba(15, 23, 42, 0.90);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  box-shadow:
+    0 26px 70px rgba(15, 23, 42, 0.88),
+    0 0 0 1px rgba(15, 23, 42, 0.95);
+  padding: 1rem;
+}
+
+.be-form-glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.14), transparent 18%),
+    radial-gradient(circle at 0% 100%, rgba(236, 201, 75, 0.16), transparent 24%);
+  opacity: 0.9;
+}
+
+.be-form-glass-card::after {
+  content: "";
+  position: absolute;
+  inset: -6%;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow:
+    0 0 0 1px rgba(248, 250, 252, 0.25),
+    0 0 60px rgba(248, 189, 104, 0.32);
 }
 
 /* Featured pricing card - warm, soft highlight (no neon) */
