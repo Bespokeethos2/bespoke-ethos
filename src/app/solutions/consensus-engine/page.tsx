@@ -42,7 +42,7 @@ export default function ConsensusEnginePage() {
       <div className="space-y-4 text-text-secondary">
         <p>
           When you&rsquo;re running a business alone, every big decision feels paralyzing. Should I raise prices? Pivot my messaging? Hire someone? I built Consensus
-          Engine™ because I needed a trusted advisor who could see all sides of a problem-without the $10,000 consulting bill.
+          Engine™ because I needed a trusted advisor who could see all sides of a problem&mdash;without the $10,000 consulting bill.
         </p>
         <p>
           Ask your biggest strategic question and see a structured debate-four independent perspectives that synthesize a recommendation with reasoning and tradeoffs.
@@ -62,6 +62,27 @@ export default function ConsensusEnginePage() {
         <ButtonLink intent="secondary" href="/contact">
           Talk to a human
         </ButtonLink>
+      </div>
+
+      <div className="mt-8 grid gap-4 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] items-start">
+        <div className="space-y-3 text-text-secondary">
+          <h2 className="text-base font-semibold text-text-primary dark:text-dark-text-primary">
+            How Consensus Engine™ looks in practice
+          </h2>
+          <p>
+            Under the hood, Consensus Engine™ is a structured research room: options, evidence, and a transparent recommendation you can challenge. No
+            black-box magic&mdash;just a clear record of why one path beats the others.
+          </p>
+        </div>
+        <div className="relative h-48 w-full overflow-hidden rounded-xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary">
+          <Image
+            src="/assets/generated/service-consensus-decision-interface-desktop.webp"
+            alt="Consensus Engine decision interface comparing Cleveland office options with votes and AI insights"
+            fill
+            className="h-full w-full object-cover"
+            sizes="(max-width: 768px) 100vw, 480px"
+          />
+        </div>
       </div>
     </Section>
   );

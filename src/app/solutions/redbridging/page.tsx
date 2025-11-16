@@ -58,6 +58,27 @@ export default function RedbridgingPage() {
           See pricing
         </ButtonLink>
       </div>
+
+      <div className="mt-8 grid gap-4 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] items-start">
+        <div className="space-y-3 text-text-secondary dark:text-dark-text-secondary">
+          <h2 className="text-base font-semibold text-text-primary dark:text-dark-text-primary">
+            Redbridging™ monitoring in action
+          </h2>
+          <p>
+            After a rescue, Redbridging™ keeps watch: run health, failure spikes, and alerts that reach you before your customers feel pain. No more wondering
+            whether your automations are quietly failing in the background.
+          </p>
+        </div>
+        <div className="relative h-48 w-full overflow-hidden rounded-xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary">
+          <Image
+            src="/assets/generated/service-redbridging-monitoring-desktop.webp"
+            alt="Redbridging monitoring dashboard showing AI workflow health and alerts"
+            fill
+            className="h-full w-full object-cover"
+            sizes="(max-width: 768px) 100vw, 480px"
+          />
+        </div>
+      </div>
     </Section>
   );
 }
