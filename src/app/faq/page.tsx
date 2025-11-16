@@ -79,7 +79,9 @@ function FaqJsonLd() {
 
 export default function FaqPage() {
   return (
-    <Section className="gap-6 -mt-6 md:-mt-4">
+    <main className="be-page-slate">
+      <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
+        <div className="be-section-card space-y-6">
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "FAQ" }]} />
       <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-xl">
         <div className="relative h-40 w-full sm:h-48 lg:h-56">
@@ -93,7 +95,7 @@ export default function FaqPage() {
         </div>
       </div>
       <Heading subtitle="Straight answers, no hype" align="left">
-        <h1>Frequently Asked Questions</h1>
+        <h1 className="font-hero-accent">Frequently Asked Questions</h1>
       </Heading>
       <FaqJsonLd />
       <Faq
@@ -101,6 +103,8 @@ export default function FaqPage() {
         layout="accordion"
         questions={{ items: questions as any }}
       />
-    </Section>
+        </div>
+      </Section>
+    </main>
   );
 }

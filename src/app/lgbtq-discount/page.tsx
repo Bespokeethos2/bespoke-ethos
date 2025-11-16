@@ -16,10 +16,11 @@ export const metadata: Metadata = {
 
 export default function LGBTQDiscountPage() {
   return (
-    <Section className="gap-6">
-      <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "LGBTQ+ Discount" }]} />
+    <main className="be-page-slate">
+      <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
+        <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "LGBTQ+ Discount" }]} />
 
-      <div className="relative w-full overflow-hidden rounded-3xl border border-border/80 bg-surface-secondary/95 p-6 shadow-xl dark:border-dark-border/80 dark:bg-dark-surface-secondary/95 sm:p-10">
+      <div className="relative w-full overflow-hidden rounded-3xl border border-border/80 bg-surface-secondary/95 p-6 shadow-xl dark:border-dark-border/80 dark:bg-dark-surface-secondary/95 sm:p-10 be-image-frame">
         <div className="relative z-10 space-y-4 text-center sm:text-left">
           <p className="inline-flex items-center gap-2 rounded-full bg-accent-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent-600 dark:text-accent-300">
             <span aria-hidden="true">Always On</span>
@@ -27,7 +28,7 @@ export default function LGBTQDiscountPage() {
           </p>
 
           <Heading align="left" subtitle="A standing discount, not a campaign.">
-            <h1>We Take 25% Off Upfront for LGBTQ+ Businesses.</h1>
+            <h1 className="font-hero-accent">We Take 25% Off Upfront for LGBTQ+ Businesses.</h1>
           </Heading>
 
           <p className="text-base leading-relaxed text-text-secondary dark:text-dark-text-secondary sm:text-lg">
@@ -92,6 +93,7 @@ export default function LGBTQDiscountPage() {
           </div>
         </div>
       </div>
-    </Section>
+      </Section>
+    </main>
   );
 }

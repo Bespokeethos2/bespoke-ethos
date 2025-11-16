@@ -15,14 +15,16 @@ export const metadata: Metadata = {
 
 export default function CaseStudiesPage() {
   return (
-    <Section className="gap-8 -mt-6 md:-mt-4">
+    <main className="be-page-slate">
+      <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
+        <div className="be-section-card space-y-6">
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Case Studies" }]} />
 
       <Heading
         subtitle="Real small businesses, real hours saved. These are representative composites based on the kinds of builds we ship for founders in Cleveland and beyond."
         align="left"
       >
-        <h1>Case Studies</h1>
+        <h1 className="font-hero-accent">Case Studies</h1>
       </Heading>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -119,6 +121,8 @@ export default function CaseStudiesPage() {
           Read implementation notes on the blog
         </ButtonLink>
       </div>
-    </Section>
+        </div>
+      </Section>
+    </main>
   );
 }
