@@ -1,34 +1,125 @@
 import { NextRequest, NextResponse } from "next/server";
-import { Resend } from "resend";
 
 type Body = {
   name?: string;
-  email: string;
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  phone?: string;
   company?: string;
   useCase?: string;
   budget?: string;
   timeline?: string;
   message?: string;
-  consent?: string;
+  consent?: string | boolean;
+  captchaToken?: string;
+  successRedirect?: string;
+  errorRedirect?: string;
 };
 
-function sanitize(str: string | undefined) {
-  return (str ?? "").toString().slice(0, 2000);
+type ContactMeta = {
+  ip: string;
+  userAgent: string;
+  useCase?: string;
+  budget?: string;
+  timeline?: string;
+  consent: boolean;
+  submittedAt: string;
+};
+
+type NormalizedContact = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone?: string;
+  company?: string;
+  message: string;
+  meta: ContactMeta;
+};
+
+type ExternalResult = {
+  ok: boolean;
+  status: number;
+  code?: string;
+  error?: string;
+  recordId?: string;
+};
+
+const FRONTEND_URL =
+  process.env.FRONTEND_URL ||
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  "https://www.bespokeethos.com";
+
+function sanitize(value: unknown): string {
+  if (value == null) return "";
+  return String(value).slice(0, 2000).trim();
+}
+
+function withCors(response: NextResponse) {
+  response.headers.set("Access-Control-Allow-Origin", FRONTEND_URL);
+  response.headers.set("Access-Control-Allow-Methods", "POST, OPTIONS");
+  response.headers.set("Access-Control-Allow-Headers", "Content-Type");
+  return response;
+}
+
+function validationError(
+  message: string,
+  isFormPost: boolean,
+  req: NextRequest,
+  errorRedirect?: string,
+) {
+  const timestamp = new Date().toISOString();
+  if (isFormPost) {
+    const url = new URL(errorRedirect ?? "/contact?error=1", req.url);
+    return withCors(NextResponse.redirect(url, { status: 303 }));
+  }
+  return withCors(
+    NextResponse.json(
+      { success: false, error: message, code: "VALIDATION_ERROR", timestamp },
+      { status: 400 },
+    ),
+  );
 }
 
 export async function POST(req: NextRequest) {
-  // Simple in-memory rate limit (best-effort; resets on cold start)
-  const ip = (req.headers.get("x-forwarded-for") || "").split(",")[0]?.trim() || (req as any).ip || "unknown";
-  const now = Date.now();
+  const ip =
+    (req.headers.get("x-forwarded-for") || "").split(",")[0]?.trim() ||
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (req as any).ip ||
+    "unknown";
+
+  const nowMs = Date.now();
   const bucket = getBucket(ip);
-  if (bucket.count >= 10 && now - bucket.ts < 60_000) {
-    return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+  if (bucket.count >= 10 && nowMs - bucket.ts < 60_000) {
+    const timestamp = new Date().toISOString();
+    const contentType = req.headers.get("content-type")?.toLowerCase() ?? "";
+    const isFormPost =
+      contentType.includes("application/x-www-form-urlencoded") ||
+      contentType.includes("multipart/form-data");
+
+    if (isFormPost) {
+      const url = new URL("/contact?error=1", req.url);
+      return withCors(NextResponse.redirect(url, { status: 303 }));
+    }
+
+    return withCors(
+      NextResponse.json(
+        {
+          success: false,
+          error: "Too many requests. Please try again in a minute.",
+          code: "RATE_LIMIT",
+          timestamp,
+        },
+        { status: 429 },
+      ),
+    );
   }
-  if (now - bucket.ts >= 60_000) {
+  if (nowMs - bucket.ts >= 60_000) {
     bucket.count = 0;
-    bucket.ts = now;
+    bucket.ts = nowMs;
   }
   bucket.count++;
+
   const contentType = req.headers.get("content-type")?.toLowerCase() ?? "";
   const isFormPost =
     contentType.includes("application/x-www-form-urlencoded") ||
@@ -38,29 +129,26 @@ export async function POST(req: NextRequest) {
   let errorRedirect: string | undefined;
 
   try {
-    let data: Body & { captchaToken?: string };
+    let data: Body;
 
     if (isFormPost) {
       const formData = await req.formData();
-      successRedirect = formData.get("successRedirect")?.toString() || undefined;
-      errorRedirect = formData.get("errorRedirect")?.toString() || undefined;
+      successRedirect = sanitize(formData.get("successRedirect"));
+      errorRedirect = sanitize(formData.get("errorRedirect"));
+
       data = {
-        name: formData.get("name")?.toString() || "",
-        email: formData.get("email")?.toString() || "",
-        company: formData.get("company")?.toString() || "",
-        useCase: formData.get("useCase")?.toString() || "",
-        budget: formData.get("budget")?.toString() || "",
-        timeline: formData.get("timeline")?.toString() || "",
-        message: formData.get("message")?.toString() || "",
-        consent: formData.get("consent")?.toString() || "",
-        captchaToken: formData.get("cf-turnstile-response")?.toString() || "",
+        name: sanitize(formData.get("name")),
+        email: sanitize(formData.get("email")),
+        company: sanitize(formData.get("company")),
+        useCase: sanitize(formData.get("useCase")),
+        budget: sanitize(formData.get("budget")),
+        timeline: sanitize(formData.get("timeline")),
+        message: sanitize(formData.get("message")),
+        consent: formData.get("consent")?.toString() ?? "",
+        captchaToken: sanitize(formData.get("cf-turnstile-response")),
       };
     } else {
-      const json = (await req.json()) as Body & {
-        captchaToken?: string;
-        successRedirect?: string;
-        errorRedirect?: string;
-      };
+      const json = (await req.json()) as Body;
       successRedirect = json.successRedirect;
       errorRedirect = json.errorRedirect;
       data = json;
@@ -68,183 +156,464 @@ export async function POST(req: NextRequest) {
 
     // Optional: verify Cloudflare Turnstile
     const turnstileSecret = process.env.TURNSTILE_SECRET;
-    const captchaToken = sanitize((data as any).captchaToken);
+    const captchaToken = sanitize(data.captchaToken);
     if (turnstileSecret && captchaToken) {
       const verifyRes = await fetch(
         "https://challenges.cloudflare.com/turnstile/v0/siteverify",
         {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: new URLSearchParams({ secret: turnstileSecret, response: captchaToken }),
+          body: new URLSearchParams({
+            secret: turnstileSecret,
+            response: captchaToken,
+          }),
         },
       );
       const verify = (await verifyRes.json()) as { success?: boolean };
       if (!verify.success) {
-        return NextResponse.json({ error: "Captcha failed" }, { status: 400 });
+        return validationError(
+          "Captcha failed. Please try again.",
+          isFormPost,
+          req,
+          errorRedirect,
+        );
       }
     }
 
-    const name = sanitize(data.name);
+    const timestamp = new Date().toISOString();
+    const userAgent = sanitize(req.headers.get("user-agent"));
     const email = sanitize(data.email);
+    const phone = sanitize((data as Body).phone);
+    const company = sanitize(data.company);
+    const message = sanitize(data.message || "");
+    const useCase = sanitize(data.useCase);
+    const budget = sanitize(data.budget);
+    const timeline = sanitize(data.timeline);
+    const consentFlag =
+      typeof data.consent === "boolean"
+        ? data.consent
+        : Boolean(sanitize(data.consent));
+
+    const firstNameRaw = sanitize((data as Body).firstName);
+    const lastNameRaw = sanitize((data as Body).lastName);
+    const fullName = sanitize(data.name);
+
+    let firstName = firstNameRaw;
+    let lastName = lastNameRaw;
+
+    if (!firstName || !lastName) {
+      const baseName = fullName || `${firstNameRaw} ${lastNameRaw}`.trim();
+      if (baseName) {
+        const parts = baseName.split(/\s+/);
+        const firstPart = parts[0];
+        const remaining = parts.slice(1).join(" ");
+        if (!firstName && firstPart) {
+          firstName = firstPart;
+        }
+        if (!lastName) {
+          lastName = remaining || "(not provided)";
+        }
+      }
+    }
+
+    firstName = firstName || "(not provided)";
+    lastName = lastName || "(not provided)";
+
+    const errors: string[] = [];
+    if (!firstName || firstName === "(not provided)") {
+      errors.push("First name is required.");
+    }
+    if (!lastName || lastName === "(not provided)") {
+      errors.push("Last name is required.");
+    }
     if (!email) {
+      errors.push("Email is required.");
+    } else {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        errors.push("Email address is invalid.");
+      }
+    }
+    if (!message || message.length < 10) {
+      errors.push("Message must be at least 10 characters.");
+    }
+
+    if (errors.length > 0) {
+      return validationError(errors.join(" "), isFormPost, req, errorRedirect);
+    }
+
+    const contact: NormalizedContact = {
+      firstName,
+      lastName,
+      email,
+      phone,
+      company,
+      message,
+      meta: {
+        ip,
+        userAgent,
+        useCase,
+        budget,
+        timeline,
+        consent: consentFlag,
+        submittedAt: timestamp,
+      },
+    };
+
+    console.info(
+      "[CONTACT_FORM_SUBMISSION] Normalized contact",
+      JSON.stringify({
+        timestamp,
+        firstName: contact.firstName,
+        lastName: contact.lastName,
+        email: contact.email,
+        phone: contact.phone,
+        company: contact.company,
+        meta: contact.meta,
+      }),
+    );
+
+    // Execute Airtable + Resend in parallel and wait BEFORE responding.
+    const [airtableResult, emailResult] = await Promise.all([
+      sendToAirtable(contact),
+      sendConfirmationEmail(contact),
+    ]);
+
+    const allOk = airtableResult.ok && emailResult.ok;
+    const primaryError = !airtableResult.ok ? airtableResult : emailResult;
+    const status = primaryError.status ?? 500;
+
+    if (!allOk) {
+      const code = primaryError.code || "EXTERNAL_SERVICE_ERROR";
+      const errorMessage =
+        primaryError.error ||
+        "We couldn't process your request right now. Please try again shortly.";
+
+      console.error(
+        "[CONTACT_FORM_SUBMISSION] External service failure",
+        JSON.stringify({ code, status, error: errorMessage }),
+      );
+
       if (isFormPost) {
         const url = new URL(errorRedirect ?? "/contact?error=1", req.url);
-        return NextResponse.redirect(url, { status: 303 });
+        return withCors(NextResponse.redirect(url, { status: 303 }));
       }
-      return NextResponse.json({ error: "Email is required" }, { status: 400 });
+
+      return withCors(
+        NextResponse.json(
+          {
+            success: false,
+            error: errorMessage,
+            code,
+            timestamp,
+          },
+          { status },
+        ),
+      );
     }
 
-    const bodyLines = [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      `Company: ${sanitize(data.company)}`,
-      `Use case: ${sanitize(data.useCase)}`,
-      `Budget: ${sanitize(data.budget)}`,
-      `Timeline: ${sanitize(data.timeline)}`,
-      `Consent: ${sanitize(data.consent) ? "Yes" : "No"}`,
-      "",
-      "Message:",
-      sanitize(data.message || "(no message)"),
-    ];
-
-    // Accept-and-log: write to server logs only, no external email
-    const subject = `New contact form submission — ${name || email}`;
-    const now = new Date().toISOString();
-    // request context enrichment
-    const xff = req.headers.get("x-forwarded-for") || "";
-    const userAgent = req.headers.get("user-agent") || "";
-    const logPayload = {
-      tag: "CONTACT_FORM_SUBMISSION",
-      timestamp: now,
-      subject,
-      name,
-      email,
-      company: sanitize(data.company),
-      useCase: sanitize(data.useCase),
-      budget: sanitize(data.budget),
-      timeline: sanitize(data.timeline),
-      consent: Boolean(sanitize(data.consent)),
-      message: sanitize(data.message || "(no message)"),
-      ip,
-      userAgent,
+    const successPayload = {
+      success: true,
+      message: "Contact form submitted successfully",
+      recordId: airtableResult.recordId ?? null,
+      timestamp,
     };
-    console.info(`[CONTACT_FORM_SUBMISSION] New contact from: ${name || "(no name)"} <${email}> — ip=${ip || "unknown"}`);
-    console.info(JSON.stringify(logPayload));
-
-    // Send email notification via Resend
-    const resendApiKey = process.env.RESEND_API_KEY;
-    console.info(`[CONTACT_FORM_SUBMISSION] Resend API key present: ${resendApiKey ? 'YES' : 'NO'}`);
-    if (resendApiKey) {
-      try {
-        const resend = new Resend(resendApiKey);
-        await resend.emails.send({
-          from: "Bespoke Ethos Contact Form <contact@bespokeethos.com>",
-          to: "contact@bespokeethos.com",
-          replyTo: email,
-          subject: `New Contact: ${name || email}`,
-          html: `
-            <h2>New Contact Form Submission</h2>
-            <p><strong>Name:</strong> ${name || "(not provided)"}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Company:</strong> ${sanitize(data.company) || "(not provided)"}</p>
-            <p><strong>Use Case:</strong> ${sanitize(data.useCase) || "(not provided)"}</p>
-            <p><strong>Budget:</strong> ${sanitize(data.budget) || "(not provided)"}</p>
-            <p><strong>Timeline:</strong> ${sanitize(data.timeline) || "(not provided)"}</p>
-            <p><strong>Consent:</strong> ${sanitize(data.consent) ? "Yes" : "No"}</p>
-            <hr>
-            <h3>Message:</h3>
-            <p>${sanitize(data.message || "(no message)").replace(/\n/g, "<br>")}</p>
-            <hr>
-            <p style="color: #666; font-size: 12px;">IP: ${ip} | User Agent: ${userAgent}</p>
-          `,
-        });
-        console.info("[CONTACT_FORM_SUBMISSION] ✅ Email sent successfully via Resend");
-      } catch (emailError) {
-        console.error("[CONTACT_FORM_SUBMISSION] ❌ Failed to send email via Resend:");
-        console.error(emailError);
-        // Don't fail the request if email fails - still log the submission
-      }
-    } else {
-      console.warn("[CONTACT_FORM_SUBMISSION] ⚠️ RESEND_API_KEY not configured, skipping email notification");
-    }
-
-    // Persist to Airtable when credentials are present
-    const airtableApiKey = process.env.AIRTABLE_API_KEY;
-    const airtableBaseId = process.env.AIRTABLE_BASE_ID;
-    const airtableTableId = process.env.AIRTABLE_CONTACT_ID;
-    if (airtableApiKey && airtableBaseId && airtableTableId) {
-      try {
-          const messageLines = [
-            sanitize(data.message || "(no message)"),
-            "",
-            `Company: ${sanitize(data.company) || "n/a"}`,
-            `Use case: ${sanitize(data.useCase) || "n/a"}`,
-            `Budget: ${sanitize(data.budget) || "n/a"}`,
-            `Timeline: ${sanitize(data.timeline) || "n/a"}`,
-            `Consent: ${Boolean(sanitize(data.consent)) ? "yes" : "no"}`,
-            `IP: ${ip}`,
-            `User agent: ${userAgent}`,
-          ];
-
-          const response = await fetch(
-            `https://api.airtable.com/v0/${airtableBaseId}/${airtableTableId}`,
-            {
-              method: "POST",
-              headers: {
-                Authorization: `Bearer ${airtableApiKey}`,
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                fields: {
-                  "Full Name": name || "(not provided)",
-                  "Email Address": email,
-                  "Message Content": messageLines.join("\n"),
-                  "Submission Date": new Date(now).toISOString().split("T")[0] ?? "",
-                  Status: "New",
-                },
-              }),
-            },
-          );
-
-          if (!response.ok) {
-            const text = await response.text();
-            console.error("[CONTACT_FORM_SUBMISSION] Airtable returned non-200 response:", text);
-          } else {
-            const airtableRecord = (await response.json()) as { id?: string };
-            console.info(
-              `[CONTACT_FORM_SUBMISSION] Saved to Airtable successfully${
-                airtableRecord?.id ? ` (record ${airtableRecord.id})` : ""
-              }`,
-            );
-          }
-      } catch (airtableError) {
-        console.error("[CONTACT_FORM_SUBMISSION] Failed to persist to Airtable:", airtableError);
-      }
-    } else {
-      console.warn("[CONTACT_FORM_SUBMISSION] Airtable credentials missing, skipping Airtable persistence");
-    }
 
     if (isFormPost) {
       const url = new URL(successRedirect ?? "/contact?sent=1", req.url);
-      return NextResponse.redirect(url, { status: 303 });
+      return withCors(NextResponse.redirect(url, { status: 303 }));
     }
 
-    return NextResponse.json({ ok: true });
-  } catch (err) {
+    return withCors(NextResponse.json(successPayload, { status: 200 }));
+  } catch (error) {
+    console.error("[CONTACT_FORM_SUBMISSION] Unexpected error", error);
+    const timestamp = new Date().toISOString();
+
     if (isFormPost) {
       const url = new URL(errorRedirect ?? "/contact?error=1", req.url);
-      return NextResponse.redirect(url, { status: 303 });
+      return withCors(NextResponse.redirect(url, { status: 303 }));
     }
-    return NextResponse.json({ error: "Invalid request" }, { status: 400 });
+
+    return withCors(
+      NextResponse.json(
+        {
+          success: false,
+          error: "Invalid request payload.",
+          code: "UNEXPECTED_ERROR",
+          timestamp,
+        },
+        { status: 400 },
+      ),
+    );
+  }
+}
+
+async function sendToAirtable(
+  contact: NormalizedContact,
+): Promise<ExternalResult> {
+  const apiKey = process.env.AIRTABLE_API_KEY;
+  const baseId = process.env.AIRTABLE_BASE_ID;
+  const tableName =
+    process.env.AIRTABLE_TABLE_NAME ||
+    process.env.AIRTABLE_CONTACT_TABLE_ID ||
+    process.env.AIRTABLE_CONTACT_ID;
+
+  if (!apiKey || !baseId || !tableName) {
+    console.error(
+      "[CONTACT_FORM_SUBMISSION] Airtable configuration missing. Check AIRTABLE_API_KEY, AIRTABLE_BASE_ID, AIRTABLE_TABLE_NAME / AIRTABLE_CONTACT_TABLE_ID.",
+    );
+    return {
+      ok: false,
+      status: 500,
+      code: "AIRTABLE_CONFIG_ERROR",
+      error: "Airtable configuration is missing.",
+    };
+  }
+
+  const url = `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(
+    tableName,
+  )}`;
+
+  const fields = {
+    "First Name": contact.firstName,
+    "Last Name": contact.lastName,
+    Email: contact.email,
+    Phone: contact.phone || "",
+    Company: contact.company || "",
+    Message: contact.message,
+    "Submitted At": contact.meta.submittedAt,
+    Status: "New",
+  };
+
+  console.info(
+    "[CONTACT_FORM_SUBMISSION] Sending record to Airtable",
+    JSON.stringify({ url, fields: { ...fields, Message: "[redacted]" } }),
+  );
+
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ fields }),
+    });
+
+    const text = await res.text();
+
+    if (res.status === 429) {
+      console.error(
+        "[CONTACT_FORM_SUBMISSION] Airtable rate limit reached",
+        text,
+      );
+      return {
+        ok: false,
+        status: 429,
+        code: "AIRTABLE_RATE_LIMIT",
+        error: "Rate limit exceeded when writing to Airtable.",
+      };
+    }
+
+    if (res.status === 401) {
+      console.error(
+        "[CONTACT_FORM_SUBMISSION] Airtable authentication error",
+        text,
+      );
+      return {
+        ok: false,
+        status: 401,
+        code: "AIRTABLE_AUTH_ERROR",
+        error: "Airtable authentication failed.",
+      };
+    }
+
+    if (!res.ok) {
+      console.error(
+        "[CONTACT_FORM_SUBMISSION] Airtable non-200 response",
+        text,
+      );
+      return {
+        ok: false,
+        status: res.status || 500,
+        code: "AIRTABLE_ERROR",
+        error: "Failed to create record in Airtable.",
+      };
+    }
+
+    let recordId: string | undefined;
+    try {
+      const parsed = JSON.parse(text) as { id?: string };
+      recordId = parsed.id;
+    } catch {
+      // ignore parse error; we already know it's OK
+    }
+
+    console.info(
+      `[CONTACT_FORM_SUBMISSION] Saved to Airtable successfully${
+        recordId ? ` (record ${recordId})` : ""
+      }`,
+    );
+
+    return { ok: true, status: 200, recordId };
+  } catch (err) {
+    console.error(
+      "[CONTACT_FORM_SUBMISSION] Network or Airtable error",
+      err,
+    );
+    return {
+      ok: false,
+      status: 500,
+      code: "AIRTABLE_NETWORK_ERROR",
+      error: "Airtable request failed.",
+    };
+  }
+}
+
+async function sendConfirmationEmail(
+  contact: NormalizedContact,
+): Promise<ExternalResult> {
+  const apiKey = process.env.RESEND_API_KEY;
+  const fromEmail = process.env.FROM_EMAIL || "contact@bespokeethos.com";
+
+  if (!apiKey) {
+    console.error(
+      "[CONTACT_FORM_SUBMISSION] RESEND_API_KEY missing; cannot send email.",
+    );
+    return {
+      ok: false,
+      status: 500,
+      code: "RESEND_CONFIG_ERROR",
+      error: "Email configuration is missing.",
+    };
+  }
+
+  const fromAddress = `Bespoke Ethos <${fromEmail}>`;
+  const toAddresses = [contact.email];
+
+  // Also send internal notification
+  const internalEmail = "contact@bespokeethos.com";
+  if (internalEmail && internalEmail !== contact.email) {
+    toAddresses.push(internalEmail);
+  }
+
+  const submittedAt = contact.meta.submittedAt;
+
+  const html = `
+    <div style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; color: #0f172a;">
+      <h2 style="margin-bottom: 0.5rem;">Thanks for reaching out, ${contact.firstName}.</h2>
+      <p>We received your message at Bespoke Ethos and will get back to you within one business day.</p>
+      <p style="margin-top: 1rem; font-weight: 500;">Here’s what you sent:</p>
+      <p><strong>Name:</strong> ${contact.firstName} ${contact.lastName}</p>
+      <p><strong>Email:</strong> ${contact.email}</p>
+      ${contact.company ? `<p><strong>Company:</strong> ${contact.company}</p>` : ""}
+      ${contact.phone ? `<p><strong>Phone:</strong> ${contact.phone}</p>` : ""}
+      ${
+        contact.meta.useCase
+          ? `<p><strong>What you’re hoping to achieve:</strong> ${contact.meta.useCase}</p>`
+          : ""
+      }
+      <p><strong>Message:</strong></p>
+      <p style="white-space: pre-line; padding: 0.75rem 1rem; border-radius: 0.75rem; background: #f1f5f9; border: 1px solid #e2e8f0;">
+        ${contact.message.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
+      </p>
+      <p style="margin-top: 1.5rem; font-size: 12px; color: #64748b;">
+        Submitted at ${submittedAt}. IP: ${contact.meta.ip}. User agent: ${contact.meta.userAgent}
+      </p>
+      <p style="margin-top: 0.5rem; font-size: 12px; color: #64748b;">
+        If you didn’t submit this form, you can safely ignore this email.
+      </p>
+    </div>
+  `;
+
+  console.info("[CONTACT_FORM_SUBMISSION] Sending email via Resend");
+
+  try {
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: fromAddress,
+        to: toAddresses,
+        subject: "We received your message at Bespoke Ethos",
+        html,
+        reply_to: "noreply@bespokeethos.com",
+      }),
+    });
+
+    const text = await res.text();
+
+    if (res.status === 429) {
+      console.error(
+        "[CONTACT_FORM_SUBMISSION] Resend rate limit reached",
+        text,
+      );
+      return {
+        ok: false,
+        status: 429,
+        code: "RESEND_RATE_LIMIT",
+        error: "Rate limit exceeded when sending email.",
+      };
+    }
+
+    if (res.status === 401) {
+      console.error(
+        "[CONTACT_FORM_SUBMISSION] Resend authentication error",
+        text,
+      );
+      return {
+        ok: false,
+        status: 401,
+        code: "RESEND_AUTH_ERROR",
+        error: "Email authentication failed.",
+      };
+    }
+
+    if (!res.ok) {
+      console.error(
+        "[CONTACT_FORM_SUBMISSION] Resend non-200 response",
+        text,
+      );
+      return {
+        ok: false,
+        status: res.status || 500,
+        code: "RESEND_ERROR",
+        error: "Failed to send confirmation email.",
+      };
+    }
+
+    console.info("[CONTACT_FORM_SUBMISSION] Email sent successfully via Resend");
+    return { ok: true, status: 200 };
+  } catch (err) {
+    console.error(
+      "[CONTACT_FORM_SUBMISSION] Network or Resend error",
+      err,
+    );
+    return {
+      ok: false,
+      status: 500,
+      code: "RESEND_NETWORK_ERROR",
+      error: "Resend request failed.",
+    };
   }
 }
 
 // Fallback handlers for non-POST
 export async function GET() {
-  return NextResponse.json({ error: "Method Not Allowed" }, { status: 405 });
+  return withCors(
+    NextResponse.json({ error: "Method Not Allowed" }, { status: 405 }),
+  );
 }
+
 export async function OPTIONS() {
-  return NextResponse.json({}, { status: 204 });
+  const res = new NextResponse(null, { status: 204 });
+  res.headers.set("Access-Control-Allow-Origin", FRONTEND_URL);
+  res.headers.set("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.headers.set("Access-Control-Allow-Headers", "Content-Type");
+  return res;
 }
 
 // naive per-IP bucket
