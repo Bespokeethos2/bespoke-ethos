@@ -20,9 +20,11 @@ function getRootDir() {
 function resolveSafePath(relativePath: string) {
   const rootDir = getRootDir();
   const clean = relativePath.replace(/^([/\\])+/, "");
-  const [top, ...rest] = clean.split(/[\\/]/);
+  const parts = clean.split(/[\\/]/);
+  const top = parts[0];
+  const rest = parts.slice(1);
 
-  if (!ALLOWED_ROOTS.includes(top)) {
+  if (!top || !ALLOWED_ROOTS.includes(top)) {
     throw new Error(
       `Path outside allowed roots. Allowed: ${ALLOWED_ROOTS.join(
         ", ",
@@ -165,4 +167,3 @@ export async function POST(req: NextRequest) {
     );
   }
 }
-
