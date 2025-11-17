@@ -221,7 +221,7 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
             onClick={handleOff}
           >
             <div
-              className="be-mobile-menu-card top-[4.5rem] bottom-4 mx-auto max-w-md sm:max-w-lg"
+              className="be-mobile-menu-card top-2 bottom-4 mx-auto max-w-md sm:max-w-lg"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex h-full flex-col">
