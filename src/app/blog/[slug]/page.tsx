@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+
 import { Section } from "@/common/layout";
 import { Heading } from "@/common/heading";
 import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
@@ -54,42 +55,49 @@ export default async function BlogPostPage({ params }: PageProps) {
   }
 
   return (
-    <Section className="gap-6 items-start">
-      <BlogPostJsonLd slug={post.slug} />
-      <Breadcrumbs
-        items={[
-          { name: "Home", href: "/" },
-          { name: "Blog", href: "/blog" },
-          { name: post.title },
-        ]}
-      />
-      <article className="mx-auto flex w-full max-w-3xl flex-col gap-6">
-        <header className="flex flex-col gap-4">
-          <Heading align="left" subtitle={new Date(post.publishedAt).toLocaleDateString("en-US", {
-            month: "long",
-            day: "numeric",
-            year: "numeric",
-          })}>
-            <h1>{post.title}</h1>
-          </Heading>
-          <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
-            {post.readingTimeMinutes} min read · Bespoke Ethos Stories &amp; Notes
-          </p>
-        </header>
-
-        <div className="relative h-40 w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-xl">
-          <Image
-            src={post.hero.src}
-            alt={post.hero.alt}
-            fill
-            className="h-full w-full object-cover"
-            sizes="(max-width: 768px) 100vw, 768px"
+    <main className="be-page-slate">
+      <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4 items-start">
+        <div className="be-section-card space-y-6">
+          <BlogPostJsonLd slug={post.slug} />
+          <Breadcrumbs
+            items={[
+              { name: "Home", href: "/" },
+              { name: "Blog", href: "/blog" },
+              { name: post.title },
+            ]}
           />
-        </div>
+          <article className="mx-auto flex w-full max-w-3xl flex-col gap-6">
+            <header className="flex flex-col gap-4">
+              <Heading
+                align="left"
+                subtitle={new Date(post.publishedAt).toLocaleDateString("en-US", {
+                  month: "long",
+                  day: "numeric",
+                  year: "numeric",
+                })}
+              >
+                <h1 className="font-hero-accent">{post.title}</h1>
+              </Heading>
+              <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
+                {post.readingTimeMinutes} min read • Bespoke Ethos Stories &amp; Notes
+              </p>
+            </header>
 
-        {post.content()}
-      </article>
-    </Section>
+            <div className="relative h-40 w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-xl">
+              <Image
+                src={post.hero.src}
+                alt={post.hero.alt}
+                fill
+                className="h-full w-full object-cover"
+                sizes="(max-width: 768px) 100vw, 768px"
+              />
+            </div>
+
+            {post.content()}
+          </article>
+        </div>
+      </Section>
+    </main>
   );
 }
 
@@ -126,3 +134,4 @@ function BlogPostJsonLd({ slug }: { slug: string }) {
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }
+

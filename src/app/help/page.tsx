@@ -11,7 +11,7 @@ export const revalidate = 1800;
 export const metadata: Metadata = {
   title: "Help & Product Overview | Bespoke Ethos",
   description:
-    "What Flowstack™, Chatbots, Consensus Engine™,  and Redbridging™ do (and don&rsquo;t). Packages, SLAs, and links to pricing.",
+    "What Flowstack™, Chatbots, Consensus Engine™, and Redbridging™ do (and don’t). Packages, SLAs, and links to pricing.",
   alternates: { canonical: "/help" },
 };
 
@@ -19,89 +19,110 @@ const LINK_SEPARATOR = <span className="text-text-tertiary">•</span>;
 
 export default function HelpPage() {
   return (
-    <Section className="gap-6">
-      <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Help" }]} />
-      <Heading subtitle="What our products do and don&rsquo;t" align="left">
-        <h1>Help & Product Overview</h1>
-      </Heading>
+    <main className="be-page-slate">
+      <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
+        <div className="be-section-card space-y-6">
+          <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Help" }]} />
+          <Heading subtitle="What our products do and don’t" align="left">
+            <h1 className="font-hero-accent">Help &amp; Product Overview</h1>
+          </Heading>
 
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        <ProductCard
-          title="Flowstack™"
-          summary="Automate your most time-consuming task without losing approvals."
-          learnHref="/solutions/flowstack"
-        >
-          <Column
-            heading="Does"
-            items={["Discovery-led design and custom build", "Human approvals and rollback", "Monitoring + documentation"]}
-          />
-          <Column
-            heading="Doesn&rsquo;t"
-            items={["Replace your ownership or create lock-in", "Ship a fragile, unmonitored prototype"]}
-          />
-        </ProductCard>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <ProductCard
+              title="Flowstack™"
+              summary="Automate your most time-consuming task without losing approvals."
+              learnHref="/solutions/flowstack"
+            >
+              <Column
+                heading="Does"
+                items={[
+                  "Discovery-led design and custom build",
+                  "Human approvals and rollback",
+                  "Monitoring + documentation",
+                ]}
+              />
+              <Column
+                heading="Doesn’t"
+                items={["Replace your ownership or create lock-in", "Ship a fragile, unmonitored prototype"]}
+              />
+            </ProductCard>
 
-        <ProductCard
-          title="Chatbots"
-          summary="On-brand, helpful answers 24/7 with a human handoff when needed."
-          learnHref="/solutions/chatbots"
-        >
-          <Column
-            heading="Does"
-            items={["Answer common questions instantly", "Escalate complex issues to your team", "Capture leads and measure deflection"]}
-          />
-          <Column
-            heading="Doesn&rsquo;t"
-            items={["Replace your brand voice", "Hide handoffs when a human is required"]}
-          />
-        </ProductCard>
+            <ProductCard
+              title="Chatbots"
+              summary="On-brand, helpful answers 24/7 with a human handoff when needed."
+              learnHref="/solutions/chatbots"
+            >
+              <Column
+                heading="Does"
+                items={[
+                  "Answer common questions instantly",
+                  "Escalate complex issues to your team",
+                  "Capture leads and measure deflection",
+                ]}
+              />
+              <Column
+                heading="Doesn’t"
+                items={["Replace your brand voice", "Hide handoffs when a human is required"]}
+              />
+            </ProductCard>
 
-        <ProductCard
-          title="Consensus Engine"
-          summary="Four AI perspectives debate your strategic question and ship one clear answer."
-          learnHref="/solutions/consensus-engine"
-        >
-          <Column
-            heading="Does"
-            items={["Provide transparent reasoning and tradeoffs", "Highlight disagreements and risk areas", "Deliver a concrete recommendation"]}
-          />
-          <Column
-            heading="Doesn&rsquo;t"
-            items={["Offer black-box answers without evidence", "Replace your judgment or ownership"]}
-          />
-        </ProductCard>
+            <ProductCard
+              title="Consensus Engine™"
+              summary="Four AI perspectives debate your strategic question and ship one clear answer."
+              learnHref="/solutions/consensus-engine"
+            >
+              <Column
+                heading="Does"
+                items={[
+                  "Provide transparent reasoning and tradeoffs",
+                  "Highlight disagreements and risk areas",
+                  "Deliver a concrete recommendation",
+                ]}
+              />
+              <Column
+                heading="Doesn’t"
+                items={["Offer black-box answers without evidence", "Replace your judgment or ownership"]}
+              />
+            </ProductCard>
 
-        <ProductCard
-          title="Redbridging"
-          summary="Rescue brittle automations; add monitoring, alerts, and documentation."
-          learnHref="/solutions/redbridging"
-        >
-          <Column
-            heading="Does"
-            items={["Audit and harden existing workflows", "Implement retries and alerting", "Document and hand off ownership"]}
-          />
-          <Column
-            heading="Doesn&rsquo;t"
-            items={["Introduce lock-in or hidden dependencies", "Leave you without visibility or recourse"]}
-          />
-        </ProductCard>
-      </div>
+            <ProductCard
+              title="Redbridging™"
+              summary="Rescue brittle automations; add monitoring, alerts, and documentation."
+              learnHref="/solutions/redbridging"
+            >
+              <Column
+                heading="Does"
+                items={[
+                  "Audit and harden existing workflows",
+                  "Implement retries and alerting",
+                  "Document and hand off ownership",
+                ]}
+              />
+              <Column
+                heading="Doesn’t"
+                items={["Introduce lock-in or hidden dependencies", "Leave you without visibility or recourse"]}
+              />
+            </ProductCard>
+          </div>
 
-      <div className="mt-4 flex flex-wrap gap-3 text-sm">
-        <Link className="text-accent-600 hover:underline" href="/contact">
-          Contact us
-        </Link>
-        {LINK_SEPARATOR}
-        <Link className="text-accent-600 hover:underline" href="/contact?service=llm-setups">
-          Book a free assessment
-        </Link>
-        {LINK_SEPARATOR}
-        <Link className="text-accent-600 hover:underline" href="/case-studies">
-          View case studies & solutions
-        </Link>
-      </div>
-      <FounderBadge />
-    </Section>
+          <div className="mt-4 flex flex-wrap gap-3 text-sm">
+            <Link className="text-accent-600 hover:underline" href="/contact">
+              Contact us
+            </Link>
+            {LINK_SEPARATOR}
+            <Link className="text-accent-600 hover:underline" href="/contact?service=llm-setups">
+              Book a free assessment
+            </Link>
+            {LINK_SEPARATOR}
+            <Link className="text-accent-600 hover:underline" href="/case-studies">
+              View case studies &amp; solutions
+            </Link>
+          </div>
+
+          <FounderBadge />
+        </div>
+      </Section>
+    </main>
   );
 }
 
