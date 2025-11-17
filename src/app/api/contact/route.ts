@@ -385,20 +385,31 @@ async function sendToAirtable(
   // Extract just the date portion (YYYY-MM-DD) for Airtable's date field
   const submittedDate = contact.meta.submittedAt.split("T")[0];
 
-  const fields = {
+  const fields: Record<string, unknown> = {
     "First Name": contact.firstName,
     "Last name": contact.lastName,
     Email: contact.email,
-    Phone: contact.phone || "",
-    Company: contact.company || "",
     Message: contact.message,
-    "Use Case": contact.meta.useCase || "",
-    Budget: contact.meta.budget || "",
-    Timeline: contact.meta.timeline || "",
     Consent: contact.meta.consent,
     "Submitted at": submittedDate,
     Status: "NEW",
   };
+
+  if (contact.phone) {
+    fields["Phone"] = contact.phone;
+  }
+  if (contact.company) {
+    fields["Company"] = contact.company;
+  }
+  if (contact.meta.useCase) {
+    fields["Use Case"] = contact.meta.useCase;
+  }
+  if (contact.meta.budget) {
+    fields["Budget"] = contact.meta.budget;
+  }
+  if (contact.meta.timeline) {
+    fields["Timeline"] = contact.meta.timeline;
+  }
 
   console.info(
     "[CONTACT_FORM_SUBMISSION] Sending record to Airtable",
