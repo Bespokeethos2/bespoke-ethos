@@ -438,15 +438,11 @@ html.dark .be-mobile-menu-card {
 
 @media (max-width: 768px) {
   .be-header-accent {
-    opacity: var(--be-aurora-op, 0.45);
-    filter: blur(20px) saturate(104%);
-    background:
-      radial-gradient(40rem 18rem at calc(50% + var(--hx)*8rem) calc(0% + var(--hy)*6rem),
-        hsl(var(--be-c1) / 0.14), transparent 60%),
-      radial-gradient(28rem 14rem at calc(30% - var(--hx)*6rem) calc(18% - var(--hy)*4rem),
-        hsl(var(--be-c2) / 0.12), transparent 60%),
-      conic-gradient(from 210deg at 50% -20%,
-        hsl(var(--be-c3) / 0.14), hsl(var(--be-c2) / 0.08), hsl(var(--be-c1) / 0.10));
+    /* Soften / remove heavy header glow on small screens to avoid
+       the appearance of a grey overlay bar above the hero. */
+    opacity: 0.0;
+    background: none;
+    filter: none;
   }
 }
 
