@@ -1,6 +1,15 @@
 'use client';
 
 import { useState, useRef, useEffect } from "react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Brutus Chat (Secure) | Bespoke Ethos",
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default function ChatPage() {
   const [prompt, setPrompt] = useState("");
@@ -122,4 +131,3 @@ export default function ChatPage() {
     </main>
   );
 }
-

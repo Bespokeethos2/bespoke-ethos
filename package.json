@@ -17,7 +17,8 @@
     "smoke": "pnpm run preflight && pnpm run smoke:images && pnpm run smoke:pages",
     "test:pinecone": "node scripts/test-pinecone.mjs",
     "generate:badges": "node scripts/generate-badges.cjs",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "brutus:edit": "node scripts/brutus-local.mjs"
   },
   "dependencies": {
     "@ai-sdk/openai-compatible": "^1.0.27",

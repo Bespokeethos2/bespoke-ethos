@@ -20,6 +20,9 @@ function buildClient() {
   return new OpenAI({
     apiKey,
     baseURL,
+    defaultHeaders: {
+      "x-prompt-id": "pmpt_6917f65a884c8197b3dbde116161d7690be2e9c70148404b",
+    },
   });
 }
 
@@ -64,7 +67,7 @@ export async function POST(req: NextRequest) {
   const model =
     typeof (body as any)?.model === "string" && (body as any).model.trim().length > 0
       ? (body as any).model
-      : "gpt-4.1-mini";
+      : "gpt-4.1";
   const temperature =
     typeof (body as any)?.temperature === "number" ? (body as any).temperature : 0.2;
 
