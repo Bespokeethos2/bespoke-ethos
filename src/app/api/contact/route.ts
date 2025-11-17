@@ -223,9 +223,6 @@ export async function POST(req: NextRequest) {
     if (!firstName || firstName === "(not provided)") {
       errors.push("First name is required.");
     }
-    if (!lastName || lastName === "(not provided)") {
-      errors.push("Last name is required.");
-    }
     if (!email) {
       errors.push("Email is required.");
     } else {
@@ -296,6 +293,7 @@ export async function POST(req: NextRequest) {
 
       if (isFormPost) {
         const url = new URL(errorRedirect ?? "/contact?error=1", req.url);
+        url.searchParams.set("code", code);
         return withCors(NextResponse.redirect(url, { status: 303 }));
       }
 
