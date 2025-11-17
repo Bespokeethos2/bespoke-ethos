@@ -195,6 +195,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
                   name="message"
                   rows={4}
                   required
+                  minLength={10}
                   className="rounded-md border border-border bg-surface-primary px-3 py-2 outline-none ring-0 focus:border-accent-primary/60 dark:border-dark-border dark:bg-dark-surface-primary"
                 />
               </label>
