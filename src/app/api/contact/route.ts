@@ -191,7 +191,8 @@ export async function POST(req: NextRequest) {
     const company = sanitize(data.company);
     const message = sanitize(data.message || "");
     const useCase = sanitize(data.useCase);
-    const budget = sanitize(data.budget);
+    const rawBudget = sanitize(data.budget);
+    const budget = rawBudget || "Not sure yet";
     const timeline = sanitize(data.timeline);
     const consentFlag =
       typeof data.consent === "boolean"
