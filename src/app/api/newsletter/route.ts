@@ -3,13 +3,27 @@ import { NextRequest, NextResponse } from "next/server";
 const invalidResponse = (message: string, status = 400) =>
   NextResponse.json({ error: message }, { status });
 
+function clean(value: unknown, max = 320): string {
+  if (typeof value !== "string") return "";
+  return value.trim().slice(0, max);
+}
+
 export async function POST(req: NextRequest) {
   try {
-    const { email } = await req.json();
+    const body = (await req.json().catch(() => null)) as
+      | { email?: unknown; source?: unknown; path?: unknown }
+      | null;
 
-    if (typeof email !== "string" || !email.includes("@")) {
+    const rawEmail = clean(body?.email);
+    const email = rawEmail.toLowerCase();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!email || !emailPattern.test(email)) {
       return invalidResponse("Valid email is required");
     }
+
+    const source = clean(body?.source) || "Website";
+    const path = clean(body?.path, 256);
 
     const airtableApiKey = process.env.AIRTABLE_API_KEY;
     const airtableBaseId = process.env.AIRTABLE_BASE_ID;
@@ -20,6 +34,15 @@ export async function POST(req: NextRequest) {
       // Fail open: accept the submission even if Airtable is not configured
       return NextResponse.json({ ok: true, offline: true });
     }
+
+    const fullName = email.split("@")[0] || "Newsletter Subscriber";
+    const signupDate = new Date().toISOString();
+
+    const notesBase = "Newsletter opt-in from website footer";
+    const notes =
+      path && path !== "/"
+        ? `${notesBase} (path: ${path})`
+        : notesBase;
 
     try {
       const response = await fetch(
@@ -32,11 +55,11 @@ export async function POST(req: NextRequest) {
           },
           body: JSON.stringify({
             fields: {
-              "Full Name": email.split("@")[0] || "Newsletter Subscriber",
+              "Full Name": fullName,
               "Email Address": email,
-              "Signup Date": new Date().toISOString(),
-              "Lead Source": "Website",
-              Notes: "Newsletter opt-in from website footer",
+              "Signup Date": signupDate,
+              "Lead Source": source,
+              Notes: notes,
             },
           }),
         },

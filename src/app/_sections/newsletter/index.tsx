@@ -34,7 +34,11 @@ function NewsletterForm({ copy }: { copy: NewsletterCopy }) {
       const response = await fetch("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({
+          email: email.trim(),
+          source: "Website footer",
+          path: typeof window !== "undefined" ? window.location.pathname : undefined,
+        }),
       });
 
       if (!response.ok) {
