@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 
 export default function ChatPage() {
   const [prompt, setPrompt] = useState("");
+  const [password, setPassword] = useState("");
   const [response, setResponse] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -17,7 +18,7 @@ export default function ChatPage() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!prompt.trim() || loading) return;
+    if (!prompt.trim() || !password.trim() || loading) return;
 
     setLoading(true);
     setResponse("");
@@ -27,7 +28,7 @@ export default function ChatPage() {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt }),
+        body: JSON.stringify({ prompt, password }),
       });
 
       if (!res.ok || !res.body) {
@@ -76,6 +77,20 @@ export default function ChatPage() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="flex flex-col gap-1">
+              <label className="text-xs font-medium text-text-secondary dark:text-dark-text-secondary">
+                Brutus password
+              </label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter the shared Brutus password"
+                className="w-full rounded-md border border-border bg-surface-primary px-3 py-2 text-sm outline-none ring-0 focus:border-accent-primary/60 dark:border-dark-border dark:bg-dark-surface-primary"
+                disabled={loading}
+              />
+            </div>
+
             <textarea
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
