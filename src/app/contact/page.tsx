@@ -114,7 +114,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
 
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <label className="flex flex-col gap-1">
-                  <span className="text-xs text-text-secondary dark:text-dark-text-secondary sm:text-sm">
+                  <span className="text-xs text-white sm:text-sm">
                     Name <span className="text-red-600">*</span>
                   </span>
                   <input
@@ -125,7 +125,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
                   />
                 </label>
                 <label className="flex flex-col gap-1">
-                  <span className="text-xs text-text-secondary dark:text-dark-text-secondary sm:text-sm">
+                  <span className="text-xs text-white sm:text-sm">
                     Email <span className="text-red-600">*</span>
                   </span>
                   <input
