@@ -155,9 +155,13 @@ export async function POST(req: NextRequest) {
     }
 
     // Optional: verify Cloudflare Turnstile
+    // Controlled via CONTACT_ENABLE_TURNSTILE to avoid blocking
+    // submissions while Airtable integration is being verified.
+    const turnstileEnabled =
+      process.env.CONTACT_ENABLE_TURNSTILE === "1";
     const turnstileSecret = process.env.TURNSTILE_SECRET;
     const captchaToken = sanitize(data.captchaToken);
-    if (turnstileSecret && captchaToken) {
+    if (turnstileEnabled && turnstileSecret && captchaToken) {
       const verifyRes = await fetch(
         "https://challenges.cloudflare.com/turnstile/v0/siteverify",
         {
@@ -270,10 +274,16 @@ export async function POST(req: NextRequest) {
       }),
     );
 
-    // Execute Airtable + Resend in parallel and wait BEFORE responding.
+    // Execute Airtable + (optionally) Resend in parallel and wait BEFORE responding.
+    // Email sending is gated by CONTACT_ENABLE_EMAIL; by default, only Airtable
+    // must succeed for the request to be treated as successful.
+    const emailEnabled = process.env.CONTACT_ENABLE_EMAIL === "1";
+
     const [airtableResult, emailResult] = await Promise.all([
       sendToAirtable(contact),
-      sendConfirmationEmail(contact),
+      emailEnabled
+        ? sendConfirmationEmail(contact)
+        : Promise.resolve<ExternalResult>({ ok: true, status: 200 }),
     ]);
 
     const allOk = airtableResult.ok && emailResult.ok;
@@ -372,22 +382,23 @@ async function sendToAirtable(
     tableName,
   )}`;
 
-    // Extract just the date portion (YYYY-MM-DD) for Airtable's date field
-    const submittedDate = contact.meta.submittedAt.split('T')[0];
+  // Extract just the date portion (YYYY-MM-DD) for Airtable's date field
+  const submittedDate = contact.meta.submittedAt.split("T")[0];
 
-    const fields = {
-      "First Name": contact.firstName,
-      "Last Name": contact.lastName,
-      Email: contact.email,
-      Phone: contact.phone || "",
-      Company: contact.company || "",
-      Message: contact.message,
-      "Use Case": contact.meta.useCase || "",
-      Budget: contact.meta.budget || "",
-      Timeline: contact.meta.timeline || "",
-      Consent: contact.meta.consent,
-      "Submitted at": submittedDate,
-    };
+  const fields = {
+    "First Name": contact.firstName,
+    "Last name": contact.lastName,
+    Email: contact.email,
+    Phone: contact.phone || "",
+    Company: contact.company || "",
+    Message: contact.message,
+    "Use Case": contact.meta.useCase || "",
+    Budget: contact.meta.budget || "",
+    Timeline: contact.meta.timeline || "",
+    Consent: contact.meta.consent,
+    "Submitted at": submittedDate,
+    Status: "NEW",
+  };
 
   console.info(
     "[CONTACT_FORM_SUBMISSION] Sending record to Airtable",
@@ -507,14 +518,14 @@ async function sendConfirmationEmail(
     <div style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; color: #0f172a;">
       <h2 style="margin-bottom: 0.5rem;">Thanks for reaching out, ${contact.firstName}.</h2>
       <p>We received your message at Bespoke Ethos and will get back to you within one business day.</p>
-      <p style="margin-top: 1rem; font-weight: 500;">Here’s what you sent:</p>
+      <p style="margin-top: 1rem; font-weight: 500;">HereΓÇÖs what you sent:</p>
       <p><strong>Name:</strong> ${contact.firstName} ${contact.lastName}</p>
       <p><strong>Email:</strong> ${contact.email}</p>
       ${contact.company ? `<p><strong>Company:</strong> ${contact.company}</p>` : ""}
       ${contact.phone ? `<p><strong>Phone:</strong> ${contact.phone}</p>` : ""}
       ${
         contact.meta.useCase
-          ? `<p><strong>What you’re hoping to achieve:</strong> ${contact.meta.useCase}</p>`
+          ? `<p><strong>What youΓÇÖre hoping to achieve:</strong> ${contact.meta.useCase}</p>`
           : ""
       }
       <p><strong>Message:</strong></p>
@@ -525,7 +536,7 @@ async function sendConfirmationEmail(
         Submitted at ${submittedAt}. IP: ${contact.meta.ip}. User agent: ${contact.meta.userAgent}
       </p>
       <p style="margin-top: 0.5rem; font-size: 12px; color: #64748b;">
-        If you didn’t submit this form, you can safely ignore this email.
+        If you didnΓÇÖt submit this form, you can safely ignore this email.
       </p>
     </div>
   `;
