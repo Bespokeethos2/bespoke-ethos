@@ -1,13 +1,25 @@
 import type { MetadataRoute } from "next";
+import { siteHost, siteUrl } from "@/lib/constants";
 
 export default function robots(): MetadataRoute.Robots {
-  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-      disallow: ["/admin/", "/private/", "/api/"],
-    },
-    sitemap: `${base}/sitemap.xml`,
+    rules: [
+      {
+        userAgent: "*",
+        allow: "/",
+        disallow: [
+          "/api/",
+          "/api/*",
+          "/chat",
+          "/chat/*",
+          "/api/brutus",
+          "/api/brutus/*",
+          "/api/brutus/fs",
+          "/api/brutus/fs/*",
+        ],
+      },
+    ],
+    sitemap: `${siteUrl}/sitemap.xml`,
+    host: siteHost,
   };
 }
