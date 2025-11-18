@@ -81,7 +81,7 @@ export default function HomePage() {
             Risk-free AI readiness audit and a custom Consensus Engine research report on your biggest uncertainty.
           </p>
 
-          <div className="relative inline-block mb-8">
+          <div className="relative inline-block mb-8 rounded-full">
             <BorderBeam borderWidth={1} lightWidth={360} duration={10} />
             <Link href="/contact?service=llm-setups" className="primary-cta relative inline-block z-[1]">
               Book Your Free AI Readiness Audit

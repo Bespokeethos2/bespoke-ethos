@@ -870,21 +870,25 @@ html.dark .be-page-slate {
 
 /* Standard primary CTA */
 .primary-cta {
-  background: var(--amber-cta);
-  color: var(--charcoal-text);
-  padding: 16px 32px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 18px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  min-width: 44px;
-  min-height: 44px;
-}
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--amber-cta);
+    color: var(--charcoal-text);
+    padding: 14px 32px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 18px;
+    border: 1px solid rgba(15, 23, 42, 0.9); /* thin dark border */
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 44px;
+    min-height: 44px;
+  }
 
 .primary-cta:hover {
-  background: var(--gold-accent);
+    background: var(--gold-accent);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(246, 173, 85, 0.3);
 }
