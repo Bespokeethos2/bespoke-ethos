@@ -31,7 +31,7 @@ export function NavigationMenuHeader({
 }) {
   return (
     <NavigationMenu
-      className={clsx("relative z-1 flex-col justify-center lg:flex", className)}
+      className={clsx("relative z-1 flex-col justify-center xl:flex", className)}
       delayDuration={50}
     >
       <NavigationMenuList className="flex flex-1 gap-0.5 px-4">
@@ -183,8 +183,8 @@ function NavigationMenuLinkWithMenu({ _title, href, sublinks }: HeaderNavLink) {
 export function DesktopMenu({ navbar, rightCtas }: HeaderData) {
   return (
     <>
-      <NavigationMenuHeader className="hidden lg:flex" links={navbar.items} />
-      <div className="hidden items-center gap-2 justify-self-end lg:flex">
+      <NavigationMenuHeader className="hidden xl:flex" links={navbar.items} />
+      <div className="hidden items-center gap-2 justify-self-end xl:flex">
         {rightCtas.items.map((cta) => {
           return (
             <ButtonLink key={cta._id} className="px-3.5!" href={cta.href} intent={cta.type}>
@@ -209,15 +209,15 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
     <>
       <button
         aria-label="Toggle menu"
-        className="border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary col-start-3 flex items-center justify-center gap-2 justify-self-end rounded-sm border p-2 lg:hidden lg:h-7"
+        className="border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary col-start-3 flex items-center justify-center gap-2 justify-self-end rounded-sm border p-2 xl:hidden xl:h-7"
         onPointerDown={handleToggle}
       >
         <HamburgerMenuIcon className="size-4" />
       </button>
-      <div className="block lg:hidden">
+      <div className="block xl:hidden">
         {isOn ? (
           <div
-            className="be-mobile-menu-backdrop fixed inset-0 z-[120]"
+            className="be-mobile-menu-backdrop fixed inset-x-0 bottom-0 top-[var(--header-height)] z-[120]"
             onClick={handleOff}
           >
             <div

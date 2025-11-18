@@ -102,6 +102,17 @@
   opacity: .55;
 }
 
+/* Reduce iOS tap highlight in header nav / mobile menu */
+header a,
+header button,
+header input,
+header textarea,
+.be-mobile-menu-card a,
+.be-mobile-menu-card button {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
 /* Homepage hero layout */
 .home-hero {
   background-color: var(--cream-bg);
