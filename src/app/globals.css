@@ -170,12 +170,16 @@ header textarea,
 
 .home-hero-rotate {
   position: relative;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 8ch;
+  display: inline-block;
   height: 1.2em;
   color: var(--amber-cta);
+}
+
+.home-hero-rotate::before {
+  /* Reserve width equal to the longest word so spacing stays consistent */
+  content: "AUTOMATE";
+  visibility: hidden;
+  display: block;
 }
 
 .home-hero-rotate span {
