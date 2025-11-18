@@ -134,10 +134,21 @@ header textarea,
 }
 
 .home-hero-subtitle {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  column-gap: 0.35em;
+  row-gap: 0.15em;
   font-weight: 600;
   color: var(--muted-text);
   margin-bottom: 32px;
-  font-size: clamp(1.4rem, 3.2vw, 1.75rem); /* ~22–28px */
+  font-size: clamp(1.4rem, 3.2vw, 1.75rem); /* ~22-28px */
+  text-align: center;
+}
+
+.home-hero-subtitle-part {
+  white-space: nowrap;
 }
 
 .home-hero-body {
@@ -159,8 +170,10 @@ header textarea,
 
 .home-hero-rotate {
   position: relative;
-  display: inline-block;
-  min-width: 7ch;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 8ch;
   height: 1.2em;
   color: var(--amber-cta);
 }

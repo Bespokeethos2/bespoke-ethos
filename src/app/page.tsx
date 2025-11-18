@@ -63,16 +63,16 @@ export default function HomePage() {
           <h1 className="home-hero-title font-hero-accent">&quot;Am I Doing This Right?&quot;</h1>
 
           <p className="home-hero-subtitle">
-            We help Cleveland small businesses{" "}
-            <span className="home-hero-rotate">
+            <span className="home-hero-subtitle-part">We help Cleveland small businesses</span>
+            <span className="home-hero-rotate" aria-live="polite">
               <span>AUTOMATE</span>
               <span>SIMPLIFY</span>
               <span>SCALE</span>
               <span>PROFIT</span>
               <span>COMPETE</span>
               <span>GROW</span>
-            </span>{" "}
-            with AI.
+            </span>
+            <span className="home-hero-subtitle-part">with AI.</span>
           </p>
 
           <p className="home-hero-body">
