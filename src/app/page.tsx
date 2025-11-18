@@ -61,22 +61,28 @@ export default function HomePage() {
         <div className="home-hero-inner">
           <h1 className="home-hero-title font-hero-accent">&quot;Am I Doing This Right?&quot;</h1>
 
-          <p className="home-hero-subtitle">We Take the Busywork. You Keep Control.</p>
+          <p className="home-hero-subtitle">
+            We help Cleveland small businesses{" "}
+            <span className="home-hero-rotate">
+              <span>AUTOMATE</span>
+              <span>SIMPLIFY</span>
+              <span>SCALE</span>
+              <span>PROFIT</span>
+              <span>COMPETE</span>
+              <span>GROW</span>
+            </span>{" "}
+            with AI.
+          </p>
 
           <p className="home-hero-body">
             Free 30-minute AI consultation + custom research report on your biggest uncertainty.
-            <br />
-            No jargon. No pressure. Just answers.
           </p>
 
           <Link href="/contact?service=llm-setups" className="primary-cta inline-block mb-8">
             Schedule Your Free Consultation
           </Link>
 
-          <p className="home-hero-tagline">
-            You&apos;re working your day job and building nights and weekends. We get it-we&apos;re doing it too. Let&apos;s figure this
-            out together.
-          </p>
+          <p className="home-hero-tagline">No jargon. No overnight. Just practical automation.</p>
 
           <div className="mt-8 mx-auto max-w-md sm:max-w-lg lg:max-w-2xl">
             <div className="relative aspect-[5/3] w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame">
