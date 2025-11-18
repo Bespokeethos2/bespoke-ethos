@@ -97,7 +97,7 @@ export function TrustCredentials() {
           </p>
           <div className="mt-6 flex justify-center">
             <div className="relative inline-flex rounded-full">
-              <BorderBeam borderWidth={2} lightWidth={360} duration={8} />
+              <BorderBeam borderWidth={2} lightWidth={360} duration={10} />
               <Link
                 href="/lgbtq-discount"
                 className="relative z-[1] inline-flex items-center rounded-full bg-white px-8 py-3 text-sm font-semibold text-slate-900 shadow-md transition-colors duration-200 hover:bg-slate-100"

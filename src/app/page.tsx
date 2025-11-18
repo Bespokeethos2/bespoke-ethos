@@ -80,7 +80,7 @@ export default function HomePage() {
           </p>
 
           <div className="relative inline-block mb-8">
-            <BorderBeam borderWidth={2} lightWidth={360} duration={8} />
+            <BorderBeam borderWidth={2} lightWidth={360} duration={10} />
             <Link href="/contact?service=llm-setups" className="primary-cta relative inline-block z-[1]">
               Schedule Your Free Consultation
             </Link>

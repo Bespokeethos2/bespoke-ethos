@@ -77,7 +77,7 @@ export default function LGBTQDiscountPage() {
 
           <div className="mt-6 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center">
             <div className="relative inline-flex w-full rounded-full sm:w-auto">
-              <BorderBeam borderWidth={2} lightWidth={360} duration={8} />
+              <BorderBeam borderWidth={2} lightWidth={360} duration={10} />
               <Link
                 href="/contact?service=llm-setups&subject=25%25%20LGBTQ%2B%20Discount"
                 className="relative z-[1] inline-flex w-full items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-semibold text-slate-900 shadow-md transition-colors duration-200 hover:bg-slate-100 sm:w-auto"

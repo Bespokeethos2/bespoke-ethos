@@ -243,7 +243,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
 
       <Section className="pt-0">
         <div className="relative mx-auto mb-12 mt-10 max-w-2xl">
-          <BorderBeam borderWidth={2} lightWidth={360} duration={8} />
+          <BorderBeam borderWidth={2} lightWidth={360} duration={10} />
           <div className="relative rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 p-8 shadow-lg dark:from-slate-800 dark:to-slate-900">
             <h3 className="mb-4 text-3xl font-bold text-slate-900 dark:text-white">
               25% Off for LGBTQ+ Businesses
@@ -255,7 +255,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
             </p>
             <Link
               href="/lgbtq-discount"
-              className="inline-flex items-center rounded-lg bg-gradient-to-r from-orange-400 to-orange-500 px-8 py-3 text-sm font-semibold text-white shadow-md transition-colors duration-200 hover:from-orange-500 hover:to-orange-600"
+              className="inline-flex items-center rounded-lg bg-white px-8 py-3 text-sm font-semibold text-slate-900 shadow-md transition-colors duration-200 hover:bg-slate-100 dark:bg-slate-900 dark:text-white dark:hover:bg-slate-800"
             >
               Learn More About Our Commitment
             </Link>

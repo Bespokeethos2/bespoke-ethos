@@ -90,7 +90,7 @@ export function LGBTQDiscountModalTrigger({ children }: LGBTQDiscountModalTrigge
   return (
     <>
       <div className="relative inline-flex">
-        <BorderBeam borderWidth={2} lightWidth={360} duration={8} />
+        <BorderBeam borderWidth={2} lightWidth={360} duration={10} />
         <button
           ref={triggerRef}
           type="button"
