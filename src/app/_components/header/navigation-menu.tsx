@@ -206,6 +206,29 @@ export function DesktopMenu({ navbar, rightCtas }: HeaderData) {
 export function MobileMenu({ navbar, rightCtas }: HeaderData) {
   const { handleToggle, isOn, handleOff } = useToggleState();
 
+  React.useEffect(() => {
+    const body = document.body;
+    const prevOverflow = body.style.overflow;
+    const prevPosition = body.style.position;
+    const prevWidth = body.style.width;
+
+    if (isOn) {
+      body.style.overflow = "hidden";
+      body.style.position = "fixed";
+      body.style.width = "100%";
+    } else {
+      body.style.overflow = "";
+      body.style.position = "";
+      body.style.width = "";
+    }
+
+    return () => {
+      body.style.overflow = prevOverflow;
+      body.style.position = prevPosition;
+      body.style.width = prevWidth;
+    };
+  }, [isOn]);
+
   return (
     <>
       <button
@@ -218,8 +241,9 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
       <div className="block xl:hidden">
         {isOn ? (
           <div
-            className="be-mobile-menu-backdrop fixed inset-x-0 bottom-0 top-[var(--header-height)] z-[120]"
+            className="be-mobile-menu-backdrop fixed inset-0 z-[120]"
             onClick={handleOff}
+            style={{ height: "100dvh", width: "100vw" }}
           >
             <div
               className="be-mobile-menu-card top-2 bottom-4 mx-auto max-w-md sm:max-w-lg"
