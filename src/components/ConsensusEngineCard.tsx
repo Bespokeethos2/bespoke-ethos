@@ -1,12 +1,18 @@
 'use client';
 
 import { useState } from "react";
+import clsx from "clsx";
 
-export function ConsensusEngineCard() {
+export function ConsensusEngineCard({ className }: { className?: string }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="relative max-w-5xl mx-auto my-20 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 rounded-2xl shadow-xl overflow-hidden">
+    <div
+      className={clsx(
+        "relative max-w-5xl mx-auto my-20 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 rounded-2xl shadow-xl overflow-hidden",
+        className,
+      )}
+    >
       {/* Proprietary Badge */}
       <div className="absolute top-6 right-6">
         <span className="px-4 py-2 rounded-full border border-white/60 bg-[color:var(--navy-primary)] text-xs font-semibold uppercase tracking-[0.18em] text-white shadow-lg shadow-black/30">
