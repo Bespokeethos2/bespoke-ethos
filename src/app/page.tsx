@@ -114,8 +114,10 @@ export default function HomePage() {
       </section>
 
       {/* Consensus Engine feature card */}
-      <section className="py-16 px-4 sm:px-6">
-        <ConsensusEngineCard />
+      <section className="home-section home-section--cream">
+        <div className="home-section-inner">
+          <ConsensusEngineCard />
+        </div>
       </section>
 
       {/* You're Not Alone */}
