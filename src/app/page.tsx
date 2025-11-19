@@ -6,7 +6,9 @@ import { FounderStory } from "./_sections/founder-story";
 import { TrustCredentials } from "./_sections/trust-credentials";
 import { HomepageTestimonialsStrip } from "./_sections/testimonials";
 import { LGBTQDiscountModalTrigger } from "./_components/lgbtq-discount-modal-trigger";
+import { Accordion } from "./_sections/accordion-faq";
 import { BorderBeam } from "@/components/ui/border-beam";
+import { ConsensusEngineCard } from "@/components/ConsensusEngineCard";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -59,39 +61,42 @@ export default function HomePage() {
 
       {/* Hero */}
       <section className="home-hero">
+        <div className="be-hero-aurora" aria-hidden />
         <div className="home-hero-inner">
-          <h1 className="home-hero-title font-hero-accent">
-            Stop guessing. Start growing. AI automation for Cleveland small businesses.
-          </h1>
+          <div className="home-hero-panel">
+            <h1 className="home-hero-title font-hero-accent">
+              Stop guessing. Start growing. AI automation for Cleveland small businesses.
+            </h1>
 
-          <p className="home-hero-subtitle">
-            <span className="home-hero-subtitle-part">We help Cleveland small businesses</span>
-            <span className="home-hero-rotate" aria-live="polite">
-              <span>AUTOMATE</span>
-              <span>SIMPLIFY</span>
-              <span>SCALE</span>
-              <span>PROFIT</span>
-              <span>COMPETE</span>
-              <span>GROW</span>
-            </span>
-            <span className="home-hero-subtitle-part">with AI.</span>
-          </p>
+            <p className="home-hero-subtitle">
+              <span className="home-hero-subtitle-part">We help Cleveland small businesses</span>
+              <span className="home-hero-rotate" aria-live="polite">
+                <span>AUTOMATE</span>
+                <span>SIMPLIFY</span>
+                <span>SCALE</span>
+                <span>PROFIT</span>
+                <span>COMPETE</span>
+                <span>GROW</span>
+              </span>
+              <span className="home-hero-subtitle-part">with AI.</span>
+            </p>
 
-          <p className="home-hero-body">
-            Risk-free AI readiness audit and a custom Consensus Engine research report on your biggest uncertainty.
-          </p>
+            <p className="home-hero-body">
+              Risk-free AI readiness audit and a custom Consensus Engine research report on your biggest uncertainty.
+            </p>
 
-          <div className="relative inline-block mb-8 rounded-full">
-            <BorderBeam borderWidth={1} lightWidth={360} duration={10} />
-            <Link href="/contact?service=llm-setups" className="primary-cta relative inline-block z-[1]">
-              Book Your Free AI Readiness Audit
-            </Link>
+            <div className="relative inline-block mb-8 rounded-full">
+              <BorderBeam borderWidth={1} lightWidth={360} duration={10} />
+              <Link href="/contact?service=llm-setups" className="primary-cta relative inline-block z-[1]">
+                Book Your Free AI Readiness Audit
+              </Link>
+            </div>
+
+            <p className="home-hero-tagline">
+              "Am I doing this right?" is where most non-technical Cleveland founders start. No jargon. No overnight.
+              Just practical automation.
+            </p>
           </div>
-
-          <p className="home-hero-tagline">
-            “Am I doing this right?” is where most non-technical Cleveland founders start. No jargon. No overnight. Just
-            practical automation.
-          </p>
 
           <div className="mt-8 mx-auto max-w-md sm:max-w-lg lg:max-w-2xl">
             <div className="relative aspect-[5/3] w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame">
@@ -108,456 +113,198 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* You're Not Alone */}
+      {/* Consensus Engine feature card */}
+      <section className="py-16 px-4 sm:px-6">
+        <ConsensusEngineCard />
+      </section>
 
       {/* You're Not Alone */}
-      <section
-        style={{
-          backgroundColor: "var(--cream-bg)",
-          padding: "80px 24px",
-        }}
-      >
-        <h2
-          style={{
-            fontSize: "42px",
-            fontWeight: 700,
-            color: "var(--charcoal-text)",
-            marginBottom: "24px",
-            textAlign: "center",
-          }}
-        >
-          You’re Not Alone
-        </h2>
+      <section className="home-section home-section--cream">
+        <div className="home-section-inner">
+          <div className="be-section-card max-w-4xl mx-auto text-center">
+            <header className="home-section-header">
+              <h2 className="home-section-title">You're Not Alone</h2>
+            </header>
 
-        <p
-          style={{
-            fontSize: "24px",
-            fontWeight: 600,
-            color: "var(--amber-cta)",
-            marginBottom: "48px",
-            textAlign: "center",
-          }}
-        >
-          We’ve Been There
-        </p>
-
-        <div
-          style={{
-            maxWidth: "800px",
-            margin: "0 auto",
-            textAlign: "left",
-          }}
-        >
-          <ul
-            style={{
-              fontSize: "20px",
-              color: "var(--muted-text)",
-              lineHeight: 2,
-              listStyle: "none",
-              paddingLeft: 0,
-              marginBottom: "48px",
-            }}
-          >
-            <li>Working a day job while building your dream</li>
-            <li>Terrified you’ll make the wrong call and lose everything</li>
-            <li>Knowing AI is important but feeling completely overwhelmed</li>
-            <li>Reading articles that make it sound easy, then trying and hitting walls</li>
-          </ul>
-
-          <div
-            style={{
-              backgroundColor: "white",
-              padding: "32px",
-              borderRadius: "8px",
-              textAlign: "center",
-              marginBottom: "48px",
-            }}
-          >
-            <p
-              style={{
-                fontSize: "28px",
-                color: "var(--charcoal-text)",
-                fontWeight: 700,
-                marginBottom: "16px",
-              }}
-            >
-              78% of small business owners know they need AI.
-            </p>
             <p
               style={{
                 fontSize: "20px",
                 color: "var(--muted-text)",
-                marginBottom: 0,
+                lineHeight: 1.8,
+                marginBottom: "20px",
               }}
             >
-              Most don’t know where to start.
-              <br />
-              That’s exactly why we exist.
+              Working a day job while building your dream. Terrified you'll make the wrong call. Reading articles that
+              make it sound easy, then hitting walls when you try to do it yourself.
+            </p>
+
+            <p
+              style={{
+                fontSize: "20px",
+                color: "var(--charcoal-text)",
+                fontWeight: 600,
+              }}
+            >
+              78% of small business owners know they need AI. Most don't know where to start.
             </p>
           </div>
         </div>
       </section>
 
-      {/* The Offer */}
-      <section
-        style={{
-          backgroundColor: "white",
-          padding: "80px 24px",
-        }}
-      >
-        <h2
-          style={{
-            fontSize: "42px",
-            fontWeight: 700,
-            color: "var(--charcoal-text)",
-            marginBottom: "24px",
-            textAlign: "center",
-          }}
-        >
-          Your First Step to Getting Your Time Back
-        </h2>
+      {/* The Offer / What You Get */}
+      <section className="home-section home-section--white" id="book">
+        <div className="home-section-inner">
+          <div className="be-section-card">
+            <header className="home-section-header text-center">
+              <p className="home-section-eyebrow">Free AI Readiness Audit</p>
+              <h2 className="home-section-title">What You Get in 30 Minutes</h2>
+            </header>
 
-        <p
-          style={{
-            fontSize: "24px",
-            fontWeight: 600,
-            color: "var(--muted-text)",
-            marginBottom: "48px",
-            textAlign: "center",
-          }}
-        >
-          Free AI Readiness Audit
-        </p>
+            <div className="grid gap-6 md:grid-cols-2 text-left mb-10">
+              <div className="home-section-card">
+                <p className="home-section-card-title">Plain-English AI Explanation</p>
+                <p
+                  style={{
+                    fontSize: "18px",
+                    color: "var(--muted-text)",
+                    lineHeight: 1.7,
+                  }}
+                >
+                  No jargon. No hype. Just a clear picture of what AI can and can&apos;t do for a business like yours.
+                </p>
+              </div>
 
-        <div
-          style={{
-            maxWidth: "800px",
-            margin: "0 auto 48px",
-            textAlign: "left",
-          }}
-        >
-          <ul
-            style={{
-              fontSize: "20px",
-              color: "var(--muted-text)",
-              lineHeight: 2.2,
-              listStyle: "none",
-              paddingLeft: 0,
-              marginBottom: "48px",
-            }}
-          >
-            <li style={{ marginBottom: "16px" }}>Plain-English explanation of how AI works</li>
-            <li style={{ marginBottom: "16px" }}>Real talk about our experience (what worked, what didn’t)</li>
-            <li style={{ marginBottom: "16px" }}>Discussion of how AI could help your specific situation</li>
-            <li style={{ marginBottom: "16px" }}>
-              One free Consensus Engine research report on any topic you choose
-            </li>
-          </ul>
+              <div className="home-section-card">
+                <p className="home-section-card-title">Real Talk About What Works</p>
+                <p
+                  style={{
+                    fontSize: "18px",
+                    color: "var(--muted-text)",
+                    lineHeight: 1.7,
+                  }}
+                >
+                  Our wins, our failures, and the patterns we&apos;ve seen across real Cleveland small businesses.
+                </p>
+              </div>
 
-          <div
-            style={{
-              backgroundColor: "var(--cream-bg)",
-              padding: "32px",
-              borderRadius: "8px",
-              marginBottom: "48px",
-            }}
-          >
-            <p
-              style={{
-                fontSize: "22px",
-                color: "var(--charcoal-text)",
-                fontWeight: 600,
-                marginBottom: "24px",
-              }}
-            >
-              After the consultation, you’ll know:
-            </p>
-            <ul
-              style={{
-                fontSize: "18px",
-                color: "var(--muted-text)",
-                lineHeight: 2,
-                listStyle: "none",
-                paddingLeft: 0,
-                margin: 0,
-              }}
-            >
-              <li>If AI makes sense for your business right now</li>
-              <li>What your next step should be (even if it’s not working with us)</li>
-              <li>Exactly what it would cost to implement</li>
-            </ul>
-          </div>
+              <div className="home-section-card">
+                <p className="home-section-card-title">Custom Consensus Engine Report</p>
+                <p
+                  style={{
+                    fontSize: "18px",
+                    color: "var(--muted-text)",
+                    lineHeight: 1.7,
+                  }}
+                >
+                  One free, cited research report on your biggest question&mdash;pricing, automation, marketing, or
+                  anything else.
+                </p>
+              </div>
 
-          <p
-            style={{
-              fontSize: "20px",
-              color: "var(--charcoal-text)",
-              textAlign: "center",
-              fontWeight: 600,
-              marginBottom: "32px",
-            }}
-          >
-            No pressure. No sales pitch. Just clarity.
-          </p>
-        </div>
+              <div className="home-section-card">
+                <p className="home-section-card-title">Your Next Step (Even If It&apos;s Not Us)</p>
+                <p
+                  style={{
+                    fontSize: "18px",
+                    color: "var(--muted-text)",
+                    lineHeight: 1.7,
+                  }}
+                >
+                  A concrete, founder-friendly recommendation on what to do next so you&apos;re not stuck guessing.
+                </p>
+              </div>
+            </div>
 
-        <div style={{ textAlign: "center", marginBottom: "48px" }}>
-          <Link
-            href="/contact?service=llm-setups"
-            className="primary-cta inline-block"
-            style={{ marginBottom: "24px" }}
-          >
-            Book Your Free AI Readiness Audit
-          </Link>
-        </div>
-
-        <div className="relative mx-auto mt-4 max-w-[800px] rounded-2xl">
-          <BorderBeam borderWidth={3} lightWidth={420} duration={10} />
-          <div
-            style={{
-              backgroundColor: "var(--navy-primary)",
-              padding: "32px",
-              borderRadius: "16px",
-              textAlign: "center",
-            }}
-          >
-            <p
-              style={{
-                fontSize: "20px",
-                color: "#ffffff",
-                marginBottom: "24px",
-                lineHeight: 1.6,
-              }}
-            >
-              <strong>LGBTQ+ small business owners:</strong> 25% off all upfront project costs*
-              <br />
-              <span style={{ fontSize: "16px", opacity: 0.9 }}>*subscription fees not included</span>
-            </p>
-            <Link
-              href="/lgbtq-discount"
-              className="relative z-[1] rounded-lg bg-white px-8 py-3 text-base font-semibold text-slate-900 shadow-lg transition-colors duration-200 hover:bg-slate-100"
-            >
-              Learn More About the Discount
-            </Link>
+            <div className="flex flex-col items-center gap-6">
+              <Link href="/contact?service=llm-setups" className="primary-cta inline-flex">
+                Book Your Free AI Readiness Audit
+              </Link>
+              <p className="home-section-note">
+                No pressure. No sales pitch. Just clarity.
+              </p>
+              <div className="relative mx-auto mt-2 max-w-[800px] rounded-2xl">
+                <BorderBeam borderWidth={3} lightWidth={420} duration={10} />
+                <div
+                  style={{
+                    backgroundColor: "var(--navy-primary)",
+                    padding: "32px",
+                    borderRadius: "16px",
+                    textAlign: "center",
+                  }}
+                >
+                  <p
+                    style={{
+                      fontSize: "20px",
+                      color: "#ffffff",
+                      marginBottom: "24px",
+                      lineHeight: 1.6,
+                    }}
+                  >
+                    <strong>LGBTQ+ small business owners:</strong> 25% off all upfront project costs*
+                    <br />
+                    <span style={{ fontSize: "16px", opacity: 0.9 }}>*subscription fees not included</span>
+                  </p>
+                  <LGBTQDiscountModalTrigger>Learn More About the Discount</LGBTQDiscountModalTrigger>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* About / trust */}
-      <section
-        style={{
-          backgroundColor: "var(--cream-bg)",
-          padding: "80px 24px",
-        }}
-      >
-        <h2
-          style={{
-            fontSize: "42px",
-            fontWeight: 700,
-            color: "var(--charcoal-text)",
-            marginBottom: "24px",
-            textAlign: "center",
-          }}
-        >
-          Built By Weekend Warriors, For Weekend Warriors
-        </h2>
+      <section className="home-section home-section--cream">
+        <div className="home-section-inner text-center">
+          <div className="be-section-card">
+            <header className="home-section-header">
+              <h2 className="home-section-title">Built By Weekend Warriors, For Weekend Warriors</h2>
+            </header>
 
-        <div
-          style={{
-            maxWidth: "800px",
-            margin: "0 auto",
-            textAlign: "center",
-          }}
-        >
-          <p
-            style={{
-              fontSize: "20px",
-              color: "var(--muted-text)",
-              lineHeight: 1.8,
-              marginBottom: "32px",
-            }}
-          >
-            We’re not a fancy agency with marble lobbies.
-            <br />
-            We’re founders who work manufacturing jobs and build businesses nights and weekends.
-            <br />
-            <br />
-            We’ve filed for bankruptcy. We’ve been terrified. We get it.
-          </p>
-
-          <div
-            style={{
-              display: "inline-block",
-              backgroundColor: "var(--soft-white)",
-              padding: "24px 48px",
-              borderRadius: "8px",
-              marginBottom: "32px",
-            }}
-          >
             <p
               style={{
-                fontSize: "18px",
-                color: "var(--charcoal-text)",
-                fontWeight: 600,
-                margin: "0 0 8px 0",
-              }}
-            >
-              NGLCC-Certified Gay-Owned Business
-            </p>
-            <p
-              style={{
-                fontSize: "16px",
+                fontSize: "20px",
                 color: "var(--muted-text)",
-                margin: 0,
+                lineHeight: 1.8,
+                marginBottom: "32px",
               }}
             >
-              Cleveland, Ohio
+              We're not a fancy agency with marble lobbies.
+              <br />
+              We're founders who work manufacturing jobs and build businesses nights and weekends.
+              <br />
+              <br />
+              We've filed for bankruptcy. We've been terrified. We get it.
             </p>
-          </div>
-        </div>
-      </section>
 
-      {/* Consensus Engine / How we work */}
-      <section
-        style={{
-          backgroundColor: "var(--soft-white)",
-          padding: "64px 24px 72px",
-          textAlign: "center",
-        }}
-      >
-        <h2
-          style={{
-            fontSize: "42px",
-            fontWeight: 700,
-            color: "var(--charcoal-text)",
-            marginBottom: "24px",
-          }}
-        >
-          How we take the guesswork out of business decisions, with powerful AI.
-        </h2>
-
-        <p
-          style={{
-            fontSize: "24px",
-            fontWeight: 600,
-            color: "var(--amber-cta)",
-            marginBottom: "48px",
-          }}
-        >
-          The Consensus Engine - Proprietary Multi-Agent Research
-        </p>
-
-        <div
-          style={{
-            maxWidth: "800px",
-            margin: "0 auto",
-            textAlign: "left",
-          }}
-        >
-          <p
-            style={{
-              fontSize: "20px",
-              color: "var(--charcoal-text)",
-              marginBottom: "32px",
-              fontWeight: 600,
-            }}
-          >
-            You tell us your biggest question.
-          </p>
-
-          <p
-            style={{
-              fontSize: "18px",
-              color: "var(--muted-text)",
-              marginBottom: "16px",
-              fontStyle: "italic",
-            }}
-          >
-            ("Should I automate customer service?" "How do I price this?" "Will this marketing work?")
-          </p>
-
-          <p
-            style={{
-              fontSize: "20px",
-              color: "var(--charcoal-text)",
-              marginBottom: "24px",
-              fontWeight: 600,
-            }}
-          >
-            We send 4 specialized AI researchers to work on it:
-          </p>
-
-          <ul
-            style={{
-              fontSize: "18px",
-              color: "var(--muted-text)",
-              lineHeight: 2,
-              listStyle: "none",
-              paddingLeft: 0,
-              marginBottom: "32px",
-            }}
-          >
-            <li>
-              <strong>Marketing Expert</strong> researches customer behavior and positioning
-            </li>
-            <li>
-              <strong>Financial Analyst</strong> researches costs, ROI, and pricing strategies
-            </li>
-            <li>
-              <strong>Case Study Specialist</strong> finds real businesses who tried this
-            </li>
-            <li>
-              <strong>Design Strategist</strong> researches implementation approaches
-            </li>
-          </ul>
-
-          <p
-            style={{
-              fontSize: "18px",
-              color: "var(--muted-text)",
-              lineHeight: 1.8,
-              marginBottom: "16px",
-            }}
-          >
-            Each one researches independently using live internet data.
-            <br />
-            Then they cross-reference each other's findings.
-            <br />
-            Then we compile it into a founder-friendly report with actionable next steps.
-          </p>
-
-          <p
-            style={{
-              fontSize: "20px",
-              color: "var(--charcoal-text)",
-              fontWeight: 600,
-              marginBottom: "24px",
-            }}
-          >
-            All research is cited. All recommendations are verified.
-            <br />
-            You get the confidence to make the call.
-          </p>
-
-          <div
-            style={{
-              backgroundColor: "var(--cream-bg)",
-              padding: "24px",
-              borderRadius: "8px",
-              borderLeft: "4px solid var(--amber-cta)",
-              marginTop: "32px",
-            }}
-          >
-            <p
+            <div
               style={{
-                fontSize: "18px",
-                color: "var(--charcoal-text)",
-                fontWeight: 600,
-                margin: 0,
+                display: "inline-block",
+                backgroundColor: "var(--soft-white)",
+                padding: "24px 48px",
+                borderRadius: "8px",
+                marginBottom: "32px",
               }}
             >
-              Every consultation includes one free Consensus Engine report.
-            </p>
+              <p
+                style={{
+                  fontSize: "18px",
+                  color: "var(--charcoal-text)",
+                  fontWeight: 600,
+                  margin: "0 0 8px 0",
+                }}
+              >
+                NGLCC-Certified Gay-Owned Business
+              </p>
+              <p
+                style={{
+                  fontSize: "16px",
+                  color: "var(--muted-text)",
+                  margin: 0,
+                }}
+              >
+                Cleveland, Ohio
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -568,90 +315,45 @@ export default function HomePage() {
       <TrustCredentials />
 
       {/* Quick answers (FAQ teaser) */}
-      <section
-        style={{
-          backgroundColor: "var(--soft-white)",
-          padding: "56px 24px 64px",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: "880px",
-            margin: "0 auto",
-          }}
-        >
-          <h2
-            style={{
-              fontSize: "32px",
-              fontWeight: 700,
-              color: "var(--charcoal-text)",
-              marginBottom: "16px",
-              textAlign: "left",
-            }}
-          >
-            Quick answers for busy founders
-          </h2>
-          <p
-            style={{
-              fontSize: "18px",
-              color: "var(--muted-text)",
-              marginBottom: "24px",
-            }}
-          >
-            Three questions we hear most often from Cleveland small-business owners thinking about automation.
-          </p>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "minmax(0, 1fr)",
-              gap: "16px",
-            }}
-          >
-            {homeFaqItems.map((item) => (
-              <div
-                key={item.question}
-                style={{
-                  borderRadius: "12px",
-                  border: "1px solid var(--border)",
-                  backgroundColor: "var(--cream-bg)",
-                  padding: "16px 18px",
-                }}
-              >
-                <p
-                  style={{
-                    fontSize: "18px",
-                    fontWeight: 600,
-                    marginBottom: "8px",
-                    color: "var(--charcoal-text)",
-                  }}
-                >
-                  {item.question}
-                </p>
-                <p
-                  style={{
-                    fontSize: "16px",
-                    color: "var(--muted-text)",
-                    lineHeight: 1.6,
-                  }}
-                >
-                  {item.answer}
-                </p>
-              </div>
-            ))}
+      <section className="home-section home-section--soft">
+        <div className="home-section-inner">
+          <div className="be-section-card">
+            <h2
+              style={{
+                fontSize: "32px",
+                fontWeight: 700,
+                color: "var(--charcoal-text)",
+                marginBottom: "16px",
+                textAlign: "left",
+              }}
+            >
+              Quick answers for busy founders
+            </h2>
+            <p
+              style={{
+                fontSize: "18px",
+                color: "var(--muted-text)",
+                marginBottom: "24px",
+              }}
+            >
+              Three questions we hear most often from Cleveland small-business owners thinking about automation.
+            </p>
+            <div className="mx-auto w-full max-w-2xl">
+              <Accordion
+                items={homeFaqItems.map((item) => ({
+                  _title: item.question,
+                  answer: item.answer,
+                }))}
+              />
+            </div>
+            <p className="home-faq-footer">
+              Want more details? Our full{" "}
+              <Link href="/faq" style={{ textDecoration: "underline" }}>
+                FAQ
+              </Link>{" "}
+              page covers timelines, tools, pricing, and how we work.
+            </p>
           </div>
-          <p
-            style={{
-              marginTop: "20px",
-              fontSize: "16px",
-              color: "var(--muted-text)",
-            }}
-          >
-            Want more details? Our full{" "}
-            <Link href="/faq" style={{ textDecoration: "underline" }}>
-              FAQ
-            </Link>{" "}
-            page covers timelines, tools, pricing, and how we work.
-          </p>
         </div>
       </section>
     </main>

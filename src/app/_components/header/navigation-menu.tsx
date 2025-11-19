@@ -130,22 +130,23 @@ function NavigationMenuLinkWithMenu({ _title, href, sublinks }: HeaderNavLink) {
           <ul className="flex flex-col">
             {sublinks.items.map((sublink) => {
               const link = sublink.link;
-              if (!link) {
-                return null;
+              const directHref = sublink.href;
+
+              let hrefValue: string | null = null;
+              let label = sublink._title;
+
+              if (link && link.__typename === "PageReferenceComponent" && link.page) {
+                hrefValue = link.page.pathname;
+                label = link.page._title;
+              } else if (link && link.text) {
+                hrefValue = link.text;
+              } else if (directHref) {
+                hrefValue = directHref;
               }
 
-              const { href, _title } =
-                link.__typename === "PageReferenceComponent" && link.page
-                  ? {
-                      href: link.page.pathname,
-                      _title: link.page._title,
-                    }
-                  : {
-                      href: link.text ?? "#",
-                      _title: sublink._title,
-                    };
-
-              const hrefValue = href || "#";
+              if (!hrefValue) {
+                return null;
+              }
 
               return (
                 <li key={sublink._id}>
@@ -158,7 +159,7 @@ function NavigationMenuLinkWithMenu({ _title, href, sublinks }: HeaderNavLink) {
                       {/* thumbnail preview */}
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src={getPreviewSrc(hrefValue || _title)}
+                        src={getPreviewSrc(hrefValue || label)}
                         alt=""
                         width={32}
                         height={32}
@@ -167,7 +168,7 @@ function NavigationMenuLinkWithMenu({ _title, href, sublinks }: HeaderNavLink) {
                         decoding="async"
                         aria-hidden
                       />
-                      <span className="truncate">{_title}</span>
+                      <span className="truncate">{label}</span>
                     </ButtonLink>
                   </NavigationMenuLinkPrimitive>
                 </li>
