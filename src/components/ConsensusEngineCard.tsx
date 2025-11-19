@@ -9,7 +9,7 @@ export function ConsensusEngineCard() {
     <div className="relative max-w-5xl mx-auto my-20 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 rounded-2xl shadow-xl overflow-hidden">
       {/* Proprietary Badge */}
       <div className="absolute top-6 right-6">
-        <span className="px-4 py-2 bg-orange-500 text-white text-sm font-bold rounded-full shadow-lg">
+        <span className="px-4 py-2 rounded-full border border-white/60 bg-[color:var(--navy-primary)] text-xs font-semibold uppercase tracking-[0.18em] text-white shadow-lg shadow-black/30">
           PROPRIETARY
         </span>
       </div>
@@ -34,7 +34,7 @@ export function ConsensusEngineCard() {
             <p className="text-slate-600 dark:text-slate-400 text-sm font-semibold mb-3">
               Exclusive to BespokeEthos clients
             </p>
-            <div className="flex flex-wrap justify-center gap-2 md:justify-start">
+            <div className="flex flex-wrap justify-center gap-3 md:justify-center">
               <span className="rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold text-orange-700 dark:bg-orange-900/30 dark:text-orange-300">
                 4 AI Agents
               </span>
@@ -57,7 +57,7 @@ export function ConsensusEngineCard() {
             Our proprietary AI research platform analyzes <strong>1000+ sources</strong> at superhuman speed—SEC filings,
             patents, medical journals, tax regulations, and more—then delivers one actionable report with citations.
           </p>
-          <div className="flex flex-wrap items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+          <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-slate-600 dark:text-slate-400">
             <span className="px-3 py-1 bg-white dark:bg-slate-800 rounded-full font-semibold">
               4 Specialized AI Agents
             </span>
