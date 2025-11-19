@@ -5,7 +5,7 @@ const path = require("node:path");
 
 const COPIES = [
   { src: "Guides/googlelogo.png", dest: "public/assets/googlelogo.png" },
-  { src: "Guides/og-image.png", dest: "public/og-image.png" },
+  { src: "Guides/og-image.png", dest: "public/assets/busywork-lgbtq-discount-banner.png" },
   { src: "Guides/nglcc_trust_badge.png", dest: "public/assets/nglcc_trust_badge.png" },
   // iOS/manifest convenience copies (best-effort; real projects should provide sized assets)
   { src: "Guides/googlelogo.png", dest: "public/apple-touch-icon.png" },
