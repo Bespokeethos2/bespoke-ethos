@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import type React from "react";
+import Image from "next/image";
 
 export default function ChatPage() {
   const [prompt, setPrompt] = useState("");
@@ -155,9 +156,12 @@ export default function ChatPage() {
               {image && (
                 <div className="mt-2 space-y-2">
                   <div className="overflow-hidden rounded-md border border-border bg-surface-secondary/40 p-2 dark:border-dark-border dark:bg-dark-surface-secondary/40">
-                    <img
+                    <Image
                       src={image}
                       alt="Uploaded preview"
+                      width={512}
+                      height={512}
+                      unoptimized
                       className="max-h-64 w-auto rounded-md object-contain"
                     />
                   </div>

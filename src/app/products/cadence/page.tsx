@@ -8,13 +8,14 @@ import { ButtonLink } from "@/common/button";
 import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
 import { CadenceLogoCard } from "@/common/cadence-logo-card";
 import { PRICING, formatMoney } from "@/config/pricing";
+import { VogueCard } from "@/components/vogue-card";
 
 export const revalidate = 1800;
 
 export const metadata: Metadata = {
   title: "CadenceT: Premium Chatbot Trained on Your Business | Bespoke Ethos",
   description:
-    "Not just another chatbot. CadenceT is trained on your products, voice, and stories-building loyalty 24/7. 35-45% ticket deflection. See how it works.",
+    "CadenceT is a premium AI positioning and support agent that turns features into emotion-based messaging and on-brand chat conversations tuned to your customer's 4 AM moment.",
   alternates: { canonical: "/products/cadence" },
 };
 
@@ -55,8 +56,8 @@ export default function CadencePage() {
                   <span className="opacity-90">Your Brand&apos;s Rhythm</span>
                 </div>
 
-                <Heading align="left" subtitle="A chatbot tuned for people who hate chatbots.">
-                  <h1 className="font-hero-accent">Not Just Another Chatbot. CadenceT.</h1>
+                <Heading align="left" subtitle="The positioning agent that passes the 4 AM test.">
+                  <h1 className="font-hero-accent">CadenceT: Your Brand&apos;s 4 AM Voice.</h1>
                 </Heading>
 
                 <div className="mt-4 flex flex-wrap gap-3">
@@ -84,6 +85,37 @@ export default function CadencePage() {
             </div>
           </section>
 
+          <VogueCard
+            imageSrc="/assets/logos/cadence.png"
+            imageAlt="Cadence couture card"
+            title="Cadence™"
+            tagline="Your Brand's Rhythm"
+            description="The positioning + support agent that passes the 4 AM test and keeps every channel sounding like you."
+          />
+
+          {/* Personality ad banner (keeps the fun campaign visible) */}
+          <section
+            aria-labelledby="cadence-ad-banner"
+            className="overflow-hidden rounded-2xl border border-border bg-surface-secondary/60 dark:border-dark-border dark:bg-dark-surface-secondary/60"
+          >
+            <div className="relative h-48 w-full sm:h-56 lg:h-64">
+              <Image
+                src="/assets/ads/cadence.jpg"
+                alt='Playful Cadence ad showing “Everyone knows Julie keeps blaming her farts on the dog. Cadence gets it.”'
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 960px"
+                priority={false}
+              />
+            </div>
+            <p
+              id="cadence-ad-banner"
+              className="px-5 py-3 text-center text-sm font-medium text-text-secondary dark:text-dark-text-secondary"
+            >
+              Cadence™ keeps your brand human—even when your customers get weird at 4 AM.
+            </p>
+          </section>
+
           {/* Solution Intro */}
           <div className="space-y-6">
             <Breadcrumbs
@@ -94,28 +126,34 @@ export default function CadencePage() {
               ]}
             />
             <Heading align="left">
-              <h2>Meet CadenceT: The Chatbot That Knows Your Business</h2>
+              <h2>Meet CadenceT: From Specs to Story</h2>
             </Heading>
             <div className="prose prose-zinc max-w-prose dark:prose-invert">
               <p>
-                CadenceT isn&apos;t programmed. It&apos;s <em>trained</em>-like a team member.
+                CadenceT isn&apos;t a script you install. It&apos;s a positioning agent trained on why you built the
+                business, who you serve, and what keeps them up at 4 AM.
               </p>
               <p>
-                We don&apos;t start with code. We start with your products, your voice, your best customer stories. Then we
-                sculpt a chatbot that:
+                Before we ever turn on a chat bubble, we run your brand through our deep discovery framework&mdash;Why,
+                Who, and Where&mdash;plus founder motivations, origin stories, and your best customer wins. CadenceT
+                learns to speak like a teammate, not a template, so every interaction sounds like your best sales day.
               </p>
               <ul>
                 <li>
-                  <strong>Knows your products</strong> inside-out (differentiators, backstory, use cases)
+                  <strong>Runs the 4 AM Test</strong>: captures the exact search phrases and questions your buyer would
+                  type when they&apos;re desperate for help.
                 </li>
                 <li>
-                  <strong>Speaks your language</strong> (pauses, tone, biases-the good kind)
+                  <strong>Translates features into feelings</strong>: turns specs and ingredients into the emotional
+                  promises that actually drive purchase decisions.
                 </li>
                 <li>
-                  <strong>Tells your stories</strong> (the ones that build loyalty and drive purchases)
+                  <strong>Keeps your founder voice consistent</strong>: from homepage to help center, inbox replies, and
+                  the chatbot itself.
                 </li>
                 <li>
-                  <strong>Handles the boring stuff</strong> (order status, FAQs, routing) so humans can handle the nuance
+                  <strong>Handles repetitive questions with empathy</strong>: resolves the boring stuff and surfaces real
+                  stories when it matters, while handing off nuanced issues to humans.
                 </li>
               </ul>
             </div>
@@ -205,7 +243,7 @@ function CadenceProductJsonLd() {
     "@type": "Product",
     name: "CadenceT",
     description:
-      "CadenceT is Bespoke Ethos's flagship premium chatbot for small businesses in Cleveland, Ohio. It is trained on your products, voice, and stories to deflect tickets while keeping your brand human.",
+      "CadenceT is Bespoke Ethos's flagship premium positioning and support agent for small businesses in Cleveland, Ohio. It is trained on your products, voice, and stories to pass the 4 AM Test and deflect tickets while keeping your brand human.",
     offers: {
       "@type": "Offer",
       priceCurrency: currency,
@@ -228,4 +266,3 @@ function CadenceProductJsonLd() {
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }
-

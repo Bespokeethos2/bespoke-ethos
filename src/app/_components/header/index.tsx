@@ -15,6 +15,7 @@ export type HeaderNavLinkItem = {
     };
     text?: string;
   } | null;
+  children?: HeaderNavLinkItem[];
 };
 
 export type HeaderNavLink = {
@@ -59,43 +60,77 @@ const FALLBACK_HEADER_NAV: HeaderNavLink[] = [
     sublinks: {
       items: [
         {
-          _id: "nav-products-cadence",
-          _title: "Cadence™",
-          link: pageRef("/products/cadence", "Cadence™"),
+          _id: "nav-products-flagship-group",
+          _title: "Bespoke Ethos Flagship Line",
+          children: [
+            {
+              _id: "nav-products-cadence",
+              _title: "CadenceT",
+              link: pageRef("/products/cadence", "CadenceT"),
+            },
+            {
+              _id: "nav-products-flowstack",
+              _title: "FlowstackT",
+              link: pageRef("/solutions/flowstack", "FlowstackT"),
+            },
+            {
+              _id: "nav-products-consensus",
+              _title: "Consensus EngineT",
+              link: pageRef("/solutions/consensus-engine", "Consensus EngineT"),
+            },
+            {
+              _id: "nav-products-redbridging",
+              _title: "RedbridgingT",
+              link: pageRef("/solutions/redbridging", "RedbridgingT"),
+            },
+          ],
         },
         {
-          _id: "nav-products-flowstack",
-          _title: "Flowstack™",
-          link: pageRef("/solutions/flowstack", "Flowstack™"),
+          _id: "nav-products-essentials-group",
+          _title: "Business Essentials",
+          children: [
+            {
+              _id: "nav-business-chatbots",
+              _title: "Chatbots",
+              link: pageRef("/solutions/chatbots", "Chatbots"),
+            },
+            {
+              _id: "nav-business-llm",
+              _title: "LLM Setups",
+              link: pageRef("/contact?service=llm-setups", "LLM Setups"),
+            },
+            {
+              _id: "nav-business-ai-chat",
+              _title: "AI Chat",
+              link: pageRef("/chat", "AI Chat"),
+            },
+          ],
         },
         {
-          _id: "nav-products-consensus",
-          _title: "Consensus Engine™",
-          link: pageRef("/solutions/consensus-engine", "Consensus Engine™"),
-        },
-        {
-          _id: "nav-products-redbridging",
-          _title: "Redbridging™",
-          link: pageRef("/solutions/redbridging", "Redbridging™"),
-        },
-      ],
-    },
-  },
-  {
-    _id: "nav-business-essentials",
-    _title: "Business Essentials",
-    href: "",
-    sublinks: {
-      items: [
-        {
-          _id: "nav-business-chatbots",
-          _title: "Chatbots",
-          link: pageRef("/solutions/chatbots", "Chatbots"),
-        },
-        {
-          _id: "nav-business-llm",
-          _title: "LLM Setups",
-          link: pageRef("/contact?service=llm-setups", "LLM Setups"),
+          _id: "nav-products-enterprise-group",
+          _title: "Enterprise Services",
+          children: [
+            {
+              _id: "nav-enterprise-automation",
+              _title: "Automation Fabric",
+              link: pageRef("/enterprise/automation-fabric", "Automation Fabric"),
+            },
+            {
+              _id: "nav-enterprise-chatbot",
+              _title: "Cloud Chatbot Control Room",
+              link: pageRef("/enterprise/cloud-chatbot", "Cloud Chatbot Control Room"),
+            },
+            {
+              _id: "nav-enterprise-decision",
+              _title: "Decision Room",
+              link: pageRef("/enterprise/decision-room", "Decision Room"),
+            },
+            {
+              _id: "nav-enterprise-reliability",
+              _title: "Reliability Ops",
+              link: pageRef("/enterprise/reliability-ops", "Reliability Ops"),
+            },
+          ],
         },
       ],
     },
@@ -265,3 +300,4 @@ export async function Header() {
 
   return <HeaderShell headerData={headerData} logo={logo} />;
 }
+

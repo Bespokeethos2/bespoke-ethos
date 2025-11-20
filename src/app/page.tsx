@@ -9,6 +9,7 @@ import { LGBTQDiscountModalTrigger } from "./_components/lgbtq-discount-modal-tr
 import { Accordion } from "./_sections/accordion-faq";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { ConsensusEngineCard } from "@/components/ConsensusEngineCard";
+import { VogueCard } from "@/components/vogue-card";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -93,8 +94,8 @@ export default function HomePage() {
             </div>
 
             <p className="home-hero-tagline">
-              "Am I doing this right?" is where most non-technical Cleveland founders start. No jargon. No overnight.
-              Just practical automation.
+              &ldquo;Am I doing this right?&rdquo; is where most non-technical Cleveland founders start. No jargon. No
+              overnight. Just practical automation.
             </p>
           </div>
 
@@ -133,7 +134,7 @@ export default function HomePage() {
           <div className="be-section-card max-w-4xl mx-auto text-center">
             <header className="home-section-header">
               <h2 id="youre-not-alone-heading" className="home-section-title">
-                You're Not Alone
+                You&apos;re Not Alone
               </h2>
             </header>
 
@@ -145,7 +146,7 @@ export default function HomePage() {
                 marginBottom: "20px",
               }}
             >
-              Working a day job while building your dream. Terrified you'll make the wrong call. Reading articles that
+              Working a day job while building your dream. Terrified you&apos;ll make the wrong call. Reading articles that
               make it sound easy, then hitting walls when you try to do it yourself.
             </p>
 
@@ -156,7 +157,7 @@ export default function HomePage() {
                 fontWeight: 600,
               }}
             >
-              78% of small business owners know they need AI. Most don't know where to start.
+              78% of small business owners know they need AI. Most don&apos;t know where to start.
             </p>
           </div>
         </div>
@@ -269,6 +270,54 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Flagship 2x2 Vogue grid */}
+      <section
+        className="home-section home-section--cream"
+        aria-labelledby="flagship-vogue-heading"
+      >
+        <div className="home-section-inner">
+          <header className="home-section-header text-center">
+            <p className="home-section-eyebrow">Bespoke Ethos Flagship Line</p>
+            <h2 id="flagship-vogue-heading" className="home-section-title">
+              Couture Tools for Small Business
+            </h2>
+            <p className="text-base text-text-secondary dark:text-dark-text-secondary max-w-3xl mx-auto">
+              Cadence™ and Consensus Engine™ top the list, with Flowstack™ and Redbridging™ rounding out the workhorse set. Each card is a snapshot—6 to 9 words that make the promise clear before you click deeper.
+            </p>
+          </header>
+          <div className="grid gap-5 md:grid-cols-2">
+            <VogueCard
+              imageSrc="/assets/logos/cadence.png"
+              imageAlt="Cadence couture card"
+              title="Cadence™"
+              tagline="Brand Rhythm"
+              description="Your 4 AM voice across chat, email, SMS."
+            />
+            <VogueCard
+              imageSrc="/assets/logos/consensus.png"
+              imageAlt="Consensus Engine couture card"
+              title="Consensus Engine™"
+              tagline="Collaborative Decisions"
+              description="Four AI perspectives deliver one auditable answer."
+            />
+            <VogueCard
+              imageSrc="/assets/logos/flowstack.png"
+              imageAlt="Flowstack couture card"
+              title="Flowstack™"
+              tagline="Workflow Automation"
+              description="Compliance-ready automation fabric with approvals + audits."
+            />
+            <VogueCard
+              imageSrc="/assets/logos/RedBridging.png"
+              imageAlt="Redbridging couture card"
+              title="Redbridging™"
+              tagline="AI Reliability"
+              description="Automation rescue, monitoring, and runbooks for real ops."
+            />
+          </div>
+        </div>
+      </section>
+
       {/* About / trust */}
       <section
         className="home-section home-section--cream"
@@ -290,12 +339,12 @@ export default function HomePage() {
                 marginBottom: "32px",
               }}
             >
-              We're not a fancy agency with marble lobbies.
+              We&apos;re not a fancy agency with marble lobbies.
               <br />
-              We're founders who work manufacturing jobs and build businesses nights and weekends.
+              We&apos;re founders who work manufacturing jobs and build businesses nights and weekends.
               <br />
               <br />
-              We've filed for bankruptcy. We've been terrified. We get it.
+              We&apos;ve filed for bankruptcy. We&apos;ve been terrified. We get it.
             </p>
 
             <div

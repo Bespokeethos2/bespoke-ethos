@@ -82,11 +82,9 @@ function validationError(
 }
 
 export async function POST(req: NextRequest) {
-  const ip =
-    (req.headers.get("x-forwarded-for") || "").split(",")[0]?.trim() ||
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (req as any).ip ||
-    "unknown";
+  const forwardedFor = (req.headers.get("x-forwarded-for") || "").split(",")[0]?.trim();
+  const requestIp = (req as { ip?: string | null }).ip ?? undefined;
+  const ip = forwardedFor || requestIp || "unknown";
 
   const nowMs = Date.now();
   const bucket = getBucket(ip);

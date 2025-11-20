@@ -49,6 +49,33 @@ const solutions = [
   },
 ];
 
+const flagshipTools = [
+  {
+    name: "CadenceT",
+    tagline: "Brand Rhythm",
+    href: "/products/cadence",
+    image: "/assets/logos/cadence.png",
+  },
+  {
+    name: "FlowstackT",
+    tagline: "Workflow Automation",
+    href: "/solutions/flowstack",
+    image: "/assets/logos/flowstack.png",
+  },
+  {
+    name: "Consensus EngineT",
+    tagline: "Collaborative Decisions",
+    href: "/solutions/consensus-engine",
+    image: "/assets/logos/consensus.png",
+  },
+  {
+    name: "RedbridgingT",
+    tagline: "AI Reliability",
+    href: "/solutions/redbridging",
+    image: "/assets/logos/RedBridging.png",
+  },
+];
+
 export default function SolutionsPage() {
   return (
     <main className="be-page-slate">
@@ -62,6 +89,58 @@ export default function SolutionsPage() {
       <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
         NGLCC-certified, Catalant-vetted - 25% discount for LGBTQ-owned businesses
       </p>
+
+      {/* Flagship tools banner (four-product strip) */}
+      <div className="relative mt-4 overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame">
+        <div className="relative h-32 w-full sm:h-40 lg:h-48">
+          <Image
+            src="/assets/generated/flagship-tools-banner.webp"
+            alt="Cadence, Flowstack, Consensus Engine, and Redbridging - professional AI workflow tools from Bespoke Ethos"
+            fill
+            className="object-cover"
+            style={{ objectPosition: "center 40%" }}
+            sizes="(max-width: 768px) 100vw, 960px"
+            priority
+          />
+        </div>
+      </div>
+
+      {/* 2x2 flagship grid (chunky glass cards per design spec) */}
+      <section aria-label="Flagship AI workflow tools" className="mt-6">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {flagshipTools.map((tool) => (
+            <Link
+              key={tool.name}
+              href={tool.href}
+              className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2"
+            >
+              {/* Chunky glass card: translucent white, gentle blur + drop shadow, 5px solid black border, square edges */}
+              <div
+                className="flex h-full flex-col gap-3 border-[5px] border-black bg-white/30 p-4 text-left shadow-[0_20px_45px_rgba(0,0,0,0.25)] backdrop-blur-md transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_30px_60px_rgba(0,0,0,0.35)] dark:bg-white/20"
+                style={{ borderRadius: 0 }}
+              >
+                <div className="relative aspect-square w-full overflow-hidden">
+                  <Image
+                    src={tool.image}
+                    alt={`${tool.name} square title card`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, 45vw"
+                    priority
+                  />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-text-secondary dark:text-dark-text-secondary">{tool.tagline}</p>
+                  <h3 className="text-xl font-medium text-text-primary dark:text-dark-text-primary">{tool.name}</h3>
+                  <p className="text-xs uppercase tracking-[0.28em] text-text-tertiary dark:text-dark-text-tertiary">
+                    Professional AI workflow tools
+                  </p>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
 
       <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
         {solutions.map((s) => {

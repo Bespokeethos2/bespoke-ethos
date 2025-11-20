@@ -7,6 +7,7 @@ import { Section } from "@/common/layout";
 import { ButtonLink } from "@/common/button";
 import { PRICING, formatMoney } from "@/config/pricing";
 import { ConsensusEngineCard } from "@/components/ConsensusEngineCard";
+import { VogueCard } from "@/components/vogue-card";
 
 export const revalidate = 1800;
 
@@ -49,6 +50,14 @@ export default function ConsensusEnginePage() {
           </div>
         </div>
       </div>
+
+      <VogueCard
+        imageSrc="/assets/logos/consensus.png"
+        imageAlt="Consensus Engine couture card"
+        title="Consensus Engine™"
+        tagline="Collaborative Decisions"
+        description="Multi-agent debates with citations and dissent logic so executive calls come with receipts."
+      />
 
       {/* Product heading + price */}
       <Heading subtitle="Clarity from multiple AI perspectives" align="left">

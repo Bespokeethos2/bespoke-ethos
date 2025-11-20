@@ -5,6 +5,7 @@ import { Section } from "@/common/layout";
 import { ButtonLink } from "@/common/button";
 import { PRICING, planSummary } from "@/config/pricing";
 import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
+import { VogueCard } from "@/components/vogue-card";
 
 export const revalidate = 1800;
 
@@ -48,6 +49,14 @@ export default function FlowstackPage() {
               </div>
             </div>
           </div>
+
+          <VogueCard
+            imageSrc="/assets/logos/flowstack.png"
+            imageAlt="Flowstack couture card"
+            title="Flowstack™"
+            tagline="Workflow Automation"
+            description="Automation fabric for founders who need audit trails, approvals, and production-ready builds in days."
+          />
 
           <Heading
             subtitle="Proprietary general automation for any business task. Own the results."

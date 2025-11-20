@@ -13,7 +13,7 @@ import {
   type NavigationMenuLinkProps,
 } from "@radix-ui/react-navigation-menu";
 import { Button, ButtonLink } from "@/common/button";
-import type { HeaderData, HeaderNavLink } from ".";
+import type { HeaderData, HeaderNavLink, HeaderNavLinkItem } from ".";
 import { useToggleState } from "@/hooks/use-toggle-state";
 import { useHasRendered } from "@/hooks/use-has-rendered";
 
@@ -129,56 +129,64 @@ function NavigationMenuLinkWithMenu({ _title, href, sublinks }: HeaderNavLink) {
         <div className="flex flex-col gap-1">
           <ul className="flex flex-col">
             {sublinks.items.map((sublink) => {
-              const link = sublink.link;
-              const directHref = sublink.href;
-
-              let hrefValue: string | null = null;
-              let label = sublink._title;
-
-              if (link && link.__typename === "PageReferenceComponent" && link.page) {
-                hrefValue = link.page.pathname;
-                label = link.page._title;
-              } else if (link && link.text) {
-                hrefValue = link.text;
-              } else if (directHref) {
-                hrefValue = directHref;
+              if (sublink.children?.length) {
+                return (
+                  <li key={sublink._id} className="px-2 py-2">
+                    <p className="text-[10px] uppercase tracking-[0.35em] text-text-tertiary dark:text-dark-text-tertiary">
+                      {sublink._title}
+                    </p>
+                    <ul className="mt-2 flex flex-col gap-1">
+                      {sublink.children.map((child) => renderLeaf(child, getPreviewSrc))}
+                    </ul>
+                  </li>
+                );
               }
 
-              if (!hrefValue) {
-                return null;
-              }
-
-              return (
-                <li key={sublink._id}>
-                  <NavigationMenuLinkPrimitive asChild>
-                    <ButtonLink
-                      unstyled
-                      className="hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary flex w-full items-center gap-3 rounded-md px-3 py-2 transition-colors duration-150"
-                      href={hrefValue}
-                    >
-                      {/* thumbnail preview */}
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={getPreviewSrc(hrefValue || label)}
-                        alt=""
-                        width={32}
-                        height={32}
-                        className="h-8 w-8 shrink-0 rounded-md object-cover"
-                        loading="lazy"
-                        decoding="async"
-                        aria-hidden
-                      />
-                      <span className="truncate">{label}</span>
-                    </ButtonLink>
-                  </NavigationMenuLinkPrimitive>
-                </li>
-              );
+              return renderLeaf(sublink, getPreviewSrc);
             })}
           </ul>
         </div>
       </NavigationMenuContent>
     </NavigationMenuItem>
   );
+}
+
+function renderLeaf(item: HeaderNavLinkItem, getPreviewSrc: (href: string) => string) {
+  const { hrefValue, label } = resolveLinkMeta(item);
+  if (!hrefValue) return null;
+
+  return (
+    <li key={item._id}>
+      <NavigationMenuLinkPrimitive asChild>
+        <ButtonLink
+          unstyled
+          className="hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary flex w-full items-center gap-3 rounded-md px-3 py-2 transition-colors duration-150"
+          href={hrefValue}
+        >
+                      <span className="truncate">{label}</span>
+        </ButtonLink>
+      </NavigationMenuLinkPrimitive>
+    </li>
+  );
+}
+
+function resolveLinkMeta(item: HeaderNavLinkItem) {
+  const link = item.link;
+  const directHref = item.href;
+
+  let hrefValue: string | null = null;
+  let label = item._title;
+
+  if (link && link.__typename === "PageReferenceComponent" && link.page) {
+    hrefValue = link.page.pathname;
+    label = link.page._title;
+  } else if (link && link.text) {
+    hrefValue = link.text;
+  } else if (directHref) {
+    hrefValue = directHref;
+  }
+
+  return { hrefValue, label };
 }
 
 export function DesktopMenu({ navbar, rightCtas }: HeaderData) {

@@ -5,6 +5,7 @@ import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
 import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
 import { ButtonLink } from "@/common/button";
+import { VogueCard } from "@/components/vogue-card";
 
 export const revalidate = 1800;
 
@@ -40,6 +41,13 @@ export default function RedbridgingPage() {
           </div>
         </div>
       </div>
+      <VogueCard
+        imageSrc="/assets/logos/RedBridging.png"
+        imageAlt="Redbridging couture card"
+        title="Redbridging™"
+        tagline="AI Reliability"
+        description="Automation rescue for ops teams that need their duct-taped workflows to behave like production software."
+      />
       <Heading subtitle="We rescue broken automations" align="left">
         <h1>Redbridging™</h1>
       </Heading>
