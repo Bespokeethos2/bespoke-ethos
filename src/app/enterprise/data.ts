@@ -48,7 +48,7 @@ export const ENTERPRISE_OFFERINGS: EnterpriseOffering[] = [
       "Shadow week + enablement so your team can own day-2 without us",
     ],
     cloudNote:
-      "Comfortable everywhere from AWS GovCloud to Alibaba Cloud. We’re Microsoft-backed founders so Azure is home base—but we never lock you in. Your cloud, your budget, our responsibility.",
+      "Comfortable everywhere from AWS GovCloud to Alibaba Cloud. We’re Microsoft-backed founders, so we understand exactly where Azure’s vendor lock-in begins and ends. We use that knowledge to keep your code portable, auditable, and under your control.",
     card: {
       image: "/assets/logos/flowstack.png",
       alt: "Automation Fabric title card",
@@ -82,7 +82,7 @@ export const ENTERPRISE_OFFERINGS: EnterpriseOffering[] = [
       "CX ops package: analytics, QA workflows, compliance playbooks",
     ],
     cloudNote:
-      "Ship it in Azure OpenAI, AWS Bedrock, GCP Vertex, or a sovereign LLM—Cadence™ speaks all three clouds. We happen to love Azure, but we don’t make you move.",
+      "Ship it in Azure OpenAI, AWS Bedrock, GCP Vertex, or a sovereign LLM—Cadence™ speaks all three clouds. We happen to love Azure because we’re Microsoft-backed, but we know how to avoid its vendor lock-in traps so you can move if you ever need to.",
     card: {
       image: "/assets/logos/cadence.png",
       alt: "Cloud Chatbot Control Room card",
@@ -116,7 +116,7 @@ export const ENTERPRISE_OFFERINGS: EnterpriseOffering[] = [
       "Integration sprint to expose results in the tools your board already reads",
     ],
     cloudNote:
-      "Consensus Engine™ runs wherever your governance requires: Azure confidential compute, AWS Nitro, private data centers—you pick, we harden it.",
+      "Consensus Engine™ runs wherever your governance requires: Azure confidential compute, AWS Nitro, private data centers—you pick, we harden it. Our experience as Microsoft-backed founders means we know how to leverage Azure without letting it box you in.",
     card: {
       image: "/assets/logos/consensus.png",
       alt: "Decision Room title card",
@@ -150,7 +150,7 @@ export const ENTERPRISE_OFFERINGS: EnterpriseOffering[] = [
       "Runbooks, pager rotations, and training for your internal team",
     ],
     cloudNote:
-      "Yes, we’ll untangle whatever lives in AWS, Azure, Alibaba, or on-prem. We prefer Azure because we’re Microsoft-backed, but your stack stays your stack.",
+      "Yes, we’ll untangle whatever lives in AWS, Azure, Alibaba, or on-prem. We prefer Azure because we’re Microsoft-backed, but we also know exactly how to keep you out of unhealthy vendor lock-in so your stack stays yours.",
     card: {
       image: "/assets/logos/RedBridging.png",
       alt: "Reliability Ops title card",

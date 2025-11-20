@@ -22,9 +22,10 @@ export default function EnterpriseLandingPage() {
             <h1 className="font-hero-accent text-3xl md:text-4xl">Enterprise AI Services</h1>
             <p className="mx-auto max-w-3xl text-base text-text-secondary dark:text-dark-text-secondary">
               Flowstack™, Cadence™, Consensus Engine™, and Redbridging™—rewired for infosec reviews, multi-cloud
-              deployments, and executive accountability. We&apos;re Microsoft-backed founders, deeply loyal to Azure, but
-              we build wherever you live: AWS, GCP, Alibaba Cloud, or sovereign infrastructure. Your cloud, your budget,
-              we make it work.
+              deployments, and executive accountability. We&apos;re Microsoft-backed founders, so we know Azure inside
+              and out—specifically where its vendor lock-in starts and where it can be avoided. We use that experience to
+              keep your organization free, clear, and running on clean code whether you live in Azure, AWS, GCP, Alibaba,
+              or sovereign infrastructure. Your cloud, your budget, we make it work.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <Link
