@@ -9,7 +9,7 @@ import { LGBTQDiscountModalTrigger } from "./_components/lgbtq-discount-modal-tr
 import { Accordion } from "./_sections/accordion-faq";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { ConsensusEngineCard } from "@/components/ConsensusEngineCard";
-import { VogueCard } from "@/components/vogue-card";
+import { StackedProductCards } from "@/components/stacked-product-cards";
 import { ButtonLink } from "@/common/button";
 
 export const dynamic = "force-dynamic";
@@ -116,7 +116,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Flagship tools grid */}
+      {/* Flagship tools stacked cards */}
       <section className="home-section home-section--soft" aria-labelledby="flagship-heading">
         <div className="home-section-inner">
           <div className="be-section-card space-y-4">
@@ -127,41 +127,8 @@ export default function HomePage() {
               From single-workflow automation to relationship-first chatbots and deep research, our flagship tools are
               built to work together—but you can start with just one.
             </p>
-            <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
-              <VogueCard
-                imageSrc="/assets/logos/flowstack.png"
-                imageAlt="Flowstack couture card"
-                title="Flowstack"
-                tagline="Workflow automation"
-                description="Automate the single task stealing the most hours from your week—without giving up approvals or audit trails."
-                href="/solutions/flowstack"
-              />
-              <VogueCard
-                imageSrc="/assets/logos/cadence.png"
-                imageAlt="Cadence couture card"
-                title="Cadence"
-                tagline="For people who hate chatbots"
-                description="A highly tailored customer chatbot that sounds like you, tells real stories, and builds relationships instead of pushing scripts."
-                href="/products/cadence"
-              />
-              <VogueCard
-                imageSrc="/assets/logos/consensus.png"
-                imageAlt="Consensus Engine couture card"
-                title="Consensus Engine"
-                tagline="Decision clarity"
-                description="Coordinated AI perspectives with citations and clear tradeoffs so your biggest calls come with receipts instead of guesses."
-                href="/solutions/consensus-engine"
-              />
-              <VogueCard
-                imageSrc="/assets/logos/RedBridging.png"
-                imageAlt="Redbridging couture card"
-                title="Redbridging"
-                tagline="Automation reliability"
-                description="We rescue brittle automations—stabilize, document, and maintain them so they stop breaking when you need them most."
-                href="/solutions/redbridging"
-              />
-            </div>
           </div>
+          <StackedProductCards />
         </div>
       </section>
 
@@ -291,4 +258,3 @@ function HomeFaqJsonLd() {
   // eslint-disable-next-line @next/next/no-sync-scripts
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }
-
