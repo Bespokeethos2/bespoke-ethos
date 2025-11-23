@@ -10,8 +10,7 @@ import { OrganizationJsonLd } from "./_components/seo/organization-jsonld";
 import { WebsiteJsonLd } from "./_components/seo/website-jsonld";
 import { LocalBusinessJsonLd } from "./_components/seo/localbusiness-jsonld";
 
-const rawSkipSetting = (process.env.SKIP_REMOTE_DATA ?? "").trim();
-const SKIP_REMOTE_DATA = rawSkipSetting ? rawSkipSetting !== "0" : true;
+
 
 const DEFAULT_SITE_URL = "https://www.bespokeethos.com";
 

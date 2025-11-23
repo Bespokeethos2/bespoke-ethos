@@ -97,3 +97,58 @@ export const searchChangelogQuery = groq`*[_type == "changelogPost" && (
     "imageUrl": coalesce(image.asset->url, avatar.asset->url)
   }, [])
 }`;
+
+export const marketingPageQuery = groq`*[_type == "marketingPage" && slug.current == $slug][0]{
+  "title": title,
+  "slug": slug.current,
+  seo{
+    title,
+    description,
+    canonicalUrl,
+    ogImage{
+      "url": asset->url,
+      "width": asset->metadata.dimensions.width,
+      "height": asset->metadata.dimensions.height,
+      "aspectRatio": asset->metadata.dimensions.aspectRatio,
+      "blurDataURL": asset->metadata.lqip,
+      "alt": alt
+    }
+  },
+  heroHeading,
+  heroSubheading,
+  heroImage{
+    "url": asset->url,
+    "width": asset->metadata.dimensions.width,
+    "height": asset->metadata.dimensions.height,
+    "aspectRatio": asset->metadata.dimensions.aspectRatio,
+    "blurDataURL": asset->metadata.lqip,
+    "alt": alt
+  },
+  heroCtaText,
+  heroCtaLink,
+  content,
+  components
+}`;
+
+export const faqPageQuery = groq`*[_type == "faqPage" && slug.current == $slug][0]{
+  "title": title,
+  "slug": slug.current,
+  seo{
+    title,
+    description,
+    canonicalUrl,
+    ogImage{
+      "url": asset->url,
+      "width": asset->metadata.dimensions.width,
+      "height": asset->metadata.dimensions.height,
+      "aspectRatio": asset->metadata.dimensions.aspectRatio,
+      "blurDataURL": asset->metadata.lqip,
+      "alt": alt
+    }
+  },
+  faqItems[]{
+    question,
+    answer,
+    category
+  }
+}`;

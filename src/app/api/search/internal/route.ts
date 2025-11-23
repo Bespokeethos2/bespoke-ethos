@@ -1,183 +1,127 @@
 import { NextRequest, NextResponse } from "next/server";
-
+import { createOpenAI } from "@ai-sdk/openai";
+import { embed } from "ai";
 import { sanityFetch } from "@/lib/sanity/client";
 import { searchChangelogQuery } from "@/lib/sanity/queries";
+import { PINECONE_ENV_VARS, OPENAI_EMBEDDING_CONFIG } from "@/lib/search/config";
 import type { SanityChangelogPost } from "@/lib/sanity/types";
 
-export const runtime = "nodejs";
-
-const SKIP_REMOTE_DATA = (process.env.SKIP_REMOTE_DATA ?? "").trim() === "1";
-
-type SearchResult = {
-  id: string;
-  title: string;
-  slug?: string;
-  snippet?: string;
-  type?: string;
-  score?: number;
-  tags?: string[];
-};
-
-type SearchResponse = {
-  query: string;
-  source: "pinecone" | "sanity" | "disabled" | "error-fallback";
-  mode: "vector" | "fallback" | "disabled" | "error";
-  results: SearchResult[];
-};
-
-async function searchWithSanity(query: string): Promise<SearchResponse> {
-  const trimmed = query.trim();
-  if (!trimmed) {
-    return { query, source: "sanity", mode: "fallback", results: [] };
-  }
-
-  const posts =
-    (await sanityFetch<SanityChangelogPost[]>(searchChangelogQuery, {
-      query: `${trimmed}*`,
-    })) ?? [];
-
-  const results: SearchResult[] = posts.map((post) => ({
-    id: post._id,
-    title: post.title,
-    slug: post.slug,
-    snippet: post.excerpt,
-    type: "changelog",
-  }));
-
-  return { query, source: "sanity", mode: "fallback", results };
-}
-
-async function searchWithPinecone(query: string): Promise<SearchResponse | null> {
-  const pineconeHost = (process.env.PINECONE_HOST ?? "").trim();
-  const pineconeApiKey = (process.env.PINECONE_API_KEY ?? "").trim();
-  const namespace = (process.env.PINECONE_NAMESPACE ?? "production").trim();
-  const embeddingModel = (process.env.EMBEDDING_MODEL ?? "").trim();
-  const openaiKey = (process.env.OPENAI_API_KEY ?? "").trim();
-
-  if (!pineconeHost || !pineconeApiKey || !embeddingModel || !openaiKey) {
-    return null;
-  }
-
-  const embedRes = await fetch("https://api.openai.com/v1/embeddings", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${openaiKey}`,
-    },
-    body: JSON.stringify({
-      model: embeddingModel,
-      input: query,
-    }),
-  });
-
-  if (!embedRes.ok) {
-    return null;
-  }
-
-  const embedJson = (await embedRes.json()) as {
-    data?: Array<{ embedding?: number[] }>;
-  };
-
-  const vector = embedJson.data?.[0]?.embedding;
-  if (!Array.isArray(vector) || vector.length === 0) {
-    return null;
-  }
-
-  const host = pineconeHost.replace(/\/+$/, "");
-  const pineconeRes = await fetch(`${host}/query`, {
-    method: "POST",
-    headers: {
-      "Api-Key": pineconeApiKey,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      vector,
-      topK: 10,
-      includeMetadata: true,
-      namespace,
-    }),
-  });
-
-  if (!pineconeRes.ok) {
-    return null;
-  }
-
-  const pineconeJson = (await pineconeRes.json()) as {
-    matches?: Array<{
-      id: string;
-      score?: number;
-      metadata?: Record<string, unknown>;
-    }>;
-  };
-
-  const results: SearchResult[] =
-    pineconeJson.matches?.map((match) => {
-      const metadata = match.metadata ?? {};
-      const title = (metadata.title as string | undefined) ?? "";
-      const type = (metadata.type as string | undefined) ?? "brand-doc";
-      const tags = Array.isArray(metadata.tags)
-        ? (metadata.tags as string[])
-        : (metadata.source ? [String(metadata.source)] : []);
-      const snippet = metadata.snippet as string | undefined;
-
-      return {
-        id: match.id,
-        title,
-        snippet,
-        type,
-        score: match.score,
-        tags,
-      };
-    }) ?? [];
-
-  return {
-    query,
-    source: "pinecone",
-    mode: "vector",
-    results,
-  };
-}
+// This internal API route handles search requests by querying Sanity
+// and optionally Pinecone for semantic search, with fallbacks.
 
 export async function POST(req: NextRequest) {
-  let body: unknown;
-
   try {
-    body = await req.json();
-  } catch {
-    return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
-  }
+    const { query } = await req.json();
 
-  const query = typeof (body as any)?.query === "string" ? (body as any).query : "";
-  if (!query.trim()) {
-    return NextResponse.json({ error: "Query is required" }, { status: 400 });
-  }
-
-  if (SKIP_REMOTE_DATA) {
-    const fallback = await searchWithSanity(query);
-    return NextResponse.json<SearchResponse>({
-      ...fallback,
-      mode: "fallback",
-    });
-  }
-
-  try {
-    const pineconeResult = await searchWithPinecone(query);
-    if (pineconeResult && pineconeResult.results.length > 0) {
-      return NextResponse.json<SearchResponse>(pineconeResult);
+    if (!query || typeof query !== "string") {
+      return NextResponse.json({ error: "Invalid search query" }, { status: 400 });
     }
 
-    const fallback = await searchWithSanity(query);
-    return NextResponse.json<SearchResponse>({
-      ...fallback,
-      mode: "fallback",
-    });
-  } catch {
-    const fallback = await searchWithSanity(query);
-    return NextResponse.json<SearchResponse>({
-      ...fallback,
-      source: "error-fallback",
-      mode: "error",
-    });
+    const searchResults: { query: string; source: string; mode: string; results: SanityChangelogPost[] | any[] } = {
+      query,
+      source: "unknown",
+      mode: "unknown",
+      results: [],
+    };
+
+    const pineconeApiKey = process.env[PINECONE_ENV_VARS.API_KEY];
+    const pineconeHost = process.env[PINECONE_ENV_VARS.HOST];
+    const openaiApiKey = process.env[OPENAI_EMBEDDING_CONFIG.environmentVariable];
+
+    // --- Fallback to Sanity (GROQ-only) if Pinecone/OpenAI not configured ---
+    if (!pineconeApiKey || !pineconeHost || !openaiApiKey) {
+      console.warn("Skipping Pinecone/OpenAI integration. Falling back to GROQ search.");
+      searchResults.source = "sanity";
+      searchResults.mode = "fallback";
+
+      const sanityResults = await sanityFetch<SanityChangelogPost[]>(searchChangelogQuery, { query: `*${query}*` });
+      searchResults.results = sanityResults || [];
+
+      return NextResponse.json(searchResults);
+    }
+
+    // --- Proceed with Pinecone/OpenAI integration ---
+    searchResults.source = "pinecone";
+    searchResults.mode = "vector";
+
+    // 1. Get embedding for the query
+    let embedding: number[];
+    try {
+          const openaiClient = createOpenAI({
+            apiKey: openaiApiKey,
+          });
+      
+          const embeddingResponse = await embed({
+            model: openaiClient.textEmbeddingModel(OPENAI_EMBEDDING_CONFIG.modelName),        value: query,
+      });
+      embedding = embeddingResponse.embedding;
+    } catch (embeddingError) {
+      console.error("Error generating embedding:", embeddingError);
+      // Fallback to GROQ if embedding fails
+      searchResults.source = "sanity";
+      searchResults.mode = "error-fallback";
+      const sanityResults = await sanityFetch<SanityChangelogPost[]>(searchChangelogQuery, { query: `*${query}*` });
+      searchResults.results = sanityResults || [];
+      return NextResponse.json(searchResults);
+    }
+
+    // 2. Query Pinecone
+    try {
+      const pineconeQueryUrl = `${pineconeHost}/query`;
+      const pineconeResponse = await fetch(pineconeQueryUrl, {
+        method: "POST",
+        headers: {
+          "Api-Key": pineconeApiKey,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          vector: embedding,
+          topK: 10, // Or a configurable value
+          includeMetadata: true,
+        }),
+      });
+
+      if (!pineconeResponse.ok) {
+        throw new Error(`Pinecone API error: ${pineconeResponse.status} ${pineconeResponse.statusText}`);
+      }
+
+      const pineconeData = await pineconeResponse.json();
+      // Assuming pineconeData.matches has the results, and metadata contains original content identifiers
+      // This part would need refinement based on actual Pinecone metadata structure.
+      const pineconeMatches = pineconeData.matches || [];
+
+      // For initial implementation, just return Pinecone matches.
+      // A more sophisticated approach would involve fetching full Sanity documents based on Pinecone matches.
+      searchResults.results = pineconeMatches.map((match: any) => ({
+        _id: match.id, // Assuming Pinecone ID matches Sanity _id or slug
+        title: match.metadata?.title || "Untitled",
+        slug: match.metadata?.slug || match.id,
+        excerpt: match.metadata?.snippet || "",
+        source: "pinecone",
+      }));
+      
+      // If Pinecone returns no results, fallback to Sanity
+      if (searchResults.results.length === 0) {
+        console.warn("Pinecone returned no results. Falling back to GROQ search.");
+        searchResults.source = "sanity";
+        searchResults.mode = "pinecone-empty-fallback";
+        const sanityResults = await sanityFetch<SanityChangelogPost[]>(searchChangelogQuery, { query: `*${query}*` });
+        searchResults.results = sanityResults || [];
+      }
+
+    } catch (pineconeError) {
+      console.error("Error querying Pinecone:", pineconeError);
+      // Fallback to GROQ if Pinecone query fails
+      searchResults.source = "sanity";
+      searchResults.mode = "error-fallback";
+      const sanityResults = await sanityFetch<SanityChangelogPost[]>(searchChangelogQuery, { query: `*${query}*` });
+      searchResults.results = sanityResults || [];
+    }
+
+    return NextResponse.json(searchResults);
+
+  } catch (error) {
+    console.error("Internal server error in /api/search/internal:", error);
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }
-

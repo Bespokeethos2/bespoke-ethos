@@ -12,7 +12,7 @@ import type {
 } from "@/lib/sanity/types";
 import type { ChangelogListItem } from "./_components/changelog.fragment";
 
-const SKIP_REMOTE_DATA = (process.env.SKIP_REMOTE_DATA ?? "").trim() === "1";
+
 
 type ChangelogQueryResponse = {
   header?: SanityChangelogHeader;
@@ -22,10 +22,6 @@ type ChangelogQueryResponse = {
 export const dynamic = "force-dynamic";
 
 export const generateMetadata = async (): Promise<Metadata | undefined> => {
-  if (SKIP_REMOTE_DATA) {
-    return fallbackMetadata;
-  }
-
   const data = await getChangelogData();
   if (!data?.header) {
     return fallbackMetadata;
@@ -39,20 +35,6 @@ export const generateMetadata = async (): Promise<Metadata | undefined> => {
 };
 
 export default async function ChangelogPage() {
-  if (SKIP_REMOTE_DATA) {
-    return (
-      <ChangelogLayout>
-        <Heading
-          align="left"
-          className="flex-1 flex-col-reverse!"
-          subtitle="Content is being migrated to Sanity."
-        >
-          <h1>Changelog</h1>
-        </Heading>
-      </ChangelogLayout>
-    );
-  }
-
   const data = await getChangelogData();
   const posts = data?.posts ?? [];
   if (!posts.length) {

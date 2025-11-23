@@ -15,7 +15,7 @@ import { changelogPostQuery, changelogSlugsQuery } from "@/lib/sanity/queries";
 import type { SanityChangelogPost } from "@/lib/sanity/types";
 import { notFound } from "next/navigation";
 
-const SKIP_REMOTE_DATA = (process.env.SKIP_REMOTE_DATA ?? "").trim() === "1";
+
 
 interface ChangelogPageParams {
   params: Promise<{ slug: string }>;
@@ -24,20 +24,12 @@ interface ChangelogPageParams {
 export const revalidate = 1800;
 
 export const generateStaticParams = async () => {
-  if (SKIP_REMOTE_DATA) {
-    return [];
-  }
-
   const slugs = await sanityFetch<Array<{ slug: string }>>(changelogSlugsQuery, {});
   return slugs?.map(({ slug }) => ({ slug })) ?? [];
 };
 
 export const generateMetadata = async ({ params: awaitedParams }: ChangelogPageParams): Promise<Metadata> => {
   const params = await awaitedParams;
-
-  if (SKIP_REMOTE_DATA) {
-    return fallbackMetadata(params.slug);
-  }
 
   const post = await sanityFetch<SanityChangelogPost>(changelogPostQuery, { slug: params.slug });
   if (!post) {
@@ -57,24 +49,6 @@ export const generateMetadata = async ({ params: awaitedParams }: ChangelogPageP
 
 export default async function ChangelogPage({ params: awaitedParams }: ChangelogPageParams) {
   const params = await awaitedParams;
-
-  if (SKIP_REMOTE_DATA) {
-    return (
-      <ChangelogLayout>
-        <div className="flex flex-col gap-1">
-          <Link className="text-text-tertiary dark:text-dark-text-tertiary flex w-max items-center gap-1 text-sm hover:underline md:text-sm" href="/changelog">
-            Back to changelog
-          </Link>
-          <Heading align="left">
-            <h1>Changelog entry</h1>
-          </Heading>
-          <p className="text-text-tertiary dark:text-dark-text-tertiary text-sm md:text-base">
-            Changelog detail pages are temporarily disabled while we migrate to Sanity. The URL {params.slug} will become active once the new CMS is live.
-          </p>
-        </div>
-      </ChangelogLayout>
-    );
-  }
 
   const post = await sanityFetch<SanityChangelogPost>(changelogPostQuery, { slug: params.slug });
   if (!post) {

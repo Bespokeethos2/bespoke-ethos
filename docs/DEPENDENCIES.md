@@ -27,51 +27,53 @@ This project uses specific versions that are tested and working. Updating depend
 
 ### UI Components
 ```json
-"@radix-ui/react-accordion": "^1.2.1"
-"@radix-ui/react-navigation-menu": "^1.2.1"
-"@radix-ui/react-popover": "^1.1.2"
-"@radix-ui/react-select": "^2.1.2"
-"@radix-ui/react-tooltip": "^1.1.3"
-"@tabler/icons-react": "3.21.0"
+"@radix-ui/react-accordion": "^1.2.1",
+"@radix-ui/react-dialog": "^1.1.15",
+"@radix-ui/react-navigation-menu": "^1.2.1",
+"@radix-ui/react-popover": "^1.1.2",
+"@radix-ui/react-select": "^2.1.2",
+"@radix-ui/react-tooltip": "^1.1.3",
+"@tabler/icons-react": "3.21.0",
+"lucide-react": "^0.40.0"
 ```
-**Purpose:** Accessible UI components for navigation, menus, tooltips  
-**Update Policy:** Only update if security vulnerability or critical bug
+**Purpose:** Accessible UI components for navigation, menus, tooltips, and icons.  
+**Update Policy:** Only update if security vulnerability or critical bug.
 
 ### Styling
 ```json
-"tailwindcss": "^4.0.17"
-"@tailwindcss/postcss": "^4.0.17"
-"@tailwindcss/typography": "^0.5.19"
-"tailwindcss-radix": "^4.0.2"
+"tailwindcss": "^4.0.17",
+"@tailwindcss/postcss": "^4.0.17",
+"@tailwindcss/typography": "^0.5.19",
+"tailwindcss-radix": "^4.0.2",
 "sass": "^1.83.0"
 ```
-**Purpose:** Tailwind CSS v4 with PostCSS and typography plugin  
-**Update Policy:** DO NOT update Tailwind v4 until stable release
+**Purpose:** Tailwind CSS v4 with PostCSS and typography plugin.  
+**Update Policy:** DO NOT update Tailwind v4 until stable release.
 
 ### CMS & Content
 ```json
-"@sanity/client": "^7.12.1",
-"groq": "^4.15.0"
+"@sanity/client": "^7.13.0",
+"groq": "^4.18.0"
 ```
-**Purpose:** Sanity CMS integration for changelog and future marketing content  
-**Update Policy:** Only update if Sanity client or GROQ APIs require it  
-**Required Env Vars:** `SANITY_PROJECT_ID`, `SANITY_DATASET`, `SANITY_API_VERSION`, optional `SANITY_API_TOKEN` for draft content
+**Purpose:** Sanity CMS integration for changelog and future marketing content.  
+**Update Policy:** Only update if Sanity client or GROQ APIs require it.  
+**Required Env Vars:** `SANITY_PROJECT_ID`, `SANITY_DATASET`, `SANITY_API_VERSION`, optional `SANITY_API_TOKEN` for draft content.
 
 ### Image Processing
 ```json
 "sharp": "^0.34.5"
 ```
-**Purpose:** Image optimization during build  
-**Update Policy:** Only update if build fails due to sharp issues
+**Purpose:** Image optimization during build.  
+**Update Policy:** Only update if build fails due to sharp issues.
 
 ### Carousel
 ```json
-"embla-carousel": "^8.0.4"
-"embla-carousel-react": "^8.0.4"
+"embla-carousel": "^8.0.4",
+"embla-carousel-react": "^8.0.4",
 "embla-carousel-wheel-gestures": "^8.0.1"
 ```
-**Purpose:** Hero slideshow on homepage  
-**Update Policy:** Only update if carousel bugs occur
+**Purpose:** Hero slideshow on homepage.  
+**Update Policy:** Only update if carousel bugs occur.
 
 ---
 
@@ -89,16 +91,21 @@ PINECONE_INDEX_NAME=...
 PINECONE_PROJECT_NAME=...
 PINECONE_HOST=https://...pinecone.io
 EMBEDDING_MODEL=text-embedding-3-small
+RESEND_API_KEY=...
+CONTACT_ENABLE_EMAIL="true"
+CONTACT_EMAIL_FROM="onboarding@bespokeethos.com"
+CONTACT_EMAIL_TO="hello@bespokeethos.com"
+CONTACT_EMAIL_SUBJECT="New Contact Form Submission from Bespoke Ethos Website"
 ```
-**Purpose:** Site URL for metadata plus Sanity, OpenAI, and Pinecone configuration for changelog + internal search  
-**Location:** Set in Vercel dashboard for Production, Preview, Development
+**Purpose:** Site URL for metadata plus Sanity, OpenAI, and Pinecone configuration for changelog + internal search.  
+**Location:** Set in Vercel dashboard for Production, Preview, Development.
 
 ### Local Development Only
 ```bash
 SKIP_REMOTE_DATA=1
 ```
-**Purpose:** Skip remote Sanity/Pinecone calls in local development (renders fallbacks instead)  
-**Usage:** Set in `.env.local` when you want purely local/static behavior
+**Purpose:** Skip remote Sanity/Pinecone calls in local development (renders fallbacks instead).  
+**Usage:** Set in `.env.local` when you want purely local/static behavior.
 
 ---
 
@@ -113,153 +120,21 @@ SKIP_REMOTE_DATA=1
 ```json
 "typescript": "^5.4.5"
 ```
-**Purpose:** Type checking and compilation  
+**Purpose:** Type checking and compilation.  
 **Config:** `tsconfig.json`
 
 ### Linting
 ```json
-"eslint": "^9.14.0"
+"eslint": "^9.14.0",
 "eslint-config-next": "16.0.0"
 ```
-**Purpose:** Code quality and consistency  
+**Purpose:** Code quality and consistency.  
 **Config:** `eslint.config.mjs`
 
 ### Formatting
 ```json
-"prettier": "^3.2.5"
+"prettier": "^3.2.5",
 "prettier-plugin-tailwindcss": "^0.6.11"
 ```
-**Purpose:** Code formatting with Tailwind class sorting  
+**Purpose:** Code formatting with Tailwind class sorting.  
 **Config:** `.prettierrc` (if exists)
-
----
-
-## 🚫 What NOT to Do
-
-### ❌ DO NOT run these commands:
-```bash
-pnpm update          # Updates all dependencies
-pnpm upgrade         # Same as update
-npm install          # Wrong package manager
-yarn install         # Wrong package manager
-pnpm add <package>@latest  # Installs latest (might break)
-```
-
-### ✅ ONLY run these commands:
-```bash
-pnpm install                    # Install exact versions from lockfile
-pnpm install --frozen-lockfile  # Install without updating lockfile
-pnpm add <package>@<version>    # Add specific version only
-```
-
----
-
-## 🔄 When to Update Dependencies
-
-### Security Vulnerabilities
-If `pnpm audit` shows critical vulnerabilities:
-1. Check if vulnerability affects production code
-2. Update ONLY the affected package
-3. Test thoroughly before deploying
-4. Document the change in git commit
-
-### Bug Fixes
-If a dependency has a critical bug:
-1. Check release notes for the fix
-2. Update to the specific patch version
-3. Test locally with `pnpm build`
-4. Deploy and monitor
-
-### Feature Needs
-If you need a new feature from a dependency:
-1. Check if current version supports it
-2. If not, evaluate risk of updating
-3. Update in a separate branch first
-4. Test extensively before merging to main
-
----
-
-## 📋 Dependency Update Checklist
-
-If you MUST update a dependency:
-
-- [ ] Read the changelog/release notes
-- [ ] Check for breaking changes
-- [ ] Update to specific version (not `@latest`)
-- [ ] Run `pnpm install`
-- [ ] Run `pnpm run check` (lint + typecheck)
-- [ ] Run `pnpm build` (full build test)
-- [ ] Test locally with `pnpm dev`
-- [ ] Test all critical pages
-- [ ] Commit with clear message: `chore(deps): update X from Y to Z`
-- [ ] Deploy to production
-- [ ] Monitor for errors
-
----
-
-## 🐛 Common Dependency Issues
-
-### Issue: "Cannot find module 'next'"
-**Cause:** Missing dependencies or corrupted node_modules  
-**Solution:**
-```bash
-rm -rf node_modules pnpm-lock.yaml
-pnpm install
-```
-
-### Issue: "Sharp installation failed"
-**Cause:** Sharp binary mismatch with Node version  
-**Solution:**
-```bash
-pnpm rebuild sharp
-```
-
-### Issue: "Peer dependency warning"
-**Cause:** Dependency version mismatch  
-**Solution:** Ignore if build succeeds. Only fix if build fails.
-
-### Issue: "pnpm-lock.yaml conflicts"
-**Cause:** Multiple people updating dependencies  
-**Solution:**
-```bash
-git checkout main -- pnpm-lock.yaml
-pnpm install
-```
-
----
-
-## 📊 Dependency Audit
-
-### Check for vulnerabilities:
-```bash
-pnpm audit
-```
-
-### View outdated packages (DO NOT auto-update):
-```bash
-pnpm outdated
-```
-
-### View dependency tree:
-```bash
-pnpm list --depth=1
-```
-
----
-
-## 🔗 Related Documentation
-
-- [DEPLOYMENT.md](../DEPLOYMENT.md) - Full deployment guide
-- [DEPLOYMENT_QUICK_START.md](./DEPLOYMENT_QUICK_START.md) - Quick deployment steps
-- [package.json](../package.json) - Dependency definitions
-- [pnpm-lock.yaml](../pnpm-lock.yaml) - Locked versions (DO NOT EDIT)
-
----
-
-## 📝 Notes
-
-- **pnpm-lock.yaml is sacred** - Never manually edit it
-- **node_modules is gitignored** - Never commit it
-- **Vercel uses exact lockfile** - What works locally works in production
-- **Caret (^) allows patch updates** - e.g., ^1.2.3 allows 1.2.4 but not 1.3.0
-- **Exact versions have no prefix** - e.g., 16.0.0 means exactly 16.0.0

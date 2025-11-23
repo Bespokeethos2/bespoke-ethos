@@ -39,3 +39,36 @@ export interface SanityChangelogHeader {
     iconUrl?: string;
   }>;
 }
+
+export interface SanitySEO {
+  title?: string;
+  description?: string;
+  canonicalUrl?: string;
+  ogImage?: SanityImage;
+}
+
+export interface SanityMarketingPage {
+  title: string;
+  slug: string;
+  seo?: SanitySEO;
+  heroHeading?: string;
+  heroSubheading?: string;
+  heroImage?: SanityImage;
+  heroCtaText?: string;
+  heroCtaLink?: string;
+  content?: PortableTextBlock[];
+  components?: Array<any>;
+}
+
+export interface SanityFAQ {
+  question: string;
+  answer: PortableTextBlock[];
+  category?: string;
+}
+
+export interface SanityFAQPage {
+  title: string;
+  slug: string;
+  seo?: SanitySEO;
+  faqItems?: SanityFAQ[];
+}

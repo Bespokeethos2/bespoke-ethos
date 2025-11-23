@@ -1,32 +1,21 @@
 # Current Project State
 
-**Date:** November 14, 2025  
+**Date:** Sunday, November 23, 2025  
 **Project:** bespoke-ethos  
-**Status:** Deployed but showing runtime error
+**Status:** In active development - Sanity migration in progress
 
 ---
 
-## MCP Readiness Snapshot (Nov 14, 2025 - Pre-Wipe)
+## MCP Readiness Snapshot (Updated November 23, 2025)
 
 - **Working connectors:** GitMCP (`https://gitmcp.io/openai/codex`) and Filesystem MCP (`npx -y @modelcontextprotocol/server-filesystem .`).  
 - **Blocked connectors:** Sentry MCP (`401 Unauthorized`) and Vercel MCP (`424 Failed Dependency`). Both are explicitly disabled inside `scripts/mcp_agents_config.json`; agents must not attempt them until fresh credentials exist.
-- **Operator keying:** Set `$env:OPENAI_API_KEY` to the service key ending in `...UfAA` inside the active shell plus `$env:PYTHONIOENCODING='utf-8'`. Do **not** commit or echo the raw value; only set it temporarily before launching agents.
+- **Operator keying:** Set `$env:OPENAI_API_KEY` to the service key in the active shell plus `$env:PYTHONIOENCODING='utf-8'`. Do **not** commit or echo the raw value; only set it temporarily before launching agents.
 - **Environment alignment:**  
   - Sanity -> `SANITY_PROJECT_ID=3zm8j5u6`, dataset `production`, API token already in `.env.local` and Vercel.  
   - Airtable -> `AIRTABLE_BASE_ID=appDG8eZQE9oG8gPY`, `AIRTABLE_CONTACT_TABLE_ID=tblIWtgkqJd2mhWj6`, `AIRTABLE_NEWSLETTER_TABLE_ID=tbllMAx256vCwKVFq`.  
-  - Pinecone -> host `https://bespoke-ethos-o0ibx7b.svc.aped-4627-b74a.pinecone.io`, namespace `production`, embedding model `text-embedding-3-small`. Brand canon docs (`founders-bible.txt`, `guides/Bespoke Ethos_ The Founder-Focused Conversion Attack Plan.md`, `guides/BESPOKE ETHOS MARKET RESEARCH & CONVERSION ANALYSIS.md`) were chunked + upserted via `scripts/ingest-brand-docs.mjs` (Nov 14 2025 run) using `text-embedding-3-small` => 11 total vectors. Re-run the script whenever these docs change.  
-  - Guardrails present locally & on Vercel: `SKIP_REMOTE_DATA=1` (until Sanity swap), `NEXT_PUBLIC_SITE_URL=https://bespokeethos.com`, `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET`, `REQUIRED_VERCEL_PROJECT_ID=prj_8cbai6JzE169NUytyFtCpSohZVka`.
-- **Agent orchestration:** `scripts/mcp_agents_config.json` now defines six roles (Runtime Purge Engineer, Types & UI Refactorist, Sanity & Search Architect, Env & Secrets Steward, Docs & MCP Orchestrator, QA & Release Sentinel). Every instruction block reiterates the Sentry/Vercel ban so runs do not stall.
-- **Launch macro (single paste):**
-  ```
-  $env:OPENAI_API_KEY='<service key ending in UfAA>'
-  $env:PYTHONIOENCODING='utf-8'
-  pnpm exec python scripts/mcp_agents.py --config scripts/mcp_agents_config.json hosted --server-label gitmcp --server-url https://gitmcp.io/openai/codex
-  pnpm exec python scripts/mcp_agents.py stdio --config scripts/mcp_agents_config.json --server-name local-files --server-params '{"command":"npx","args":["-y","@modelcontextprotocol/server-filesystem","."]}'
-  ```
-  (Skip Sentry/Vercel hosted runs until auth is restored.)
-- **Layout Guardian findings (GitMCP run, see operator notes 2025-11-14):** hero CTA misalignment on desktop, mobile nav toggle overlapping CTA, contact form labels missing `for` attributes, solutions section mosaic inconsistent vs market research brief. No other agents have run yet.
-- **Next operator priorities:** (1) Launch the remaining six agents using the above commands. (2) Implement Sanity client + GROQ migration for `src/app/changelog/*`. (3) Stand up Pinecone search API/UI with a graceful SKIP fallback. (4) Update Manus docs + READ_THIS after agents report back.
+  - Pinecone -> host `https://bespoke-ethos-o0ibx7b.svc.aped-4627-b74a.pinecone.io`, namespace `production`, embedding model `text-embedding-3-small`.
+- **Agent orchestration:** `scripts/mcp_agents_config.json` defines agent roles.
 
 ---
 
@@ -34,52 +23,10 @@
 
 ### Live URLs
 - **Production:** https://www.bespokeethos.com
-- **Alternate:** https://bespokeethos.com
 - **Vercel URL:** https://bespoke-ethos-upton-rands-projects.vercel.app
 
-### Current Error
-```
-Application error: a server-side exception has occurred while loading www.bespokeethos.com
-Digest: 2611423346
-```
-
-### Latest Deployment
-- **ID:** `dpl_7C6jKZK9m72ZfVLX8MPSoM8MWJfU`
-- **Status:** READY (but runtime error)
-- **Commit:** `011ed00416cbf8a08b99fab773a5e2a853e4a54a`
-- **Message:** "fix: add SKIP_REMOTE_DATA guards to changelog pages"
-- **Build Time:** ~82 seconds
-- **Deployed At:** November 14, 2025
-
----
-
-## Recent Changes
-
-### Commits Made During This Session
-1. **f54917c** - "fix: remove inline use server directive from client component"
-2. **011ed00** - "fix: add SKIP_REMOTE_DATA guards to changelog pages"
-
-### Files Modified
-- `src/app/_sections/newsletter/index.tsx` - Removed inline "use server"
-- `src/app/changelog/page.tsx` - Added SKIP_REMOTE_DATA guards
-- `src/app/changelog/[slug]/page.tsx` - Added SKIP_REMOTE_DATA guards
-
----
-
-## The BaseHub Problem
-
-### What Happened
-1. BaseHub CMS integration was causing build failures
-2. Error: "Failed to resolve ref: Unauthorized"
-3. Added `BASEHUB_TOKEN` to Vercel, but still failed
-4. Added `SKIP_REMOTE_DATA` guards to skip BaseHub calls
-5. Build succeeded, but site now shows runtime error
-
-### Why BaseHub Needs to Go
-- Unreliable authentication
-- Poor error messages
-- Difficult to debug
-- Not worth the complexity for a simple changelog
+### Current State
+- The production site is currently showing a runtime error due to the BaseHub CMS integration. The active migration to Sanity.io is the primary focus to resolve this issue.
 
 ---
 
@@ -90,113 +37,65 @@ Digest: 2611423346
 bespoke-ethos/
 ├── src/
 │   ├── app/
-│   │   ├── changelog/          # Changelog pages (uses BaseHub)
+│   │   ├── api/                # Internal API routes (e.g., /api/search/internal)
+│   │   ├── changelog/          # Changelog pages (migrated to Sanity)
 │   │   ├── _sections/          # Page sections
 │   │   └── _components/        # Shared components
 │   ├── lib/
-│   │   └── basehub/            # BaseHub integration (to be removed)
+│   │   ├── sanity/             # Sanity client, queries, types, and conceptual schemas
+│   │   ├── search/             # Search configurations (OpenAI embeddings, Pinecone shape)
+│   │   └── basehub/            # BaseHub integration (TO BE REMOVED)
 │   └── utils/
 ├── scripts/                     # Build scripts
 ├── public/                      # Static assets
 └── package.json                 # Dependencies
 ```
 
-### Key Files
-- `basehub.config.ts` - BaseHub configuration (to be removed)
-- `src/app/changelog/page.tsx` - Main changelog page
-- `src/app/changelog/[slug]/page.tsx` - Individual changelog post
-- `.env.example` - Environment variable template
-
----
-
-## Dependencies
-
-### Current BaseHub Dependencies (to be removed)
-```json
-"basehub": "9.5.2"
-```
-
-### Keep These Dependencies
-- `next`: "16.0.0"
-- `react`: "19.2.0"
-- `@radix-ui/*`: Various UI components
-- `tailwindcss`: Styling
-- `openai`: "6.8.1" (for future AI features)
-
 ---
 
 ## Environment Variables
 
 ### Current (Vercel)
-- `BASEHUB_TOKEN` - (Will be removed)
-- `SKIP_REMOTE_DATA` - Set to "1" (Will be removed)
-- `RESEND_API_KEY` - Email service
-- `AIRTABLE_API_KEY` - CRM integration
-- `AIRTABLE_BASE_ID` - Airtable base
-- `AIRTABLE_CONTACT_TABLE_ID` - Contact form submissions
-- `AIRTABLE_NEWSLETTER_TABLE_ID` - Newsletter signups
-- `NEXT_PUBLIC_TURNSTILE_SITE_KEY` - Spam protection
-- `TURNSTILE_SECRET` - Spam protection
-- `NEXT_PUBLIC_SITE_URL` - "https://www.bespokeethos.com"
-- `NEXT_PUBLIC_SITE_NAME` - "Bespoke Ethos"
-- `REQUIRED_VERCEL_PROJECT_ID` - "prj_8cbai6JzE169NUytyFtCpSohZVka"
+- `NEXT_PUBLIC_SITE_URL` - "https://www.bespokeethos.com" (Canonical site URL and branding)
+- `NEXT_PUBLIC_SITE_NAME` - "Bespoke Ethos" (Canonical site URL and branding)
+- `REQUIRED_VERCEL_PROJECT_ID` - "prj_8cbai6JzE169NUytyFtCpSohZVka" (Vercel project guardrails)
+- `RESEND_API_KEY` - Email service (Contact form notifications)
+- `CONTACT_ENABLE_EMAIL` - "true" to enable contact form email notifications via Resend
+- `CONTACT_EMAIL_FROM` - Sender email address for contact form notifications (e.g., "onboarding@bespokeethos.com")
+- `CONTACT_EMAIL_TO` - Recipient email address for contact form notifications (e.g., "hello@bespokeethos.com")
+- `CONTACT_EMAIL_SUBJECT` - Subject line for contact form notification emails
+- `NEXT_PUBLIC_TURNSTILE_SITE_KEY` - Spam protection (Cloudflare Turnstile)
+- `TURNSTILE_SECRET` - Spam protection (Cloudflare Turnstile)
+- `AIRTABLE_API_KEY` - CRM integration (Airtable)
+- `AIRTABLE_BASE_ID` - Airtable base (Airtable)
+- `AIRTABLE_CONTACT_TABLE_ID` - Contact form submissions (Airtable)
+- `AIRTABLE_NEWSLETTER_TABLE_ID` - Newsletter signups (Airtable)
+- `SKIP_REMOTE_DATA` - Set to "1" (Disables remote Sanity/Pinecone calls in local development, renders fallbacks)
+- `SANITY_PROJECT_ID` - Sanity project ID (Server-side only)
+- `SANITY_DATASET` - Sanity dataset (Server-side only)
+- `SANITY_API_TOKEN` - Sanity API token (Optional, for draft content; Server-side only)
+- `SANITY_API_VERSION` - Sanity API version (Server-side only)
+- `OPENAI_API_KEY` - OpenAI API key (For embeddings and AI features; Server-side only)
+- `PINECONE_API_KEY` - Pinecone API key (Server-side only)
+- `PINECONE_ENVIRONMENT` - Pinecone environment (Server-side only)
+- `PINECONE_INDEX_NAME` - Pinecone index name (Server-side only)
+- `PINECONE_PROJECT_NAME` - Pinecone project name (Server-side only)
+- `PINECONE_HOST` - Pinecone host URL (Server-side only)
+- `EMBEDDING_MODEL` - OpenAI embedding model (e.g., "text-embedding-3-small"; Server-side only)
+- `WEB_SEARCH_API_KEY` - Optional web search provider for MCP agents / future live web search
 
-### To Add (Sanity)
-- `SANITY_PROJECT_ID`
-- `SANITY_DATASET`
-- `SANITY_API_TOKEN`
+### .env.local Alignment
+- The `.env.local` file should generally mirror the structure and variable names found in `.env.example`.
+- Intentional differences (e.g., `SKIP_REMOTE_DATA=1` for local development, or specific test API keys) are permitted but should be clearly documented within `.env.local` itself, or in this `current_state.md` if they represent project-wide development patterns.
 
----
-
-## Airtable Integration
-
-### Current Setup
-The site uses Airtable for:
-- **Contact Form:** Submissions go to `AIRTABLE_CONTACT_TABLE_ID`
-- **Newsletter:** Signups go to `AIRTABLE_NEWSLETTER_TABLE_ID`
-
-### Status
-✅ Working correctly (not affected by BaseHub issues)
-
----
-
-## MCP Integrations Available
-
-Your agent has access to these MCP servers:
-- **Vercel:** Deploy, manage environment variables, view logs
-- **GitHub:** Clone, commit, push, manage repository
-- **Airtable:** Read/write data, manage tables
-- **Cloudflare:** Workers, R2, KV, D1
-- **Stripe:** Payments (if needed in future)
-- **Playwright:** Browser automation
-- **Sentry:** Error monitoring
-- **Canva:** Design assets
-- **Gmail:** Email notifications
+### Removed (Legacy)
+- `BASEHUB_TOKEN` - (Removed, replaced by Sanity)
+- `CONTACT_EVENTS_INGEST_KEY` - (Removed, if no longer used by active integrations)
 
 ---
 
 ## Next Steps
 
-1. **Immediate:** Replace BaseHub with Sanity
-2. **Short-term:** Test contact form end-to-end
-3. **Long-term:** Add more content to changelog via Sanity
-
----
-
-## Resources Spent
-
-- **Previous Agent:** ~3000 credits debugging BaseHub
-- **Remaining Budget:** ~200 credits for migration
-- **Estimated Migration Time:** 4-6 hours
-
----
-
-## Success Criteria
-
-The migration is complete when:
-1. ✅ Site loads without errors
-2. ✅ Changelog displays content from Sanity
-3. ✅ All BaseHub code is removed
-4. ✅ Vercel builds succeed
-5. ✅ Contact form still works
-6. ✅ Documentation is updated
+1. **Immediate:** Continue with the removal of BaseHub code and integration of Sanity data into the frontend.
+2. **Short-term:** Test the Resend email integration and the Pinecone/OpenAI search API.
+3. **Long-term:** Complete the full migration to Sanity and remove all legacy BaseHub code.

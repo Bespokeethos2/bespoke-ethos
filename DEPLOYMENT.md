@@ -13,21 +13,22 @@
 
 Before deploying, ensure:
 
-1. **You are on the `main` branch**
-   ```bash
-   git branch  # Should show: * main
-   ```
+1.  **You are on the `main` branch**
+    ```bash
+    git branch  # Should show: * main
+    ```
 
-2. **All changes are committed**
-   ```bash
-   git status  # Should show: "nothing to commit, working tree clean"
-   ```
+2.  **All changes are committed**
+    ```bash
+    git status  # Should show: "nothing to commit, working tree clean"
+    ```
 
-3. **Environment variables are set in Vercel:**
-   - Core site + branding: `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_SITE_NAME`
-   - Forms: `RESEND_API_KEY`, `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET`, Airtable keys
-   - CMS: `SANITY_PROJECT_ID`, `SANITY_DATASET`, `SANITY_API_VERSION`, optional `SANITY_API_TOKEN`
-   - Search (optional but recommended): `OPENAI_API_KEY`, `PINECONE_API_KEY`, `PINECONE_INDEX_NAME`, `PINECONE_PROJECT_NAME`, `PINECONE_HOST`, `EMBEDDING_MODEL`
+3.  **Environment variables are set in Vercel:**
+    -   Core site + branding: `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_SITE_NAME`
+    -   Forms: `RESEND_API_KEY`, `CONTACT_ENABLE_EMAIL`, `CONTACT_EMAIL_FROM`, `CONTACT_EMAIL_TO`, `CONTACT_EMAIL_SUBJECT`, `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET`, Airtable keys (`AIRTABLE_API_KEY`, `AIRTABLE_BASE_ID`, `AIRTABLE_CONTACT_TABLE_ID`, `AIRTABLE_NEWSLETTER_TABLE_ID`)
+    -   CMS: `SANITY_PROJECT_ID`, `SANITY_DATASET`, `SANITY_API_VERSION`, optional `SANITY_API_TOKEN`
+    -   Search (optional but recommended): `OPENAI_API_KEY`, `PINECONE_API_KEY`, `PINECONE_ENVIRONMENT`, `PINECONE_INDEX_NAME`, `PINECONE_PROJECT_NAME`, `PINECONE_HOST`, `EMBEDDING_MODEL`
+    -   Web Search (optional): `WEB_SEARCH_API_KEY`
 
 ---
 
@@ -55,10 +56,10 @@ git push origin main
 ```
 
 ### Step 5: Vercel Auto-Deploys
-- Vercel GitHub integration automatically detects the push
-- Build starts immediately
-- Deployment completes in 2-5 minutes
-- Check status at: https://vercel.com/dashboard
+-   Vercel GitHub integration automatically detects the push
+-   Build starts immediately
+-   Deployment completes in 2-5 minutes
+-   Check status at: https://vercel.com/dashboard
 
 ---
 
@@ -67,12 +68,12 @@ git push origin main
 **Enforced by `.github/workflows/guard.yml`:**
 
 ✅ **ALLOWED:**
-- Pushes to `main` branch
-- Deployments to Vercel project `prj_8cbai6JzE169NUytyFtCpSohZVka`
+-   Pushes to `main` branch
+-   Deployments to Vercel project `prj_8cbai6JzE169NUytyFtCpSohZVka`
 
 ❌ **BLOCKED:**
-- Any branch other than `main`
-- Pull requests (preview only, no production deploy)
+-   Any branch other than `main`
+-   Pull requests (preview only, no production deploy)
 
 ---
 
@@ -81,26 +82,27 @@ git push origin main
 **CRITICAL:** Do not update dependencies unless absolutely necessary. See [docs/DEPENDENCIES.md](docs/DEPENDENCIES.md) for details.
 
 **Locked Versions:**
-- Node.js: `20.x` (enforced)
-- pnpm: `10.18.2` (enforced)
-- Next.js: `16.0.0` (exact)
-- React: `19.2.0` (exact)
+-   Node.js: `20.x` (enforced)
+-   pnpm: `10.18.2` (enforced)
+-   Next.js: `16.0.0` (exact)
+-   React: `19.2.0` (exact)
 
 **Required Environment Variables:**
-- `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_SITE_NAME`
-- `RESEND_API_KEY`
-- `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET`
-- `AIRTABLE_API_KEY`, `AIRTABLE_BASE_ID`, `AIRTABLE_CONTACT_TABLE_ID`, `AIRTABLE_NEWSLETTER_TABLE_ID`
-- `SANITY_PROJECT_ID`, `SANITY_DATASET`, `SANITY_API_VERSION`
-- `OPENAI_API_KEY` (for embeddings + MCP agents)
-- `PINECONE_API_KEY`, `PINECONE_INDEX_NAME`, `PINECONE_PROJECT_NAME`, `PINECONE_HOST`, `EMBEDDING_MODEL`
+-   `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_SITE_NAME`
+-   `RESEND_API_KEY`, `CONTACT_ENABLE_EMAIL`, `CONTACT_EMAIL_FROM`, `CONTACT_EMAIL_TO`, `CONTACT_EMAIL_SUBJECT`
+-   `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET`
+-   `AIRTABLE_API_KEY`, `AIRTABLE_BASE_ID`, `AIRTABLE_CONTACT_TABLE_ID`, `AIRTABLE_NEWSLETTER_TABLE_ID`
+-   `SANITY_PROJECT_ID`, `SANITY_DATASET`, `SANITY_API_VERSION`, `SANITY_API_TOKEN`
+-   `OPENAI_API_KEY` (for embeddings + MCP agents)
+-   `PINECONE_API_KEY`, `PINECONE_ENVIRONMENT`, `PINECONE_INDEX_NAME`, `PINECONE_PROJECT_NAME`, `PINECONE_HOST`, `EMBEDDING_MODEL`
+-   `WEB_SEARCH_API_KEY`
 
 **Sync secrets from `.env.local`:**
-1. Run `vercel env ls` in `C:\vercel` to confirm you are targeting the correct project.
-2. For each key in `.env.local` (at minimum `RESEND_API_KEY`, `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET`, Airtable, Sanity, OpenAI, Pinecone) run `vercel env add <KEY> production` and paste the value when prompted.
-3. Repeat the `vercel env add` step for `preview` and `development`.
-4. Re-deploy (Dashboard "Redeploy" or `vercel --prod`) so the build picks up the new secrets.
-5. Keep `.env.local` out of git; it remains the authoritative source for local testing.
+1.  Run `vercel env ls` in `C:\vercel` to confirm you are targeting the correct project.
+2.  For each key in `.env.local` (at minimum `RESEND_API_KEY`, `CONTACT_ENABLE_EMAIL`, `CONTACT_EMAIL_FROM`, `CONTACT_EMAIL_TO`, `CONTACT_EMAIL_SUBJECT`, `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET`, Airtable, Sanity, OpenAI, Pinecone, Web Search) run `vercel env add <KEY> production` and paste the value when prompted.
+3.  Repeat the `vercel env add` step for `preview` and `development`.
+4.  Re-deploy (Dashboard "Redeploy" or `vercel --prod`) so the build picks up the new secrets.
+5.  Keep `.env.local` out of git; it remains the authoritative source for local testing.
 
 **Installation Command:**
 ```bash
@@ -118,10 +120,10 @@ pnpm install --frozen-lockfile  # ALWAYS use this, never just 'pnpm install'
 **Output Directory:** `.next`
 
 ### Build Process:
-1. Image optimization (logos, hero images)
-2. TypeScript compilation
-3. Next.js static generation
-4. Sanity CMS data fetching for changelog (honors `SKIP_REMOTE_DATA` and `SANITY_*` envs)
+1.  Image optimization (logos, hero images)
+2.  TypeScript compilation
+3.  Next.js static generation
+4.  Sanity CMS data fetching for changelog, marketing pages, FAQs, and search (honors `SKIP_REMOTE_DATA` and `SANITY_*` envs)
 
 ---
 
@@ -142,14 +144,17 @@ pnpm install --frozen-lockfile  # ALWAYS use this, never just 'pnpm install'
 
 After deployment completes:
 
-1. **Check production site:** https://www.bespokeethos.com
-2. **Verify key pages:**
-   - Homepage: Hero copy, clickable slides
-   - Cadence page: Text readability, pricing
-   - Trust badges: Visible on light theme
-   - Mobile logo: Orange drop icon in header
-3. **Test mobile responsiveness**
-4. **Check OG images and favicon**
+1.  **Check production site:** https://www.bespokeethos.com
+2.  **Verify key pages:**
+    -   Homepage: Hero copy, clickable slides
+    -   Cadence page: Text readability, pricing
+    -   Trust badges: Visible on light theme
+    -   Mobile logo: Orange drop icon in header
+    -   **Changelog pages:** Content loads from Sanity.
+    -   **Search functionality:** Internal search API works with Sanity/Pinecone/OpenAI.
+3.  **Test mobile responsiveness**
+4.  **Check OG images and favicon**
+5.  **Verify email delivery:** Contact form submissions trigger emails via Resend.
 
 ---
 
@@ -157,38 +162,38 @@ After deployment completes:
 
 If deployment fails or introduces bugs:
 
-1. **Find last working commit:**
-   ```bash
-   git log --oneline
-   ```
+1.  **Find last working commit:**
+    ```bash
+    git log --oneline
+    ```
 
-2. **Revert to previous commit:**
-   ```bash
-   git revert <commit-hash>
-   git push origin main
-   ```
+2.  **Revert to previous commit:**
+    ```bash
+    git revert <commit-hash>
+    git push origin main
+    ```
 
-3. **Or force rollback:**
-   ```bash
-   git reset --hard <commit-hash>
-   git push origin main --force
-   ```
+3.  **Or force rollback:**
+    ```bash
+    git reset --hard <commit-hash>
+    git push origin main --force
+    ```
 
 ---
 
 ## 📞 Support
 
 For deployment issues:
-- Check Vercel build logs: https://vercel.com/dashboard
-- Review GitHub Actions: https://github.com/Uptonr3421/bespoke-ethos/actions
-- Contact Vercel support: https://vercel.com/support
+-   Check Vercel build logs: https://vercel.com/dashboard
+-   Review GitHub Actions: https://github.com/Uptonr3421/bespoke-ethos/actions
+-   Contact Vercel support: https://vercel.com/support
 
 ---
 
 ## 📝 Notes
 
-- **Never create new branches** - All work happens on `main`
-- **Vercel auto-deploys on push** - No manual trigger needed
-- **Build time:** ~2-5 minutes
-- **BaseHub CMS:** Required for blog/changelog pages (optional for main site)
-- **Middleware warning:** Cosmetic only, does not affect functionality
+-   **Never create new branches** - All work happens on `main`
+-   **Vercel auto-deploys on push** - No manual trigger needed
+-   **Build time:** ~2-5 minutes
+-   **BaseHub CMS:** Actively being removed and replaced by Sanity.
+-   **Middleware warning:** Cosmetic only, does not affect functionality
