@@ -276,8 +276,8 @@ export async function Header() {
     navbar: { items: FALLBACK_HEADER_NAV },
     rightCtas: { items: FALLBACK_HEADER_CTAS },
   };
-  const lightHeader = "/assets/logo-light-2.png";
-  const darkHeader = "/assets/logo-dark.png";
+  const lightHeader = "/assets/logo-dark.png";
+  const darkHeader = "/assets/logo-light-2.png";
 
   const logo: LogoData = {
     dark: {
