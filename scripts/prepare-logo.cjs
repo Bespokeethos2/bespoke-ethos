@@ -59,13 +59,13 @@ async function produce(srcName, outHeaderName, outSquareName) {
 
 async function main() {
   await ensureDir(OUT_DIR);
-  // Prefer explicitly provided header logo if present
+  // Use dark logo for light header, light logo for dark header
   if (fs.existsSync(path.join(SRC_DIR, 'logo_light2.png'))) {
-    await produce('logo_light2.png', 'logo-header-light.png', 'logo-square-light.png');
+    await produce('logo_light2.png', 'logo-header-dark.png', 'logo-square-dark.png');
   } else {
-    await produce('logo-light.png', 'logo-header-light.png', 'logo-square-light.png');
+    await produce('logo-light.png', 'logo-header-dark.png', 'logo-square-dark.png');
   }
-  await produce('logo-dark.png', 'logo-header-dark.png', 'logo-square-dark.png');
+  await produce('logo-dark.png', 'logo-header-light.png', 'logo-square-light.png');
 }
 
 main().catch((err) => {
