@@ -23,11 +23,20 @@ if (!hasOpenAI && !hasGateway) {
   warn('No OpenAI or AI Gateway configuration detected.');
   warn('The following API routes will fail at runtime:');
   warn('  - /api/chat (streaming chat endpoint)');
-  warn('  - /api/dev-coder (code assistance endpoint)');
   warn('  - /api/brutus (automation assistant endpoint)');
   warn('  - /api/search/internal (vector search with embeddings)');
+  warn('  - /api/dev-coder (requires OPENAI_API_KEY specifically)');
   warn('');
   warn('To fix: Set either OPENAI_API_KEY or both AI_GATEWAY_URL + AI_GATEWAY_API_KEY');
+  warn('Note: /api/dev-coder requires OPENAI_API_KEY and does not support AI Gateway');
+  warn('');
+} else if (!hasOpenAI && hasGateway) {
+  hasWarnings = true;
+  warn('OPENAI_API_KEY not configured (using AI Gateway only).');
+  warn('The following API route will fail at runtime:');
+  warn('  - /api/dev-coder (requires OPENAI_API_KEY specifically)');
+  warn('');
+  warn('To fix: Set OPENAI_API_KEY for /api/dev-coder support');
   warn('');
 }
 
