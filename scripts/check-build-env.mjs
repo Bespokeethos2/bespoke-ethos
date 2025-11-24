@@ -7,94 +7,9 @@
 const log = (m) => process.stdout.write(`[build-env] ${m}\n`);
 const warn = (m) => process.stdout.write(`[build-env][WARN] ${m}\n`);
 
-// Define environment variables and their criticality
-const envVars = {
-  // Critical for runtime API functionality (warn if missing)
-  OPENAI_API_KEY: {
-    required: false,
-    description: 'OpenAI API key for /api/chat and /api/dev-coder endpoints',
-    routes: ['/api/chat', '/api/dev-coder'],
-  },
-  AI_GATEWAY_URL: {
-    required: false,
-    description: 'AI Gateway URL (alternative to direct OpenAI)',
-    routes: ['/api/chat', '/api/brutus'],
-  },
-  AI_GATEWAY_API_KEY: {
-    required: false,
-    description: 'AI Gateway API key (alternative to direct OpenAI)',
-    routes: ['/api/chat', '/api/brutus'],
-  },
-  AIRTABLE_API_KEY: {
-    required: false,
-    description: 'Airtable API key for contact form and newsletter',
-    routes: ['/api/contact', '/api/newsletter'],
-  },
-  AIRTABLE_BASE_ID: {
-    required: false,
-    description: 'Airtable base ID',
-    routes: ['/api/contact', '/api/newsletter'],
-  },
-  AIRTABLE_CONTACT_TABLE_ID: {
-    required: false,
-    description: 'Airtable contact table ID',
-    routes: ['/api/contact'],
-  },
-  AIRTABLE_NEWSLETTER_TABLE_ID: {
-    required: false,
-    description: 'Airtable newsletter table ID',
-    routes: ['/api/newsletter'],
-  },
-  RESEND_API_KEY: {
-    required: false,
-    description: 'Resend API key for email notifications',
-    routes: ['/api/contact'],
-  },
-  PINECONE_API_KEY: {
-    required: false,
-    description: 'Pinecone API key for vector search',
-    routes: ['/api/search/internal'],
-  },
-  PINECONE_HOST: {
-    required: false,
-    description: 'Pinecone host URL',
-    routes: ['/api/search/internal'],
-  },
-  EMBEDDING_MODEL: {
-    required: false,
-    description: 'OpenAI embedding model for vector search',
-    routes: ['/api/search/internal'],
-  },
-  SANITY_PROJECT_ID: {
-    required: false,
-    description: 'Sanity project ID for CMS content',
-    routes: ['Multiple routes'],
-  },
-  SANITY_DATASET: {
-    required: false,
-    description: 'Sanity dataset name',
-    routes: ['Multiple routes'],
-  },
-};
-
 log('Checking build-time environment variables...');
 
 let hasWarnings = false;
-const warnings = [];
-
-// Check each environment variable
-for (const [key, config] of Object.entries(envVars)) {
-  const value = (process.env[key] ?? '').trim();
-  
-  if (!value) {
-    hasWarnings = true;
-    warnings.push({
-      key,
-      description: config.description,
-      routes: config.routes,
-    });
-  }
-}
 
 // Special check for OpenAI configuration
 const hasOpenAI = Boolean((process.env.OPENAI_API_KEY ?? '').trim());
@@ -104,6 +19,7 @@ const hasGateway = Boolean(
 );
 
 if (!hasOpenAI && !hasGateway) {
+  hasWarnings = true;
   warn('No OpenAI or AI Gateway configuration detected.');
   warn('The following API routes will fail at runtime:');
   warn('  - /api/chat (streaming chat endpoint)');
@@ -122,6 +38,7 @@ const hasAirtableBase = Boolean(
 );
 
 if (!hasAirtableBase) {
+  hasWarnings = true;
   warn('Airtable configuration incomplete.');
   warn('The following features will be degraded:');
   warn('  - /api/contact (form submissions will not be saved)');
@@ -138,6 +55,7 @@ const hasSanity = Boolean(
 );
 
 if (!hasSanity) {
+  hasWarnings = true;
   warn('Sanity CMS configuration incomplete.');
   warn('Content from Sanity will not be available unless SKIP_REMOTE_DATA=1');
   warn('');
