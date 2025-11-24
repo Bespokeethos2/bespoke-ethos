@@ -417,7 +417,7 @@ function ItemWithSublinks({
       >
         {sublinks.map((sublink) => {
           // Handle groups with children
-          if (sublink.children && sublink.children.length > 0) {
+          if (sublink.children?.length) {
             return (
               <li key={sublink._id} className="flex flex-col gap-2">
                 <div className="text-text-secondary dark:text-dark-text-secondary px-3 py-1 text-xs font-semibold uppercase tracking-wider">

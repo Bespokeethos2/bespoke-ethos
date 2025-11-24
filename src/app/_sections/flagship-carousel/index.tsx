@@ -85,11 +85,13 @@ export const FlagshipCarousel: React.FC = () => {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const cubeRef = useRef<HTMLDivElement>(null);
 
+  const ROTATION_INTERVAL_MS = 4000;
+
   const startRotation = () => {
     if (intervalRef.current) clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
       setRotation((prev) => (prev + 90) % 360);
-    }, 4000); // Rotate every 4 seconds
+    }, ROTATION_INTERVAL_MS); // Rotate every 4 seconds
   };
 
   useEffect(() => {
@@ -119,7 +121,8 @@ export const FlagshipCarousel: React.FC = () => {
 
   // Calculate translateZ for cube faces
   // For a 400px face, translateZ should be half of face width = 200px
-  const translateZ = 200;
+  const CUBE_FACE_SIZE = 400;
+  const translateZ = CUBE_FACE_SIZE / 2;
 
   return (
     <div className="py-16 sm:py-20 bg-surface-primary dark:bg-dark-surface-primary">
