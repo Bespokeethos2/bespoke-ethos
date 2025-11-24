@@ -155,12 +155,12 @@ export const FlagshipCarousel: React.FC = () => {
   const radius = 400 / (2 * Math.tan(Math.PI / faceCount)); // Calculate radius for a 400px wide face
 
   return (
-    <div className="py-16 bg-surface-primary dark:bg-dark-surface-primary">
+    <div className="py-12 sm:py-16 bg-surface-primary dark:bg-dark-surface-primary">
       <div className="container mx-auto px-4 sm:px-6 text-center">
-        <h2 className="text-black dark:text-white text-4xl font-extrabold mb-12" style={{ fontSize: 'clamp(2.1rem, 3.2vw, 3rem)' }}>
+        <h2 className="text-black dark:text-white text-3xl sm:text-4xl font-extrabold mb-8 sm:mb-12" style={{ fontSize: 'clamp(2.1rem, 3.2vw, 3rem)' }}>
           Flagship Collection
         </h2>
-        <div className="flex justify-center items-center perspective-[1000px] h-[500px]">
+        <div className="flex justify-center items-center perspective-[1000px] h-[450px] sm:h-[500px]">
           <div
             ref={carouselRef}
             className="relative w-[400px] h-[400px] preserve-3d transition-transform duration-1000 ease-in-out"

@@ -121,7 +121,7 @@ function FooterLayout({
           className="pointer-events-none select-none object-cover opacity-20"
         />
       ) : null}
-      <div className="container relative z-10 mx-auto grid grid-cols-2 grid-rows-[auto_auto_auto] place-items-start items-center gap-y-4 px-4 sm:px-6 sm:grid-cols-[1fr_auto_1fr] sm:grid-rows-2 sm:gap-x-3 sm:gap-y-4">
+      <div className="container relative z-10 mx-auto grid grid-cols-1 place-items-start items-center gap-y-6 px-4 py-6 sm:px-6 sm:grid-cols-[1fr_auto_1fr] sm:grid-rows-2 sm:gap-x-3 sm:gap-y-4">
         <Link aria-label="Homepage" href="/" className="footer-logo-container">
           {logoIsLocal ? (
             <>
@@ -148,7 +148,7 @@ function FooterLayout({
         </Link>
         <nav
           aria-label="Footer quick links"
-          className="col-start-1 row-start-3 flex flex-col gap-x-3 gap-y-2 self-start sm:col-span-1 sm:col-start-2 sm:row-start-1 sm:flex-row sm:items-center sm:place-self-center md:gap-x-3 lg:gap-x-6"
+          className="w-full flex flex-col gap-x-3 gap-y-2 self-start sm:col-span-1 sm:col-start-2 sm:row-start-1 sm:flex-row sm:items-center sm:place-self-center md:gap-x-3 lg:gap-x-6"
         >
           {navItems.map(({ title, url }) => (
             <ButtonLink
@@ -164,7 +164,7 @@ function FooterLayout({
         </nav>
         <nav
           aria-label="Product offerings"
-          className="col-span-2 row-start-2 mt-1 w-full space-y-2 sm:col-span-1 sm:col-start-2 sm:row-start-2"
+          className="w-full space-y-2 sm:col-span-1 sm:col-start-2 sm:row-start-2"
         >
           <p className="text-sm font-semibold text-text-primary dark:text-dark-text-primary">Offerings</p>
           <ul className="grid grid-cols-2 gap-2 sm:grid-cols-4">
@@ -183,11 +183,11 @@ function FooterLayout({
         </nav>
         {/* Theme switcher removed - site is light mode only */}
 
-        <p className="col-span-2 sm:col-span-1 sm:col-start-1 sm:row-start-2 text-pretty text-[7pt] text-left sm:text-center mt-[4pt] text-text-tertiary dark:text-dark-text-tertiary">
+        <p className="w-full sm:col-span-1 sm:col-start-1 sm:row-start-2 text-pretty text-[10px] text-left sm:text-center text-text-tertiary dark:text-dark-text-tertiary">
           {copyright}
         </p>
 
-        <ul className="col-span-2 col-start-1 row-start-3 flex w-full items-center gap-x-2.5 gap-y-3 sm:col-span-1 sm:col-start-3 sm:row-start-2 sm:w-auto sm:flex-wrap sm:justify-self-end">
+        <ul className="w-full flex items-center justify-start gap-x-3 gap-y-3 sm:col-span-1 sm:col-start-3 sm:row-start-2 sm:w-auto sm:flex-wrap sm:justify-self-end">
           {socialLinks
             .filter((link) => (link.title || '').toLowerCase().includes('linkedin'))
             .map((link) => {
