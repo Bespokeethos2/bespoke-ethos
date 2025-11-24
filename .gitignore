@@ -56,18 +56,25 @@ vscode-profile-*.heapsnapshot
 .env.sentry-build-plugin
 
 # Temporary and research files
+# Temporary documentation and config files
 tmp_*
+
+# Research/reference HTML files from various sources
 research_*
-openai_*
 bing*.html
 bing*.txt
 ddg*.html
 sprint*.html
+manus.html
+manus-css-*.css
+
+# AI service status and debugging files
+openai_*
 *_chatgpt.txt
+
+# Misc temporary files
 claritytemp.json
 gh_issue.txt
 hn_outage.xml
 so_timeout.txt
-manus.html
-manus-css-*.css
 New Text Document.txt
