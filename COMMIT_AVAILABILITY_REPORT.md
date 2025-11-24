@@ -39,4 +39,4 @@ Is commit `fc34ff815f22d4e426bb6c692fdf79c50e041b40` available in the repository
 - The commit may have been rewritten during a rebase or force push
 
 ## Conclusion
-The commit `fc34ff815f22d4e426bb6c692fdf79c50e041b40` does not exist in the `Bespokeethos/bespoke-ethos` repository, either in the current branch, any remote branches, or in the complete git history.
+The commit `fc34ff815f22d4e426bb6c692fdf79c50e041b40` does not exist in the `BespokeEthos/bespoke-ethos` repository, either in the current branch, any remote branches, or in the complete git history.
