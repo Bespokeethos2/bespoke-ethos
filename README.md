@@ -1,3 +1,18 @@
+# ⚠️ CRITICAL REPOSITORY UPDATE: HARD RESET PERFORMED ⚠️
+
+**Date:** Nov 24, 2025
+**Action:** The remote `main` branch was forcefully reset to commit `fc34ff815f22d4e426bb6c692fdf79c50e041b40` and all other remote branches were deleted.
+
+**ACTION REQUIRED FOR LOCAL REPOSITORIES:**
+To avoid conflicts and ensure you are working from the correct history, you **MUST** run the following commands on your local machine:
+
+```bash
+git fetch origin
+git reset --hard origin/main
+```
+
+---
+
 # Bespoke Ethos Marketing Site
 
 Custom Next.js 16 + Tailwind CSS marketing site scaffolded for Bespoke Ethos. The project runs on a single production branch (`main`) with feature flags and CI guardrails to keep releases stable.
@@ -24,7 +39,7 @@ Local development uses static/Sanity-backed content and does not require any Bas
 1. **No branches.** Work directly on `main`. Guardrails are documented in `docs/system-guardrails.md`.
 2. **Run checks locally.**
    ```bash
-   pnpm run check # lint + typecheck
+pnpm run check # lint + typecheck
    ```
 3. **CI pipeline.** Every push to `main` triggers `.github/workflows/ci.yml` which installs dependencies, lints, type-checks, and executes a smoke `next build`.
 4. **Deploy on green.** Vercel production deploys only from `main` after CI succeeds.
