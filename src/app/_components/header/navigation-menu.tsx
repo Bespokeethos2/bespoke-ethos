@@ -374,22 +374,11 @@ function ItemWithSublinks({
   const listRef = React.useRef<HTMLUListElement>(null);
   const submenuId = `${_id}-submenu`;
 
+  // Removed animation logic to fix mobile menu visibility issue.
+  // The height transition will be handled by CSS classes.
   React.useEffect(() => {
     if (!hasRendered) return;
-
-    if (isOn) {
-      listRef.current?.animate([{ height: `${(40 * sublinks.length).toString()}px` }], {
-        duration: 200,
-        easing: "ease-in-out",
-        fill: "forwards",
-      });
-    } else {
-      listRef.current?.animate([{ height: "0px" }], {
-        duration: 200,
-        easing: "ease-in-out",
-        fill: "forwards",
-      });
-    }
+    // The animation logic was removed.
   }, [isOn, hasRendered, sublinks]);
 
   const handleToggle = () => {
@@ -421,7 +410,8 @@ function ItemWithSublinks({
         id={submenuId}
         ref={listRef}
         className={clsx(
-          "flex h-0 origin-top transform-gpu flex-col gap-2 overflow-hidden pl-4 transition-transform",
+          "flex origin-top transform-gpu flex-col gap-2 overflow-hidden pl-4 transition-all duration-300 ease-in-out",
+          isOn ? "h-auto opacity-100" : "h-0 opacity-0",
         )}
         aria-hidden={!isOn}
       >

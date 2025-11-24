@@ -1309,3 +1309,12 @@ html.dark .be-page-slate {
 .modal-close:hover {
   background: var(--cream-bg);
 }
+
+/* --- Custom CSS for 3D Carousel --- */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}

@@ -10,6 +10,7 @@ import { Accordion } from "./_sections/accordion-faq";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { ConsensusEngineCard } from "@/components/ConsensusEngineCard";
 import { StackedProductCards } from "@/components/stacked-product-cards";
+import { FlagshipCarousel } from "./_sections/flagship-carousel";
 import { ButtonLink } from "@/common/button";
 
 export const dynamic = "force-dynamic";
@@ -116,21 +117,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Flagship tools stacked cards */}
-      <section className="home-section home-section--soft" aria-labelledby="flagship-heading">
-        <div className="home-section-inner">
-          <div className="be-section-card space-y-4">
-            <h2 id="flagship-heading" className="text-2xl font-semibold text-text-primary dark:text-dark-text-primary">
-              Four tools, one goal: less busywork, more control
-            </h2>
-            <p className="text-sm text-text-secondary dark:text-dark-text-secondary">
-              From single-workflow automation to relationship-first chatbots and deep research, our flagship tools are
-              built to work together—but you can start with just one.
-            </p>
-          </div>
-          <StackedProductCards />
-        </div>
-      </section>
+      {/* Flagship Collection Carousel */}
+      <FlagshipCarousel />
 
       {/* Consensus Engine cinematic card highlight */}
       <section className="home-section" aria-labelledby="consensus-highlight-heading">
