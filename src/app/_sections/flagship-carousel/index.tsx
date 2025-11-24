@@ -55,10 +55,9 @@ const GlassCard = React.forwardRef<
     style={{
       // Elegant glass container style
       background: "rgba(255, 255, 255, 0.05)",
-      boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.37)",
       border: "1px solid rgba(255, 255, 255, 0.18)",
       // Orange glow effect (simulated with a pseudo-element or box-shadow)
-      // Using a subtle inner shadow for the glow
+      // Combined boxShadow for glass effect and orange glow
       boxShadow: "0 0 10px rgba(255, 165, 0, 0.5), 0 8px 32px 0 rgba(31, 38, 135, 0.37)",
     }}
     {...props}
