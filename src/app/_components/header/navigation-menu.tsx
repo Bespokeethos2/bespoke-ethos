@@ -416,23 +416,36 @@ function ItemWithSublinks({
         aria-hidden={!isOn}
       >
         {sublinks.map((sublink) => {
-          const link = sublink.link;
-          if (!link) {
-            return null;
+          if (sublink.children?.length) {
+            return (
+              <li key={sublink._id} className="space-y-1">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-text-tertiary dark:text-dark-text-tertiary">
+                  {sublink._title}
+                </p>
+                <ul className="flex flex-col gap-1 pl-1">
+                  {sublink.children.map((child) => {
+                    const { hrefValue, label } = resolveLinkMeta(child);
+                    if (!hrefValue) return null;
+
+                    return (
+                      <li key={child._id}>
+                        <Link
+                          className="text-text-tertiary dark:text-dark-text-tertiary flex items-center gap-2 rounded-md px-3 py-2 text-sm"
+                          href={hrefValue}
+                          onClick={onClick}
+                        >
+                          {label}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </li>
+            );
           }
 
-          const { href, _title } =
-            link.__typename === "PageReferenceComponent" && link.page
-              ? {
-                  href: link.page.pathname,
-                  _title: link.page._title,
-                }
-              : {
-                  href: link.text ?? "#",
-                  _title: sublink._title,
-                };
-
-          const hrefValue = href || "#";
+          const { hrefValue, label } = resolveLinkMeta(sublink);
+          if (!hrefValue) return null;
 
           return (
             <li key={sublink._id}>
@@ -441,7 +454,7 @@ function ItemWithSublinks({
                 href={hrefValue}
                 onClick={onClick}
               >
-                {_title}
+                {label}
               </Link>
             </li>
           );
