@@ -12,7 +12,7 @@ type Body = {
   timeline?: string;
   message?: string;
   consent?: string | boolean;
-  captchaToken?: string;
+
   successRedirect?: string;
   errorRedirect?: string;
 };
@@ -261,7 +261,7 @@ export async function POST(req: NextRequest) {
       }),
     );
 
-    const airtableResult = await sendToAirtable(contact);
+    const airtableResult = await sendToSimpleLog(contact);
 
     if (!airtableResult.ok) {
       const status = airtableResult.status ?? 500;
@@ -325,165 +325,26 @@ export async function POST(req: NextRequest) {
   }
 }
 
-async function sendToAirtable(
+async function sendToSimpleLog(
   contact: NormalizedContact,
 ): Promise<ExternalResult> {
-  const airtableToken =
-    process.env.AIRTABLE_TOKEN ||
-    process.env.AIRTABLE_PERSONAL_ACCESS_TOKEN ||
-    process.env.AIRTABLE_API_KEY;
-  const baseId = process.env.AIRTABLE_BASE_ID;
-  const tableName =
-    process.env.AIRTABLE_TABLE_NAME ||
-    process.env.AIRTABLE_CONTACT_TABLE_ID ||
-    process.env.AIRTABLE_CONTACT_ID;
-
-  if (!airtableToken || !baseId || !tableName) {
-    console.error(
-      "[CONTACT_FORM_SUBMISSION] Airtable configuration missing. Check AIRTABLE_TOKEN (or AIRTABLE_PERSONAL_ACCESS_TOKEN / AIRTABLE_API_KEY), AIRTABLE_BASE_ID, AIRTABLE_TABLE_NAME / AIRTABLE_CONTACT_TABLE_ID.",
-    );
-    return {
-      ok: false,
-      status: 500,
-      code: "AIRTABLE_CONFIG_ERROR",
-      error: "Airtable configuration is missing.",
-    };
-  }
-
-  const url = `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(
-    tableName,
-  )}`;
-
-  // Extract just the date portion (YYYY-MM-DD) for Airtable's date field
-  const submittedDate = contact.meta.submittedAt.split("T")[0];
-
-  const fields: Record<string, unknown> = {
-    "First Name": contact.firstName,
-    "Last Name": contact.lastName,
-    Email: contact.email,
-    Message: contact.message,
-    Consent: contact.meta.consent,
-    "Submitted at": submittedDate,
-    "Submitted At (ISO)": contact.meta.submittedAt,
-    Status: "NEW",
-    IP: contact.meta.ip,
-    "User Agent": contact.meta.userAgent,
-  };
-
-  if (contact.phone) {
-    fields["Phone"] = contact.phone;
-  }
-  if (contact.company) {
-    fields["Company"] = contact.company;
-  }
-  if (contact.meta.useCase) {
-    fields["Use Case"] = contact.meta.useCase;
-  }
-  if (contact.meta.budget) {
-    fields["Budget"] = contact.meta.budget;
-  }
-  if (contact.meta.timeline) {
-    fields["Timeline"] = contact.meta.timeline;
-  }
-
   console.info(
-    "[CONTACT_FORM_SUBMISSION] Sending record to Airtable",
-    JSON.stringify({ url, fields: { ...fields, Message: "[redacted]" } }),
-  );
-
-  console.info(
-    "AIRTABLE_CONTACT_SUBMISSION_WRITE",
+    "[CONTACT_FORM_SUBMISSION] Simple Log Submission",
     JSON.stringify({
       timestamp: contact.meta.submittedAt,
+      firstName: contact.firstName,
+      lastName: contact.lastName,
       email: contact.email,
-      name: `${contact.firstName} ${contact.lastName}`.trim(),
+      phone: contact.phone,
       company: contact.company,
-      useCase: contact.meta.useCase,
-      timeline: contact.meta.timeline,
-      budget: contact.meta.budget,
-      ip: contact.meta.ip,
-      userAgent: contact.meta.userAgent,
+      message: contact.message,
+      meta: contact.meta,
     }),
   );
 
-  try {
-    const res = await fetch(url, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${airtableToken}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ fields }),
-    });
-
-    const text = await res.text();
-
-    if (res.status === 429) {
-      console.error(
-        "[CONTACT_FORM_SUBMISSION] Airtable rate limit reached",
-        text,
-      );
-      return {
-        ok: false,
-        status: 429,
-        code: "AIRTABLE_RATE_LIMIT",
-        error: "Rate limit exceeded when writing to Airtable.",
-      };
-    }
-
-    if (res.status === 401) {
-      console.error(
-        "[CONTACT_FORM_SUBMISSION] Airtable authentication error",
-        text,
-      );
-      return {
-        ok: false,
-        status: 401,
-        code: "AIRTABLE_AUTH_ERROR",
-        error: "Airtable authentication failed.",
-      };
-    }
-
-    if (!res.ok) {
-      console.error(
-        "[CONTACT_FORM_SUBMISSION] Airtable non-200 response",
-        text,
-      );
-      return {
-        ok: false,
-        status: res.status || 500,
-        code: "AIRTABLE_ERROR",
-        error: "Failed to create record in Airtable.",
-      };
-    }
-
-    let recordId: string | undefined;
-    try {
-      const parsed = JSON.parse(text) as { id?: string };
-      recordId = parsed.id;
-    } catch {
-      // ignore parse error; we already know it's OK
-    }
-
-    console.info(
-      `[CONTACT_FORM_SUBMISSION] Saved to Airtable successfully${
-        recordId ? ` (record ${recordId})` : ""
-      }`,
-    );
-
-    return { ok: true, status: 200, recordId };
-  } catch (err) {
-    console.error(
-      "[CONTACT_FORM_SUBMISSION] Network or Airtable error",
-      err,
-    );
-    return {
-      ok: false,
-      status: 500,
-      code: "AIRTABLE_NETWORK_ERROR",
-      error: "Airtable request failed.",
-    };
-  }
+  // This function is a temporary placeholder to ensure the form works and returns success.
+  // The data is logged to the console/Vercel logs for manual retrieval.
+  return { ok: true, status: 200, recordId: "LOGGED" };
 }
 
 // Fallback handlers for non-POST
