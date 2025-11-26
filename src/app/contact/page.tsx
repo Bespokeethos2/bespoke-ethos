@@ -122,7 +122,6 @@ export default async function ContactPage({ searchParams }: PageProps) {
               <iframe
                 id="JotFormIFrame-bespoke-ethos-contact"
                 title="Bespoke Ethos Contact Form"
-                onLoad="window.parent.scrollTo(0,0)"
                 allowFullScreen
                 allow="geolocation; microphone; camera"
                 src="https://form.jotform.com/bespoke-ethos-contact"
@@ -131,21 +130,38 @@ export default async function ContactPage({ searchParams }: PageProps) {
                   minWidth: "100%",
                   height: "541px",
                   border: "none",
+                  borderRadius: "16px",
+                  boxShadow:
+                    "0 10px 40px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.06)",
                 }}
               />
               <script type="text/javascript">
-                {`var ifr = document.getElementById("JotFormIFrame-bespoke-ethos-contact");
-                if (ifr) {
-                  var src = ifr.src;
-                  var iframeParams = [];
-                  if (window.location.href && window.location.href.indexOf("?") > -1) {
-                    iframeParams = iframeParams.concat(window.location.href.substr(window.location.href.indexOf("?") + 1).split('&'));
+                {`(function() {
+                  var ifr = document.getElementById("JotFormIFrame-bespoke-ethos-contact");
+                  if (ifr) {
+                    var src = ifr.src;
+                    var iframeParams = [];
+                    if (window.location.href && window.location.href.indexOf("?") > -1) {
+                      iframeParams = iframeParams.concat(window.location.href.substr(window.location.href.indexOf("?") + 1).split('&'));
+                    }
+                    if (iframeParams.length) {
+                      src = src + "?" + iframeParams.join('&');
+                      ifr.src = src;
+                    }
+
+                    var scrollParentToTop = function() {
+                      try {
+                        if (window.parent && typeof window.parent.scrollTo === "function") {
+                          window.parent.scrollTo(0, 0);
+                        }
+                      } catch (err) {
+                        // Ignore cross-origin access errors
+                      }
+                    };
+
+                    ifr.addEventListener("load", scrollParentToTop, { once: true });
                   }
-                  if (iframeParams.length) {
-                    src = src + "?" + iframeParams.join('&');
-                    ifr.src = src;
-                  }
-                }`}
+                })();`}
               </script>
             </div>
 
