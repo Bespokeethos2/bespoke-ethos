@@ -98,11 +98,11 @@ export default async function ContactPage({ searchParams }: PageProps) {
                 </div>
               )}
 
-              <div className="rounded-xl border border-dashed border-border/70 bg-surface-secondary/40 p-4 text-xs text-text-secondary dark:border-dark-border/80 dark:bg-dark-surface-secondary/40 dark:text-dark-text-secondary">
-                <p>
-                  <strong className="font-semibold text-text-primary dark:text-dark-text-primary">LGBTQ+ discount:</strong>{" "}
-                  If you’re an LGBTQ+-owned business, mention it in your message. You may qualify for{" "}
-                  <span className="font-semibold">25% off upfront project costs</span> (not subscriptions).
+              <div className="rounded-xl border-2 border-accent-400/60 bg-gradient-to-br from-accent-50/90 to-orange-50/80 dark:from-accent-900/40 dark:to-orange-900/30 p-5 text-sm text-text-primary dark:text-dark-text-primary shadow-md dark:border-accent-600/50">
+                <p className="leading-relaxed">
+                  <strong className="font-bold text-accent-700 dark:text-accent-300">LGBTQ+ discount:</strong>{" "}
+                  If you're an LGBTQ+-owned business, mention it in your message. You may qualify for{" "}
+                  <span className="font-bold text-accent-600 dark:text-accent-400">25% off upfront project costs</span> (not subscriptions).
                 </p>
               </div>
             </div>

@@ -87,7 +87,7 @@ export default function HomePage() {
 
             <p className="home-hero-body">
               Risk-free AI readiness audit and a free Consensus Engine research brief on your biggest uncertainty—bundled
-              with a 30-minute consultation.
+              with a 30-minute consultation. Backed by 5 years of AI training experience, NGLCC certification, and Catalant enterprise consulting approval.
             </p>
 
             <div className="relative inline-block mb-8 rounded-full">
@@ -123,7 +123,7 @@ export default function HomePage() {
           <div className="be-section-card space-y-3">
             <h2
               id="consensus-highlight-heading"
-              className="text-2xl font-semibold text-text-primary dark:text-dark-text-primary"
+              className="text-2xl font-semibold text-text-primary dark:text-dark-text-primary font-hero-accent"
             >
               A research brief, not a mystery answer
             </h2>
@@ -148,7 +148,7 @@ export default function HomePage() {
           <div className="be-section-card">
             <h2
               id="home-faq-heading"
-              className="text-2xl font-semibold text-text-primary dark:text-dark-text-primary mb-2"
+              className="text-2xl font-semibold text-text-primary dark:text-dark-text-primary mb-2 font-hero-accent"
             >
               Quick answers for busy founders
             </h2>
@@ -179,9 +179,9 @@ export default function HomePage() {
         <div className="home-section-inner">
           <div className="be-section-card flex flex-col items-start gap-4 md:flex-row md:items-center md:justify-between">
             <div>
-              <h2
+                <h2
                 id="lgbtq-banner-heading"
-                className="text-lg font-semibold text-text-primary dark:text-dark-text-primary"
+                className="text-lg font-semibold text-text-primary dark:text-dark-text-primary font-hero-accent"
               >
                 A helping hand for tech
               </h2>
