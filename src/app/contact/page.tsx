@@ -117,7 +117,40 @@ export default async function ContactPage({ searchParams }: PageProps) {
               </div>
             ) : null}
 
-            <form method="post" action="/api/contact" className="grid grid-cols-1 gap-3 sm:gap-4">
+            {/* Jotform Embed */}
+            <div className="w-full">
+              <iframe
+                id="JotFormIFrame-bespoke-ethos-contact"
+                title="Bespoke Ethos Contact Form"
+                onLoad="window.parent.scrollTo(0,0)"
+                allowFullScreen
+                allow="geolocation; microphone; camera"
+                src="https://form.jotform.com/bespoke-ethos-contact"
+                frameBorder="0"
+                style={{
+                  minWidth: "100%",
+                  height: "541px",
+                  border: "none",
+                }}
+              />
+              <script type="text/javascript">
+                {`var ifr = document.getElementById("JotFormIFrame-bespoke-ethos-contact");
+                if (ifr) {
+                  var src = ifr.src;
+                  var iframeParams = [];
+                  if (window.location.href && window.location.href.indexOf("?") > -1) {
+                    iframeParams = iframeParams.concat(window.location.href.substr(window.location.href.indexOf("?") + 1).split('&'));
+                  }
+                  if (iframeParams.length) {
+                    src = src + "?" + iframeParams.join('&');
+                    ifr.src = src;
+                  }
+                }`}
+              </script>
+            </div>
+
+            {/* Legacy form - hidden but kept for fallback */}
+            <form method="post" action="/api/contact" className="hidden grid grid-cols-1 gap-3 sm:gap-4">
               <input type="hidden" name="successRedirect" value="/contact?sent=1" />
               <input type="hidden" name="errorRedirect" value="/contact?error=1" />
 
