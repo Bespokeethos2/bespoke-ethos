@@ -18,7 +18,7 @@ export function TrustCredentials() {
           We&rsquo;re not just another AI consultant. We&rsquo;re vetted, certified, and battle-tested.
         </p>
 
-        <div className="mt-12 grid gap-8 md:grid-cols-3 items-stretch">
+          <div className="mt-12 grid gap-8 md:grid-cols-3 items-stretch">
           {/* NGLCC Certified */}
           <div className="flex h-full flex-col items-center rounded-xl border border-border bg-surface-secondary p-8 text-center dark:border-dark-border dark:bg-dark-surface-secondary">
             <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent-500/10">
@@ -32,11 +32,11 @@ export function TrustCredentials() {
             </p>
             <div className="mt-6 flex items-center justify-center">
               <Image
-                src="/assets/nglcc_trust_badge.png"
+                src="/assets/badge-nglcc.png"
                 alt="NGLCC Certified LGBT Business Enterprise"
-                width={140}
-                height={80}
-                className="h-10 w-auto"
+                width={180}
+                height={180}
+                className="h-auto w-44"
               />
             </div>
           </div>
@@ -52,9 +52,14 @@ export function TrustCredentials() {
             <p className="mt-3 text-sm text-text-secondary dark:text-dark-text-secondary">
               Vetted and approved as a professional business consultant through Catalant&rsquo;s rigorous screening process.
             </p>
-            <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-accent-500/10 px-4 py-2 text-xs font-semibold text-accent-600">
-              <IconCheck className="h-4 w-4" />
-              <span>Catalant vetted consultant</span>
+            <div className="mt-6 flex items-center justify-center">
+              <Image
+                src="/assets/catalant-modern-badge.png"
+                alt="Catalant Vetted Consultant"
+                width={180}
+                height={180}
+                className="h-auto w-44"
+              />
             </div>
           </div>
 

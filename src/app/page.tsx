@@ -5,6 +5,7 @@ import Image from "next/image";
 import { FounderStory } from "./_sections/founder-story";
 import { TrustCredentials } from "./_sections/trust-credentials";
 import { HomepageTestimonialsStrip } from "./_sections/testimonials";
+import { AlexMollyStory } from "./_sections/alex-molly-story";
 import { LGBTQDiscountModalTrigger } from "./_components/lgbtq-discount-modal-trigger";
 import { Accordion } from "./_sections/accordion-faq";
 import { BorderBeam } from "@/components/ui/border-beam";
@@ -102,27 +103,16 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="mt-12 mx-auto max-w-md sm:max-w-lg lg:max-w-2xl">
-            <div className="relative aspect-[5/3] w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame">
-              <Image
-                src="/assets/generated/hero-ai-automation-dashboard-desktop.webp"
-                alt="AI automation dashboard for a Cleveland small business, showing workflow connections between tools like Gmail, Slack, and a CRM"
-                fill
-                className="h-full w-full object-cover"
-                sizes="(max-width: 768px) 100vw, 960px"
-                priority
-              />
-            </div>
-          </div>
+
         </div>
       </section>
 
-      {/* Bespoke Solutions Header and Flagship Carousel (Cube) */}
+      {/* Alex & Molly Story */}
+      <AlexMollyStory />
+
+      {/* Flagship Carousel (Cube) */}
       <section className="home-section home-section--soft" aria-labelledby="bespoke-solutions-heading">
         <div className="home-section-inner">
-          <h2 id="bespoke-solutions-heading" className="text-center text-3xl font-hero-accent text-text-primary dark:text-dark-text-primary mb-8">
-            Bespoke Solutions
-          </h2>
           <FlagshipCarousel />
         </div>
       </section>
