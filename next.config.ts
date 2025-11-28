@@ -19,7 +19,7 @@ const securityHeaders = [
       // Fonts from self + data URLs
       "font-src 'self' data:",
       // XHR/fetch destinations (Turnstile verify + Sanity APIs)
-      "connect-src 'self' https://challenges.cloudflare.com https://*.sanity.io",
+      "connect-src 'self' https://challenges.cloudflare.com https://*.sanity.io https://vitals.vercel-insights.com https://www.google-analytics.com",
       // Embeds (Turnstile iframes)
       "frame-src https://challenges.cloudflare.com https://*.cloudflare.com",
       // Forms are local only
@@ -30,7 +30,7 @@ const securityHeaders = [
   },
   { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains; preload" },
   { key: "X-Content-Type-Options", value: "nosniff" },
-  { key: "X-Frame-Options", value: "DENY" },
+  { key: "X-Frame-Options", value: "SAMEORIGIN" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   {
     key: "Permissions-Policy",

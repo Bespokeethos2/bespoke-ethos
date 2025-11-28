@@ -6,41 +6,10 @@ export function middleware(request: NextRequest) {
   const host = url.host.toLowerCase();
   const pathname = url.pathname;
 
-  // Simple HTTP Basic Auth for Brutus chat + APIs
-  const protectedPaths = ["/chat", "/api/chat", "/api/brutus", "/api/brutus/fs"];
-  const isProtected = protectedPaths.some((path) =>
-    pathname === path || pathname.startsWith(path + "/"),
-  );
-
-  if (isProtected) {
-    const expectedUser = process.env.BRUTUS_BASIC_USER || "";
-    const expectedPass = process.env.BRUTUS_BASIC_PASS || "";
-
-    if (expectedUser && expectedPass) {
-      const header = request.headers.get("authorization") || "";
-      const [, encoded] = header.split(" ");
-      let ok = false;
-
-      if (encoded) {
-        try {
-          const decoded = Buffer.from(encoded, "base64").toString("utf8");
-          const [user, pass] = decoded.split(":");
-          ok = user === expectedUser && pass === expectedPass;
-        } catch {
-          ok = false;
-        }
-      }
-
-      if (!ok) {
-        return new NextResponse("Authentication required.", {
-          status: 401,
-          headers: {
-            "WWW-Authenticate": 'Basic realm="Brutus Chat"',
-          },
-        });
-      }
-    }
-  }
+  // Simple HTTP Basic Auth for Brutus chat + APIs - REMOVED
+  // The user requested to remove Brutus code, and this might be causing 403s.
+  // const protectedPaths = ["/chat", "/api/chat", "/api/brutus", "/api/brutus/fs"];
+  // ... (auth logic removed)
 
   // Ensure bare domain redirects to canonical www host for SEO
   if (host === "bespokeethos.com") {
