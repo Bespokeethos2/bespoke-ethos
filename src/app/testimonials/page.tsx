@@ -14,9 +14,20 @@ type Testimonial = {
   role: string;
   company: string;
   imageSrc?: string;
+  story?: string;
 };
 
 const TESTIMONIALS: Testimonial[] = [
+  {
+    title: "From 'Math Anxiety' to a B+ in Statistics",
+    summary: "Alex needed a tutor who spoke his language—brewery operations—not abstract formulas. We built Molly to translate statistics into terms he understood.",
+    quote: "Molly explains stats using my brewery floor. It's not generic—it's mine. I'm getting a B+ in a class I was terrified of.",
+    author: "Alex",
+    role: "Brewer",
+    company: "Ore Dock Brewing Company",
+    imageSrc: "/assets/generated/testimonial-alex.jpg",
+    story: "Alex works at a brewery and recently went back to school after a decade off. He was juggling a job and a lot of life changes, and he needed a statistics tutor who worked the way he did. We made him 'Molly'—a fine-tuned model specifically trained on Alex's syllabus, expectations, and learning style. When checked in after Thanksgiving, he said: 'Everything is going well, just studying for finals. I'm actually getting a B+ in the class—that's the highest grade I've ever gotten in a math class.'",
+  },
   {
     title: "AI Strategy Sprint paid for itself in 3 weeks",
     summary:
@@ -39,17 +50,6 @@ const TESTIMONIALS: Testimonial[] = [
     company: "Torque Transmission",
     imageSrc: "/assets/generated/testimonial-derrick.jpg",
   },
-  {
-    title: "AI Research Assistant ended the endless debate",
-    summary:
-      "Cited brief across multiple AI lenses let the board pick a brand direction in one meeting-no 6-week spiral.",
-    quote:
-      "We finally agreed on our voice without another circular debate. The sources made it defensible.",
-    author: "Alex Rand",
-    role: "Director",
-    company: "Riverstone Collective",
-    imageSrc: "/assets/generated/testimonial-alex.jpg",
-  },
 ];
 
 export const revalidate = 1800;
@@ -67,60 +67,67 @@ export default function TestimonialsPage() {
       <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
         <TestimonialsJsonLd />
         <div className="be-section-card space-y-6 page-hero-shell">
-      <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Testimonials" }]} />
-      <Heading align="left" subtitle="Rust Belt proof, productized outcomes">
-        <h1>Testimonials</h1>
-      </Heading>
-      <div className="pill-row">
-        <span className="pill">AI Strategy Sprint · Premium chatbot</span>
-        <span className="pill">Workflow Automation Setup · Automation with approvals</span>
-        <span className="pill">AI Research Assistant · Cited briefs</span>
-        <span className="pill">Automation Rescue · Reliability rescue</span>
-      </div>
+          <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Testimonials" }]} />
+          <Heading align="left" subtitle="Rust Belt proof, productized outcomes">
+            <h1>Testimonials</h1>
+          </Heading>
+          <div className="pill-row">
+            <span className="pill">AI Strategy Sprint · Premium chatbot</span>
+            <span className="pill">Workflow Automation Setup · Automation with approvals</span>
+            <span className="pill">AI Research Assistant · Cited briefs</span>
+            <span className="pill">Automation Rescue · Reliability rescue</span>
+          </div>
 
-      <div className="rail-shell">
-        <div className="rail-grid two">
-          {TESTIMONIALS.map((t) => (
-            <article
-              key={t.title}
-              className="ghost-card ghost-card--soft flex h-full flex-col gap-3"
-            >
-              <h2 className="text-lg font-semibold text-text-primary dark:text-dark-text-primary">
-                {t.title}
-              </h2>
-              <p className="text-sm text-text-secondary dark:text-dark-text-secondary">
-                {t.summary}
-              </p>
-              {t.imageSrc ? (
-                <div className="mt-2 flex items-center gap-3">
-                  <Image
-                    src={t.imageSrc}
-                    alt={t.author}
-                    width={40}
-                    height={40}
-                    className="h-10 w-10 rounded-full object-cover"
-                  />
-                  <p className="text-xs text-text-tertiary dark:text-dark-text-tertiary">
-                    {t.author}, {t.role}, {t.company}
-                  </p>
-                </div>
-              ) : null}
-              <blockquote className="mt-2 border-l-2 border-accent-500 pl-3 text-sm italic text-text-primary dark:text-dark-text-primary">
-                &quot;{t.quote}&quot;
-              </blockquote>
-              {!t.imageSrc ? (
-                <p className="mt-2 text-xs text-text-tertiary dark:text-dark-text-tertiary">
-                  {t.author}, {t.role}, {t.company}
-                </p>
-              ) : null}
-            </article>
-          ))}
-        </div>
-      </div>
+          <div className="rail-shell">
+            <div className="flex flex-col gap-8">
+              {TESTIMONIALS.map((t) => (
+                <article
+                  key={t.title}
+                  className="ghost-card ghost-card--soft flex flex-col gap-4 p-6 md:p-8"
+                >
+                  <div className="flex flex-col md:flex-row gap-6 items-start">
+                    {t.imageSrc && (
+                      <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-xl border border-slate-200 shadow-sm">
+                        <Image
+                          src={t.imageSrc}
+                          alt={t.author}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    )}
+                    <div className="space-y-2">
+                      <h2 className="text-xl font-bold text-text-primary dark:text-dark-text-primary font-heading">
+                        {t.title}
+                      </h2>
+                      <div className="flex items-center gap-2 text-sm text-text-tertiary dark:text-dark-text-tertiary font-medium">
+                        <span className="text-text-primary dark:text-dark-text-primary">{t.author}</span>
+                        <span>·</span>
+                        <span>{t.role}, {t.company}</span>
+                      </div>
+                      <blockquote className="text-lg italic text-text-secondary dark:text-dark-text-secondary border-l-4 border-accent-400 pl-4 my-4">
+                        &quot;{t.quote}&quot;
+                      </blockquote>
+                      {t.story && (
+                        <p className="text-base leading-relaxed text-text-secondary dark:text-dark-text-secondary bg-surface-primary/50 dark:bg-dark-surface-primary/50 p-4 rounded-lg">
+                          {t.story}
+                        </p>
+                      )}
+                      {!t.story && (
+                        <p className="text-sm text-text-secondary dark:text-dark-text-secondary">
+                          {t.summary}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
 
-      <p className="mt-6 text-sm text-text-tertiary dark:text-dark-text-tertiary">
-        Want in? Book a free consult and we&apos;ll run one AI Research Assistant brief on your biggest question before you commit.
-      </p>
+          <p className="mt-6 text-sm text-text-tertiary dark:text-dark-text-tertiary text-center">
+            Want results like this? <Link href="/contact" className="underline text-accent-600 hover:text-accent-500">Book a free consult</Link> and we&apos;ll see if we can help.
+          </p>
         </div>
       </Section>
     </main>
@@ -132,7 +139,7 @@ function TestimonialsJsonLd() {
   const reviews = TESTIMONIALS.map((t) => ({
     "@type": "Review",
     name: t.title,
-    reviewBody: t.quote,
+    reviewBody: t.story || t.quote,
     author: {
       "@type": "Person",
       name: t.author,

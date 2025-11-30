@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Section } from "@/common/layout";
 
 type MiniTestimonial = {
@@ -7,15 +8,17 @@ type MiniTestimonial = {
   company: string;
   quote: string;
   imageSrc: string;
+  link?: string;
 };
 
 const HOMEPAGE_TESTIMONIALS: MiniTestimonial[] = [
   {
-    name: "Alex Rand",
+    name: "Alex",
     role: "Brewer",
     company: "Ore Dock Brewing Company",
     quote: "Molly explains stats using my brewery floor. It's not generic-it's mine.",
     imageSrc: "/assets/generated/testimonial-alex.jpg",
+    link: "/testimonials",
   },
   {
     name: "Monique Ellis",
@@ -77,8 +80,16 @@ export function HomepageTestimonialsStrip() {
                     </div>
                   </div>
                   <blockquote className="text-sm text-text-secondary dark:text-dark-text-secondary">
-                    {t.quote}
+                    &quot;{t.quote}&quot;
                   </blockquote>
+                  {t.link && (
+                    <div className="mt-auto pt-2">
+                        <Link href={t.link} className="text-xs font-semibold text-accent-600 hover:text-accent-700 flex items-center gap-1 group">
+                            Read full story 
+                            <span className="group-hover:translate-x-0.5 transition-transform">→</span>
+                        </Link>
+                    </div>
+                  )}
                 </figure>
               ))}
             </div>

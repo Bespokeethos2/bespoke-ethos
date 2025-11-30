@@ -6,7 +6,6 @@ import dynamic from "next/dynamic";
 import { FounderStory } from "./_sections/founder-story";
 import { TrustCredentials } from "./_sections/trust-credentials";
 import { HomepageTestimonialsStrip } from "./_sections/testimonials";
-import { AlexMollyStory } from "./_sections/alex-molly-story";
 import { Accordion } from "./_sections/accordion-faq";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { StackedProductCards } from "@/components/stacked-product-cards";
@@ -343,9 +342,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Alex & Molly Story */}
-      <AlexMollyStory />
-
       {/* Consensus Engine cinematic highlight (with Consensus Calendar tie-in) */}
       <section className="home-section" aria-labelledby="consensus-highlight-heading">
         <div className="home-section-inner">
@@ -507,3 +503,4 @@ function HomeFaqJsonLd() {
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }
+
