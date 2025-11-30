@@ -219,10 +219,6 @@ function HeaderShell({ headerData, logo }: HeaderShellProps) {
           <MobileMenu {...headerData} />
         </div>
       </div>
-      <TrustStrip
-        size="thin"
-        className="border-t border-border/60 bg-white/90 backdrop-blur-sm dark:border-dark-border/60 dark:bg-surface-primary/95"
-      />
     </header>
   );
 }
