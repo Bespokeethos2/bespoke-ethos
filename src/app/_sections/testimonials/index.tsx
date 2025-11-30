@@ -57,7 +57,7 @@ export function HomepageTestimonialsStrip() {
               {HOMEPAGE_TESTIMONIALS.map((t) => (
                 <figure
                   key={t.name}
-                  className="be-glass-card flex flex-col gap-3 rounded-xl border border-border bg-surface-primary/80 p-4 shadow-sm dark:border-dark-border dark:bg-dark-surface-primary/80"
+                  className="be-glass-card flex w-full flex-col gap-3 rounded-xl border border-border bg-surface-primary/80 p-4 shadow-sm dark:border-dark-border dark:bg-dark-surface-primary/80 md:min-w-0 md:snap-start"
                 >
                   <div className="flex items-center gap-3">
                     <div className="relative h-12 w-12 flex-shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-orange-300 to-orange-500 dark:from-orange-600 dark:to-orange-700">

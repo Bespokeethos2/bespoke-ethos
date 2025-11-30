@@ -16,8 +16,13 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
       )}
     >
       {/* Proprietary Badge */}
+<<<<<<< HEAD
       <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-10">
         <span className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-white/60 bg-[color:var(--navy-primary)] text-xs font-semibold uppercase tracking-[0.18em] text-white shadow-lg shadow-black/30 whitespace-nowrap">
+=======
+      <div className="absolute top-4 right-4 sm:top-6 sm:right-6">
+        <span className="px-4 py-2 rounded-full border border-white/60 bg-[color:var(--navy-primary)] text-xs font-semibold uppercase tracking-[0.18em] text-white shadow-lg shadow-black/30">
+>>>>>>> cd31ffe (feat: Enhance homepage responsiveness and clarity)
           PROPRIETARY
         </span>
       </div>
@@ -42,7 +47,7 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
             <div className="max-w-xl text-center">
               <h2
                 id="consensus-engine-heading"
-                className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white"
+                className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white pr-12 sm:pr-0"
               >
                 Consensus Engine  Your AI Strategy Sprint
               </h2>
@@ -92,6 +97,7 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
 
         {/* Simple 3-Step Process */}
         <div className="grid md:grid-cols-3 gap-6 mb-8">
+<<<<<<< HEAD
           {[
             { num: 1, title: "You Ask", desc: "Any business question. Pricing, automation, marketing, compliance-anything." },
             { num: 2, title: "We Research", desc: "4 AI agents independently analyze 1000+ sources, then cross-verify findings." },
@@ -148,6 +154,37 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
               </div>
             </motion.div>
           ))}
+=======
+          <div className="text-center rounded-2xl border border-white/60 bg-white/80 p-6 shadow-lg backdrop-blur-md dark:border-slate-700/70 dark:bg-slate-900/60">
+            <div className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center text-white text-4xl font-bold mx-auto mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+            </div>
+            <h3 className="text-2xl font-bold mb-2">You Ask</h3>
+            <p className="text-lg text-slate-600 dark:text-slate-300">
+              Any business question. Pricing, automation, marketing, compliance-anything.
+            </p>
+          </div>
+
+          <div className="text-center rounded-2xl border border-white/60 bg-white/80 p-6 shadow-lg backdrop-blur-md dark:border-slate-700/70 dark:bg-slate-900/60">
+            <div className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center text-white text-4xl font-bold mx-auto mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <h3 className="text-2xl font-bold mb-2">We Research</h3>
+            <p className="text-lg text-slate-600 dark:text-slate-300">
+              4 AI agents independently analyze 1000+ sources, then cross-verify findings.
+            </p>
+          </div>
+
+          <div className="text-center rounded-2xl border border-white/60 bg-white/80 p-6 shadow-lg backdrop-blur-md dark:border-slate-700/70 dark:bg-slate-900/60">
+            <div className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center text-white text-4xl font-bold mx-auto mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3 className="text-2xl font-bold mb-2">You Decide</h3>
+            <p className="text-lg text-slate-600 dark:text-slate-300">
+              Get one cited, actionable report. Make your call with confidence.
+            </p>
+          </div>
+>>>>>>> cd31ffe (feat: Enhance homepage responsiveness and clarity)
         </div>
 
         {/* Expandable Agent Details */}

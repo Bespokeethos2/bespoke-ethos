@@ -27,7 +27,7 @@ export function ConversionOptimizedHero() {
           </motion.div>
 
           <motion.div variants={fadeUp} className="space-y-3">
-            <h1 className="text-balance font-hero-accent text-3xl sm:text-4xl lg:text-5xl lg:text-[3.25rem] font-bold leading-tight text-slate-900">
+            <h1 className="max-w-2xl mx-auto font-hero-accent text-3xl sm:text-4xl lg:text-5xl lg:text-[3.25rem] font-bold leading-tight text-slate-900">
               Ship AI automation in weeks—not quarters—with a founder who trained the models you use.
             </h1>
             <p className="text-lg text-slate-700">
@@ -138,8 +138,8 @@ export function ConversionOptimizedHero() {
 
 function TrustBadge({ src, alt }: { src: string; alt: string }) {
   return (
-    <div className="flex items-center gap-2 rounded-lg bg-white/80 px-3 py-2 shadow-sm ring-1 ring-slate-200">
-      <span className="relative block h-8 w-8 overflow-hidden rounded-md">
+    <div className="flex items-center gap-2 rounded-lg bg-white/80 max-sm:px-2 max-sm:py-1 px-3 py-2 shadow-sm ring-1 ring-slate-200">
+      <span className="relative block max-sm:h-6 max-sm:w-6 h-8 w-8 overflow-hidden rounded-md">
         <Image src={src} alt={alt} fill sizes="32px" className="object-contain" />
       </span>
       <span className="text-xs font-semibold text-slate-700">{alt}</span>

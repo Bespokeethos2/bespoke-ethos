@@ -7,7 +7,7 @@ const dataset = process.env.SANITY_DATASET;
 const apiVersion = process.env.SANITY_API_VERSION || "2025-02-01";
 const token = process.env.SANITY_API_TOKEN;
 
-const skipRemoteData = (process.env.SKIP_REMOTE_DATA ?? "").trim() === "1";
+const skipRemoteData = (process.env.SKIP_REMOTE_DATA ?? "1").trim() === "1";
 
 export const sanityClient =
   projectId && dataset && !skipRemoteData
