@@ -138,34 +138,11 @@ export default function HomePage() {
       <HomeFaqJsonLd />
 
       <ConversionOptimizedHero />
+      
+      {/* Social Proof - Moved Up Immediately After Hero */}
+      <HomepageTestimonialsStrip />
 
-      {/* Pain points */}
-      <section className="home-section home-section--cream" aria-labelledby="pain-points-heading">
-        <div className="home-section-inner home-section-grid">
-          <div className="space-y-3">
-            <p className="home-section-eyebrow">STUCK BETWEEN &quot;AI SOUNDS GREAT&quot; AND &quot;WHERE DO I START?&quot;</p>
-            <h2 id="pain-points-heading" className="home-section-title font-hero-accent">
-              You&apos;re not alone. Most small businesses struggle with AI integration and trust.
-            </h2>
-            <ul className="home-section-list space-y-2">
-              <li>Want proof before you commit? We start with a free Decision Brief on your biggest question.</li>
-              <li>Hate jargon? You get plain-English plans, not enterprise decks.</li>
-              <li>No dev team? Everything ships static/serverless with approvals and rollback.</li>
-              <li>Cost stress? Clear pricing and a standing 25% LGBTQ-owned discount.</li>
-            </ul>
-          </div>
-          <div className="be-section-card space-y-3">
-            <h3 className="text-xl font-semibold text-text-primary dark:text-dark-text-primary">Built for Cleveland founders</h3>
-            <p className="text-sm text-text-secondary dark:text-dark-text-secondary leading-6">
-              Manufacturing labor shortages, post-COVID recovery, service businesses that can&apos;t afford downtime—we’ve lived it. I work
-              out of North Olmsted and answer every request myself.
-            </p>
-            <p className="text-xs text-text-tertiary dark:text-dark-text-tertiary">Local, audited, and NGLCC-certified.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Real customers */}
+      {/* Real customers (Keeping for now as it has different content, but can be removed if redundant with strip) */}
       <section className="home-section home-section--white" aria-labelledby="real-customers-heading">
         <div className="home-section-inner space-y-4">
           <div className="flex items-center justify-between gap-3">
@@ -424,7 +401,6 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials, founder story, and trust credentials */}
-      <HomepageTestimonialsStrip />
       <FounderStory />
       <TrustCredentials />
 
@@ -531,4 +507,3 @@ function HomeFaqJsonLd() {
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }
-
