@@ -14,13 +14,13 @@ const fadeUp = {
 
 export function ConversionOptimizedHero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#fff7ec] via-white to-[#f5f3ff] py-14 sm:py-18 lg:py-22">
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#fff7ec] via-white to-[#f5f3ff] py-12 sm:py-18 lg:py-22">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -left-20 top-10 h-64 w-64 rounded-full bg-orange-200/35 blur-[90px]" />
         <div className="absolute right-0 top-1/4 h-72 w-72 rounded-full bg-sky-200/35 blur-[110px]" />
       </div>
 
-      <div className="container relative mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <div className="container relative mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:gap-10 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} variants={{ show: { transition: { staggerChildren: 0.08 } } }} className="space-y-6">
           <motion.div variants={fadeUp} className="inline-flex items-center gap-2 rounded-full border border-orange-200/70 bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-orange-800 shadow-sm backdrop-blur">
             Cleveland · Small-business AI · NGLCC Certified
@@ -83,15 +83,6 @@ export function ConversionOptimizedHero() {
               25% off LGBTQ-owned businesses
             </div>
           </motion.div>
-
-          <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-4">
-            <TrustBadge src="/assets/generated/trust/nglcc-square-light.webp" alt="NGLCC Certified LGBTQ+ Owned" />
-            <TrustBadge src="/assets/generated/trust/catalant-square-light.webp" alt="Catalant Vetted" />
-            <TrustBadge src="/assets/generated/trust/experience-5yrs-square-square-light.webp" alt="5 years AI HIL" />
-            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-600">
-              Cleveland · Rust Belt manufacturing friendly
-            </span>
-          </motion.div>
         </motion.div>
 
         <motion.div
@@ -133,16 +124,5 @@ export function ConversionOptimizedHero() {
         </motion.div>
       </div>
     </section>
-  );
-}
-
-function TrustBadge({ src, alt }: { src: string; alt: string }) {
-  return (
-    <div className="flex items-center gap-2 rounded-lg bg-white/80 max-sm:px-2 max-sm:py-1 px-3 py-2 shadow-sm ring-1 ring-slate-200">
-      <span className="relative block max-sm:h-6 max-sm:w-6 h-8 w-8 overflow-hidden rounded-md">
-        <Image src={src} alt={alt} fill sizes="32px" className="object-contain" />
-      </span>
-      <span className="text-xs font-semibold text-slate-700">{alt}</span>
-    </div>
   );
 }
