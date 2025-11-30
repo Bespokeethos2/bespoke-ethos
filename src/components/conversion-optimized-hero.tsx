@@ -27,7 +27,7 @@ export function ConversionOptimizedHero() {
           </motion.div>
 
           <motion.div variants={fadeUp} className="space-y-3">
-            <h1 className="text-balance font-hero-accent text-4xl font-bold leading-tight text-slate-900 sm:text-5xl lg:text-[3.25rem]">
+            <h1 className="text-balance font-hero-accent text-3xl sm:text-4xl lg:text-5xl lg:text-[3.25rem] font-bold leading-tight text-slate-900">
               Ship AI automation in weeks—not quarters—with a founder who trained the models you use.
             </h1>
             <p className="text-lg text-slate-700">
