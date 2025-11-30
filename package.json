@@ -68,7 +68,8 @@
     "tailwindcss-radix": "^4.0.2",
     "vercel": "^48.10.2",
     "workflow": "^4.0.1-beta.14",
-    "zod": "^3.25.76"
+    "zod": "^3.25.76",
+    "tailwind-merge": "^2.2.0"
   },
   "devDependencies": {
     "@modelcontextprotocol/server-filesystem": "^2025.8.21",
