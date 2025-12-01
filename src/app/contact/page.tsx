@@ -98,7 +98,7 @@ function ContactForm() {
               </div>
             )}
 
-            <div className="rounded-xl border-2 border-accent-400/60 bg-gradient-to-br from-accent-50/90 to-orange-50/80 dark:from-accent-900/40 dark:to-orange-900/30 p-5 text-sm text-text-primary dark:text-dark-text-primary shadow-md dark:border-accent-600/50">
+            <div className="rounded-xl border border-accent-400/40 bg-gradient-to-br from-accent-50/50 to-orange-50/50 dark:from-accent-900/20 dark:to-orange-900/20 p-4 text-sm text-text-primary dark:text-dark-text-primary shadow-sm dark:border-accent-600/30">
               <p className="leading-relaxed">
                 <strong className="font-bold text-accent-700 dark:text-accent-300">LGBTQ+ discount:</strong>{" "}
                 If you&apos;re an LGBTQ+-owned business, mention it in your message. You may qualify for{" "}
@@ -109,39 +109,30 @@ function ContactForm() {
         </div>
 
         <div className="be-form-glass-card max-w-md w-full mx-auto md:max-w-none md:mx-0 sm:p-6">
-        {sent ? (
-          <div className="mb-6 rounded-md border border-green-700/30 bg-green-500/10 p-4 text-sm text-green-700 dark:border-green-300/20 dark:text-green-300">
-            <p className="font-medium">Got it. I’m reading this shortly. No auto‑responder, just me.</p>
-            <SuccessNotice />
+          {sent ? (
+            <div className="mb-6 rounded-md border border-green-700/30 bg-green-500/10 p-4 text-sm text-green-700 dark:border-green-300/20 dark:text-green-300">
+              <p className="font-medium">Got it. I'm reading this shortly. No auto-responder, just me.</p>
+              <SuccessNotice />
+            </div>
+          ) : null}
+
+          <div className="mb-4 flex justify-center">
+            <Link
+              href="https://form.jotform.com/253342264894160"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center rounded-full bg-accent-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-accent-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2"
+            >
+              Make a schedule on Jotform
+            </Link>
           </div>
-        ) : null}
 
-        {/* Jotform Embed */}
-        <div className="w-full overflow-hidden rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.12),0_4px_18px_rgba(0,0,0,0.06)]">
-          <iframe
-            id="JotFormIFrame-253292960463058"
-            title="Bespoke Ethos Contact Form"
-            allowFullScreen
-            allow="geolocation; microphone; camera"
-            src="https://form.jotform.com/253292960463058"
-            frameBorder="0"
-            style={{
-              minWidth: "100%",
-              minHeight: "640px",
-              height: "700px",
-              border: "none",
-              display: "block",
-            }}
-          />
-          <script type="text/javascript" dangerouslySetInnerHTML={{ __html: `(function() { var formId = "253292960463058"; var iframeId = "JotFormIFrame-" + formId; var ifr = document.getElementById(iframeId); if (!ifr) return; var src = ifr.src.split("?")[0]; var iframeParams = []; if (window.location.search.length > 1) { iframeParams = iframeParams.concat(window.location.search.substring(1).split('&')); } if (iframeParams.length) { ifr.src = src + "?" + iframeParams.join('&'); } var handleMessage = function(e) { if (!e.data || typeof e.data !== "string") return; var args = e.data.split(":"); if (args.length > 2 && args[0] === formId) { var command = args[1]; var value = args[2]; if (command === "setHeight") { var newHeight = Number(value); if (!isNaN(newHeight) && newHeight > 0) { ifr.style.height = newHeight + "px"; } } if (command === "scrollIntoView") { try { if (typeof window.scrollTo === "function") { window.scrollTo(0, 0); } } catch (_) {} } } }; window.addEventListener("message", handleMessage, false); ifr.addEventListener("load", function() { try { if (window.parent && typeof window.parent.scrollTo === "function") { window.parent.scrollTo(0, 0); } } catch (_) {} }, { once: true }); })();` }} />
+          <p className="mt-4 text-center text-xs text-text-tertiary dark:text-dark-text-tertiary">
+            If you're family (LGBTQ+ owned), tell me. I take 25% off setup fees because I know how hard it is to get started.
+          </p>
+
+          {/* Legacy form removed */}
         </div>
-
-        <p className="mt-4 text-center text-xs text-text-tertiary dark:text-dark-text-tertiary">
-          If you’re family (LGBTQ+ owned), tell me. I take 25% off setup fees because I know how hard it is to get started.
-        </p>
-
-        {/* Legacy form removed */}
-      </div>
       </div>
     </motion.div>
   );
