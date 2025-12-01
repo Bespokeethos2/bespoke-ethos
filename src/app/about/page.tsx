@@ -39,7 +39,7 @@ const aboutFaqItems = [
   {
     _title: "Do I need to be technical to work with you?",
     answer:
-      "No. Many clients don’t write code or live in their tools all day. Our job is to translate between your business goals and the AI/automation stack, then leave you with workflows and documentation your team can actually maintain.",
+      "Not at all. That’s what we’re for. We focus on understanding your needs first, then build systems to get you there that blend into the background.",
   },
   {
     _title: "Can you work with me if I'm not in Cleveland?",
