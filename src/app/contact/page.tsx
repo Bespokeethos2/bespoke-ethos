@@ -6,6 +6,30 @@ import { motion } from "framer-motion";
 
 import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
 import { Section } from "@/common/layout";
+import { Accordion } from "@/app/_sections/accordion-faq/accordion";
+
+const contactFaqItems = [
+  {
+    _title: "What happens after I submit the Jotform?",
+    answer:
+      "You’ll go straight into my inbox—not an automated ticket system. I review each submission personally and reply by email, usually within one business day, with clarifying questions or a suggested next step.",
+  },
+  {
+    _title: "Can we meet live instead of just using email?",
+    answer:
+      "Yes. If it looks like a fit after your form comes in, I’ll send over a link to schedule a short call so we can walk through your workflows, tools, and constraints in real time.",
+  },
+  {
+    _title: "What should I include in my message?",
+    answer:
+      "A quick overview of your business, the tools you already use, and one or two workflows that feel especially brittle or time-consuming is enough. Screenshots or rough notes are helpful but not required.",
+  },
+  {
+    _title: "Is this only for businesses in Cleveland?",
+    answer:
+      "No. I’m based in Cleveland, but most work happens remotely. As long as we can find a time zone overlap for calls and you’re comfortable using basic online tools, we can work together.",
+  },
+] as const;
 
 function ContactForm() {
   return (
@@ -36,6 +60,18 @@ function ContactForm() {
           Make a schedule on Jotform
         </Link>
       </div>
+
+      <div className="mt-10">
+        <h2 className="text-lg font-semibold text-text-primary dark:text-dark-text-primary text-center">
+          Before you reach out
+        </h2>
+        <p className="mt-2 text-sm text-text-secondary dark:text-dark-text-secondary max-w-xl mx-auto">
+          A few quick answers to common questions about how contact works and what to include in your note.
+        </p>
+        <div className="mx-auto mt-4 flex w-full gap-8 md:max-w-(--breakpoint-sm) lg:max-w-(--breakpoint-md) lg:gap-14 lg:px-24 xl:max-w-(--breakpoint-xl)">
+          <Accordion items={contactFaqItems} />
+        </div>
+      </div>
     </motion.div>
   );
 }
@@ -44,6 +80,7 @@ export default function ContactPage() {
   return (
     <main className="be-page-slate">
       <ContactPageJsonLd />
+      <ContactFaqJsonLd />
       <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
         <Suspense fallback={<div>Loading...</div>}>
           <ContactForm />
@@ -65,3 +102,21 @@ function ContactPageJsonLd() {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }
 
+function ContactFaqJsonLd() {
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: contactFaqItems.map((item) => ({
+      "@type": "Question",
+      name: item._title,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+    mainEntityOfPage: `${base}/contact`,
+  } as const;
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
+}

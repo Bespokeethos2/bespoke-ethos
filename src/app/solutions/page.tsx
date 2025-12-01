@@ -7,13 +7,14 @@ import { Section } from "@/common/layout";
 import { ButtonLink } from "@/common/button";
 import { PRICING, planSummary, formatMoney } from "@/config/pricing";
 import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
+import { Accordion } from "@/app/_sections/accordion-faq/accordion";
 
 export const revalidate = 1800;
 
 export const metadata: Metadata = {
-  title: "Solutions | Bespoke Ethos",
+  title: "AI Automation Solutions for Small Businesses | Bespoke Ethos",
   description:
-    "Productized AI for founders who can't afford McKinsey: Cadence  Your AI Concierge, Consensus Engine  Your AI Strategy Sprint, Automation Rescue, and Workflow Automation Setup for brittle workflows and one-task automations.",
+    "Explore AI automation solutions for small businesses, including workflow automation, Zapier/Make rescue, and AI strategy sprints. Productized, fixed-scope packages for founders who can’t afford enterprise retainers.",
   alternates: { canonical: "/solutions" },
 };
 
@@ -75,12 +76,36 @@ const flagshipTools = [
   },
 ] as const;
 
+const solutionsFaqItems = [
+  {
+    _title: "How do I know which solution is right for my business?",
+    answer:
+      "If you’re not sure where to start, think about your biggest bottleneck. Broken automations or brittle handoffs usually point to Automation Rescue or Workflow Automation Setup, while bigger strategic questions tend to fit an AI strategy sprint. If you’re still unsure, a short contact form plus a call is enough to map you to the right option.",
+  },
+  {
+    _title: "Can we start small before committing to a larger build?",
+    answer:
+      "Yes. Many clients start with a focused workflow or a narrow automation rescue to prove value and build trust. Once we’ve shipped something that clearly saves time, we can decide together whether it makes sense to expand into additional workflows or a broader AI strategy sprint.",
+  },
+  {
+    _title: "What does “productized” mean in your solutions?",
+    answer:
+      "Each solution is scoped and priced around clear outcomes instead of hourly billing. You know upfront what problem we’re solving, what the deliverables are, and what support window is included, rather than watching a time sheet and hoping it lands within budget.",
+  },
+  {
+    _title: "Do I need to change all my tools to work with you?",
+    answer:
+      "Not necessarily. We start by working with the tools you already use—email, spreadsheets, CRMs, Zapier, Make.com, and similar. If a different tool would clearly reduce risk or cost, we’ll recommend it, but the goal is to improve your workflows, not force a full stack replacement.",
+  },
+] as const;
+
 export default function SolutionsPage() {
   return (
     <main className="be-page-slate">
       <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
         <div className="be-section-card space-y-6 solutions-hero page-hero-shell">
           <SolutionsItemListJsonLd />
+          <SolutionsFaqJsonLd />
           <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Solutions" }]} />
           <Heading subtitle="NO RESOURCES. NO PROBLEM. JUST YOU AND AI." align="left">
             <h1>Solutions</h1>
@@ -223,6 +248,15 @@ export default function SolutionsPage() {
             Not sure where to start? Book a free consultation
           </Link>
         </div>
+
+        <div className="mt-14">
+          <Heading align="center" title="Questions about our solutions">
+            <h2 className="text-2xl font-semibold">How the productized offers work</h2>
+          </Heading>
+          <div className="mx-auto mt-6 flex w-full gap-8 md:max-w-(--breakpoint-sm) lg:max-w-(--breakpoint-md) lg:gap-14 lg:px-24 xl:max-w-(--breakpoint-xl)">
+            <Accordion items={solutionsFaqItems} />
+          </div>
+        </div>
       </Section>
     </main>
   );
@@ -246,6 +280,25 @@ function SolutionsItemListJsonLd() {
       name: item.name,
       url: item.url,
     })),
+  } as const;
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
+}
+
+function SolutionsFaqJsonLd() {
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: solutionsFaqItems.map((item) => ({
+      "@type": "Question",
+      name: item._title,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+    mainEntityOfPage: `${base}/solutions`,
   } as const;
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
