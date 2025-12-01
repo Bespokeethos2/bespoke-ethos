@@ -16,9 +16,10 @@ import { TechNerdCard } from "@/components/tech-nerd-card";
 export const revalidate = 1800;
 
 export const metadata: Metadata = {
-  title: "Meet Cadence  Your AI Concierge | Bespoke Ethos",
+  title: "Cadence: Cleveland AI Chatbot for Small Business | Bespoke Ethos",
   description:
-    "Meet Cadence  Your AI Concierge: a relationship-first AI front door built from the AI Strategy Sprint playbook, trained on your stories so every conversation still sounds like you.",
+    "Meet Cadence, your AI concierge: an intelligent, safe AI chatbot for small businesses in Cleveland. Built from the AI Strategy Sprint playbook, trained on your stories for exceptional customer service.",
+  keywords: "Cleveland Small Business AI, Cleveland AI chatbot, AI for small business Cleveland, Intelligent customer service bots, Safe AI chatbots",
   alternates: { canonical: "/products/cadence" },
 };
 
@@ -51,7 +52,7 @@ export default function AiStrategySprintPage() {
               />
             </div>
             <div className="relative z-10 flex min-h-[260px] flex-col justify-center pb-10 pt-10 md:min-h-[320px] md:pt-14">
-              <div className="cadence-card-text max-w-(--breakpoint-md)">
+              <div className="cadence-card-text max-w-3xl mx-auto flex flex-col items-center text-center">
                 <div className="mb-2 flex items-center gap-2">
                   <AiStrategySprintLogoCard size={48} />
                   <span className="cadence-badge inline-block rounded px-2 py-1 text-xs font-semibold">
@@ -65,16 +66,16 @@ export default function AiStrategySprintPage() {
                 </div>
 
                 <Heading
-                  align="left"
-                  subtitle="A highly tailored customer chatbot for people who think chatbots are just the worst."
+                  align="center"
+                  subtitle="Tuned on your brand stories and background so it gets to know your customers, not just sell to them."
                 >
-                  <h1 className="font-hero-accent">Meet Cadence  Your AI Concierge.</h1>
+                  <h1 className="font-hero-accent">Cadence: The Chatbot That Builds Brand Loyalty</h1>
                 </Heading>
-                <p className="text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
-                  One focused engagement. Walk away with clear AI implementation roadmap tailored to your business.
+                <p className="text-sm text-text-secondary dark:text-dark-text-secondary md:text-base max-w-2xl mx-auto">
+                  Don't just give them bare-bones info like price and color. Tell them how you built the Korean Dogwood candles after finding peace in a New England B&B.
                 </p>
 
-                <div className="mt-4 flex flex-wrap gap-3">
+                <div className="mt-4 flex flex-wrap justify-center gap-3">
                   <p className="text-sm text-white/80">
                     Starts at {formatMoney(PRICING.aiStrategySprint.setup)} setup + {formatMoney(PRICING.aiStrategySprint.monthly)}/mo.
                   <Link href="/solutions/flowstack" className="ml-1 underline">
@@ -96,7 +97,7 @@ export default function AiStrategySprintPage() {
                   </ButtonLink>
                 </div>
 
-                <div className="mt-4 rounded-2xl border border-white/20 bg-black/25">
+                <div className="mt-4 rounded-2xl border border-white/20 bg-black/25" role="region" aria-label="Trust Badges">
                   <TrustStrip size="thin" />
                 </div>
               </div>
@@ -136,50 +137,7 @@ export default function AiStrategySprintPage() {
 
           {/* Solution Intro */}
           <div className="space-y-6">
-            <Breadcrumbs
-              items={[
-                { name: "Home", href: "/" },
-                { name: "Products", href: "/solutions" },
-                { name: "AI Strategy Sprint" },
-              ]}
-            />
-              <Heading align="left">
-                <h2>Meet Cadence  From Specs to Story</h2>
-              </Heading>
-            <div className="prose prose-zinc max-w-prose dark:prose-invert">
-              <p>
-                Cadence isn&apos;t just some computer program you install. It&apos;s a relationship-first assistant
-                trained on why you built the business, who you serve, and what keeps them up at 4 AM.
-              </p>
-              <p>
-                Before we ever turn on a chat bubble, we spend time in your world&mdash;listening to real
-                conversations, reading your emails, and pulling out your <strong>Why</strong>, <strong>Who</strong>, and{" "}
-                <strong>Where</strong>&mdash;plus founder motivations, origin stories, and your best customer wins.
-                Cadence learns to speak like a teammate, not a template, so every interaction sounds like your best
-                day with a regular.
-              </p>
-              <ul>
-                <li>
-                  <strong>Runs the 4 AM Test</strong>: captures the exact search phrases and questions your buyer would
-                  type when they&apos;re desperate for help.
-                </li>
-                <li>
-                  <strong>Translates features into feelings</strong>: turns specs and ingredients into the emotional
-                  promises that actually drive purchase decisions.
-                </li>
-                <li>
-                  <strong>Keeps your founder voice consistent</strong>: from homepage to help center, inbox replies, and
-                  the chatbot itself.
-                </li>
-                <li>
-                  <strong>Handles repetitive questions with empathy</strong>: resolves the boring stuff and surfaces real
-                  stories when it matters, while handing off nuanced issues to humans.
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Cadence infographic-style explainer */}
+            {/* Cadence infographic-style explainer */}
           <section
             aria-labelledby="cadence-infographic"
             className="grid gap-6 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] items-start"
@@ -265,11 +223,9 @@ export default function AiStrategySprintPage() {
                   </li>
                 </ul>
                 <p className="text-sm text-text-secondary dark:text-dark-text-secondary">
-                  If someone asks about your French vanilla candle, Cadence can do more than say, &quot;It&apos;s
-                  $39.99.&quot; It might add, &quot;We created this scent after a stay at a tiny New England
-                  bed-and-breakfast where the sheets smelled exactly like this. When we got home, we worked with a local
-                  perfumery to capture it so you could bring that feeling into your own space.&quot; Those are the
-                  moments that build loyalty and customers for life.
+                  If someone asks about your Korean Dogwood candles, Cadence can do more than say, &quot;It&apos;s
+                  $39.99.&quot; It might add, &quot;We built the Korean Dogwood candles after visiting a bed and breakfast in New England and smelling candles just like that. It brought us such an inner sense of peace that we decided to come back and make them for our own customers.&quot; Those are the
+                  moments that build loyalty.
                 </p>
               </div>
               <div className="relative h-56 w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-xl">
@@ -306,10 +262,31 @@ export default function AiStrategySprintPage() {
               </div>
             </div>
 
+            <div className="mt-8 rounded-xl border border-border bg-surface-primary p-4 dark:border-dark-border dark:bg-dark-surface-primary">
+              <details className="group">
+                <summary className="flex cursor-pointer items-center justify-between font-medium text-text-primary dark:text-dark-text-primary">
+                  <span>AI 101: What is a "Frontier Model"?</span>
+                  <span className="transition-transform group-open:rotate-180">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </span>
+                </summary>
+                <div className="mt-3 text-sm text-text-secondary dark:text-dark-text-secondary">
+                  <p className="mb-2">
+                    Depending on the needs you bring forward, we will select the optimum model for you. A <strong>Frontier Model</strong> refers to the absolute cutting-edge AI models available today (like GPT-4, Claude 3.5 Sonnet, or Gemini 1.5 Pro).
+                  </p>
+                  <p>
+                    These models are "smart" enough to understand nuance, tone, and complex instructions without needing thousands of examples. We pick the one that best fits your specific balance of speed, cost, and reasoning ability.
+                  </p>
+                </div>
+              </details>
+            </div>
+
             <div className="mt-2 space-y-3 text-sm text-text-secondary dark:text-dark-text-secondary">
               <p>
-                Most clients start with a 30-day pilot. We focus on one or two key goals: deflecting repetitive support
-                questions, capturing higher-intent leads, or making sure nobody leaves your pricing page confused.
+                <strong>Curious about Cadence but don't necessarily want to jump in head first?</strong>
+              </p>
+              <p>
+                Let's talk about a 30-day pilot plan to see how Cadence can start you in one small area of your business and we can go from there. Less investment, less risk, more time to do the things you want to do.
               </p>
               <p>
                 At the end of the pilot, you&apos;ll get clear numbers: deflection, leads, transcripts, and a simple
@@ -352,8 +329,6 @@ export default function AiStrategySprintPage() {
             </div>
           </Section>
 
-          <FounderAiStrategySprintQA />
-
           <TechNerdCard product="cadence" />
         </div>
       </Section>
@@ -368,9 +343,9 @@ function AiStrategySprintProductJsonLd() {
   const json = {
     "@context": "https://schema.org",
     "@type": "Product",
-    name: "Cadence  Your AI Concierge",
+    name: "Cadence: Cleveland AI Chatbot for Small Business",
     description:
-      "One focused engagement. Walk away with clear AI implementation roadmap tailored to your business. Cadence is trained on your products, voice, and stories so every conversation deflects repetitive questions and keeps your brand human.",
+      "Cadence is an intelligent, safe AI chatbot service for small businesses in Cleveland, OH. This AI concierge is trained on your products, voice, and stories to deliver exceptional customer service, deflect repetitive questions, and build brand loyalty.",
     image: [`${base}/assets/generated/cadence-feature-voice-desktop.webp`],
     offers: {
       "@type": "Offer",
@@ -385,7 +360,7 @@ function AiStrategySprintProductJsonLd() {
       availability: "https://schema.org/InStock",
       url: `${base}/products/cadence`,
     },
-    additionalType: "https://schema.org/Service",
+    additionalType: ["https://schema.org/Service", "https://schema.org/Chatbot", "https://schema.org/AIService"],
     provider: {
       "@type": "Organization",
       name: "Bespoke Ethos",
