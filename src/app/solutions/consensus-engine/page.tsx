@@ -12,15 +12,39 @@ import { VogueCard } from "@/components/vogue-card";
 import { TrustStrip } from "@/app/_components/trust-strip";
 import { FounderConsensusQA } from "@/app/_components/founder-consensus-qa";
 import { ConsensusResearchers } from "@/components/consensus-researchers";
+import { Accordion } from "@/app/_sections/accordion-faq/accordion";
 
 export const revalidate = 1800;
 
 export const metadata: Metadata = {
-  title: "Consensus Engine  Your AI Strategy Sprint | Bespoke Ethos",
+  title: "Consensus Engine – AI Strategy Sprint for Small Businesses | Bespoke Ethos",
   description:
-    "Consensus Engine runs an AI Strategy Sprint so your biggest decisions get approvals-intact briefs, tradeoffs, and a clear path you trust—without a full research team.",
+    "Consensus Engine runs an AI Strategy Sprint for founders who need research-level clarity on big decisions without a full research team. Get cited briefs, tradeoffs, and a clear path you trust.",
   alternates: { canonical: "/solutions/consensus-engine" },
 };
+
+const consensusFaqItems = [
+  {
+    _title: "What kinds of questions are a good fit for Consensus Engine?",
+    answer:
+      "Consensus Engine works best on decisions that materially change your business: pricing changes, product pivots, repositioning, or choosing between a few high-stakes paths. If the question keeps you up at night or would be expensive to get wrong, it’s probably a fit.",
+  },
+  {
+    _title: "How is this different from just asking a single AI model for advice?",
+    answer:
+      "Instead of one confident answer, Consensus Engine runs multiple research agents that challenge each other’s assumptions, surface tradeoffs, and then synthesize a recommendation. You see the reasoning, citations, and disagreements—not just a polished paragraph.",
+  },
+  {
+    _title: "What do I actually receive at the end of a sprint?",
+    answer:
+      "You get a structured, cited brief that lays out the question, the options, supporting evidence, tradeoffs, and a recommended path. It’s designed so you can share it with a partner, investor, or team member and have a concrete conversation instead of hand-waving.",
+  },
+  {
+    _title: "How long does an AI Strategy Sprint take?",
+    answer:
+      "Most sprints wrap in days rather than weeks. After an initial scoping call to define the question and constraints, the research run begins, and you review the brief soon after with room for follow-up questions.",
+  },
+] as const;
 
 export default function ConsensusEnginePage() {
   return (
@@ -36,6 +60,7 @@ export default function ConsensusEnginePage() {
           />
           <ProductJsonLd />
           <ConsensusServiceJsonLd />
+          <ConsensusFaqJsonLd />
 
           {/* Hero */}
           <section
@@ -239,6 +264,15 @@ export default function ConsensusEnginePage() {
           {/* Nerd card for technical readers */}
           <TechNerdCard product="consensus" />
         </div>
+
+        <div className="mt-10">
+          <Heading align="center" title="Questions founders ask about Consensus Engine">
+            <h2 className="text-2xl font-semibold">How the AI Strategy Sprint works in practice</h2>
+          </Heading>
+          <div className="mx-auto mt-6 flex w-full gap-8 md:max-w-(--breakpoint-sm) lg:max-w-(--breakpoint-md) lg:gap-14 lg:px-24 xl:max-w-(--breakpoint-xl)">
+            <Accordion items={consensusFaqItems} />
+          </div>
+        </div>
       </Section>
     </main>
   );
@@ -259,6 +293,25 @@ function ProductJsonLd() {
       url: base,
     },
     url: `${base}/solutions/consensus-engine`,
+  } as const;
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
+}
+
+function ConsensusFaqJsonLd() {
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: consensusFaqItems.map((item) => ({
+      "@type": "Question",
+      name: item._title,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+    mainEntityOfPage: `${base}/solutions/consensus-engine`,
   } as const;
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;

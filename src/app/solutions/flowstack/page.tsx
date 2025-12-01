@@ -7,13 +7,14 @@ import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
 import { PRICING, planSummary } from "@/config/pricing";
 import { VogueCard } from "@/components/vogue-card";
+import { Accordion } from "@/app/_sections/accordion-faq/accordion";
 
 export const revalidate = 1800;
 
 export const metadata: Metadata = {
-  title: "Workflow Automation Setup™ - Automate Your #1 Task | Bespoke Ethos",
+  title: "Workflow Automation Setup – Automate Your #1 Task | Bespoke Ethos",
   description:
-    "Map your process, keep approvals intact, build production-ready automation in days, not months.",
+    "Workflow Automation Setup maps your real process, keeps approvals intact, and builds production-ready automation in days, not months—for small businesses that need one painful task off their plate.",
   alternates: { canonical: "/solutions/flowstack" },
 };
 
@@ -57,6 +58,29 @@ const FLOWSTACK_ASSETS = [
   },
 ] as const;
 
+const flowstackFaqItems = [
+  {
+    _title: "What kinds of tasks are a good fit for Workflow Automation Setup?",
+    answer:
+      "Workflow Automation Setup is designed for repeatable processes that steal hours from your week—things like lead intake and routing, follow-up reminders, reporting, or handoffs between tools. If it’s structured and happens all the time, it’s likely a good fit.",
+  },
+  {
+    _title: "How much of my time will the project require?",
+    answer:
+      "You’ll spend some time up front walking through your real process, edge cases, and constraints. After that, most of your involvement is reviewing drafts and giving feedback while we handle the build and testing.",
+  },
+  {
+    _title: "Will the automation replace my team or just support them?",
+    answer:
+      "The goal is to free your team from repetitive coordination work, not to replace the judgment calls they make. Approvals and human checkpoints stay in the loop so people still sign off on risky steps.",
+  },
+  {
+    _title: "What happens after handoff if something breaks?",
+    answer:
+      "Every build ships with documentation and rollback paths so you’re not stuck. Depending on your plan, we can also include a support window to help you adjust as real-world usage uncovers new edge cases.",
+  },
+] as const;
+
 export default function WorkflowAutomationSetupPage() {
   return (
     <main className="be-page-slate">
@@ -66,64 +90,57 @@ export default function WorkflowAutomationSetupPage() {
             items={[
               { name: "Home", href: "/" },
               { name: "Solutions", href: "/solutions" },
-              { name: "Workflow Automation Setup™" },
+              { name: "Workflow Automation SetupT" },
             ]}
           />
           <ProductJsonLd />
           <WorkflowAutomationSetupServiceJsonLd />
+          <WorkflowAutomationSetupFaqJsonLd />
 
           <div className="flowstack-hero relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-amber-50 via-white to-slate-100 p-6 shadow-xl dark:from-slate-900/70 dark:via-slate-900/50 dark:to-slate-900/30 md:p-8">
             <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.9fr)]">
               <div className="space-y-5 text-text-secondary dark:text-dark-text-secondary">
                 <div className="inline-flex flex-wrap items-center gap-2 rounded-full bg-white/90 px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-amber-700 shadow-sm dark:bg-white/10 dark:text-amber-200">
-                  Workflow Automation Setup™
+                  Workflow Automation SetupT
                   <span className="text-[11px] font-normal tracking-normal text-text-tertiary dark:text-dark-text-tertiary">
                     Automate your #1 task
                   </span>
                 </div>
                 <Heading subtitle="Proprietary general automation for any business task. Own the results." align="left">
-                  <h1 className="font-hero-accent">Workflow Automation Setup™</h1>
+                  <h1 className="font-hero-accent">Workflow Automation SetupT</h1>
                 </Heading>
                 <div className="space-y-3">
                   <p>
-                    When I was drowning in my publishing business, I didn&rsquo;t need a fancy AI platform. I needed someone
-                    to automate the one task that was stealing hours from my week. So I built Workflow Automation Setup™ for myself first. It
-                    is our proprietary general automation package, designed to handle any business task&mdash;from lead routing to
+                    When I was drowning in my publishing business, I didn&apos;t need a fancy AI platform. I needed someone
+                    to automate the one task that was stealing hours from my week. So I built Workflow Automation SetupT for myself first. It
+                    is our proprietary general automation package, designed to handle any business task—from lead routing to
                     inventory updates.
                   </p>
                   <p>
                     We map your real process, keep human approvals intact, and ship a production-ready automation in days. Every
-                    build ships with documentation, audit trails, and rollback&mdash;because I learned the hard way that automation
+                    build ships with documentation, audit trails, and rollback—because I learned the hard way that automation
                     without guardrails creates more problems than it solves.
                   </p>
                 </div>
                 <ul className="list-disc space-y-1 pl-5 text-sm sm:text-base">
                   <li>Keeps humans in the approval loop where it matters.</li>
-                  <li>Single source of truth with clear audit trails.</li>
-                  <li>Rollback paths and alerts for safe operations.</li>
-                  <li>Ships in days, not months—start with your worst task.</li>
+                  <li>Single source of truth with clear ownership for each step.</li>
+                  <li>Rollback paths for every critical action.</li>
                 </ul>
-                <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                  <ButtonLink className="w-full justify-center sm:w-auto" intent="primary" href="/contact">
-                    Automate my #1 task
+                <div className="flex flex-wrap gap-3">
+                  <ButtonLink intent="primary" href="/contact?service=llm-setups">
+                    Tell me about your #1 task
                   </ButtonLink>
-                  <ButtonLink
-                    className="w-full justify-center sm:w-auto"
-                    intent="secondary"
-                    href="/contact?service=llm-setups"
-                  >
-                    Schedule a free consultation
+                  <ButtonLink intent="secondary" href="/pricing">
+                    View Workflow Automation Setup pricing
                   </ButtonLink>
                 </div>
-                <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
-                  {planSummary(PRICING.workflowAutomationSetup.setup, PRICING.workflowAutomationSetup.monthly)}
-                </p>
               </div>
               <div className="space-y-4">
-                <div className="relative h-60 w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary">
+                <div className="relative h-52 w-full overflow-hidden rounded-2xl border border-border bg-white shadow-xl dark:border-dark-border dark:bg-black/40 md:h-64">
                   <Image
                     src="/assets/generated/hero-flowstack-desktop.webp"
-                    alt="Founder's desk transformed from cluttered paperwork to a calm automation dashboard"
+                    alt="Founder reviewing Workflow Automation Setup automation outputs"
                     fill
                     className="object-cover object-center"
                     sizes="(max-width: 768px) 100vw, 520px"
@@ -133,7 +150,7 @@ export default function WorkflowAutomationSetupPage() {
                 <VogueCard
                   imageSrc="/assets/logos/flowstack.png"
                   imageAlt="Workflow Automation Setup couture card"
-                  title="Workflow Automation Setup™"
+                  title="Workflow Automation SetupT"
                   tagline="Workflow Automation"
                   description="Automation fabric for founders who need audit trails, approvals, and production-ready builds in days."
                 />
@@ -148,7 +165,7 @@ export default function WorkflowAutomationSetupPage() {
                   Workflow Automation Setup blueprint at a glance
                 </h2>
                 <p>
-                  Workflow Automation Setup™ diagrams read like a magazine spread: the image anchors the eye while the copy wraps around it to
+                  Workflow Automation SetupT diagrams read like a magazine spread: the image anchors the eye while the copy wraps around it to
                   walk stakeholders through each checkpoint.
                 </p>
                 <div className="grid gap-4 sm:grid-cols-2">
@@ -174,7 +191,7 @@ export default function WorkflowAutomationSetupPage() {
                   />
                 </div>
                 <figcaption className="mt-3 text-xs uppercase tracking-[0.25em] text-text-tertiary dark:text-dark-text-tertiary">
-                  Builder view · every branch documents the owner, data source, and rollback pair.
+                  Builder view – every branch documents the owner, data source, and rollback pair.
                 </figcaption>
               </figure>
             </div>
@@ -207,6 +224,15 @@ export default function WorkflowAutomationSetupPage() {
               ))}
             </div>
           </div>
+
+          <div className="mt-10">
+            <Heading align="center" title="Questions about Workflow Automation Setup">
+              <h2 className="text-2xl font-semibold">What to expect from your first automation build</h2>
+            </Heading>
+            <div className="mx-auto mt-6 flex w-full gap-8 md:max-w-(--breakpoint-sm) lg:max-w-(--breakpoint-md) lg:gap-14 lg:px-24 xl:max-w-(--breakpoint-xl)">
+              <Accordion items={flowstackFaqItems} />
+            </div>
+          </div>
         </div>
       </Section>
     </main>
@@ -219,9 +245,8 @@ function ProductJsonLd() {
   const json = {
     "@context": "https://schema.org",
     "@type": "Product",
-    name: "Workflow Automation Setup™",
-    description:
-      "Map your process, keep approvals intact, build production-ready automation in days, not months.",
+    name: "Workflow Automation SetupT",
+    description: "Map your process, keep approvals intact, build production-ready automation in days, not months.",
     offers: {
       "@type": "Offer",
       priceCurrency: currency,
@@ -250,7 +275,7 @@ function WorkflowAutomationSetupServiceJsonLd() {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": `${base}/solutions/flowstack#service`,
-    name: "Workflow Automation Setup™",
+    name: "Workflow Automation SetupT",
     description:
       "Map your process, keep approvals intact, build production-ready automation in days, not months.",
     provider: {
@@ -267,3 +292,23 @@ function WorkflowAutomationSetupServiceJsonLd() {
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }
+
+function WorkflowAutomationSetupFaqJsonLd() {
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: flowstackFaqItems.map((item) => ({
+      "@type": "Question",
+      name: item._title,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+    mainEntityOfPage: `${base}/solutions/flowstack`,
+  } as const;
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
+}
+
