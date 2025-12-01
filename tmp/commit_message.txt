@@ -1,6 +1,11 @@
-docs: Clarify Cadence product and service definitions in launch_consultation guide
+feat: Refine tactile aesthetic and update Frontier Models list
 
-This commit updates the `launch_consultation.md` guide to clearly define "Cadence"
-as an AI Customer Service Chatbot/AI Concierge and corrects the service renaming
-section to align with its true intent. This prevents future confusion regarding
-product definitions and SEO strategy.
+This commit refines the "Authentic/Tactile" aesthetic on the Cadence page by
+simplifying background treatments, adjusting noise opacity, and enhancing
+borders and shadows for various tactile components (hero card, generic cards,
+details cards, image cards, and custom list bullets). This aims to address
+previous feedback regarding the visual appearance and achieve a more subtle
+and consistent look.
+
+Additionally, the "Frontier Models" list on the Cadence page has been updated
+to reflect the latest advanced AI models (Gemini 3, GPT 5.1, Claude Sonnet).
