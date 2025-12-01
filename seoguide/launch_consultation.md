@@ -26,26 +26,26 @@ Pick **Rand AI Consulting** if you want personal brand equity and trust-building
 
 ---
 
-## Service renaming: clarity over creativity
+## Service description: clarity over creativity
 
-Your current names are creative but require explanation. For autistic clarity and tired-founder comprehension, rename to what the service actually delivers:
+Your current product names are creative but some require clearer descriptive terms for SEO and buyer comprehension. For autistic clarity and tired-founder comprehension, define products by what they actually deliver:
 
-| Current Name | Problem | **New Name** |
-|--------------|---------|--------------|
-| Cadence | Abstract, no service signal | **AI Strategy Sprint** |
+| Product Name | Problem | **Descriptive Service Name / Searchable Term** |
+|--------------|---------|------------------------------------------------|
+| Cadence | Abstract, no service signal for a chatbot | **AI Customer Service Chatbot / AI Concierge** |
 | Consensus Engine | "Engine" is vague, metaphor unclear | **AI Research Assistant** |
-| Red-bridging | Completely unclear metaphor | **Automation Rescue** |
-| Flow Stack | Tech jargon, generic | **Workflow Automation Setup** |
+| Automation Rescue | Abstract / unclear metaphor | **Automation Repair & Optimization** |
+| Flowstack | Tech jargon, generic | **Workflow Automation Setup** |
 
 **Rationale for each:**
 
-**AI Strategy Sprint** communicates time-boxed, action-oriented consulting. SMB founders understand "sprint" means focused engagement with clear deliverable. The word "Strategy" signals high-value advisory work.
+**Cadence** is the name of the AI Customer Service Chatbot. It provides direct, on-brand customer interaction. Its descriptive service name as "AI Customer Service Chatbot" or "AI Concierge" clearly communicates its function to SMB founders seeking customer support automation.
 
-**AI Research Assistant** uses industry-standard language for what you're building. "Research agents in digital debate" is a feature description, not a value proposition. Founders immediately understand what they're buying.
+**Consensus Engine** uses industry-standard language for what you're building. "Research agents in digital debate" is a feature description, not a value proposition. Founders immediately understand what they're buying.
 
-**Automation Rescue** directly addresses the pain point. It's urgent, actionable, and requires zero explanation. When someone's automation breaks at 2 AM, they'll search for "automation rescue" not "red-bridging."
+**Automation Rescue** directly addresses the pain point. It's urgent, actionable, and requires zero explanation. When someone's automation breaks at 2 AM, they'll search for "automation repair" not "red-bridging."
 
-**Workflow Automation Setup** describes the deliverable in plain language. "Flow Stack" means nothing to non-technical buyers.
+**Workflow Automation Setup** describes the deliverable in plain language. "Flowstack" means nothing to non-technical buyers.
 
 ---
 
