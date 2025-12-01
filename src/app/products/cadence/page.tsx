@@ -52,17 +52,12 @@ export default function AiStrategySprintPage() {
               />
             </div>
             <div className="relative z-10 flex min-h-[260px] flex-col justify-center pb-10 pt-10 md:min-h-[320px] md:pt-14">
-              <div className="cadence-card-text max-w-3xl mx-auto flex flex-col items-center text-center">
+              <div className="cadence-card-text max-w-3xl mx-auto flex flex-col items-center text-center bg-white/10 p-4 rounded-lg border border-white/20">
                 <div className="mb-2 flex items-center gap-2">
                   <AiStrategySprintLogoCard size={48} />
                   <span className="cadence-badge inline-block rounded px-2 py-1 text-xs font-semibold">
-                    Cadence  Your AI Concierge
+                    Cadence: Your AI Concierge
                   </span>
-                </div>
-
-                <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-black/30 px-4 py-2 text-xs sm:text-sm font-medium text-white/90 shadow-lg backdrop-blur-md">
-                  <span>Meet Cadence</span>
-                  <span className="opacity-90">Your AI Concierge</span>
                 </div>
 
                 <Heading
@@ -328,6 +323,7 @@ export default function AiStrategySprintPage() {
               </div>
             </div>
           </Section>
+          </div>
 
           <TechNerdCard product="cadence" />
         </div>
