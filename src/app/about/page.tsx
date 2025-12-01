@@ -4,21 +4,56 @@ import { Section } from "@/common/layout";
 import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
 import { ButtonLink } from "@/common/button";
 import Image from "next/image";
+import { Accordion } from "@/app/_sections/accordion-faq/accordion";
 
 export const revalidate = 1800;
 
 export const metadata: Metadata = {
-  title: "About Bespoke Ethos | Small Business AI Automation",
+  title: "About Bespoke Ethos | AI Consulting & Workflow Automation for Small Businesses",
   description:
-    "NGLCC-certified, Catalant-vetted, 5 years training AI models. AI trainer & automation architect building cognitive prosthetics for founders who need proof, not jargon.",
+    "Learn about Bespoke Ethos, a Cleveland-based AI consulting and workflow automation firm for small businesses. NGLCC-certified, Catalant-vetted founder with 5+ years training AI models and a Tool & Die background.",
   alternates: { canonical: "/about" },
 };
+
+const aboutFaqItems = [
+  {
+    _title: "Who actually does the consulting work?",
+    answer:
+      "Every engagement is led by founder Upton Rand—a Tool & Die technician and former AI trainer—rather than an anonymous subcontractor. You work directly with the person designing and testing your automations, not a rotating agency bench.",
+  },
+  {
+    _title: "What kinds of businesses do you work with?",
+    answer:
+      "Bespoke Ethos focuses on small businesses and lean teams: service firms, trades, professional practices, and early-stage companies that are drowning in busywork but can’t afford a large consulting firm. If you have repeatable processes and too many manual steps, you’re a good fit.",
+  },
+  {
+    _title: "What problems do you usually solve first?",
+    answer:
+      "Most projects start by fixing brittle workflows—things like broken Zapier or Make.com automations, messy intake forms, manual follow-up, or reporting that takes hours each week. We stabilize what you already have before layering on more AI so you see value quickly and avoid adding chaos.",
+  },
+  {
+    _title: "How does pricing work for AI consulting?",
+    answer:
+      "Instead of hourly billing, Bespoke Ethos uses fixed-scope, fixed-price projects so you know the cost up front. Most automation projects start around $997, with clear deliverables and a defined window for support once the workflow is live.",
+  },
+  {
+    _title: "Do I need to be technical to work with you?",
+    answer:
+      "No. Many clients don’t write code or live in their tools all day. Our job is to translate between your business goals and the AI/automation stack, then leave you with workflows and documentation your team can actually maintain.",
+  },
+  {
+    _title: "Can you work with me if I'm not in Cleveland?",
+    answer:
+      "Yes. Most work happens remotely over calls, Loom walkthroughs, and shared dashboards, with in-person meetings reserved for a handful of Cleveland-area clients. Time zones are flexible as long as we can find overlapping hours for key decisions.",
+  },
+] as const;
 
 export default function AboutPage() {
   return (
     <main className="be-page-slate">
       <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
         <AboutPageJsonLd />
+        <AboutFaqJsonLd />
         <AboutVideoJsonLd />
         <div className="be-section-card space-y-6 page-hero-shell">
           <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "About" }]} />
@@ -177,6 +212,15 @@ export default function AboutPage() {
           View our solutions
         </ButtonLink>
       </div>
+
+      <div className="mt-14">
+        <Heading align="center" title="Questions founders ask before working together">
+          <h2 className="text-2xl font-semibold">About Bespoke Ethos, in plain language</h2>
+        </Heading>
+        <div className="mx-auto mt-6 flex w-full gap-8 md:max-w-(--breakpoint-sm) lg:max-w-(--breakpoint-md) lg:gap-14 lg:px-24 xl:max-w-(--breakpoint-xl)">
+          <Accordion items={aboutFaqItems} />
+        </div>
+      </div>
         </div>
       </Section>
     </main>
@@ -192,6 +236,25 @@ function AboutPageJsonLd() {
     name: "About Bespoke Ethos",
     mainEntity: { "@type": "Organization", name: "Bespoke Ethos" },
   } as const;
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
+}
+
+function AboutFaqJsonLd() {
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: aboutFaqItems.map((item) => ({
+      "@type": "Question",
+      name: item._title,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+    mainEntityOfPage: `${base}/about`,
+  } as const;
+
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }
 
