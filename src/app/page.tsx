@@ -5,8 +5,9 @@ import dynamic from "next/dynamic";
 import { FounderStory } from "./_sections/founder-story";
 import { TrustCredentials } from "./_sections/trust-credentials";
 import { Accordion } from "./_sections/accordion-faq";
-import { StackedProductCards } from "@/components/stacked-product-cards";
+import { ProductQuadrant } from "@/components/product-quadrant";
 import { ButtonLink } from "@/common/button";
+import { siteUrl } from "@/lib/constants";
 
 // New "Novel" Components
 import { TestimonialMarquee } from "@/components/ui/testimonial-marquee";
@@ -57,29 +58,28 @@ const homeFaqItems = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "NO RESOURCES. NO PROBLEM. JUST YOU AND AI. | Bespoke Ethos",
+  title: "AI Automation Consulting for Small Businesses in Cleveland | Bespoke Ethos",
   description:
-    "Bespoke Ethos builds cognitive-prosthetic AI automation for small business founders who can't afford enterprise consulting. Fixed scopes from $997, Workflow Automation Setup, Cadence  Your AI Concierge, Consensus Engine  Your AI Strategy Sprint (including the Cleveland Consensus Calendar), and Automation Rescue for Zapier/Make-all with human-in-the-loop approvals.",
+    "AI consulting and workflow automation for small businesses. Bespoke Ethos helps founders in Cleveland and beyond fix broken Zapier/Make automations, design AI workflows, and ship fixed-price projects starting at $997.",
   keywords: [
-    "AI consulting Cleveland",
-    "Cleveland small business AI",
-    "workflow automation setup",
-    "Zapier automation rescue",
-    "Make.com automation rescue",
-    "Cadence AI concierge",
-    "Consensus Engine AI Strategy Sprint",
-    "Consensus Calendar Cleveland LGBTQ events",
-    "LGBTQ owned AI consulting",
-    "NGLCC certified AI firm",
-    "tool and die AI consultant",
+    "AI consulting",
+    "AI consulting for small business",
+    "AI automation consulting",
+    "workflow automation consulting",
+    "small business automation",
+    "Zapier consultant",
+    "Make.com consultant",
+    "Cleveland AI consulting",
+    "small business AI strategy",
+    "AI implementation for small business",
   ],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    url: "https://www.bespokeethos.com",
-    title: "NO RESOURCES. NO PROBLEM. JUST YOU AND AI. | Bespoke Ethos",
+    url: siteUrl,
+    title: "AI Automation Consulting for Small Businesses in Cleveland | Bespoke Ethos",
     description:
-      "AI for founders who can’t afford McKinsey. Bespoke Ethos ships Workflow Automation SetupT, AI Strategy Sprint chat concierge, Decision Briefs, and Automation Rescue so you get reliable automation without losing control.",
+      "AI consulting and workflow automation for small businesses. Get help fixing Zapier/Make automations, designing AI workflows, and launching fixed-price automation projects from $997.",
     images: [
       {
         url: "/assets/generated/logo-square-dark.png",
@@ -134,6 +134,20 @@ export default function HomePage() {
 
       {/* 1. Hero: Workshop Console */}
       <ConversionOptimizedHero />
+
+      {/* 1a. SEO-aligned intro */}
+      <section className="py-8">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <h2 className="text-xl font-semibold text-slate-900 font-hero-accent">
+            AI consulting and workflow automation for small businesses.
+          </h2>
+          <p className="mt-3 text-slate-600">
+            Bespoke Ethos is a Cleveland-based AI consulting firm led by a Tool &amp; Die technician and former AI trainer. We help small
+            businesses escape broken Zapier and Make.com workflows, design practical AI automations, and launch fixed-price projects
+            starting at $997.
+          </p>
+        </div>
+      </section>
       
       {/* 2. Social Proof: Infinite Marquee (Replaces static strip) */}
       <TestimonialMarquee />
@@ -200,7 +214,7 @@ export default function HomePage() {
                 </div>
              </div>
              <div>
-                <StackedProductCards />
+                <ProductQuadrant />
              </div>
           </div>
         </div>
@@ -277,7 +291,7 @@ function HomePageJsonLd() {
     "@type": "WebPage",
     "@id": `${base}/#homepage`,
     url: base,
-    name: "AI Automation for Cleveland Small Businesses | Bespoke Ethos",
+    name: "AI Automation Consulting for Small Businesses in Cleveland | Bespoke Ethos",
     isPartOf: {
       "@id": `${base}/#website`,
     },
