@@ -1,15 +1,6 @@
-feat: Correct Cadence product definition and re-apply visual/SEO enhancements
+docs: Clarify Cadence product and service definitions in launch_consultation guide
 
-This commit resolves build failures and clarifies the "Cadence" product definition
-as an AI customer interaction bot, distinct from "AI Strategy Sprint". It also
-re-applies previously intended visual and SEO enhancements.
-
-Key changes include:
-- Fixed metadata syntax error in src/app/products/cadence/page.tsx.
-- Corrected type incompatibility in src/app/about/page.tsx related to Accordion component.
-- Updated TechNerdCard component to correctly handle "cadence" product prop.
-- Reverted all "AI Strategy Sprint" references to "Cadence" for the chatbot product in page content, metadata, and JSON-LD on src/app/products/cadence/page.tsx.
-- Updated SEO metadata (title, description, keywords, Open Graph, Twitter Card) for "Cadence" to define it as an "AI Customer Service Chatbot" or "AI Concierge".
-- Reverted pricing paragraph to use original Cadence pricing.
-- Added PRICING.cadence object to src/config/pricing.ts.
-- Renamed AiStrategySprintLogoCard to CadenceLogoCard (file and component).
+This commit updates the `launch_consultation.md` guide to clearly define "Cadence"
+as an AI Customer Service Chatbot/AI Concierge and corrects the service renaming
+section to align with its true intent. This prevents future confusion regarding
+product definitions and SEO strategy.

@@ -279,7 +279,7 @@ export default function CadencePage() {
                 </summary>
                 <div className="mt-3 text-sm text-text-secondary dark:text-dark-text-secondary">
                   <p className="mb-2">
-                    Depending on the needs you bring forward, we will select the optimum model for you. A <strong>Frontier Model</strong> refers to the absolute cutting-edge AI models available today (like GPT-4, Claude 3.5 Sonnet, or Gemini 1.5 Pro).
+                    A <strong>Frontier Model</strong> refers to the absolute cutting-edge AI models available today (like Gemini 3, GPT 5.1, or Claude Sonnet).
                   </p>
                   <p>
                     These models are "smart" enough to understand nuance, tone, and complex instructions without needing thousands of examples. We pick the one that best fits your specific balance of speed, cost, and reasoning ability.
@@ -311,8 +311,8 @@ export default function CadencePage() {
                 </Heading>
                 <p className="text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
                   Cadence grew out of the same orchestration we used to build AI Strategy Sprint for real Cleveland
-                  businesses. Alex&apos;s co-op chat assistant isn&apos;t a novelty widget—it&apos;s a patient teammate
-                  trained on their stories, approvals, and edge cases.
+                  Alexe's Brewery website chat assistant isn&apos;t a novelty widget—it&apos;s a patient teammate
+                  trained on his stories, approvals, and edge cases.
                 </p>
                 <p className="text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
                   &ldquo;Cadence feels like us, not a robot. It hands off when it should and keeps approvals
