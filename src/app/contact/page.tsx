@@ -27,7 +27,7 @@ const contactFaqItems = [
   {
     _title: "Is this only for businesses in Cleveland?",
     answer:
-      "No. I’m based in Cleveland, but most work happens remotely. As long as we can find a time zone overlap for calls and you’re comfortable using basic online tools, we can work together.",
+      "No. I’m based in Cleveland, but most work happens remotely. We’ll collaborate over calls and Loom walkthroughs, iterating on a first version of your workflow and refining it from there—wherever you’re located.",
   },
 ] as const;
 

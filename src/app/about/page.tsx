@@ -44,7 +44,7 @@ const aboutFaqItems = [
   {
     _title: "Can you work with me if I'm not in Cleveland?",
     answer:
-      "Yes. Most work happens remotely over calls, Loom walkthroughs, and shared dashboards, with in-person meetings reserved for a handful of Cleveland-area clients. Time zones are flexible as long as we can find overlapping hours for key decisions.",
+      "Yes. Most work happens remotely—we’re all about iterative improvement. We’ll design the first version together over calls and Loom walkthroughs, then refine it in small passes. In-person meetings are reserved for a handful of Cleveland-area clients.",
   },
 ] as const;
 
