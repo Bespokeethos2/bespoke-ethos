@@ -11,6 +11,10 @@ export const PRICING = {
     rangeMin: 79.99,
     rangeMax: 199,
   },
+  cadence: {
+    setup: 997,
+    monthly: 149,
+  },
   automationRescue: {
     // Standalone a la carte price for non-members
    standaloneALaCarte: 149.99,

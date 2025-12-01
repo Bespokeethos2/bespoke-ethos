@@ -7,7 +7,7 @@ import type { FaqQuestion } from "../faq";
 export function Accordion({
   items,
 }: {
-  items: FaqQuestion[];
+  items: readonly FaqQuestion[];
 }) {
   const [activeItems, setActiveItems] = React.useState<string[]>([]);
 
