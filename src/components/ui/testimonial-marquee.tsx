@@ -40,7 +40,7 @@ const TESTIMONIALS: Testimonial[] = [
 
 export function TestimonialMarquee() {
   return (
-    <section className="relative w-full overflow-hidden py-12 bg-transparent">
+    <section id="testimonials" className="relative w-full overflow-hidden py-12 bg-transparent">
       {/* Fade Edges */}
       <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-[#faf9f6] to-transparent pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-[#faf9f6] to-transparent pointer-events-none" />
@@ -68,7 +68,7 @@ export function TestimonialMarquee() {
               </div>
               
               <blockquote className="text-sm text-slate-700 leading-relaxed font-medium">
-                "{t.quote}"
+                &quot;{t.quote}&quot;
               </blockquote>
 
               {t.link && (

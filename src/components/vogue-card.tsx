@@ -14,13 +14,12 @@ export function VogueCard({ imageSrc, imageAlt, title, tagline, description, cla
   return (
     <section
       className={clsx(
-        "vogue-card flex flex-col gap-4 border-[5px] border-black bg-white/25 p-8 shadow-[0_44px_120px_rgba(0,0,0,0.35)] backdrop-blur-[22px] transition-transform duration-500 hover:-translate-y-1 dark:bg-white/15",
+        "vogue-card-wrapper flex flex-col gap-4 p-8 transition-transform duration-500 hover:-translate-y-1",
         className,
       )}
-      style={{ borderRadius: 0 }}
       aria-label={`${title} feature card`}
     >
-      <div className="relative h-48 w-full overflow-hidden shadow-[0_44px_120px_rgba(0,0,0,0.4)]">
+      <div className="relative h-48 w-full overflow-hidden rounded-xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-xl">
         <Image src={imageSrc} alt={imageAlt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 600px" />
       </div>
       <div className="space-y-2">

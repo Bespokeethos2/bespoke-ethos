@@ -10,7 +10,7 @@ export const revalidate = 1800;
 export const metadata: Metadata = {
   title: "About Bespoke Ethos | Small Business AI Automation",
   description:
-    "NGLCC-certified, Catalant-vetted, 5 years training AI models. Tool & die technician building cognitive prosthetics for founders who need proof, not jargon.",
+    "NGLCC-certified, Catalant-vetted, 5 years training AI models. AI trainer & automation architect building cognitive prosthetics for founders who need proof, not jargon.",
   alternates: { canonical: "/about" },
 };
 
@@ -23,17 +23,79 @@ export default function AboutPage() {
         <div className="be-section-card space-y-6 page-hero-shell">
           <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "About" }]} />
 
-      <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame be-video-hero shadow-xl">
-        <div className="relative h-40 w-full sm:h-52 lg:h-60">
-          <video
-            src="/assets/About.mp4"
-            className="h-full w-full object-cover"
-            autoPlay
-            loop
-            muted
-            playsInline
-            aria-label="Short looping glimpse of Bespoke Ethos at work with automation dashboards and founder notes"
-          />
+      {/* Stunning Hero Section with Upton's Image */}
+      <div className="relative w-full overflow-hidden rounded-3xl border border-slate-200/60 bg-gradient-to-br from-slate-50 via-white to-orange-50/30 shadow-2xl">
+        {/* Decorative background elements - Clean Gradient Only */}
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-50/40 via-transparent to-slate-100/40 pointer-events-none" />
+        
+        {/* Content container */}
+        <div className="relative z-10 grid md:grid-cols-2 gap-8 p-8 md:p-12 items-center">
+          {/* Left side - Image with premium frame */}
+          <div className="relative group">
+            {/* Outer glow effect - Subtle */}
+            <div className="absolute -inset-4 bg-gradient-to-r from-orange-400/10 via-slate-400/10 to-orange-400/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            
+            {/* Image container with inner shadow */}
+            <div className="relative rounded-2xl overflow-hidden border-4 border-white shadow-2xl">
+              <div className="absolute inset-0 bg-gradient-to-br from-black/5 to-transparent pointer-events-none z-10" />
+              <Image
+                src="/assets/upton-hero.jpg"
+                alt="Upton Rand - Founder of Bespoke Ethos"
+                width={600}
+                height={600}
+                className="w-full h-auto object-cover"
+                priority
+              />
+            </div>
+          </div>
+          
+          {/* Right side - Content */}
+          <div className="space-y-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100/80 border border-orange-200/60 backdrop-blur-sm">
+              <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
+              <span className="text-sm font-semibold text-orange-900 uppercase tracking-wider">Founder & AI Architect</span>
+            </div>
+            
+            <div>
+              <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-3 font-hero-accent leading-tight">
+                Upton Rand
+              </h1>
+              <p className="text-xl text-slate-600 font-medium">
+                AI Trainer & Automation Architect
+              </p>
+              <p className="text-base text-slate-600 leading-relaxed max-w-md mt-4">
+                I spent 5 years training the models everyone else is just now learning to prompt. Now, I use that experience to build &quot;cognitive prosthetics&quot; for founders—systems that capture your intent, automate your busywork, and never hallucinate on the details. We build the guardrails so you can run fast without breaking things.
+              </p>
+            </div>
+            
+            {/* Quote card */}
+            <div className="relative p-6 rounded-xl bg-white/80 border border-slate-200/60 shadow-lg backdrop-blur-sm">
+              <div className="absolute top-4 left-4 text-6xl text-orange-200 font-serif leading-none">&quot;</div>
+              <blockquote className="relative z-10 text-lg text-slate-700 font-medium italic pl-8">
+                &quot;There has never been a better time to be a founder&quot;
+              </blockquote>
+              <div className="mt-3 flex items-center gap-2 pl-8">
+                <div className="h-px flex-grow bg-gradient-to-r from-orange-300 to-transparent" />
+                <span className="text-sm font-semibold text-orange-600">Upton Rand</span>
+              </div>
+            </div>
+            
+            {/* Quick stats */}
+            <div className="grid grid-cols-3 gap-4">
+              <div className="text-center p-4 rounded-lg bg-white/60 border border-slate-100 backdrop-blur-sm">
+                <div className="text-2xl font-bold text-orange-600">5+</div>
+                <div className="text-xs text-slate-600 font-medium">Years AI Training</div>
+              </div>
+              <div className="text-center p-4 rounded-lg bg-white/60 border border-slate-100 backdrop-blur-sm">
+                <div className="text-2xl font-bold text-slate-900">NGLCC</div>
+                <div className="text-xs text-slate-600 font-medium">Certified</div>
+              </div>
+              <div className="text-center p-4 rounded-lg bg-white/60 border border-slate-100 backdrop-blur-sm">
+                <div className="text-2xl font-bold text-orange-600">25%</div>
+                <div className="text-xs text-slate-600 font-medium">LGBTQ Discount</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -43,14 +105,14 @@ export default function AboutPage() {
             <h1>About Bespoke Ethos</h1>
           </Heading>
           <div className="pill-row">
-            <span className="pill">Tool &amp; die technician + AI trainer</span>
+            <span className="pill">AI trainer + Automation Architect</span>
             <span className="pill">NGLCC-certified</span>
             <span className="pill">Catalant-vetted</span>
             <span className="pill">25% LGBTQ-owned discount</span>
           </div>
           <div className="prose max-w-none mt-6">
             <p>
-              I&apos;m Upton Rand-a Cleveland tool &amp; die technician by day and AI trainer by night. I spent 5+ years
+              I&apos;m Upton Rand—a Cleveland AI trainer and automation architect. I spent 5+ years
               training the same frontier models everyone is buying now, sharpened my teeth in Azure alongside Microsoft
               enterprise developers in 2024, and I&apos;m currently building in the cloud with Google while in
               application for their Founders program. I build automations that stay simple: static sites, serverless
@@ -105,40 +167,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="mt-8">
-        <h2 className="text-2xl font-semibold mb-6">Meet the Founder</h2>
-        <div className="grid gap-8 md:grid-cols-[200px_1fr] items-start">
-          <div className="flex justify-center md:justify-start">
-            <Image
-              src="/founder-upton-rand.jpg"
-              alt="Upton Rand, Founder of Bespoke Ethos"
-              width={200}
-              height={200}
-              className="rounded-lg"
-            />
-          </div>
-          <div className="prose max-w-none">
-            <h3 className="text-xl font-semibold mt-0">Upton Rand</h3>
-            <p className="text-text-secondary">
-              Tool &amp; die technician (journeyman track), AI trainer (Appen), 10 years sober, and founder who learned
-              the hard way that automation without alignment just breaks louder. I bridge manufacturing precision with
-              AI orchestration so small teams get enterprise-grade clarity without enterprise overhead.
-            </p>
-            <p className="text-text-secondary">
-              Human-in-the-loop is non-negotiable: we design with bottom-up thinkers in mind (autistic/ADHD founders,
-              demisexual “slow burn” connection patterns) so your systems stay patient, consistent, and aligned to real
-              intent. We walk away from work that ignores ethics or trust.
-            </p>
-            <p className="text-text-secondary">
-              As an NGLCC-certified LGBTQ+ founder, I keep a 25% discount for LGBTQ-owned teams and offer productized
-              scopes that start at $997: Cadence  Your AI Concierge, Consensus Engine  Your AI Strategy Sprint, Workflow
-              Automation Setup automations, and Automation Rescue for brittle workflows-all delivered with
-              documentation, rollback paths, and a 90-day "break it we fix it" guarantee. Built by the Goliaths, choosing
-              to work with the Davids of the world.
-            </p>
-          </div>
-        </div>
-      </div>
+
 
       <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
         <ButtonLink href="/contact" intent="primary">

@@ -43,7 +43,7 @@ export function ConversionOptimizedHero() {
               Real Cleveland AI. <br className="hidden sm:block" /> Real Simple.
             </h1>
             <p className="text-xl text-slate-600 max-w-lg leading-relaxed font-medium">
-              Book a free 30-minute chat. See how AI can (or can't) help your business. No hard sales.
+              Book a free 30-minute chat. Includes a free, cited AI research brief on your business—no pressure, no hard sales.
             </p>
           </motion.div>
 
@@ -80,9 +80,6 @@ export function ConversionOptimizedHero() {
             {/* The "Workshop Console" - High-End Glass Rail with internal glow */}
             <div className="relative group max-w-fit">
                 <div className="relative flex flex-wrap items-center gap-1 rounded-xl bg-white/60 p-1.5 shadow-lg backdrop-blur-md ring-1 ring-white/50 ">
-                    {/* Internal, subtle glow effect */} 
-                    <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" 
-                         style={{ boxShadow: 'inset 0 0 20px rgba(255,166,0,0.5), 0 0 20px rgba(255,166,0,0.2)' }}></div>
                     
                     <CredibilityPill src="/assets/generated/trust/nglcc-square-light.webp" label="NGLCC Certified" />
                     <div className="h-6 w-px bg-slate-200/50 mx-1 hidden sm:block"></div>
@@ -118,7 +115,8 @@ export function ConversionOptimizedHero() {
                     <Image
                       src="/assets/we-heart-founders-mug.avif"
                       alt="We love founders mug on a warm workspace"
-                      fill
+                      width={500}
+                      height={375}
                       className="object-contain object-center scale-105"
                       sizes="(max-width: 1024px) 80vw, 420px"
                       priority

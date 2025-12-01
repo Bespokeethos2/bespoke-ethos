@@ -749,39 +749,70 @@ header textarea,
 
 /* Trust badges – "sweet & savory" finish */
 .trust-thin-pill {
+  position: relative; /* Added for ::before pseudo-element */
   display: inline-flex;
   align-items: center;
   justify-content: center;
   height: 24px;
   padding: 2px 6px;
   border-radius: 9999px;
-  background: linear-gradient(135deg, rgba(255, 228, 232, 0.55) 0%, rgba(214, 237, 223, 0.55) 100%);
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 250, 240, 0.9), rgba(247, 250, 252, 0.85)); /* Off-white paper base */
+  border: 1px solid rgba(0, 0, 0, 0.2); /* Stronger, more defined border */
   color: #1a1a1a; /* Dark text color for light theme */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  backdrop-filter: blur(10px) saturate(140%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* More prominent shadow */
+  backdrop-filter: blur(8px) saturate(130%); /* Slightly less blur */
+  overflow: hidden; /* Added to contain ::before */
+}
+.trust-thin-pill::before { /* Added for noise texture */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.1;
+  pointer-events: none;
+  border-radius: inherit;
 }
 html.dark .trust-thin-pill {
   color: #ffffff; /* White text color for dark theme */
-  background: linear-gradient(135deg, rgba(255, 228, 232, 0.22) 0%, rgba(214, 237, 223, 0.22) 100%);
-  border-color: rgba(255, 255, 255, 0.18);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.24);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.7), rgba(26, 32, 44, 0.6)); /* Darker, subtle base */
+  border-color: rgba(255, 255, 255, 0.25); /* More defined border */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35); /* More prominent shadow */
+}
+html.dark .trust-thin-pill::before { /* Dark mode noise */
+  opacity: 0.15;
 }
 
 .trust-square-badge {
+  position: relative; /* Added for ::before pseudo-element */
   overflow: hidden;
   border-radius: 8px;
-  background: linear-gradient(145deg, rgba(255, 228, 232, 0.35) 0%, rgba(214, 237, 223, 0.35) 100%);
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 250, 240, 0.92), rgba(247, 250, 252, 0.88)); /* Off-white paper base */
+  border: 1px solid rgba(0, 0, 0, 0.25); /* Stronger, more defined border */
   color: #1a1a1a; /* Dark text color for light theme */
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16);
-  backdrop-filter: blur(10px) saturate(140%);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+  backdrop-filter: blur(8px) saturate(130%); /* Slightly less blur */
+}
+.trust-square-badge::before { /* Added for noise texture */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.1;
+  pointer-events: none;
+  border-radius: inherit;
 }
 html.dark .trust-square-badge {
   color: #ffffff; /* White text color for dark theme */
-  background: linear-gradient(145deg, rgba(255, 228, 232, 0.18) 0%, rgba(214, 237, 223, 0.18) 100%);
-  border-color: rgba(255, 255, 255, 0.18);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.32);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.75), rgba(26, 32, 44, 0.65)); /* Darker, subtle base */
+  border-color: rgba(255, 255, 255, 0.3); /* More defined border */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45); /* More prominent shadow */
+}
+html.dark .trust-square-badge::before { /* Dark mode noise */
+  opacity: 0.18;
 }
 
 /* Reusable subtle glass card with depth */
@@ -826,6 +857,214 @@ html.dark .be-section-card {
     0 26px 70px rgba(0, 0, 0, 0.8),
     0 0 40px rgba(246, 173, 85, 0.26),
     0 1px 0 rgba(148, 163, 184, 0.45) inset;
+}
+
+html.dark .be-section-card {
+  border-color: rgba(236, 201, 75, 0.65);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(246, 173, 85, 0.32), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(15, 23, 42, 0.9), transparent 55%),
+    rgba(15, 23, 42, 0.98);
+  box-shadow:
+    0 26px 70px rgba(0, 0, 0, 0.8),
+    0 0 40px rgba(246, 173, 85, 0.26),
+    0 1px 0 rgba(148, 163, 184, 0.45) inset;
+}
+
+/* Vogue Card - Tactile aesthetic */
+.vogue-card-wrapper {
+  position: relative; /* Added for ::before pseudo-element */
+  border-radius: 16px;
+  border: 1px solid rgba(15, 23, 42, 0.12); /* Softer border */
+  background:
+    radial-gradient(circle at 0% 0%, rgba(246, 173, 85, 0.1), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(236, 201, 75, 0.08), transparent 55%),
+    rgba(255, 255, 255, 0.9); /* Off-white paper texture base */
+  box-shadow:
+    0 10px 20px rgba(15, 23, 42, 0.1),
+    0 0 10px rgba(246, 173, 85, 0.1); /* Softer shadow */
+  backdrop-filter: blur(8px) saturate(120%);
+  overflow: hidden; /* To contain ::before */
+}
+.vogue-card-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.15'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.15;
+  pointer-events: none;
+  border-radius: inherit;
+}
+html.dark .vogue-card-wrapper {
+  border-color: rgba(148, 163, 184, 0.3);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(246, 173, 85, 0.15), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(15, 23, 42, 0.8), transparent 55%),
+    rgba(15, 23, 42, 0.95);
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.4),
+    0 0 12px rgba(246, 173, 85, 0.15);
+}
+html.dark .vogue-card-wrapper::before {
+  opacity: 0.2;
+}
+
+html.dark .vogue-card-wrapper::before {
+  opacity: 0.2;
+}
+
+/* Tactile Card - General purpose tactile style */
+.tactile-card {
+  position: relative;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(246, 173, 85, 0.08), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(236, 201, 75, 0.06), transparent 55%),
+    rgba(255, 255, 255, 0.9); /* Off-white paper texture base */
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(6px) saturate(110%);
+  overflow: hidden;
+  padding: 1.5rem; /* Default padding for tactile cards */
+}
+.tactile-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.1;
+  pointer-events: none;
+  border-radius: inherit;
+}
+html.dark .tactile-card {
+  border-color: rgba(148, 163, 184, 0.2);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(246, 173, 85, 0.1), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(15, 23, 42, 0.8), transparent 55%),
+    rgba(15, 23, 42, 0.9);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+html.dark .tactile-card::before {
+  opacity: 0.15;
+}
+
+html.dark .tactile-card::before {
+  opacity: 0.15;
+}
+
+/* Tactile List - Custom bullet points */
+.tactile-list {
+  list-style: none; /* Remove default bullet */
+  padding-left: 0; /* Adjust padding as needed */
+}
+
+.tactile-list li {
+  position: relative;
+  padding-left: 1.5em; /* Space for custom bullet */
+  margin-bottom: 0.5em; /* Space between list items */
+}
+
+.tactile-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.4em; /* Adjust vertical alignment */
+  width: 10px;
+  height: 10px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Ccircle cx='5' cy='5' r='3' fill='%23f6ad55'/%3E%3C/svg%3E"); /* Amber circle bullet */
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+html.dark .tactile-list li::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Ccircle cx='5' cy='5' r='3' fill='%23ecc94b'/%3E%3C/svg%3E"); /* Gold circle bullet for dark mode */
+}
+
+html.dark .tactile-list li::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Ccircle cx='5' cy='5' r='3' fill='%23ecc94b'/%3E%3C/svg%3E"); /* Gold circle bullet for dark mode */
+}
+
+/* Tactile Details Card - Custom style for <details> elements */
+.tactile-details-card {
+  position: relative;
+  margin-top: 2rem; /* Matches mt-8 (32px) from original */
+  border-radius: 1rem; /* Matches rounded-xl (16px) from original */
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(246, 173, 85, 0.08), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(236, 201, 75, 0.06), transparent 55%),
+    rgba(255, 255, 255, 0.96); /* Off-white paper texture base */
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(6px) saturate(110%);
+  overflow: hidden;
+  padding: 1.5rem; /* Matches p-4 (16px) from original */
+}
+.tactile-details-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.1;
+  pointer-events: none;
+  border-radius: inherit;
+}
+html.dark .tactile-details-card {
+  border-color: rgba(148, 163, 184, 0.2);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(246, 173, 85, 0.1), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(15, 23, 42, 0.8), transparent 55%),
+    rgba(15, 23, 42, 0.92);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+html.dark .tactile-details-card::before {
+  opacity: 0.15;
+}
+
+html.dark .tactile-details-card::before {
+  opacity: 0.15;
+}
+
+/* Tactile Image Card - Style for image wrappers within cards */
+.tactile-image-card {
+  position: relative;
+  border-radius: 1rem; /* Consistent with other cards */
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(246, 173, 85, 0.05), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(236, 201, 75, 0.04), transparent 55%),
+    rgba(255, 255, 255, 0.85); /* Slightly more transparent paper base */
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.06);
+  backdrop-filter: blur(5px) saturate(105%);
+  overflow: hidden;
+  padding: 0.75rem; /* Padding to create a frame effect around the image */
+}
+.tactile-image-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.08'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.08;
+  pointer-events: none;
+  border-radius: inherit;
+}
+html.dark .tactile-image-card {
+  border-color: rgba(148, 163, 184, 0.15);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(246, 173, 85, 0.08), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(15, 23, 42, 0.7), transparent 55%),
+    rgba(15, 23, 42, 0.85);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
+html.dark .tactile-image-card::before {
+  opacity: 0.12;
+}
+.tactile-image-card > div { /* Target the inner div containing the Image */
+    border-radius: 0.75rem; /* Slightly smaller border-radius for inner image */
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+.tactile-image-card img {
+    border-radius: 0.75rem; /* Ensure image also has border-radius */
 }
 
 /* Polished image frame for hero/feature art */
@@ -956,6 +1195,42 @@ html.dark .be-mobile-menu-card {
 
 /* CADENCE CARD - READABLE TEXT OVERLAY */
 /* SCOPE: .cadence-card class ONLY - DO NOT apply globally */
+.cadence-hero-card {
+  position: relative;
+  z-index: 2;
+  color: #FFFFFF;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), 0 4px 16px rgba(0, 0, 0, 0.5);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(246, 173, 85, 0.22), transparent 60%),
+    radial-gradient(circle at 100% 100%, rgba(26, 54, 93, 0.18), transparent 55%),
+    rgba(255, 250, 240, 0.94); /* Off-white paper texture base */
+  background-blend-mode: overlay;
+  backdrop-filter: blur(12px) saturate(120%);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15); /* Slightly stronger border */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 12px rgba(246, 173, 85, 0.2); /* Subtle glow */
+}
+
+.cadence-hero-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.15'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.1;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+@media (max-width: 768px) {
+  .cadence-hero-card {
+    padding: 1.5rem;
+    background:
+      radial-gradient(circle at 0% 0%, rgba(246, 173, 85, 0.28), transparent 60%),
+      rgba(255, 250, 240, 0.98);
+  }
+}
+
 .cadence-card {
   position: relative;
   overflow: hidden;
@@ -973,24 +1248,7 @@ html.dark .be-mobile-menu-card {
   pointer-events: none;
 }
 
-.cadence-card-text {
-  position: relative;
-  z-index: 2;
-  color: #FFFFFF;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), 0 4px 16px rgba(0, 0, 0, 0.5);
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(12px) saturate(120%);
-  padding: 2rem;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
 
-@media (max-width: 768px) {
-  .cadence-card-text {
-    background: rgba(0, 0, 0, 0.6);
-    padding: 1.5rem;
-  }
-}
 
 .cadence-badge {
   backdrop-filter: blur(12px) saturate(180%);

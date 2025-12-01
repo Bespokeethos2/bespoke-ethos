@@ -2,11 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 type TechNerdCardProps = {
-  product: "cadence" | "consensus";
+  product: "ai-strategy-sprint" | "consensus";
 };
 
 export function TechNerdCard({ product }: TechNerdCardProps) {
-  const isAiStrategySprint = product === "cadence";
+  const isAiStrategySprint = product === "ai-strategy-sprint";
 
   const href =
     product === "cadence"
@@ -29,11 +29,11 @@ export function TechNerdCard({ product }: TechNerdCardProps) {
         </h3>
         <p className="text-xs text-text-secondary dark:text-dark-text-secondary sm:text-sm">
           {isAiStrategySprint
-            ? "Curious how Cadence actually works behind the scenes—from API calls to safety rails and handoffs?"
+            ? "Curious how AI Strategy Sprint actually works behind the scenes—from API calls to safety rails and handoffs?"
             : "Curious how Consensus Engine turns one big question into a calm, cited brief without being a pile of prompts?"}
         </p>
         <Link href={href} className="text-xs font-semibold text-accent-600 hover:underline sm:text-sm">
-          Ask for the {isAiStrategySprint ? "Cadence" : "Consensus Engine"} technical brief
+          Ask for the {isAiStrategySprint ? "AI Strategy Sprint" : "Consensus Engine"} technical brief
         </Link>
       </div>
       <div className="pt-1 sm:pt-0">

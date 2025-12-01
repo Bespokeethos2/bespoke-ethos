@@ -27,8 +27,8 @@ export const PRICING = {
     queryLimit: 4,
   },
   aiStrategySprint: {
-    setup: 899.99,
-    monthly: 139.99,
+    setup: 997,
+    monthly: 149,
     pilot: 500,
   },
   scale: {
