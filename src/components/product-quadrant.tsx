@@ -59,10 +59,10 @@ export function ProductQuadrant() {
         delay={0.2}
       />
       <ProductCard
-        title="Automation Fabric"
+        title="Automation Skyway"
         description="Workflow Automation Setup. We build robust, self-healing automations that don't break silently."
         icon={<IconWand className="w-6 h-6 text-orange-700 dark:text-orange-600" />}
-        href="/enterprise/automation-fabric"
+        href="/enterprise/automation-skyway"
         colorClass="bg-orange-50 group-hover:bg-orange-100"
         delay={0.3}
       />

@@ -23,14 +23,14 @@ export const ENTERPRISE_CONTACT = "contact@bespokeethos.com";
 
 export const ENTERPRISE_OFFERINGS: EnterpriseOffering[] = [
   {
-    slug: "automation-fabric",
-    title: "Automation Fabric",
+    slug: "automation-skyway",
+    title: "Automation Skyway",
     subtitle: "Workflow Automation Setup™ for growing teams",
     summary:
       "We build workflow automations that pass security checks, live in your own cloud, and keep a clear record of every approval. No black boxes.",
     heroImage: {
-      src: "/assets/generated/hero-flowstack-desktop.webp",
-      alt: "Automation control center with approvals and monitoring dashboards",
+      src: "/assets/generated/hero-automation-skyway-desktop.webp",
+      alt: "Automation Skyway - digital highway connecting systems through the cloud",
     },
     idealFor: [
       "Ops leaders managing too many systems without enough developers",
@@ -51,7 +51,7 @@ export const ENTERPRISE_OFFERINGS: EnterpriseOffering[] = [
       "Comfortable everywhere from AWS to Azure. We’re Microsoft-backed founders, so we know how to keep your code portable and under your control, no matter which cloud you use.",
     card: {
       image: "/assets/logos/flowstack.png",
-      alt: "Automation Fabric title card",
+      alt: "Automation Skyway title card",
       tagline: "Automations that actually work",
       description: "Robust workflows with approvals, audits, and monitoring built in.",
     },

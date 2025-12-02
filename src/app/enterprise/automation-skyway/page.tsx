@@ -8,10 +8,10 @@ import { Section } from "@/common/layout";
 import { IconCheck, IconShieldCheck, IconServer, IconGitPullRequest } from "@tabler/icons-react";
 
 export const metadata: Metadata = {
-  title: "Automation Fabric | Enterprise Workflow Automation Setup",
+  title: "Automation Skyway | Enterprise Workflow Automation Setup",
   description:
     "Architected workflow automation for regulated teams. We build self-healing pipelines that pass infosec, live in your cloud, and maintain full audit trails.",
-  alternates: { canonical: "/enterprise/automation-fabric" },
+  alternates: { canonical: "/enterprise/automation-skyway" },
 };
 
 export default function AutomationFabricPage() {
@@ -25,7 +25,7 @@ export default function AutomationFabricPage() {
               Enterprise Suite
             </p>
             <h1 className="font-hero-accent text-4xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
-              Automation Fabric
+              Automation Skyway
             </h1>
             <p className="text-xl md:text-2xl text-slate-600 mb-10 leading-relaxed max-w-3xl mx-auto">
               Workflow Automation Setup™ for regulated teams. We architect self-healing pipelines that pass infosec, live in your cloud, and keep every approval + audit trail your compliance lead obsesses over.
@@ -45,8 +45,8 @@ export default function AutomationFabricPage() {
         <div className="container mx-auto px-4 mt-16">
           <div className="relative aspect-[16/9] w-full max-w-5xl mx-auto overflow-hidden rounded-2xl border border-slate-200 shadow-2xl bg-slate-50">
             <Image
-              src="/assets/generated/hero-flowstack-desktop.webp"
-              alt="Automation Fabric Control Center"
+              src="/assets/generated/hero-automation-skyway-desktop.webp"
+              alt="Automation Skyway Control Center"
               fill
               className="object-cover"
               priority
@@ -91,7 +91,7 @@ export default function AutomationFabricPage() {
              <VogueCard
                 imageSrc="/assets/logos/flowstack.png"
                 imageAlt="Automation Fabric Card"
-                title="Automation Fabric"
+                title="Automation Skyway"
                 tagline="Automations that work"
                 description="We replace fragile scripts with robust, monitored infrastructure."
               />

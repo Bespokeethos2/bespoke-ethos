@@ -220,9 +220,9 @@ function FooterLayout({
                 href: "/solutions/redbridging",
                 icon: "🚑",
               },
-              { 
-                label: "Automation Fabric — Setup", 
-                href: "/enterprise/automation-fabric",
+              {
+                label: "Automation Skyway — Setup",
+                href: "/enterprise/automation-skyway",
                 icon: "🏗️",
               },
             ].map((i) => (
