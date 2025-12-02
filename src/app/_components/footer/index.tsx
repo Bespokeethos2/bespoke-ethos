@@ -206,23 +206,34 @@ function FooterLayout({
           <ul className="grid grid-cols-2 gap-2 sm:grid-cols-4">
             {[
               {
-                label: "Cadence  Your AI Concierge",
+                label: "Cadence — Your AI Concierge",
                 href: "/products/cadence",
+                icon: "🤖",
               },
               {
-                label: "Consensus Engine  Your AI Strategy Sprint",
+                label: "Consensus Engine — Strategy Sprint",
                 href: "/solutions/consensus-engine",
+                icon: "🧠",
               },
-              { label: "Automation Rescue", href: "/solutions/redbridging" },
-              { label: "Workflow Automation Setup", href: "/solutions/flowstack" },
+              { 
+                label: "Automation Rescue", 
+                href: "/solutions/redbridging",
+                icon: "🚑",
+              },
+              { 
+                label: "Automation Fabric — Setup", 
+                href: "/enterprise/automation-fabric",
+                icon: "🏗️",
+              },
             ].map((i) => (
               <li key={i.href}>
                 <ButtonLink
                   unstyled
-                  className="text-left text-sm text-text-tertiary hover:text-text-primary dark:text-dark-text-tertiary dark:hover:text-dark-text-primary"
+                  className="group flex items-center gap-2 text-left text-sm text-text-tertiary hover:text-text-primary dark:text-dark-text-tertiary dark:hover:text-dark-text-primary"
                   href={i.href}
                 >
-                  {i.label}
+                  <span className="opacity-70 group-hover:opacity-100 transition-opacity">{i.icon}</span>
+                  <span className="group-hover:underline decoration-orange-400/50 underline-offset-4">{i.label}</span>
                 </ButtonLink>
               </li>
             ))}

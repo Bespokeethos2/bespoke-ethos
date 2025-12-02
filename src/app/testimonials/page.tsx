@@ -50,6 +50,17 @@ const TESTIMONIALS: Testimonial[] = [
     company: "Torque Transmission",
     imageSrc: "/assets/generated/testimonial-derrick.jpg",
   },
+  {
+    title: "Multilingual blog without losing our voice",
+    summary:
+      "Gay Mens Field Guide went from four hours of manual translation and optimization per post to about one hour—while keeping local nuance and tone intact across three languages.",
+    quote:
+      "We were drowning in translation hell. Now we write one blog, feed it into the pipeline, and it comes out optimized and translated for each country automatically. It easily saves us 6–7 hours every week without sacrificing authenticity.",
+    author: "Gay Mens Field Guide",
+    role: "Publisher",
+    company: "gaymensfieldguide.com",
+    imageSrc: "/assets/testimonial-gmfg.png",
+  },
 ];
 
 export const revalidate = 1800;

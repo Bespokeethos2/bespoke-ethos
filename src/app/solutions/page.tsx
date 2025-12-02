@@ -111,8 +111,8 @@ export default function SolutionsPage() {
             <h1>Solutions</h1>
           </Heading>
           <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
-            Tool &amp; die tech + AI trainer. NGLCC-certified, LGBTQ-owned, and built for founders in survival
-            mode—not enterprise retainers. Fixed scopes from $399, with a standing 25% discount for LGBTQ-owned
+            NGLCC-certified, LGBTQ-owned AI consulting and automation studio, built for founders in survival
+            mode-not enterprise retainers. Fixed scopes from $399, with a standing 25% discount for LGBTQ-owned
             businesses.
           </p>
           <div className="solutions-meta">

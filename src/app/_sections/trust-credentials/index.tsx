@@ -10,10 +10,10 @@ export function TrustCredentials() {
         <p className="text-accent-500 text-sm font-semibold uppercase tracking-[0.3em]">
           Trusted & Certified
         </p>
-        <h2 className="mt-4 text-balance text-3xl font-semibold leading-tight text-text-primary dark:text-dark-text-primary sm:text-4xl">
+        <h2 className="mt-4 text-balance text-3xl font-semibold leading-tight text-slate-900 sm:text-4xl">
           Real Credentials. Real Experience.
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-lg text-text-secondary dark:text-dark-text-secondary">
+        <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-600">
           We&rsquo;re not just another AI consultant. We&rsquo;re vetted, certified, and battle-tested.
         </p>
 
@@ -48,10 +48,10 @@ export function TrustCredentials() {
           className="mt-12 mx-auto max-w-4xl rounded-2xl border-2 border-accent-500/20 p-8 text-center"
           style={{ backgroundColor: "var(--cream-bg)" }}
         >
-          <h3 className="text-2xl font-semibold text-text-primary dark:text-dark-text-primary">
+          <h3 className="text-2xl font-semibold text-slate-900">
             25% Off for LGBTQ+ Businesses
           </h3>
-          <p className="mx-auto mt-3 max-w-2xl text-text-secondary dark:text-dark-text-secondary">
+          <p className="mx-auto mt-3 max-w-2xl text-slate-600">
             Starting a business as a minority is hard as hell. I know—I&rsquo;ve been there. That&rsquo;s why LGBTQ-owned businesses get 25% off. No hoops, no fine print. Just mention it when you reach out.
           </p>
           <div className="mt-6 flex justify-center">

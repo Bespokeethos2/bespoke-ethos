@@ -142,7 +142,7 @@ export default function HomePage() {
             AI consulting and workflow automation for small businesses.
           </h2>
           <p className="mt-3 text-slate-600">
-            Bespoke Ethos is a Cleveland-based AI consulting firm led by a Tool &amp; Die technician and former AI trainer. We help small
+            Bespoke Ethos is a Cleveland-based AI consulting firm led by a former AI trainer. We help small
             businesses escape broken Zapier and Make.com workflows, design practical AI automations, and launch fixed-price projects
             starting at $997.
           </p>

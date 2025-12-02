@@ -38,18 +38,18 @@ function AccordionItem({
     <AccordionPrimitive.Item key={_title} className="flex flex-col" value={_title}>
       <AccordionPrimitive.Header>
         <AccordionPrimitive.Trigger
-          className="ring-accent-500 flex w-full items-start gap-3 rounded-md py-2 text-lg leading-relaxed font-medium tracking-tighter outline-hidden focus-visible:ring-3"
+          className="ring-accent-500 flex w-full items-start gap-3 rounded-md py-2 text-lg leading-relaxed font-medium tracking-tighter outline-hidden focus-visible:ring-3 text-slate-900"
         >
           {isActive ? (
-            <MinusCircledIcon className="my-1.5 size-4 shrink-0" />
+            <MinusCircledIcon className="my-1.5 size-4 shrink-0 text-slate-900" />
           ) : (
-            <PlusCircledIcon className="my-1.5 size-4 shrink-0" />
+            <PlusCircledIcon className="my-1.5 size-4 shrink-0 text-slate-900" />
           )}
 
           <span className="text-start">{_title}</span>
         </AccordionPrimitive.Trigger>
       </AccordionPrimitive.Header>
-      <AccordionPrimitive.Content className="text-text-tertiary data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown dark:text-dark-text-tertiary transform overflow-hidden pl-7 leading-relaxed tracking-tight">
+      <AccordionPrimitive.Content className="text-slate-600 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown transform overflow-hidden pl-7 leading-relaxed tracking-tight">
         <div>{answer}</div>
       </AccordionPrimitive.Content>
     </AccordionPrimitive.Item>

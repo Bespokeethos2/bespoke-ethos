@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 
@@ -8,9 +9,11 @@ interface BentoItemProps {
   description: string;
   icon: React.ReactNode;
   className?: string;
+  imageSrc?: string;
+  imageAlt?: string;
 }
 
-const BentoItem = ({ title, description, icon, className }: BentoItemProps) => (
+const BentoItem = ({ title, description, icon, className, imageSrc, imageAlt }: BentoItemProps) => (
   <motion.div
     whileHover={{ scale: 1.02 }}
     className={cn(
@@ -18,10 +21,22 @@ const BentoItem = ({ title, description, icon, className }: BentoItemProps) => (
       className
     )}
   >
-    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-orange-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+    {imageSrc && (
+      <div className="absolute inset-0 z-0">
+        <Image
+          src={imageSrc}
+          alt={imageAlt || ""}
+          fill
+          className="object-cover opacity-15 group-hover:opacity-25 transition-opacity duration-700"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/60 to-white/30" />
+      </div>
+    )}
+
+    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-orange-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
     
-    <div className="relative z-10">
-      <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-orange-50 text-orange-600 group-hover:bg-orange-100 group-hover:text-orange-700 transition-colors">
+    <div className="relative z-20">
+      <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-orange-50 text-orange-600 group-hover:bg-orange-100 group-hover:text-orange-700 transition-colors shadow-sm">
         {icon}
       </div>
       <h3 className="text-lg font-bold text-slate-900 mb-2 font-heading">{title}</h3>
@@ -49,6 +64,8 @@ export function CapabilitiesBento() {
           title="Personalized Outreach"
           description="Email sequences that feel written by a human because they are based on your actual voice. We build systems that research the prospect, draft the note, and wait for your nod before sending. No robotic spam."
           icon={<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>}
+          imageSrc="/assets/generated/human-review-desktop.png"
+          imageAlt="Human review interface showing a green approval button"
         />
 
         {/* Tall Item */}

@@ -22,6 +22,7 @@
     "browse:tasks": "node scripts/browse-task.mjs",
     "audit:css": "npx tsx scripts/brutus-axe-enforcer.ts",
     "deploy": "node scripts/brutus-deploy.mjs",
+    "generate:flowstack-images": "node scripts/generate-flowstack-images.mjs",
     "test:api": "node scripts/brutus-test-api.mjs"
   },
   "dependencies": {

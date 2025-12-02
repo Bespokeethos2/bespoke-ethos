@@ -11,7 +11,7 @@ export const revalidate = 1800;
 export const metadata: Metadata = {
   title: "About Bespoke Ethos | AI Consulting & Workflow Automation for Small Businesses",
   description:
-    "Learn about Bespoke Ethos, a Cleveland-based AI consulting and workflow automation firm for small businesses. NGLCC-certified, Catalant-vetted founder with 5+ years training AI models and a Tool & Die background.",
+    "Learn about Bespoke Ethos, a Cleveland-based AI consulting and workflow automation firm for small businesses. NGLCC-certified, Catalant-vetted founder with 5+ years training AI models.",
   alternates: { canonical: "/about" },
 };
 
@@ -19,7 +19,7 @@ const aboutFaqItems = [
   {
     _title: "Who actually does the consulting work?",
     answer:
-      "Every engagement is led by founder Upton Rand—a Tool & Die technician and former AI trainer—rather than an anonymous subcontractor. You work directly with the person designing and testing your automations, not a rotating agency bench.",
+      "Every engagement is led by founder Upton Rand-a former AI trainer-rather than an anonymous subcontractor. You work directly with the person designing and testing your automations, not a rotating agency bench.",
   },
   {
     _title: "What kinds of businesses do you work with?",
@@ -64,7 +64,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-orange-50/40 via-transparent to-slate-100/40 pointer-events-none" />
         
         {/* Content container */}
-        <div className="relative z-10 grid md:grid-cols-2 gap-8 p-8 md:p-12 items-center">
+        <div className="relative z-10 grid md:grid-cols-2 gap-6 p-6 md:p-8 items-center">
           {/* Left side - Image with premium frame */}
           <div className="relative group">
             {/* Outer glow effect - Subtle */}
@@ -85,7 +85,7 @@ export default function AboutPage() {
           </div>
           
           {/* Right side - Content */}
-          <div className="space-y-6">
+          <div className="space-y-3">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100/80 border border-orange-200/60 backdrop-blur-sm">
               <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
               <span className="text-sm font-semibold text-orange-900 uppercase tracking-wider">Founder & AI Architect</span>
@@ -98,34 +98,34 @@ export default function AboutPage() {
               <p className="text-xl text-slate-600 font-medium">
                 AI Trainer & Automation Architect
               </p>
-              <p className="text-base text-slate-600 leading-relaxed max-w-md mt-4">
+              <p className="text-base text-slate-600 leading-relaxed max-w-md mt-3">
                 I spent 5 years training the models everyone else is just now learning to prompt. Now, I use that experience to build &quot;cognitive prosthetics&quot; for founders—systems that capture your intent, automate your busywork, and never hallucinate on the details. We build the guardrails so you can run fast without breaking things.
               </p>
             </div>
             
             {/* Quote card */}
-            <div className="relative p-6 rounded-xl bg-white/80 border border-slate-200/60 shadow-lg backdrop-blur-sm">
-              <div className="absolute top-4 left-4 text-6xl text-orange-200 font-serif leading-none">&quot;</div>
-              <blockquote className="relative z-10 text-lg text-slate-700 font-medium italic pl-8">
+            <div className="relative rounded-xl bg-white/80 border border-slate-200/60 shadow-lg backdrop-blur-sm px-4 py-3 md:px-5 md:py-4">
+              <div className="absolute top-3 left-4 text-5xl text-orange-200 font-serif leading-none md:text-6xl">&quot;</div>
+              <blockquote className="relative z-10 text-base md:text-lg text-slate-700 font-medium italic pl-8 pr-2">
                 &quot;There has never been a better time to be a founder&quot;
               </blockquote>
-              <div className="mt-3 flex items-center gap-2 pl-8">
+              <div className="mt-1 flex items-center gap-2 pl-8">
                 <div className="h-px flex-grow bg-gradient-to-r from-orange-300 to-transparent" />
                 <span className="text-sm font-semibold text-orange-600">Upton Rand</span>
               </div>
             </div>
             
             {/* Quick stats */}
-            <div className="grid grid-cols-3 gap-4">
-              <div className="text-center p-4 rounded-lg bg-white/60 border border-slate-100 backdrop-blur-sm">
+            <div className="grid grid-cols-3 gap-3 mt-2">
+              <div className="text-center p-3 rounded-lg bg-white/60 border border-slate-100 backdrop-blur-sm">
                 <div className="text-2xl font-bold text-orange-600">5+</div>
                 <div className="text-xs text-slate-600 font-medium">Years AI Training</div>
               </div>
-              <div className="text-center p-4 rounded-lg bg-white/60 border border-slate-100 backdrop-blur-sm">
+              <div className="text-center p-3 rounded-lg bg-white/60 border border-slate-100 backdrop-blur-sm">
                 <div className="text-2xl font-bold text-slate-900">NGLCC</div>
                 <div className="text-xs text-slate-600 font-medium">Certified</div>
               </div>
-              <div className="text-center p-4 rounded-lg bg-white/60 border border-slate-100 backdrop-blur-sm">
+              <div className="text-center p-3 rounded-lg bg-white/60 border border-slate-100 backdrop-blur-sm">
                 <div className="text-2xl font-bold text-orange-600">25%</div>
                 <div className="text-xs text-slate-600 font-medium">LGBTQ Discount</div>
               </div>

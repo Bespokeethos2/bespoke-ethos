@@ -45,7 +45,7 @@ export function ProductQuadrant() {
       <ProductCard
         title="Cadence"
         description="Your AI Concierge. Handles inbound leads, books meetings, and answers questions 24/7."
-        icon={<IconRobot className="w-6 h-6 text-blue-600" />}
+        icon={<IconRobot className="w-6 h-6 text-blue-700 dark:text-blue-600" />}
         href="/products/cadence"
         colorClass="bg-blue-50 group-hover:bg-blue-100"
         delay={0.1}
@@ -53,7 +53,7 @@ export function ProductQuadrant() {
       <ProductCard
         title="Consensus Engine"
         description="Your AI Strategy Sprint. Turns messy stakeholder opinions into clear, cited decision briefs."
-        icon={<IconBrain className="w-6 h-6 text-purple-600" />}
+        icon={<IconBrain className="w-6 h-6 text-purple-700 dark:text-purple-600" />}
         href="/solutions/consensus-engine"
         colorClass="bg-purple-50 group-hover:bg-purple-100"
         delay={0.2}
@@ -61,7 +61,7 @@ export function ProductQuadrant() {
       <ProductCard
         title="Automation Fabric"
         description="Workflow Automation Setup. We build robust, self-healing automations that don't break silently."
-        icon={<IconWand className="w-6 h-6 text-orange-600" />}
+        icon={<IconWand className="w-6 h-6 text-orange-700 dark:text-orange-600" />}
         href="/enterprise/automation-fabric"
         colorClass="bg-orange-50 group-hover:bg-orange-100"
         delay={0.3}
@@ -69,7 +69,7 @@ export function ProductQuadrant() {
       <ProductCard
         title="Automation Rescue"
         description="Fix your broken Zaps. We audit, repair, and document your brittle workflows."
-        icon={<IconLifebuoy className="w-6 h-6 text-emerald-600" />}
+        icon={<IconLifebuoy className="w-6 h-6 text-emerald-700 dark:text-emerald-600" />}
         href="/solutions/essentials"
         colorClass="bg-emerald-50 group-hover:bg-emerald-100"
         delay={0.4}

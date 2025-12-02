@@ -137,12 +137,13 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
               />
               <div className="relative z-10">
                 <motion.div
-                  className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center text-white text-4xl font-bold mx-auto mb-4"
+                  className="w-20 h-20 rounded-full flex items-center justify-center text-white text-4xl font-bold mx-auto mb-4 bg-gradient-to-br from-orange-400 via-orange-500 to-amber-300 border border-white/70 shadow-[0_0_20px_rgba(249,115,22,0.45)]"
+                  whileHover={{ scale: 1.05 }}
                   animate={{
                     boxShadow: [
-                      "0 0 10px rgba(249, 115, 22, 0.4)",
-                      "0 0 25px rgba(249, 115, 22, 0.6)",
-                      "0 0 10px rgba(249, 115, 22, 0.4)",
+                      "0 0 12px rgba(249, 115, 22, 0.4)",
+                      "0 0 26px rgba(249, 115, 22, 0.7)",
+                      "0 0 12px rgba(249, 115, 22, 0.4)",
                     ],
                   }}
                   transition={{

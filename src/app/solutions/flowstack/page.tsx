@@ -39,20 +39,20 @@ const FLOWSTACK_CALLOUTS = [
 
 const FLOWSTACK_ASSETS = [
   {
-    src: "/assets/generated/flowstack-card.png",
-    alt: "Workflow Automation Setup dashboard card showing automation stats",
-    title: "Operator dashboard card",
-    description: "High-level run stats, approvals awaiting action, and audit links your ops lead needs nightly.",
+    src: "/assets/generated/flowstack-operator-dashboard-square.png",
+    alt: "Workflow Automation Setup dashboard tile showing automation stats in a square frame",
+    title: "Operator dashboard snapshot",
+    description: "High-level run stats, approvals awaiting action, and audit links your ops lead checks at a glance.",
   },
   {
-    src: "/assets/generated/service-flowstack-builder-desktop.webp",
-    alt: "Workflow Automation Setup builder canvas",
-    title: "Builder canvas",
-    description: "Drag-to-connect steps with inline metadata so every stakeholder sees the rationale for each move.",
+    src: "/assets/generated/flowstack-builder-square.png",
+    alt: "Workflow Automation Setup builder canvas in a square frame",
+    title: "Builder canvas zoom",
+    description: "Drag-to-connect steps with inline metadata so every stakeholder can see why each move exists.",
   },
   {
-    src: "/assets/generated/hero-flowstack-desktop.webp",
-    alt: "Founder reviewing Workflow Automation Setup automation outputs",
+    src: "/assets/generated/flowstack-exec-square.png",
+    alt: "Founder reviewing Workflow Automation Setup automation outputs on a tablet in a square tile",
     title: "Exec-ready hero",
     description: "Brand-safe creative you can reuse in decks, investor updates, and onboarding docs.",
   },
@@ -90,7 +90,7 @@ export default function WorkflowAutomationSetupPage() {
             items={[
               { name: "Home", href: "/" },
               { name: "Solutions", href: "/solutions" },
-              { name: "Workflow Automation SetupT" },
+              { name: "Workflow Automation Setup" },
             ]}
           />
           <ProductJsonLd />
@@ -101,18 +101,18 @@ export default function WorkflowAutomationSetupPage() {
             <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.9fr)]">
               <div className="space-y-5 text-text-secondary dark:text-dark-text-secondary">
                 <div className="inline-flex flex-wrap items-center gap-2 rounded-full bg-white/90 px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-amber-700 shadow-sm dark:bg-white/10 dark:text-amber-200">
-                  Workflow Automation SetupT
+                  Workflow Automation Setup
                   <span className="text-[11px] font-normal tracking-normal text-text-tertiary dark:text-dark-text-tertiary">
                     Automate your #1 task
                   </span>
                 </div>
                 <Heading subtitle="Proprietary general automation for any business task. Own the results." align="left">
-                  <h1 className="font-hero-accent">Workflow Automation SetupT</h1>
+                  <h1 className="font-hero-accent">Workflow Automation Setup</h1>
                 </Heading>
                 <div className="space-y-3">
                   <p>
                     When I was drowning in my publishing business, I didn&apos;t need a fancy AI platform. I needed someone
-                    to automate the one task that was stealing hours from my week. So I built Workflow Automation SetupT for myself first. It
+                    to automate the one task that was stealing hours from my week. So I built Workflow Automation Setup for myself first. It
                     is our proprietary general automation package, designed to handle any business task—from lead routing to
                     inventory updates.
                   </p>
@@ -150,7 +150,7 @@ export default function WorkflowAutomationSetupPage() {
                 <VogueCard
                   imageSrc="/assets/logos/flowstack.png"
                   imageAlt="Workflow Automation Setup couture card"
-                  title="Workflow Automation SetupT"
+                  title="Workflow Automation Setup"
                   tagline="Workflow Automation"
                   description="Automation fabric for founders who need audit trails, approvals, and production-ready builds in days."
                 />
@@ -165,7 +165,7 @@ export default function WorkflowAutomationSetupPage() {
                   Workflow Automation Setup blueprint at a glance
                 </h2>
                 <p>
-                  Workflow Automation SetupT diagrams read like a magazine spread: the image anchors the eye while the copy wraps around it to
+                  Workflow Automation Setup diagrams read like a magazine spread: the image anchors the eye while the copy wraps around it to
                   walk stakeholders through each checkpoint.
                 </p>
                 <div className="grid gap-4 sm:grid-cols-2">
@@ -207,7 +207,7 @@ export default function WorkflowAutomationSetupPage() {
                   key={asset.title}
                   className="rounded-2xl border border-border bg-surface-secondary/60 p-4 shadow-sm dark:border-dark-border dark:bg-dark-surface-secondary/60"
                 >
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-border bg-white/80 dark:border-dark-border dark:bg-black/30">
+                  <div className="relative aspect-square w-full overflow-hidden rounded-xl border border-border bg-white/80 dark:border-dark-border dark:bg-black/30">
                     <Image
                       src={asset.src}
                       alt={asset.alt}
@@ -245,7 +245,7 @@ function ProductJsonLd() {
   const json = {
     "@context": "https://schema.org",
     "@type": "Product",
-    name: "Workflow Automation SetupT",
+    name: "Workflow Automation Setup",
     description: "Map your process, keep approvals intact, build production-ready automation in days, not months.",
     offers: {
       "@type": "Offer",
@@ -275,7 +275,7 @@ function WorkflowAutomationSetupServiceJsonLd() {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": `${base}/solutions/flowstack#service`,
-    name: "Workflow Automation SetupT",
+    name: "Workflow Automation Setup",
     description:
       "Map your process, keep approvals intact, build production-ready automation in days, not months.",
     provider: {
@@ -311,4 +311,3 @@ function WorkflowAutomationSetupFaqJsonLd() {
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }
-

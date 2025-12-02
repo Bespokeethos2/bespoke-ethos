@@ -12,17 +12,21 @@ import { CadenceLogoCard } from "@/common/cadence-logo-card";
 import { PRICING, formatMoney } from "@/config/pricing";
 import { VogueCard } from "@/components/vogue-card";
 import { TechNerdCard } from "@/components/tech-nerd-card";
+import { Accordion } from "@/app/_sections/accordion-faq/accordion";
 
 export const revalidate = 1800;
 
 export const metadata: Metadata = {
   title: "Cadence: AI Customer Service Chatbot for Small Business | Bespoke Ethos",
-  description: "Meet Cadence, your AI concierge: an intelligent, safe AI chatbot for small businesses in Cleveland. Optimized for customer service, Cadence is trained on your brand stories for exceptional customer interactions.",
-  keywords: "Cadence, AI Chatbot, Customer Service AI, AI Concierge, Small Business AI, Cleveland AI, Intelligent Chatbot, Safe Chatbot",
+  description:
+    "Meet Cadence, your AI concierge: an intelligent, safe AI chatbot for small businesses in Cleveland. Optimized for customer service, Cadence is trained on your brand stories for exceptional customer interactions.",
+  keywords:
+    "Cadence, AI Chatbot, Customer Service AI, AI Concierge, Small Business AI, Cleveland AI, Intelligent Chatbot, Safe Chatbot",
   alternates: { canonical: "/products/cadence" },
   openGraph: {
     title: "Cadence: AI Customer Service Chatbot for Small Business | Bespoke Ethos",
-    description: "Meet Cadence, your AI concierge: an intelligent, safe AI chatbot for small businesses in Cleveland. Optimized for customer service, Cadence is trained on your brand stories for exceptional customer interactions.",
+    description:
+      "Meet Cadence, your AI concierge: an intelligent, safe AI chatbot for small businesses in Cleveland. Optimized for customer service, Cadence is trained on your brand stories for exceptional customer interactions.",
     url: "https://www.bespokeethos.com/products/cadence",
     images: ["https://www.bespokeethos.com/assets/generated/hero-cadence-desktop.webp"],
     type: "website",
@@ -32,21 +36,45 @@ export const metadata: Metadata = {
     site: "@bespokeethos",
     creator: "@bespokeethos",
     title: "Cadence: AI Customer Service Chatbot for Small Business | Bespoke Ethos",
-    description: "Meet Cadence, your AI concierge: an intelligent, safe AI chatbot for small businesses in Cleveland. Optimized for customer service, Cadence is trained on your brand stories for exceptional customer interactions.",
+    description:
+      "Meet Cadence, your AI concierge: an intelligent, safe AI chatbot for small businesses in Cleveland. Optimized for customer service, Cadence is trained on your brand stories for exceptional customer interactions.",
     images: ["https://www.bespokeethos.com/assets/generated/hero-cadence-desktop.webp"],
   },
 };
 
 const ALT = {
   hero:
-    "A small business founder, appearing relieved and empowered, interacts with a subtle, glowing digital interface that represents an AI concierge. The setting is a cozy, slightly rustic workshop or office, with warm, soft lighting. Emphasizes human connection with technology.",
+    "A small business founder, relieved and empowered, interacting with a subtle, glowing interface that represents an AI concierge.",
   newAsset:
-    "Close-up shot of two sets of hands, one a small business founder's and another a customer's, interacting with a physical product sample. A subtle digital glow connects their interaction, representing AI integration into their workflow.",
+    "Close-up of a founder and customer reviewing a product together while a soft digital glow suggests Cadence quietly supporting the interaction.",
   infographic:
-    "A diverse and relatable customer happily engaging with a product in a brightly lit boutique. In the background, a friendly chat bubble on a tablet hints at an unseen AI assistant (Cadence) facilitating a positive customer experience.",
+    "Customers chatting in a boutique while a friendly chat bubble on a tablet hints at Cadence handling questions in the background.",
   adBanner:
-    "Playful Cadence ad showing how AI Concierge keeps your brand human—even when customers get weird at 4 AM.",
+    "Playful Cadence ad showing how the AI concierge keeps your brand human—even when customers get weird at 4 AM.",
 };
+
+const cadenceFaqItems = [
+  {
+    _title: "What kinds of businesses is Cadence best for?",
+    answer:
+      "Cadence is built for small businesses and lean teams that rely on high‑touch service but don’t have the headcount to staff chat around the clock. If customers ask the same questions over and over, abandon carts, or need reassurance before buying, Cadence is usually a strong fit.",
+  },
+  {
+    _title: "How do you train Cadence on our brand stories and content?",
+    answer:
+      "We start by mapping your existing content—website copy, help docs, policies, founder stories, and any sales scripts you already trust. Those become the core training materials. From there we layer in structured Q&A, edge cases, and tone rules so Cadence can answer like a well‑briefed teammate instead of a generic bot.",
+  },
+  {
+    _title: "How does Cadence stay safe and on‑brand?",
+    answer:
+      "Cadence is configured with strict guardrails, escalation rules, and hard no‑go zones for topics you’d rather a human handle. Risky actions and sensitive conversations route to your team instead of being handled autonomously, so the assistant stays inside the lines you set.",
+  },
+  {
+    _title: "How does Cadence integrate with my existing website and tools?",
+    answer:
+      "On the front end, Cadence usually appears as a chat widget or embedded assistant you can drop into your existing site with a small snippet. On the back end, we connect it to email, CRMs, or helpdesk tools—often via Zapier or Make.com—so handoffs, tickets, and leads land where your team already works.",
+  },
+] as const;
 
 export default function CadencePage() {
   return (
@@ -54,72 +82,94 @@ export default function CadencePage() {
       <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
         <div className="be-section-card space-y-8">
           <CadenceProductJsonLd />
+          <CadenceFaqJsonLd />
+
+          <Breadcrumbs
+            items={[
+              { name: "Home", href: "/" },
+              { name: "Products", href: "/products" },
+              { name: "Cadence – AI Concierge" },
+            ]}
+          />
 
           {/* Hero */}
-          <section className="relative cadence-card rounded-2xl">
-            <div className="absolute inset-0 -z-10">
-              <Image
-                src="/assets/generated/cadence-founder-empowered-desktop.webp"
-                alt={ALT.hero}
-                fill
-                priority
-                className="object-cover object-center"
-                sizes="(max-width: 768px) 100vw, (max-width: 1366px) 90vw, 1200px"
-              />
-            </div>
-            <div className="relative z-10 flex min-h-[260px] flex-col justify-center pb-10 pt-10 md:min-h-[320px] md:pt-14">
-              <div className="cadence-hero-card max-w-3xl mx-auto flex flex-col items-center text-center bg-white/10 p-4 rounded-lg border border-white/20">
-                <div className="mb-2 flex items-center gap-2">
-                  <CadenceLogoCard size={48} />
-                  <span className="cadence-badge inline-block rounded px-2 py-1 text-xs font-semibold">
-                    Cadence: Your AI Concierge
-                  </span>
+          <section className="cadence-hero relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-amber-50 via-white to-slate-100 p-6 shadow-xl dark:from-slate-900/70 dark:via-slate-900/50 dark:to-slate-900/30 md:p-8">
+            <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.9fr)]">
+              {/* Left: copy + CTAs */}
+              <div className="space-y-5 text-text-primary dark:text-dark-text-primary">
+                <div className="inline-flex flex-wrap items-center gap-3 rounded-full bg-white/90 px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-amber-700 shadow-sm dark:bg-white/10 dark:text-amber-200">
+                  <CadenceLogoCard size={32} />
+                  <span>Cadence ú Your AI Concierge</span>
                 </div>
 
                 <Heading
-                  align="center"
-                  subtitle="Tuned on your brand stories and background so it gets to know your customers, not just sell to them."
+                  align="left"
+                  subtitle="An AI concierge trained on your stories so customer conversations feel like your brand, not a script."
                 >
                   <h1 className="font-hero-accent">Cadence: The Chatbot That Builds Brand Loyalty</h1>
                 </Heading>
-                <p className="text-sm text-text-secondary dark:text-dark-text-secondary md:text-base max-w-2xl mx-auto">
-                  Don't just give them bare-bones info like price and color. Tell them how you built the Korean Dogwood candles after finding peace in a New England B&B.
+                <p className="text-sm text-text-secondary dark:text-dark-text-secondary md:text-base max-w-2xl leading-relaxed">
+                  Cadence turns your origin stories, product backstories, and real conversations into a patient teammate
+                  that can greet visitors, answer common questions, and know when to hand things off to a human without
+                  sounding like a generic FAQ bot.
                 </p>
 
-                <div className="mt-4 flex flex-wrap justify-center gap-3">
-                                    <p className="text-sm text-white/80">Starts at {formatMoney(PRICING.cadence.setup)} setup + {formatMoney(PRICING.cadence.monthly)}/mo.
-                  <Link href="/solutions/flowstack" className="ml-1 underline">
-                    Need something simpler? Try Workflow Automation Setup™.
-                  </Link>
+                <div className="mt-4 flex flex-wrap items-center gap-3">
+                  <p className="inline-flex items-center rounded-full bg-white/90 px-4 py-1 text-xs font-medium text-text-secondary shadow-sm dark:bg-dark-surface-secondary/90 dark:text-dark-text-secondary">
+                    Starts at {formatMoney(PRICING.cadence.setup)} setup + {formatMoney(PRICING.cadence.monthly)}/mo.
+                    <Link href="/solutions/flowstack" className="ml-1 underline underline-offset-2">
+                      Need something simpler? Try Workflow Automation Setup.
+                    </Link>
                   </p>
-                  <ButtonLink intent="primary" href="#demo">
-                    See a Live Demo (2 min)
-                  </ButtonLink>
-                  <ButtonLink intent="secondary" href="/contact?service=llm-setups">
-                    Book a strategy call
-                  </ButtonLink>
-                  <ButtonLink
-                    unstyled
-                    className="underline underline-offset-4 text-white/90"
-                    href="/contact?subject=AI Strategy Sprint%20pilot"
-                  >
-                    Start a 30-day pilot
-                  </ButtonLink>
+                  <div className="flex flex-wrap gap-3">
+                    <ButtonLink intent="primary" href="#demo">
+                      See a live demo (2 min)
+                    </ButtonLink>
+                    <ButtonLink intent="secondary" href="/contact?service=llm-setups">
+                      Book a strategy call
+                    </ButtonLink>
+                    <ButtonLink
+                      unstyled
+                      className="text-sm font-semibold text-text-primary underline underline-offset-4 dark:text-dark-text-primary"
+                      href="/contact?subject=AI%20Strategy%20Sprint%20pilot"
+                    >
+                      Start a 30‑day pilot
+                    </ButtonLink>
+                  </div>
                 </div>
 
-                <div className="mt-4 rounded-2xl border border-white/20 bg-black/25" role="region" aria-label="Trust Badges">
+                <div
+                  className="mt-4 rounded-2xl border border-border bg-surface-secondary/70 dark:border-dark-border dark:bg-dark-surface-secondary/70"
+                  role="region"
+                  aria-label="Trust Badges"
+                >
                   <TrustStrip size="thin" />
+                </div>
+              </div>
+
+              {/* Right: hero imagery for visual balance */}
+              <div className="mt-6 lg:mt-0">
+                <div className="relative h-52 w-full overflow-hidden rounded-2xl border border-border bg-white shadow-xl dark:border-dark-border dark:bg-black/40 md:h-64">
+                  <Image
+                    src="/assets/generated/hero-cadence-desktop.webp"
+                    alt={ALT.hero}
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 768px) 100vw, 520px"
+                    priority
+                  />
                 </div>
               </div>
             </div>
           </section>
 
+          {/* Couture-style intro card */}
           <VogueCard
             imageSrc="/assets/logos/cadence.png"
             imageAlt="Cadence couture card"
-            title="Meet Cadence  Your AI Concierge"
-            tagline="Your Brand's Rhythm, On Autopilot"
-            description="Introducing Cadence  Your AI Concierge—a highly tailored customer chatbot for people who think chatbots are just the worst, powered by a conditionally patented orchestration process so every conversation still sounds like you."
+            title="Meet Cadence – Your AI Concierge"
+            tagline="Your brand’s rhythm, on autopilot"
+            description="Cadence is a highly tailored customer chatbot for people who think chatbots are the worst. It behaves more like a patient sales associate who knows your stories than a pop‑up FAQ."
           />
 
           {/* Personality ad banner (keeps the fun campaign visible) */}
@@ -134,7 +184,6 @@ export default function CadencePage() {
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 960px"
-                priority={false}
               />
             </div>
             <p
@@ -145,9 +194,7 @@ export default function CadencePage() {
             </p>
           </section>
 
-          {/* Solution Intro */}
-          <div className="space-y-6">
-            {/* Cadence infographic-style explainer */}
+          {/* Why Cadence feels different */}
           <section
             aria-labelledby="cadence-infographic"
             className="grid gap-6 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] items-start"
@@ -159,14 +206,14 @@ export default function CadencePage() {
               <div className="grid gap-4 md:grid-cols-3">
                 <div className="space-y-2 tactile-card">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-text-tertiary dark:text-dark-text-tertiary">
-                    01 · For people who hate chatbots
+                    01 ú For people who hate chatbots
                   </p>
                   <h3 className="text-sm font-semibold text-text-primary dark:text-dark-text-primary">
                     Built for skeptics, not early adopters
                   </h3>
                   <p>
-                    Cadence is a highly tailored customer chatbot for people who think chatbots are just the worst. It
-                    behaves more like a patient sales associate who knows your stories than a pop-up FAQ.
+                    Cadence is designed for founders who have been burned by generic chat widgets. It listens first, asks
+                    clarifying questions, and stays in your voice.
                   </p>
                 </div>
                 <div className="space-y-2 tactile-card">
@@ -174,22 +221,20 @@ export default function CadencePage() {
                     Your origin stories, not internet noise
                   </h3>
                   <p>
-                    We train Cadence on why you built the business, the backstories behind your products, and real
-                    conversations with customers—so it can tell the French vanilla candle story instead of just quoting a
-                    price.
+                    We train Cadence on why you built the business, the backstories behind your products, and real customer
+                    conversations—so it can tell the candle story instead of just quoting a price.
                   </p>
                 </div>
                 <div className="space-y-2 tactile-card">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-text-tertiary dark:text-dark-text-tertiary">
-                    03 · Conditionally patented orchestration
+                    03 ú Guardrails, not guesswork
                   </p>
                   <h3 className="text-sm font-semibold text-text-primary dark:text-dark-text-primary">
-                    Guardrails, not guesswork
+                    Conditionally patented orchestration
                   </h3>
                   <p>
-                    Behind the scenes, Cadence runs on a conditionally patented orchestration process with guardrails,
-                    approvals, and audit trails. You get a modern chatbot with clear boundaries and review points instead
-                    of mystery behavior.
+                    Behind the scenes, Cadence runs on an orchestration process with approvals and audit trails. You get a
+                    modern chatbot with clear boundaries instead of mystery behavior.
                   </p>
                 </div>
               </div>
@@ -206,7 +251,7 @@ export default function CadencePage() {
             </div>
           </section>
 
-          {/* Demo and value prop sections (unchanged structure, now inside card) */}
+          {/* Demo + where Cadence fits */}
           <Section className="gap-6 px-0 pb-0 pt-0">
             <div className="grid gap-6 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] items-start" id="demo">
               <div className="space-y-4">
@@ -214,25 +259,26 @@ export default function CadencePage() {
                   <h2>What a Cadence conversation actually feels like</h2>
                 </Heading>
                 <p className="text-sm text-text-secondary dark:text-dark-text-secondary">
-                  On the surface, Cadence looks like a clean, on-brand chat bubble in the corner of your site. Under
-                  the hood, it&apos;s a set of smart lookups, workflows, and safety rules that acts more like a patient
-                  sales associate who knows your stories than a generic chatbot.
+                  On the surface, Cadence looks like a clean, on‑brand chat bubble in the corner of your site. Under the
+                  hood, it’s a set of smart lookups, workflows, and safety rules that acts more like a patient sales
+                  associate who knows your stories than a generic chatbot.
                 </p>
                 <ul className="tactile-list space-y-2 pl-5 text-sm text-text-secondary dark:text-dark-text-secondary">
                   <li>
-                    <strong>Asks clarifying questions</strong> when a visitor is vague instead of guessing or making things up.
+                    <strong>Asks clarifying questions</strong> when a visitor is vague instead of guessing or making things
+                    up.
                   </li>
                   <li>
                     <strong>Surfaces stories and examples</strong> from your own case studies and founder notes.
                   </li>
                   <li>
-                    <strong>Hands off gracefully to your team</strong> when a human is needed-with context attached.
+                    <strong>Hands off gracefully to your team</strong> when a human is needed—with context attached.
                   </li>
                 </ul>
                 <p className="text-sm text-text-secondary dark:text-dark-text-secondary">
-                  If someone asks about your Korean Dogwood candles, Cadence can do more than say, &quot;It&apos;s
-                  $39.99.&quot; It might add, &quot;We built the Korean Dogwood candles after visiting a bed and breakfast in New England and smelling candles just like that. It brought us such an inner sense of peace that we decided to come back and make them for our own customers.&quot; Those are the
-                  moments that build loyalty.
+                  If someone asks about your favorite candle line, Cadence can do more than say, “It’s $39.99.” It can add
+                  the short origin story—the bed‑and‑breakfast in New England, the moment of calm—that makes people feel
+                  something before they buy.
                 </p>
               </div>
               <div className="relative h-56 w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-xl">
@@ -252,8 +298,8 @@ export default function CadencePage() {
                   <h2>What we do before Cadence ever answers a visitor</h2>
                 </Heading>
                 <ul className="tactile-list space-y-2 pl-5 text-sm text-text-secondary dark:text-dark-text-secondary">
-                  <li>Content and data audit: products, FAQs, docs, transcripts, best-performing emails.</li>
-                  <li>Safety and tone guardrails: what Cadence can&apos;t say or promise.</li>
+                  <li>Content and data audit: products, FAQs, docs, transcripts, best‑performing emails.</li>
+                  <li>Safety and tone guardrails: what Cadence can’t say or promise.</li>
                   <li>Decision trees for when to escalate to human support or sales.</li>
                 </ul>
               </div>
@@ -264,44 +310,15 @@ export default function CadencePage() {
                 <ul className="tactile-list space-y-2 pl-5 text-sm text-text-secondary dark:text-dark-text-secondary">
                   <li>Web chat widget on key pages (pricing, product, help, checkout).</li>
                   <li>Optional email reply assistant for common questions.</li>
-                  <li>CRM + ticketing integration for full-funnel visibility.</li>
+                  <li>CRM + ticketing integration for full‑funnel visibility.</li>
                 </ul>
               </div>
             </div>
 
-            <div className="tactile-details-card">
-              <details className="group">
-                <summary className="flex cursor-pointer items-center justify-between font-medium text-text-primary dark:text-dark-text-primary">
-                  <span>AI 101: What is a "Frontier Model"?</span>
-                  <span className="transition-transform group-open:rotate-180">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  </span>
-                </summary>
-                <div className="mt-3 text-sm text-text-secondary dark:text-dark-text-secondary">
-                  <p className="mb-2">
-                    A <strong>Frontier Model</strong> refers to the absolute cutting-edge AI models available today (like Gemini 3, GPT 5.1, or Claude Sonnet).
-                  </p>
-                  <p>
-                    These models are "smart" enough to understand nuance, tone, and complex instructions without needing thousands of examples. We pick the one that best fits your specific balance of speed, cost, and reasoning ability.
-                  </p>
-                </div>
-              </details>
-            </div>
+            {/* Founder Q&A reused from AI Strategy Sprint for consistency */}
+            <FounderAiStrategySprintQA />
 
-            <div className="mt-2 space-y-3 text-sm text-text-secondary dark:text-dark-text-secondary">
-              <p>
-                <strong>Curious about Cadence but don't necessarily want to jump in head first?</strong>
-              </p>
-              <p>
-                Let's talk about a 30-day pilot plan to see how Cadence can start you in one small area of your business and we can go from there. Less investment, less risk, more time to do the things you want to do.
-              </p>
-              <p>
-                At the end of the pilot, you&apos;ll get clear numbers: deflection, leads, transcripts, and a simple
-                recommendation on whether to scale up, adjust, or pause.
-              </p>
-            </div>
-
-            {/* Alex testimonial highlight for Cadence */}
+            {/* Alex-style testimonial adapted for Cadence */}
             <div className="mt-10 grid gap-6 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] items-start">
               <div className="space-y-3">
                 <Heading align="left">
@@ -310,23 +327,23 @@ export default function CadencePage() {
                   </h2>
                 </Heading>
                 <p className="text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
-                  Cadence grew out of the same orchestration we used to build AI Strategy Sprint for real Cleveland
-                  Alexe's Brewery website chat assistant isn&apos;t a novelty widget—it&apos;s a patient teammate
-                  trained on his stories, approvals, and edge cases.
+                  One Cleveland retail co‑op brought Cadence in on a 30‑day pilot just to see how it would behave on the
+                  site. Within three weeks, conversions from chat‑assisted visitors ticked up and the team saw fewer dropped
+                  conversations.
                 </p>
                 <p className="text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
-                  &ldquo;Cadence feels like us, not a robot. It hands off when it should and keeps approvals
-                  intact.&rdquo;
+                  “Cadence feels like us, not a robot. It hands off when it should, keeps approvals intact, and customers
+                  keep telling us the chatbot is ‘so cool.’”
                 </p>
                 <p className="text-xs uppercase tracking-[0.18em] text-text-tertiary dark:text-dark-text-tertiary">
-                  Retail co-op ú Premium chat
+                  Retail co‑op · Premium chat assistant
                 </p>
               </div>
               <div className="tactile-image-card">
                 <div className="relative h-64 w-full overflow-hidden rounded-xl border border-border/60 bg-surface-secondary dark:border-dark-border/60 dark:bg-dark-surface-secondary md:h-72">
                   <Image
                     src="/assets/Real-Customers/Alex-with-Molly.jpg"
-                    alt="Alex with Molly open on his laptop, smiling at the camera"
+                    alt="Founder reviewing Cadence performance on a laptop, smiling at the results"
                     fill
                     className="object-cover object-center"
                     sizes="(max-width: 768px) 100vw, 480px"
@@ -335,9 +352,19 @@ export default function CadencePage() {
               </div>
             </div>
           </Section>
-          </div>
+        </div>
 
-          <TechNerdCard product="cadence" />
+        <TechNerdCard product="cadence" />
+
+        <div className="mt-10">
+          <Heading align="center" title="Questions founders ask about Cadence">
+            <h2 className="text-2xl font-semibold">
+              How the AI concierge fits into your customer experience
+            </h2>
+          </Heading>
+          <div className="mx-auto mt-6 flex w-full gap-8 md:max-w-(--breakpoint-sm) lg:max-w-(--breakpoint-md) lg:gap-14 lg:px-24 xl:max-w-(--breakpoint-xl)">
+            <Accordion items={cadenceFaqItems} />
+          </div>
         </div>
       </Section>
     </main>
@@ -383,5 +410,22 @@ function CadenceProductJsonLd() {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }
 
+function CadenceFaqJsonLd() {
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: cadenceFaqItems.map((item) => ({
+      "@type": "Question",
+      name: item._title,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+    mainEntityOfPage: `${base}/products/cadence`,
+  } as const;
 
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
+}
 
