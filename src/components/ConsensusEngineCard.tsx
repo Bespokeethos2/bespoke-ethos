@@ -137,7 +137,7 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
               />
               <div className="relative z-10">
                 <motion.div
-                  className="w-20 h-20 rounded-full flex items-center justify-center text-white text-4xl font-bold mx-auto mb-4 bg-gradient-to-br from-orange-400 via-orange-500 to-amber-300 border border-white/70 shadow-[0_0_20px_rgba(249,115,22,0.45)]"
+                  className="w-20 h-20 rounded-full flex items-center justify-center text-slate-900 text-4xl font-bold mx-auto mb-4 bg-gradient-to-br from-orange-400 via-orange-500 to-amber-300 border border-white/70 shadow-[0_0_20px_rgba(249,115,22,0.45)]"
                   whileHover={{ scale: 1.05 }}
                   animate={{
                     boxShadow: [
@@ -168,7 +168,7 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
           type="button"
           onClick={() => setIsExpanded((prev) => !prev)}
           className="text-orange-500 font-semibold hover:underline mb-6 flex items-center gap-2 mx-auto"
-          aria-expanded={isExpanded}
+          aria-expanded={isExpanded ? "true" : "false"}
           aria-controls="consensus-agents-panel"
         >
           {isExpanded ? "Hide the 4 AI Agents" : "See the 4 AI Agents"}

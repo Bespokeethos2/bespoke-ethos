@@ -44,17 +44,17 @@ export function CredentialCard({
         </p>
         
         {/* Badge container with proper aspect ratio handling */}
-        <div className="relative mt-auto">
+        <div className="relative mt-auto pt-4">
           {/* Inner frame with subtle shadow */}
-          <div className="relative rounded-xl bg-gradient-to-br from-slate-50 to-white p-6 border border-slate-100 shadow-inner">
-            {/* Badge image - using object-contain to preserve aspect ratio */}
-            <div className="relative w-full aspect-square flex items-center justify-center">
+          <div className="relative rounded-xl bg-gradient-to-br from-slate-50 to-white p-6 border border-slate-100 shadow-inner flex items-center justify-center">
+            {/* Badge image - constrained size */}
+            <div className="relative w-48 h-48 flex items-center justify-center">
               <Image
                 src={imageSrc}
                 alt={imageAlt}
-                width={180}
-                height={180}
-                className="object-contain w-full h-full transition-transform duration-300 group-hover:scale-105"
+                fill
+                className="object-contain transition-transform duration-300 group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 192px"
                 priority={false}
               />
             </div>
