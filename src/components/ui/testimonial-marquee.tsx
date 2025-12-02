@@ -36,6 +36,13 @@ const TESTIMONIALS: Testimonial[] = [
     quote: "Revenue stopped bleeding—now we get alerts before clients feel pain.",
     imageSrc: "/assets/generated/testimonial-derrick.jpg",
   },
+  {
+    name: "Gay Mens Field Guide",
+    role: "Publisher",
+    company: "gaymensfieldguide.com",
+    quote: "We were drowning in translation hell. Now we write one blog, feed it into the pipeline, and it comes out optimized and translated for each country automatically.",
+    imageSrc: "/assets/testimonial-gmfg.png",
+  },
 ];
 
 export function TestimonialMarquee() {

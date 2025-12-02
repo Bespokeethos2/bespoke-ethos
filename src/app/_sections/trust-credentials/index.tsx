@@ -22,7 +22,7 @@ export function TrustCredentials() {
           <CredentialCard
             title="NGLCC Certified"
             description="Officially recognized as an LGBTQ-owned business by the National LGBT Chamber of Commerce."
-            imageSrc="/assets/generated/trust/nglcc-square-light.webp"
+            imageSrc="/assets/generated/trust/nglcc-square-dark.webp"
             imageAlt="NGLCC Certified LGBT Business Enterprise"
           />
 
@@ -30,7 +30,7 @@ export function TrustCredentials() {
           <CredentialCard
             title="Catalant Certified"
             description="Vetted and approved as a professional business consultant through Catalant's rigorous screening process."
-            imageSrc="/assets/generated/trust/catalant-square-light.webp"
+            imageSrc="/assets/generated/trust/catalant-square-dark.webp"
             imageAlt="Catalant Vetted Consultant"
           />
 
@@ -38,7 +38,7 @@ export function TrustCredentials() {
           <CredentialCard
             title="Frontier AI, Human in the Loop"
             description="5+ years training and evaluating frontier models behind tools like ChatGPT, Copilot, and Gemini—sharpening teeth in Azure with Microsoft enterprise developers in 2024, and now building in Google's cloud while applying to their Founders program."
-            imageSrc="/assets/generated/trust/experience-5yrs-square-square-light.webp"
+            imageSrc="/assets/generated/trust/experience-5yrs-square-square-dark.webp"
             imageAlt="5+ years frontier AI trainer experience badge"
           />
         </div>
