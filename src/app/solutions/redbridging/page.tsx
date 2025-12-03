@@ -67,8 +67,8 @@ export default function AutomationRescuePage() {
               />
               <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
                 <div className="rounded-2xl bg-black/45 px-5 py-3 text-center text-sm sm:text-base font-medium text-white/95 shadow-2xl backdrop-blur-md">
-                  <div className="mb-1 text-xs uppercase tracking-[0.22em] text-amber-200">Automation RescueT</div>
-                  <div className="text-sm sm:text-base">Automation Rescue &amp; Monitoring</div>
+                  <div className="mb-1 text-xs uppercase tracking-[0.22em] text-amber-200">Automation Rescue</div>
+                  <div className="text-sm sm:text-base">Rebuild Your Broken Automations</div>
                 </div>
               </div>
             </div>
@@ -76,17 +76,17 @@ export default function AutomationRescuePage() {
           <VogueCard
             imageSrc="/assets/logos/RedBridging.png"
             imageAlt="Automation Rescue couture card"
-            title="Automation RescueT"
+            title="Automation Rescue"
             tagline="AI Reliability"
             description="Automation rescue for ops teams that need their duct-taped workflows to behave like production software."
           />
-          <Heading subtitle="We rescue broken automations" align="left">
-            <h1>Automation RescueT</h1>
+          <Heading subtitle="Rebuild your broken automations" align="left">
+            <h1>Automation Rescue</h1>
           </Heading>
           <div className="space-y-4 text-text-secondary dark:text-dark-text-secondary">
             <p>
               I&apos;ve been there—waking up to a broken Zapier flow that&apos;s been silently failing for days, costing you orders, invoices, or leads. The panic is
-              real. That&apos;s why I created Automation RescueT: to rescue automations that are holding your business hostage.
+              real. That&apos;s why I created Automation Rescue: to rebuild your broken automations and get your business back on track.
             </p>
             <p className="text-sm text-text-secondary dark:text-dark-text-secondary">
               Broken workflow? Duct-taped integrations? We fix what&apos;s failing and build it right, fast.
@@ -102,22 +102,31 @@ export default function AutomationRescuePage() {
             <li>Documentation and ownership handoff</li>
             <li>Fast fixes: days not weeks</li>
           </ul>
-          <div className="flex gap-3">
-            <ButtonLink intent="primary" href="/contact">
-              Rescue my automation
-            </ButtonLink>
-            <ButtonLink intent="secondary" href="/pricing">
-              See pricing
-            </ButtonLink>
+          <div className="mt-6 rounded-2xl border border-border bg-surface-secondary/70 p-4 dark:border-dark-border dark:bg-dark-surface-secondary/70">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-text-tertiary dark:text-dark-text-tertiary mb-2">Pricing</p>
+            <p className="text-lg font-semibold text-text-primary dark:text-dark-text-primary mb-2">
+              Starting at $149.99
+            </p>
+            <p className="text-sm text-text-secondary dark:text-dark-text-secondary mb-4">
+              Fast, reliable automation rescue to get your workflows back on track. Most rescues ship in days, not weeks. LGBTQ-owned businesses receive 25% off upfront project fees on approved scopes.
+            </p>
+            <div className="flex gap-3">
+              <ButtonLink intent="primary" href="/contact">
+                Rescue my automation
+              </ButtonLink>
+              <ButtonLink intent="secondary" href="/pricing">
+                See all pricing
+              </ButtonLink>
+            </div>
           </div>
 
           <div className="mt-8 grid gap-4 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] items-start">
             <div className="space-y-3 text-text-secondary dark:text-dark-text-secondary">
               <h2 className="text-base font-semibold text-text-primary dark:text-dark-text-primary">
-                Automation RescueT monitoring in action
+                Automation Rescue monitoring in action
               </h2>
               <p>
-                After a rescue, Automation RescueT keeps watch: run health, failure spikes, and alerts that reach you before your customers feel pain. No more wondering
+                After a rescue, Automation Rescue keeps watch: run health, failure spikes, and alerts that reach you before your customers feel pain. No more wondering
                 whether your automations are quietly failing in the background.
               </p>
             </div>
@@ -151,7 +160,7 @@ function ProductJsonLd() {
   const json = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Automation RescueT",
+    name: "Automation Rescue",
     description: "Broken workflow? Duct-taped integrations? We fix what's failing and build it right, fast.",
     provider: {
       "@type": "Organization",
@@ -169,7 +178,7 @@ function AutomationRescueServiceJsonLd() {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": `${base}/solutions/redbridging#service`,
-    name: "Automation RescueT",
+    name: "Automation Rescue",
     description:
       "Broken workflow? Duct-taped integrations? We fix what's failing and build it right, fast. LGBTQ-owned businesses receive 25% off upfront project fees on approved scopes.",
     provider: {
