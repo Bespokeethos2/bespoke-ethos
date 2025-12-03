@@ -116,10 +116,11 @@ export default function PricingPage() {
             <div className="ghost-card">
               <div className="accent-bar mb-3">Rescue</div>
               <h2 className="text-lg font-semibold">Automation Rescue</h2>
-              <p className="mt-1 text-text-secondary dark:text-dark-text-secondary">
-                Most one-time rescues start around {formatMoney(PRICING.automationRescue.standaloneALaCarte)} for non-members, with
-                discounted ranges between {formatMoney(PRICING.automationRescue.standaloneLow)} and{" "}
-                {formatMoney(PRICING.automationRescue.standaloneHigh)} for ongoing clients.
+              <p className="mt-1 text-base font-semibold text-text-primary dark:text-dark-text-primary">
+                Starting at {formatMoney(PRICING.automationRescue.standaloneALaCarte)}
+              </p>
+              <p className="mt-1 text-sm text-text-secondary dark:text-dark-text-secondary">
+                Rebuild your broken automations. Fast, reliable fixes to get your workflows back on track.
               </p>
               <ul className="mt-3 list-disc pl-5 text-sm text-text-secondary dark:text-dark-text-secondary">
                 <li>Stabilizes brittle Zapier/Make/HubSpot automations before they cost you revenue.</li>
