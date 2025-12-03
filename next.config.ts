@@ -45,6 +45,7 @@ const securityHeaders = [
   },
   { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
   // Allow static assets (like ad creatives) to be embedded from other origins.
+  { key: "X-RSC-Mitigation-Flag", value: "CVE-2025-55182-Header-Block-Applied" },
   { key: "Cross-Origin-Resource-Policy", value: "cross-origin" },
 ];
 

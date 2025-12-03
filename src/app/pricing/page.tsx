@@ -34,7 +34,7 @@ export default function PricingPage() {
                 fill
                 className="object-cover object-top"
                 sizes="(max-width: 768px) 100vw, 960px"
-                priority={false}
+                priority={true}
               />
             </div>
           </div>
@@ -50,7 +50,7 @@ export default function PricingPage() {
 
         {/* Four flagship offerings */}
         <div className="rail-shell">
-          <div className="rail-grid two gap-y-4">
+          <div className="rail-grid two gap-y-4 md:grid-cols-2 lg:grid-cols-4">
             {/* Workflow Automation Setup */}
             <div className="ghost-card">
               <div className="accent-bar mb-3">Automation</div>
@@ -71,7 +71,7 @@ export default function PricingPage() {
             </div>
 
             {/* Cadence */}
-            <div className="ghost-card ghost-card--soft border border-success/60 shadow-[0_18px_46px_rgba(52,211,153,0.18)]">
+            <div className="ghost-card ghost-card--soft border-2 border-success shadow-[0_18px_46px_rgba(52,211,153,0.25)]">
               <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-success/60 bg-success/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-success">
                 <span className="h-2 w-2 rounded-full bg-success" />
                 Most popular
@@ -91,7 +91,7 @@ export default function PricingPage() {
                 <ButtonLink
                   href="/products/cadence"
                   unstyled
-                  className="inline-flex items-center justify-center rounded-full bg-success px-4 py-2 text-sm font-semibold text-black shadow-md transition-transform duration-200 hover:scale-[1.02]"
+                  className="inline-flex items-center justify-center rounded-full bg-success px-5 py-2 text-base font-bold text-black shadow-lg transition-transform duration-200 hover:scale-[1.05]"
                 >
                   Talk about Cadence
                 </ButtonLink>
@@ -131,9 +131,9 @@ export default function PricingPage() {
         </div>
 
         {/* Enterprise blurb */}
-        <div className="rail-shell">
-          <div className="rail-grid two gap-y-4">
-            <div className="ghost-card ghost-card--soft">
+<div className="rail-shell">
+	          <div className="rail-grid two gap-y-4">
+	            <div className="ghost-card ghost-card--soft w-full">
               <h2 className="text-lg font-semibold text-text-primary dark:text-dark-text-primary">
                 Enterprise and advanced needs
               </h2>
