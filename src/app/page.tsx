@@ -136,15 +136,15 @@ export default function HomePage() {
       <ConversionOptimizedHero />
 
       {/* 1a. SEO-aligned intro */}
-      <section className="py-8">
+      <section className="py-12 md:py-16 bg-gradient-to-b from-white to-slate-50">
         <div className="container mx-auto px-4 max-w-3xl">
-          <h2 className="text-xl font-semibold text-slate-900 font-hero-accent">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 font-hero-accent leading-tight tracking-tight">
             AI consulting and workflow automation for small businesses.
           </h2>
-          <p className="mt-3 text-slate-600">
+          <p className="mt-4 text-lg text-slate-600 leading-relaxed">
             Bespoke Ethos is a Cleveland-based AI consulting firm led by a former AI trainer. We help small
             businesses escape broken Zapier and Make.com workflows, design practical AI automations, and launch fixed-price projects
-            starting at $997.
+            starting at <span className="font-semibold text-orange-600">$997</span>.
           </p>
         </div>
       </section>
@@ -159,14 +159,16 @@ export default function HomePage() {
       <section className="home-section home-section--impact py-24" aria-labelledby="pricing-transparent-heading">
         <div className="home-section-inner home-section-grid">
           <div className="space-y-6">
-            <p className="text-sm font-bold uppercase tracking-widest text-orange-600">Straight Talk on Pricing</p>
-            <h2 id="pricing-transparent-heading" className="text-3xl md:text-4xl font-bold font-hero-accent text-slate-900 leading-tight">
+            <div className="inline-block">
+              <p className="text-xs font-bold uppercase tracking-widest text-orange-600 bg-orange-50 px-3 py-1 rounded-full">Straight Talk on Pricing</p>
+            </div>
+            <h2 id="pricing-transparent-heading" className="text-3xl md:text-4xl font-bold font-hero-accent text-slate-900 leading-tight tracking-tight">
               Competitors charge $200-350/hr. <br /> We start at <span className="text-orange-600">$997</span>.
             </h2>
-            <p className="text-lg text-slate-600 leading-relaxed">
+            <p className="text-lg text-slate-600 leading-relaxed max-w-lg">
               Because we remember being broke. Fixed scopes, clear deliverables, and a 25% LGBTQ-owned discount on upfront project fees.
             </p>
-            <div className="flex flex-wrap gap-4 pt-2">
+            <div className="flex flex-wrap gap-4 pt-4">
               <ButtonLink intent="primary" href="/pricing">
                 View Pricing
               </ButtonLink>
@@ -175,20 +177,20 @@ export default function HomePage() {
               </ButtonLink>
             </div>
           </div>
-          <div className="be-section-card space-y-4 p-8">
-            <h3 className="text-xl font-bold text-slate-900">What you get</h3>
-            <ul className="space-y-3 text-slate-600">
+          <div className="be-section-card space-y-5 p-8 border-2 border-orange-100 bg-gradient-to-br from-white to-orange-50 shadow-xl rounded-2xl">
+            <h3 className="text-lg font-bold text-slate-900 border-b-2 border-orange-200 pb-3">What you get</h3>
+            <ul className="space-y-4 text-slate-700">
               <li className="flex items-start gap-3">
-                <span className="text-orange-500 mt-1">✓</span>
-                Decision Brief on your biggest question before you commit
+                <span className="text-orange-500 font-bold text-lg mt-0.5 flex-shrink-0">✓</span>
+                <span>Decision Brief on your biggest question before you commit</span>
               </li>
               <li className="flex items-start gap-3">
-                 <span className="text-orange-500 mt-1">✓</span>
-                 Static/serverless builds with approvals, rollback, and docs
+                 <span className="text-orange-500 font-bold text-lg mt-0.5 flex-shrink-0">✓</span>
+                 <span>Static/serverless builds with approvals, rollback, and docs</span>
               </li>
               <li className="flex items-start gap-3">
-                 <span className="text-orange-500 mt-1">✓</span>
-                 No enterprise fluff; founder answers every request
+                 <span className="text-orange-500 font-bold text-lg mt-0.5 flex-shrink-0">✓</span>
+                 <span>No enterprise fluff; founder answers every request</span>
               </li>
             </ul>
           </div>
@@ -196,15 +198,17 @@ export default function HomePage() {
       </section>
 
       {/* 5. Productized Offers */}
-      <section className="home-section home-section--white py-24" aria-labelledby="productized-heading">
+      <section className="home-section home-section--white py-24 bg-gradient-to-b from-slate-50 to-white" aria-labelledby="productized-heading">
         <div className="container mx-auto px-4">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
              <div className="space-y-6">
-                <p className="text-sm font-bold uppercase tracking-widest text-orange-600">Productized AI</p>
-                <h2 id="productized-heading" className="text-3xl md:text-4xl font-bold font-hero-accent text-slate-900 leading-tight">
+                <div className="inline-block">
+                  <p className="text-xs font-bold uppercase tracking-widest text-orange-600 bg-orange-50 px-3 py-1 rounded-full">Productized AI</p>
+                </div>
+                <h2 id="productized-heading" className="text-3xl md:text-4xl font-bold font-hero-accent text-slate-900 leading-tight tracking-tight">
                   Clear scopes, fixed pricing, 90-day coverage.
                 </h2>
-                <p className="text-lg text-slate-600 leading-relaxed">
+                <p className="text-lg text-slate-600 leading-relaxed max-w-lg">
                   Every build ships with approvals and audit trails intact. You get ownership, documentation, and founder-friendly pricing.
                 </p>
                 <div className="pt-4">
@@ -213,7 +217,7 @@ export default function HomePage() {
                   </ButtonLink>
                 </div>
              </div>
-             <div>
+             <div className="flex justify-center lg:justify-end">
                 <ProductQuadrant />
              </div>
           </div>
@@ -221,13 +225,13 @@ export default function HomePage() {
       </section>
 
       {/* 6. Consensus Engine Highlight */}
-      <section className="py-24 bg-white" aria-labelledby="consensus-highlight-heading">
+      <section className="py-24 bg-gradient-to-b from-white via-slate-50 to-white" aria-labelledby="consensus-highlight-heading">
         <div className="container mx-auto px-4">
            <div className="text-center max-w-3xl mx-auto mb-12">
-              <h2 id="consensus-highlight-heading" className="text-3xl md:text-4xl font-bold font-hero-accent text-slate-900 mb-4">
+              <h2 id="consensus-highlight-heading" className="text-3xl md:text-4xl font-bold font-hero-accent text-slate-900 mb-4 tracking-tight leading-tight">
                 A research brief, not a mystery answer.
               </h2>
-              <p className="text-lg text-slate-600">
+              <p className="text-lg text-slate-600 leading-relaxed">
                 Consensus Engine turns one big strategic question into a calm, cited brief. See it in action with our Consensus Calendar.
               </p>
            </div>
