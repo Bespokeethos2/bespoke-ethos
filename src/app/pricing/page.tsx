@@ -29,10 +29,10 @@ export default function PricingPage() {
           <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-xl pricing-hero-glow">
             <div className="relative h-40 w-full sm:h-48 lg:h-56">
               <Image
-                src="/assets/generated/hero-flowstack-desktop.webp"
+                src="/assets/generated/hero-pricing-desktop.webp"
                 alt="Calm workspace with an automation dashboard open beside a notebook and coffee"
                 fill
-                className="object-cover object-top"
+                className="object-cover object-center"
                 sizes="(max-width: 768px) 100vw, 960px"
                 priority={true}
               />
