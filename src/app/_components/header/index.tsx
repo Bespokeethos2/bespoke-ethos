@@ -123,7 +123,7 @@ const FALLBACK_HEADER_NAV: HeaderNavLink[] = [
   },
   {
     _id: "nav-calendar",
-    _title: "Consensus Calendar",
+    _title: "LGBTQ Social Calendar",
     href: "/calendar",
     sublinks: { items: [] },
   },

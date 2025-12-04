@@ -232,7 +232,7 @@ export default function HomePage() {
                 A research brief, not a mystery answer.
               </h2>
               <p className="text-lg text-slate-600 leading-relaxed">
-                Consensus Engine turns one big strategic question into a calm, cited brief. See it in action with our Consensus Calendar.
+                Consensus Engine turns one big strategic question into a calm, cited brief. See it in action with our LGBTQ Social Calendar.
               </p>
            </div>
            <ConsensusEngineCard />
@@ -264,18 +264,18 @@ export default function HomePage() {
       </section>
 
       {/* 9. LGBTQ Banner */}
-      <section className="py-24 bg-slate-900 text-white" aria-labelledby="lgbtq-banner-heading">
+      <section className="py-24 bg-white text-slate-900" aria-labelledby="lgbtq-banner-heading">
         <div className="container mx-auto px-4 max-w-6xl">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                   <h2 id="lgbtq-banner-heading" className="text-3xl font-bold font-hero-accent">
                     A helping hand for tech
                   </h2>
-                  <p className="text-lg text-slate-300 leading-relaxed">
+                  <p className="text-lg text-slate-700 leading-relaxed">
                     We know many founders are tired and under-resourced. If these tools would move the needle but the budget is tight, reach out—we keep a 25% discount for LGBTQ-owned businesses and need-based grant slots.
                   </p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-end">
+              <div className="flex flex-col sm:flex-row gap-4 items-center sm:justify-end">
                 <LGBTQDiscountModalTrigger />
                 <ButtonLink intent="secondary" href="/contact" className="border-slate-400 text-white hover:bg-slate-800 hover:text-white">
                   Tell me what you&apos;re building
