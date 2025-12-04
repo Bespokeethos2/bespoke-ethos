@@ -165,8 +165,16 @@ export default function WorkflowAutomationSetupPage() {
                   Workflow Automation Setup blueprint at a glance
                 </h2>
                 <p>
-                  Workflow Automation Setup diagrams read like a magazine spread: the image anchors the eye while the copy wraps around it to
-                  walk stakeholders through each checkpoint.
+                  The blueprint board is where we sit down with the founders and figure out what is taking up their time. Typically there are two or three tasks that monopolize most founders' time. Once we identify those, we can look into automating them.
+                </p>
+                <p>
+                  Then we look at potential automation paths—this could be one piece of software or a few chained together. What we're looking for are resilient automations for our clients, meaning automations that won't fail the second the wind blows. This often means building deeper integration tunnels, rather than relying on something simple and out of the box like Zapier.
+                </p>
+                <p>
+                  Then we deploy the automation to the client and they begin testing. Ideally, it should be something that happens automatically. That is what we strive for in every single automation we ship.
+                </p>
+                <p>
+                  The bottom line is: if it's not saving your time, it's not worth having around. This isn't about trading one set of responsibilities for another. It's about handing off the responsibilities so you can focus on the tasks that let you grow, not the ones that have you stuck in a plateau.
                 </p>
                 <div className="grid gap-4 sm:grid-cols-2">
                   {FLOWSTACK_CALLOUTS.map((callout) => (

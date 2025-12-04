@@ -277,7 +277,7 @@ export default function HomePage() {
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-end">
                 <LGBTQDiscountModalTrigger />
-                <ButtonLink intent="secondary" href="/contact" className="border-slate-600 text-slate-300 hover:bg-slate-800 hover:text-white">
+                <ButtonLink intent="secondary" href="/contact" className="border-slate-400 text-white hover:bg-slate-800 hover:text-white">
                   Tell me what you&apos;re building
                 </ButtonLink>
               </div>
