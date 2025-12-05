@@ -160,9 +160,9 @@ export default function HomePage() {
               Competitors bill $200-350/hr. <br /> Our projects start at <span className="text-orange-600">$997 total</span>.
             </h2>
             <p className="text-lg text-slate-600 leading-relaxed max-w-lg">
-              Because we remember being broke. Fixed-scope projects with clear deliverables, no hourly billing surprises—and a 25% LGBTQ-owned discount on upfront fees.
+              Because we remember being broke. Fixed-scope projects with clear deliverables, no hourly billing surprises–and a 25% LGBTQ-owned discount on upfront fees.
             </p>
-            </p>
+            </div>
             <div className="flex flex-wrap gap-4 pt-4">
               <ButtonLink intent="primary" href="/pricing">
                 View Pricing
@@ -318,5 +318,5 @@ function HomeFaqJsonLd() {
     mainEntityOfPage: `${base}/`,
   } as const;
 
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.JSON.stringify(json) }} />;
 }
