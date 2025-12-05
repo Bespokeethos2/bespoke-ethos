@@ -188,10 +188,7 @@ export default function HomePage() {
                  <span>No enterprise fluff; founder answers every request</span>
               </li>
             </ul>
-          </div>
-        </div>
-      </section>
-
+          </div>\n        </div>\n      </section>
       {/* 5. Productized Offers */}
       <section className="home-section home-section--white py-24 bg-gradient-to-b from-slate-50 to-white" aria-labelledby="productized-heading">
         <div className="container mx-auto px-4">
