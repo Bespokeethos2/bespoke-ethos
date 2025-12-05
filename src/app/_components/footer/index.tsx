@@ -53,6 +53,15 @@ type FooterLogo = {
   light: LogoVariant;
 };
 
+const SillyBeanIcon = () => (
+  <span
+    aria-hidden
+    className="text-lg leading-none text-slate-700 dark:text-amber-200"
+  >
+    🫘
+  </span>
+);
+
 const FALLBACK_LOGO: FooterLogo = {
   dark: {
     url: "/assets/logo-dark.png",
@@ -206,24 +215,24 @@ function FooterLayout({
           <ul className="grid grid-cols-2 gap-2 sm:grid-cols-4">
             {[
               {
-                label: "Cadence — Your AI Concierge",
+                label: "Cadence - Your AI Concierge",
                 href: "/products/cadence",
-                icon: "🤖",
+                icon: "??",
               },
               {
-                label: "Consensus Engine — Strategy Sprint",
+                label: "Consensus Engine - Strategy Sprint",
                 href: "/solutions/consensus-engine",
-                icon: "🧠",
-              },
-              { 
-                label: "Automation Rescue", 
-                href: "/solutions/redbridging",
-                icon: "🚑",
+                icon: "??",
               },
               {
-                label: "Automation Skyway — Setup",
+                label: "Automation Rescue",
+                href: "/solutions/redbridging",
+                icon: "??",
+              },
+              {
+                label: "Automation Skyway - Setup",
                 href: "/enterprise/automation-skyway",
-                icon: "🏗️",
+                icon: "???",
               },
             ].map((i) => (
               <li key={i.href}>
@@ -232,8 +241,12 @@ function FooterLayout({
                   className="group flex items-center gap-2 text-left text-sm text-text-tertiary hover:text-text-primary dark:text-dark-text-tertiary dark:hover:text-dark-text-primary"
                   href={i.href}
                 >
-                  <span className="opacity-70 group-hover:opacity-100 transition-opacity">{i.icon}</span>
-                  <span className="group-hover:underline decoration-orange-400/50 underline-offset-4">{i.label}</span>
+                  <span className="opacity-70 transition-opacity group-hover:opacity-100">
+                    {i.icon}
+                  </span>
+                  <span className="underline-offset-4 group-hover:underline decoration-orange-400/50">
+                    {i.label}
+                  </span>
                 </ButtonLink>
               </li>
             ))}
@@ -241,7 +254,7 @@ function FooterLayout({
         </nav>
         {/* Theme switcher removed - site is light mode only */}
 
-        <p className="w-full sm:col-span-1 sm:col-start-1 sm:row-start-2 text-pretty text-[10px] text-left sm:text-center text-text-tertiary dark:text-dark-text-tertiary">
+        <p className="w-full text-pretty text-[10px] text-left text-text-tertiary dark:text-dark-text-tertiary sm:col-span-1 sm:col-start-1 sm:row-start-2 sm:text-center">
           {copyright}
         </p>
 
@@ -284,6 +297,17 @@ function FooterLayout({
                 </li>
               );
             })}
+          {/* Tiny easter egg: Faces of Bespoke AI */}
+          <li className="shrink-0">
+            <ButtonLink
+              unstyled
+              href="/faces"
+              aria-label="Faces of Bespoke AI"
+              className="group flex h-7 w-7 items-center justify-center rounded-full border border-slate-300/70 bg-slate-900/5 text-[13px] opacity-70 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:rotate-3 hover:border-orange-400/70 hover:bg-slate-900/10 hover:opacity-100 hover:shadow-md dark:border-slate-500/60 dark:bg-slate-50/10 dark:hover:bg-slate-50/20"
+            >
+              <SillyBeanIcon />
+            </ButtonLink>
+          </li>
         </ul>
       </div>
     </footer>

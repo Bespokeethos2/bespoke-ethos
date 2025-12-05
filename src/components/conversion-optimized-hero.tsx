@@ -24,31 +24,25 @@ export function ConversionOptimizedHero() {
       <div className="container relative mx-auto grid max-w-7xl grid-cols-1 gap-16 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         
         {/* Left Column: Copy & Console */}
-        <motion.div 
-          initial="hidden" 
-          whileInView="show" 
-          viewport={{ once: true, amount: 0.3 }} 
-          variants={{ show: { transition: { staggerChildren: 0.12 } } }} 
-          className="space-y-10 relative z-10"
-        >
+        <div className="space-y-10 relative z-10">
           {/* Top Badge - Industrial Precision */}
-          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-orange-900/10 bg-orange-50/50 text-[10px] font-bold uppercase tracking-[0.25em] text-orange-900/80 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-orange-900/10 bg-orange-50/50 text-[10px] font-bold uppercase tracking-[0.25em] text-orange-900/80 shadow-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></span>
             Cleveland · Bespoke AI
-          </motion.div>
+          </div>
 
           {/* Main Headlines - Typography as Graphic */}
-          <motion.div variants={fadeUp} className="space-y-6">
+          <div className="space-y-6">
             <h1 className="max-w-xl font-hero-accent text-5xl font-bold leading-[1.05] text-slate-900 sm:text-6xl lg:text-[5rem] tracking-tight drop-shadow-sm">
               Real Cleveland AI. <br className="hidden sm:block" /> Real Simple.
             </h1>
             <p className="text-xl text-slate-600 max-w-lg leading-relaxed font-medium">
               Book a free 30-minute chat. Includes a free, cited AI research brief on your business—no pressure, no hard sales.
             </p>
-          </motion.div>
+          </div>
 
           {/* CTA & Credibility "Dock" - The Novel Container */}
-          <motion.div variants={fadeUp} className="flex flex-col gap-8">
+          <div className="flex flex-col gap-8">
             <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
                 <ButtonLink
                   intent="primary"
@@ -93,16 +87,11 @@ export function ConversionOptimizedHero() {
                     </div>
                 </div>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
         {/* Right Column: Image - Floating with Shadow Depth */}
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } }}
-          viewport={{ once: true, amount: 0.25 }}
-          className="relative mt-10 lg:mt-0 perspective-[2000px]"
-        >
+        <div className="relative mt-10 lg:mt-0 perspective-[2000px]">
           {/* The "Desk Pad" Shadow */}
           <div className="absolute inset-x-8 bottom-[-20px] h-[40px] bg-black/20 blur-[30px] rounded-[100%]" />
           
@@ -142,7 +131,7 @@ export function ConversionOptimizedHero() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

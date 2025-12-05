@@ -13,13 +13,7 @@ import { siteUrl } from "@/lib/constants";
 import { TestimonialMarquee } from "@/components/ui/testimonial-marquee";
 import { CapabilitiesBento } from "@/components/ui/capabilities-bento";
 
-const ConversionOptimizedHero = dynamic(
-  () =>
-    import("@/components/conversion-optimized-hero").then((m) => ({
-      default: m.ConversionOptimizedHero,
-    })),
-  { loading: () => <HeroSectionSkeleton /> }
-);
+import { ConversionOptimizedHero } from "@/components/conversion-optimized-hero";
 
 const ConsensusEngineCard = dynamic(
   () =>
@@ -163,10 +157,11 @@ export default function HomePage() {
               <p className="text-xs font-bold uppercase tracking-widest text-orange-600 bg-orange-50 px-3 py-1 rounded-full">Straight Talk on Pricing</p>
             </div>
             <h2 id="pricing-transparent-heading" className="text-3xl md:text-4xl font-bold font-hero-accent text-slate-900 leading-tight tracking-tight">
-              Competitors charge $200-350/hr. <br /> We start at <span className="text-orange-600">$997</span>.
+              Competitors bill $200-350/hr. <br /> Our projects start at <span className="text-orange-600">$997 total</span>.
             </h2>
             <p className="text-lg text-slate-600 leading-relaxed max-w-lg">
-              Because we remember being broke. Fixed scopes, clear deliverables, and a 25% LGBTQ-owned discount on upfront project fees.
+              Because we remember being broke. Fixed-scope projects with clear deliverables, no hourly billing surprises—and a 25% LGBTQ-owned discount on upfront fees.
+            </p>
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
               <ButtonLink intent="primary" href="/pricing">
@@ -268,7 +263,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 max-w-6xl">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
-                  <h2 id="lgbtq-banner-heading" className="text-3xl font-bold font-hero-accent">
+                  <h2 id="lgbtq-banner-heading" className="text-3xl font-bold font-hero-accent text-white">
                     A helping hand for tech
                   </h2>
                   <p className="text-lg text-slate-700 leading-relaxed">

@@ -18,7 +18,7 @@ export default function AutomationFabricPage() {
   return (
     <main className="be-page-slate">
       {/* 1. Hero Section */}
-      <section className="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-32">
+      <section className="relative overflow-hidden pt-12 pb-16 md:pt-16 md:pb-20">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-4xl text-center">
             <p className="text-xs font-bold uppercase tracking-[0.4em] text-orange-600 mb-6">
@@ -94,6 +94,7 @@ export default function AutomationFabricPage() {
                 title="Automation Skyway"
                 tagline="Automations that work"
                 description="We replace fragile scripts with robust, monitored infrastructure."
+                className="[&_h3]:!text-white [&_p]:!text-slate-200"
               />
           </div>
         </div>
@@ -183,7 +184,7 @@ export default function AutomationFabricPage() {
             
             <div className="mt-10 pt-8 border-t border-slate-700">
               <p className="text-sm text-slate-400 italic">
-                "We’re Microsoft-backed founders, so we understand exactly where Azure’s vendor lock-in begins and ends. We use that knowledge to keep your code portable, auditable, and under your control."
+                "We're Microsoft-backed founders, so we understand exactly where Azure's vendor lock-in begins and ends. We use that knowledge to keep your code portable, auditable, and under your control."
               </p>
             </div>
           </div>
@@ -191,7 +192,7 @@ export default function AutomationFabricPage() {
       </Section>
 
       {/* 5. CTA */}
-      <section className="py-24 bg-orange-50 border-t border-orange-100">
+      <section className="py-16 bg-orange-50 border-t border-orange-100">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-hero-accent mb-6">
             Ready to professionalize your automation?

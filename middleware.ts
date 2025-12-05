@@ -6,11 +6,6 @@ export function middleware(request: NextRequest) {
   const host = url.host.toLowerCase();
   const pathname = url.pathname;
 
-  // Simple HTTP Basic Auth for Brutus chat + APIs - REMOVED
-  // The user requested to remove Brutus code, and this might be causing 403s.
-  // const protectedPaths = ["/chat", "/api/chat", "/api/brutus", "/api/brutus/fs"];
-  // ... (auth logic removed)
-
   // Ensure bare domain redirects to canonical www host for SEO
   if (host === "bespokeethos.com") {
     const redirectUrl = new URL(url.toString());
