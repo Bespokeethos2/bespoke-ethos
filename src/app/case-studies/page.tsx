@@ -30,7 +30,34 @@ export default function CaseStudiesPage() {
           </Heading>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {/* Workflow Automation Setup */}
+            {/* Soul-Aligned Outreach at Scale */}
+            <article className="flex flex-col gap-3 rounded-2xl border border-border bg-surface-secondary/80 p-5 text-sm shadow-sm dark:border-dark-border dark:bg-dark-surface-secondary/80">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-text-tertiary dark:text-dark-text-tertiary">
+                Soul-Aligned Outreach • Plexus
+              </p>
+              <h2 className="text-lg font-semibold text-text-primary dark:text-dark-text-primary">
+                328+ human-first AI emails with soul.
+              </h2>
+              <p className="text-text-secondary dark:text-dark-text-secondary">
+                We built a replicable emotional outreach engine using Claude Opus 4.5 and GPT-5.1 Professional to send
+                328+ personalized emails to Plexus members. Five refinement passes and a multi-model system ensured every
+                email sounded like Upton on a good day.
+              </p>
+              <dl className="mt-2 grid grid-cols-2 gap-2 text-[11px] text-text-tertiary dark:text-dark-text-tertiary">
+                <div>
+                  <dt className="font-semibold text-text-primary dark:text-dark-text-primary">Models Used</dt>
+                  <dd>Claude Opus 4.5 • GPT-5.1 Pro</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-text-primary dark:text-dark-text-primary">Outcome</dt>
+                  <dd>Soul-aligned, human-first copy at scale</dd>
+                </div>
+              </dl>
+              <ButtonLink href="/case-studies/ai-outreach-plexus" intent="secondary">
+                Read the full case study
+              </ButtonLink>
+            </article>
+
             <article className="flex flex-col gap-3 rounded-2xl border border-border bg-surface-secondary/80 p-5 text-sm shadow-sm dark:border-dark-border dark:bg-dark-surface-secondary/80">
               <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-text-tertiary dark:text-dark-text-tertiary">
                 Workflow Automation Setup ú Cleveland brewery
