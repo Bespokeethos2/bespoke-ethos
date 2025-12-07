@@ -51,7 +51,7 @@ export default function AIOutreachPlexusCaseStudy() {
           </div>
 
           {/* Stats Strip */}
-          <div className="grid grid-cols-3 gap-4 rounded-2xl border border-border bg-surface-secondary/80 p-6 dark:border-dark-border dark:bg-dark-surface-secondary/80">
+          <div claclass="grid grid-cols-1 md:grid-cols-3 gap-4 rounded-2xl border border-border bg-surface-secondary/80 p-6 dark:border-dark-border dark:bg-dark-surface-secondary/80"">
             <div className="text-center">
               <p className="text-2xl font-bold text-text-primary dark:text-dark-text-primary">328+</p>
               <p className="text-xs text-text-tertiary dark:text-dark-text-tertiary">Personalized Emails</p>
@@ -97,7 +97,7 @@ export default function AIOutreachPlexusCaseStudy() {
             <p className="text-text-secondary dark:text-dark-text-secondary">So we brought in a specialist.</p>
 
             {/* GPT-5.1 Model Card */}
-            <div className="mt-6 rounded-2xl border border-border bg-surface-secondary/80 p-6 dark:border-dark-border dark:bg-dark-surface-secondary/80">
+            <d<div class="mt-6 rounded-2xl border border-orange-200 bg-orange-50/50 p-6 dark:border-orange-900/50 dark:bg-orange-950/30">">
               <h3 className="mb-4 text-lg font-semibold text-text-primary dark:text-dark-text-primary">
                 GPT-5.1 Pro (High Inference) at a glance
               </h3>
@@ -205,7 +205,7 @@ export default function AIOutreachPlexusCaseStudy() {
             <h2 className="text-2xl font-bold text-text-primary dark:text-dark-text-primary">
               GPT-5.1 Pro vs Claude Opus 4.5: Why We Switched
             </h2>
-            <div className="overflow-x-auto rounded-2xl border border-border dark:border-dark-border">
+            <d<div class="overflow-x-auto rounded-2xl border-2 border-orange-200 bg-white dark:border-orange-900/80 dark:bg-dark-surface-primary">">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-border bg-surface-secondary/80 dark:border-dark-border dark:bg-dark-surface-secondary/80">
@@ -258,7 +258,7 @@ export default function AIOutreachPlexusCaseStudy() {
                 </tbody>
               </table>
             </div>
-            <p className="mt-4 rounded-lg bg-surface-secondary/50 p-4 text-sm text-text-secondary dark:bg-dark-surface-secondary/50 dark:text-dark-text-secondary">
+            <p c<p class="mt-4 rounded-lg bg-orange-50/80 p-4 text-sm text-orange-900/80 dark:bg-orange-950/50 dark:text-orange-200/80">
               <strong>Bottom Line:</strong> GPT-5.1 Pro gave us smart copy. Claude Opus 4.5 gave us soul-aligned copy.
               That's why we moved our later passes entirely into Opus.
             </p>
