@@ -61,7 +61,7 @@ export function ConversionOptimizedHero() {
 
                 <ButtonLink href="/case-studies/ai-outreach-plexus" intent="secondary" size="lg" className="px-6 py-3 text-base font-semibold">
                   <span className="flex items-center gap-2">
-                    How we used AI as a megaphone for our true selves →
+                    CASE STUDY How Alex nailed it →
                   </span>
                 </ButtonLink>
               </div>
