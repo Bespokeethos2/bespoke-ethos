@@ -4,7 +4,6 @@ import { FounderBadge } from "@/app/_components/founder-badge";
 import { ButtonLink } from "@/common/button";
 import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
-import { useState } from "react";
 
 export const revalidate = 1800;
 
@@ -30,7 +29,7 @@ export default function AIOutreachPlexusCaseStudy() {
           />
 
           {/* Hero Section */}
-          <div className="space-y-4">
+          <div className="space-y-6">
             <Heading
               subtitle="How Bespoke Ethos Used Claude Opus 4.5 to Connect with 328+ Plexus-Aligned Small Businesses"
               align="left"
@@ -40,6 +39,15 @@ export default function AIOutreachPlexusCaseStudy() {
             <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
               Bespoke Ethos | Upton Rand (Founder)
             </p>
+
+            {/* Hero Image Placeholder */}
+            <div className="mt-6 aspect-video w-full overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-surface-secondary to-surface-tertiary dark:border-dark-border dark:from-dark-surface-secondary dark:to-dark-surface-tertiary">
+              <div className="flex h-full items-center justify-center">
+                <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
+                  [Hero Illustration: Small studio with AI megaphone → connection lines]
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Stats Strip */}
@@ -180,6 +188,16 @@ export default function AIOutreachPlexusCaseStudy() {
                 in a way that sounded like us and respected the people we were emailing.
               </p>
             </div>
+
+            {/* Who is Claude Opus Explainer */}
+            <div className="mt-6 rounded-2xl border border-border bg-surface-secondary/50 p-6 dark:border-dark-border dark:bg-dark-surface-secondary/50">
+              <h3 className="mb-3 flex items-center gap-2 text-lg font-semibold text-text-primary dark:text-dark-text-primary">
+                <span>✨</span> Who (or what) is Claude Opus?
+              </h3>
+              <p className="text-text-secondary dark:text-dark-text-secondary">
+                Claude Opus is Anthropic's most capable AI model — think of it as the "thoughtful collaborator" in the AI world. Unlike models optimized purely for speed or cost, Opus is built to understand nuance, ethics, and human context. It's slower and more expensive, but it's the only model we found that could genuinely sound like a person, not a machine pretending to be one.
+              </p>
+            </div>
           </div>
 
           {/* Model Comparison */}
@@ -244,6 +262,15 @@ export default function AIOutreachPlexusCaseStudy() {
               <strong>Bottom Line:</strong> GPT-5.1 Pro gave us smart copy. Claude Opus 4.5 gave us soul-aligned copy.
               That's why we moved our later passes entirely into Opus.
             </p>
+
+            {/* Comparison Visual Placeholder */}
+            <div className="mt-6 aspect-video w-full overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-surface-secondary to-surface-tertiary dark:border-dark-border dark:from-dark-surface-secondary dark:to-dark-surface-tertiary">
+              <div className="flex h-full items-center justify-center">
+                <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
+                  [Comparison Visual: GPT sharp/geometric vs Claude soft/organic]
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Our Outreach System */}
@@ -288,6 +315,15 @@ export default function AIOutreachPlexusCaseStudy() {
                 </span>
               </li>
             </ol>
+
+            {/* Multi-pass Refinement Visual Placeholder */}
+            <div className="mt-6 aspect-video w-full overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-surface-secondary to-surface-tertiary dark:border-dark-border dark:from-dark-surface-secondary dark:to-dark-surface-tertiary">
+              <div className="flex h-full items-center justify-center">
+                <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
+                  [Multi-pass Visual: 5 refinement steps with improving clarity]
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Infrastructure Section */}
@@ -326,6 +362,15 @@ export default function AIOutreachPlexusCaseStudy() {
                 </span>
               </li>
             </ul>
+
+            {/* Infrastructure Visual Placeholder */}
+            <div className="mt-6 aspect-video w-full overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-surface-secondary to-surface-tertiary dark:border-dark-border dark:from-dark-surface-secondary dark:to-dark-surface-tertiary">
+              <div className="flex h-full items-center justify-center">
+                <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
+                  [Infrastructure Visual: Research → AI → Refinement → Output flow]
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* What We Learned */}
@@ -379,6 +424,15 @@ export default function AIOutreachPlexusCaseStudy() {
             <p className="text-text-secondary dark:text-dark-text-secondary">
               And we're doing it with models that can hold a human voice — not just fake it.
             </p>
+
+            {/* Closing Visual Placeholder */}
+            <div className="mt-6 aspect-video w-full overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-surface-secondary to-surface-tertiary dark:border-dark-border dark:from-dark-surface-secondary dark:to-dark-surface-tertiary">
+              <div className="flex h-full items-center justify-center">
+                <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
+                  [Closing Visual: Bridge made of message bubbles connecting two sides]
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* AI 101 Definitions */}
@@ -408,7 +462,7 @@ export default function AIOutreachPlexusCaseStudy() {
                 <h3 className="font-semibold text-text-primary dark:text-dark-text-primary">Codex</h3>
                 <p className="text-sm text-text-secondary dark:text-dark-text-secondary">
                   An AI tool that's very good at working with code and structured tasks. Here, we used it to help scrape
-                  and organize research from websites before writing emails.
+                  and organize recipient research data.
                 </p>
               </div>
               <div>
