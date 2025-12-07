@@ -26,7 +26,7 @@ export async function FeaturesList({ featuresCardsList, heading }: FeaturesListP
   return (
     <Section container="default">
       <Heading subtitle={heading.subtitle} tag={heading.tag}>
-        <h4>{heading.title}</h4>
+        <h2>{heading.title}</h2>
       </Heading>
       <div className="flex flex-col gap-6">
         {featuresCardsList.items.map(({ image, ...item }) => (
@@ -44,9 +44,9 @@ export async function FeaturesList({ featuresCardsList, heading }: FeaturesListP
             </figure>
             <div className="flex flex-col gap-8 p-5 pt-6 md:flex-1 md:p-10">
               <div className="flex flex-col items-start gap-2">
-                <h5 className="text-2xl font-medium text-text-primary dark:text-dark-text-primary md:text-3xl">
+                <h3 className="text-2xl font-medium text-text-primary dark:text-dark-text-primary md:text-3xl">
                   {item.title}
-                </h5>
+                </h3>
                 <p className="font-normal text-text-secondary dark:text-dark-text-secondary md:text-lg">
                   {item.description}
                 </p>

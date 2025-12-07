@@ -124,7 +124,9 @@ export const generateMetadata = async (): Promise<Metadata> => {
 };
 
 export const viewport: Viewport = {
-  maximumScale: 1, // Disable auto-zoom on mobile Safari
+  width: "device-width",
+  initialScale: 1,
+  // Allow pinch-to-zoom for accessibility compliance (WCAG 1.4.4)
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

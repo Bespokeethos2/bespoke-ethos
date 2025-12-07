@@ -68,20 +68,41 @@ export const metadata: Metadata = {
     "AI implementation for small business",
   ],
   alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
     type: "website",
     url: siteUrl,
+    siteName: "Bespoke Ethos",
+    locale: "en_US",
     title: "AI Automation Consulting for Small Businesses in Cleveland | Bespoke Ethos",
     description:
       "AI consulting and workflow automation for small businesses. Get help fixing Zapier/Make automations, designing AI workflows, and launching fixed-price automation projects from $997.",
     images: [
       {
-        url: "/assets/generated/logo-square-dark.png",
-        width: 1200,
-        height: 630,
+        url: `${siteUrl}/assets/generated/logo-square-dark.png`,
+        width: 512,
+        height: 512,
         alt: "Bespoke Ethos orange square logo",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@bespokeethos",
+    creator: "@bespokeethos",
+    title: "AI Automation Consulting for Small Businesses | Bespoke Ethos",
+    description: "Cleveland-based AI consulting. Fix broken automations, design AI workflows, ship fixed-price projects from $997.",
+    images: [`${siteUrl}/assets/generated/logo-square-dark.png`],
   },
 };
 
@@ -125,6 +146,9 @@ export default function HomePage() {
     <main aria-label="Bespoke Ethos homepage" className="bg-[#faf9f6]">
       <HomePageJsonLd />
       <HomeFaqJsonLd />
+      <OrganizationJsonLd />
+      <WebSiteJsonLd />
+      <SpeakableJsonLd />
 
       {/* 1. Hero: Workshop Console */}
       <ConversionOptimizedHero />
@@ -162,7 +186,6 @@ export default function HomePage() {
             <p className="text-lg text-slate-600 leading-relaxed max-w-lg">
               Because we remember being broke. Fixed-scope projects with clear deliverables, no hourly billing surprises–and a 25% LGBTQ-owned discount on upfront fees.
             </p>
-            </div>
             <div className="flex flex-wrap gap-4 pt-4">
               <ButtonLink intent="primary" href="/pricing">
                 View Pricing
@@ -258,20 +281,20 @@ export default function HomePage() {
       </section>
 
       {/* 9. LGBTQ Banner */}
-      <section className="py-24 bg-white text-slate-900" aria-labelledby="lgbtq-banner-heading">
+      <section className="py-24 bg-gradient-to-br from-slate-800 to-slate-900 text-white" aria-labelledby="lgbtq-banner-heading">
         <div className="container mx-auto px-4 max-w-6xl">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                   <h2 id="lgbtq-banner-heading" className="text-3xl font-bold font-hero-accent text-white">
-                    A helping hand for tech
+                    A helping hand for founders
                   </h2>
-                  <p className="text-lg text-slate-700 leading-relaxed">
+                  <p className="text-lg text-slate-300 leading-relaxed">
                     We know many founders are tired and under-resourced. If these tools would move the needle but the budget is tight, reach out—we keep a 25% discount for LGBTQ-owned businesses and need-based grant slots.
                   </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 items-center sm:justify-end">
                 <LGBTQDiscountModalTrigger />
-                <ButtonLink intent="secondary" href="/contact" className="border-slate-400 text-white hover:bg-slate-800 hover:text-white">
+                <ButtonLink intent="secondary" href="/contact" className="border-slate-400 text-white hover:bg-slate-700 hover:text-white">
                   Tell me what you&apos;re building
                 </ButtonLink>
               </div>
@@ -317,5 +340,77 @@ function HomeFaqJsonLd() {
     mainEntityOfPage: `${base}/`,
   } as const;
 
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.JSON.stringify(json) }} />;
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
+}
+
+function OrganizationJsonLd() {
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${base}/#organization`,
+    name: "Bespoke Ethos",
+    alternateName: "Gaymensfieldguide DBA Bespoke Ethos",
+    url: base,
+    logo: {
+      "@type": "ImageObject",
+      url: `${base}/assets/generated/logo-square-dark.png`,
+      width: 512,
+      height: 512,
+    },
+    description: "AI consulting and workflow automation for small businesses. Cleveland-based firm helping founders fix broken automations and ship fixed-price AI projects.",
+    areaServed: {
+      "@type": "GeoCircle",
+      geoMidpoint: {
+        "@type": "GeoCoordinates",
+        latitude: 41.4993,
+        longitude: -81.6944,
+      },
+      geoRadius: "500 mi",
+    },
+    sameAs: [
+      "https://www.linkedin.com/company/bespoke-ethos",
+    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "sales",
+      email: "contact@bespokeethos.com",
+      url: `${base}/contact`,
+    },
+  };
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
+}
+
+function WebSiteJsonLd() {
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${base}/#website`,
+    url: base,
+    name: "Bespoke Ethos",
+    description: "AI consulting and workflow automation for small businesses",
+    publisher: {
+      "@id": `${base}/#organization`,
+    },
+    inLanguage: "en-US",
+  };
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
+}
+
+function SpeakableJsonLd() {
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", "h2", ".home-section h2", "main > section:first-of-type p"],
+    },
+    url: base,
+  };
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }

@@ -30,7 +30,7 @@ export function Faq(faq: FaqProps) {
     return (
       <Section>
         <Heading {...faq.heading}>
-          <h4>{faq.heading.title}</h4>
+          <h2>{faq.heading.title}</h2>
         </Heading>
         <div className="mx-auto flex w-full gap-8 md:max-w-(--breakpoint-sm) lg:max-w-(--breakpoint-md) lg:gap-14 lg:px-24 xl:max-w-(--breakpoint-xl)">
           <Accordion items={faq.questions.items} />
@@ -42,7 +42,7 @@ export function Faq(faq: FaqProps) {
   return (
     <Section>
       <Heading {...faq.heading}>
-        <h4>{faq.heading.title}</h4>
+        <h2>{faq.heading.title}</h2>
       </Heading>
       <ul className="mx-auto flex w-full grid-cols-3 flex-col place-content-start items-start gap-8 self-stretch lg:grid lg:gap-14 lg:px-24">
         {faq.questions.items.map((question) => (

@@ -48,7 +48,7 @@ export function SideFeatures({
       <div className="relative top-0 container mx-auto shrink self-stretch px-6 lg:w-1/2 lg:pr-12 lg:pl-0 xl:pr-20">
         <div className="sticky top-[calc(var(--header-height)+40px)] bottom-0 flex flex-col gap-10">
           <Heading className="items-start" {...heading}>
-            <h4>{heading.title}</h4>
+            <h2>{heading.title}</h2>
           </Heading>
           <div className="flex items-center gap-3 md:order-3">
             {actions.map((action) => (
@@ -84,7 +84,7 @@ export function SideFeatures({
                 ) : null}
               </figure>
               <div className="flex flex-col items-start gap-1">
-                <h5 className="text-lg font-medium">{title}</h5>
+                <h3 className="text-lg font-medium">{title}</h3>
                 <p className="text-text-tertiary dark:text-dark-text-tertiary text-pretty">
                   {subtitle}
                 </p>

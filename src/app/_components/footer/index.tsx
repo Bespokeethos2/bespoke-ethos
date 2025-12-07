@@ -66,17 +66,17 @@ const FALLBACK_LOGO: FooterLogo = {
   dark: {
     url: "/assets/logo-dark.png",
     alt: "Bespoke Ethos logo",
-    width: 200,
-    height: 60,
-    aspectRatio: "3/1",
+    width: 600,
+    height: 600,
+    aspectRatio: "1/1",
     blurDataURL: "",
   },
   light: {
     url: "/assets/logo-light-2.png",
     alt: "Bespoke Ethos logo",
-    width: 200,
-    height: 60,
-    aspectRatio: "3/1",
+    width: 300,
+    height: 140,
+    aspectRatio: "300/140",
     blurDataURL: "",
   },
 };

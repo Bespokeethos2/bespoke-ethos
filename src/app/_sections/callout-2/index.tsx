@@ -14,9 +14,9 @@ export function Callout2({ title, subtitle, actions = [] }: Callout2Props) {
     <Section>
       <article className="bg-accent-500/10 dark:bg-accent-600/10 flex flex-col justify-center gap-9 self-stretch rounded-xl p-6 lg:flex-row lg:justify-between lg:p-10">
         <div className="flex flex-col gap-2">
-          <h4 className="text-text-primary dark:text-dark-text-primary text-3xl font-medium lg:text-4xl">
+          <h2 className="text-text-primary dark:text-dark-text-primary text-3xl font-medium lg:text-4xl">
             {title}
-          </h4>
+          </h2>
           <p className="text-text-secondary dark:text-dark-text-secondary text-lg lg:text-xl">
             {subtitle}
           </p>

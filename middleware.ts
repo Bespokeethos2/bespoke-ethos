@@ -13,14 +13,8 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(redirectUrl, 308);
   }
 
-  const response = NextResponse.next();
-
-  // Ensure /chat is not indexed by search engines
-  if (pathname === "/chat" || pathname.startsWith("/chat/")) {
-    response.headers.set("X-Robots-Tag", "noindex, nofollow");
-  }
-
-  return response;
+  // X-Robots-Tag handled in next.config.ts headers() for consistency
+  return NextResponse.next();
 }
 
 export const config = {

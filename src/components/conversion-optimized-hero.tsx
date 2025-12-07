@@ -59,12 +59,26 @@ export function ConversionOptimizedHero() {
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:animate-[shimmer_1s_infinite] z-0" />
                 </ButtonLink>
 
+<<<<<<< HEAD
                 <ButtonLink href="/case-studies/ai-outreach-plexus" intent="secondary" size="lg" className="px-6 py-3 text-base font-semibold">
                   <span className="flex items-center gap-2">
                     CASE STUDY How Alex nailed it →
                   </span>
                 </ButtonLink>
               </div>
+=======
+                <Link href="/case-studies" className="group flex items-center gap-3 px-4 py-2 rounded-xl transition-colors hover:bg-white/60">
+                  <div className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-white shadow-md ring-1 ring-slate-200">
+                     <Image src="/assets/generated/testimonial-alex.jpg" alt="Alex from Ore Dock Brewing" fill className="object-cover" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-xs font-bold text-slate-900 uppercase tracking-wider">Case Study</span>
+                    <span className="text-sm font-medium text-slate-600 group-hover:text-orange-600 transition-colors">
+                      How Alex nailed it →
+                    </span>
+                  </div>
+                </Link>
+>>>>>>> 5a044f2 (feat: SEO polish + heading hierarchy + Automation Skyway rename)
             </div>
 
             {/* The "Workshop Console" - High-End Glass Rail with internal glow */}

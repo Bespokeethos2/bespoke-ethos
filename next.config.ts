@@ -63,11 +63,26 @@ const nextConfig = {
 
     const isProd = process.env.VERCEL_ENV === "production";
 
-    // Always send an X-Robots-Tag header so search engines and LLMs
-    // have an explicit directive. Production is fully crawlable;
-    // non-production remains noindex to avoid duplicate content.
+    // Noindex for /chat routes (AI chatbot - not for search engines)
     headerConfigs.push({
-      source: "/:path*",
+      source: "/chat/:path*",
+      headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+    });
+    headerConfigs.push({
+      source: "/chat",
+      headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+    });
+
+    // Noindex for API routes
+    headerConfigs.push({
+      source: "/api/:path*",
+      headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+    });
+
+    // X-Robots-Tag for all other pages: Production is fully crawlable;
+    // non-production remains noindex to avoid duplicate content issues.
+    headerConfigs.push({
+      source: "/:path((?!chat|api).*)",
       headers: [
         {
           key: "X-Robots-Tag",

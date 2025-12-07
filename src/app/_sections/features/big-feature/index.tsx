@@ -38,7 +38,7 @@ export function BigFeature({ featuresBigImageList, heading, image }: BigFeatureP
         className="block rounded-xl border border-border dark:border-dark-border md:order-3 md:w-full"
       />
       <Heading {...heading}>
-        <h4>{heading.title}</h4>
+        <h2>{heading.title}</h2>
       </Heading>
       <div className="flex w-full flex-col items-start gap-4 md:order-2 md:grid md:grid-cols-3 md:gap-16">
         {featuresBigImageList.items.map(({ title, description, icon }) => (
@@ -55,7 +55,7 @@ export function BigFeature({ featuresBigImageList, heading, image }: BigFeatureP
               ) : null}
             </figure>
             <div className="flex flex-col items-start gap-1">
-              <h5 className="text-lg font-medium">{title}</h5>
+              <h3 className="text-lg font-medium">{title}</h3>
               <p className="text-text-tertiary dark:text-dark-text-tertiary">{description}</p>
             </div>
           </article>

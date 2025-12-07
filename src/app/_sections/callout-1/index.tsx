@@ -44,9 +44,9 @@ export function Callout({ title, subtitle, actions = [] }: CalloutProps) {
         <div className="bg-surface-secondary dark:bg-dark-surface-secondary absolute top-0 left-0 z-10 h-full w-full blur-3xl filter" />
         {/* -------- */}
         <div className="relative z-20 flex flex-col items-center gap-2 text-center">
-          <h4 className="text-text-primary dark:text-dark-text-primary text-center text-3xl font-medium tracking-tighter sm:max-w-full sm:px-0 md:text-4xl">
+          <h2 className="text-text-primary dark:text-dark-text-primary text-center text-3xl font-medium tracking-tighter sm:max-w-full sm:px-0 md:text-4xl">
             {title}
-          </h4>
+          </h2>
           <p className="text-text-secondary dark:text-dark-text-secondary text-lg md:text-xl">
             {subtitle}
           </p>

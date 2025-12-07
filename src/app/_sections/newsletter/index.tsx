@@ -13,7 +13,7 @@ export function Newsletter() {
     <Section className="bg-surface-secondary dark:bg-dark-surface-secondary py-10! overflow-hidden" container="full">
       <div className="container mx-auto flex w-full max-w-4xl flex-col gap-4 px-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between">
         <div className="flex flex-1 flex-col items-start gap-1">
-          <h5 className="text-xl font-medium lg:text-2xl">{FALLBACK_COPY.title}</h5>
+          <h2 className="text-xl font-medium lg:text-2xl">{FALLBACK_COPY.title}</h2>
           <p className="text text-text-tertiary dark:text-dark-text-tertiary lg:text-lg">
             {FALLBACK_COPY.description}
           </p>

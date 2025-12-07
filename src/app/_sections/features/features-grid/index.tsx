@@ -44,7 +44,7 @@ export function FeaturesGrid({
   return (
     <Section>
       <Heading {...heading}>
-        <h4>{heading.title}</h4>
+        <h2>{heading.title}</h2>
       </Heading>
       <div className="grid w-full grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-5">
         {featuresGridList.items.map(({ id, title, description, icon }) => (
@@ -64,7 +64,7 @@ export function FeaturesGrid({
               ) : null}
             </figure>
             <div className="flex flex-col items-start gap-1">
-              <h5 className="text-lg font-medium">{title}</h5>
+              <h3 className="text-lg font-medium">{title}</h3>
               <p className="text-text-secondary dark:text-dark-text-secondary text-pretty">
                 {description}
               </p>
