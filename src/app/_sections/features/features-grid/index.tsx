@@ -50,7 +50,7 @@ export function FeaturesGrid({
         {featuresGridList.items.map(({ id, title, description, icon }) => (
           <article
             key={id}
-            className="border-border dark:border-dark-border flex flex-col gap-4 rounded-lg border p-4 [box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] dark:[box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset]"
+            className="border-border dark:border-dark-border flex flex-col gap-4 rounded-lg border p-4 [box-shadow:70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] dark:[box-shadow:70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset]"
           >
             <figure className="border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary flex size-9 items-center justify-center rounded-full border p-2">
               {icon ? (

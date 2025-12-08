@@ -215,7 +215,7 @@ export default function HomePage() {
         </div>
       </section>
       {/* 5. Productized Offers */}
-      <section className="home-section home-section--white py-24 bg-gradient-to-b from-slate-50 to-white" aria-labelledby="productized-heading">
+      <section className="home-section home-section--white py-24 bg-linear-to-b from-slate-50 to-white" aria-labelledby="productized-heading">
         <div className="container mx-auto px-4">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
              <div className="space-y-6">
@@ -242,7 +242,7 @@ export default function HomePage() {
       </section>
 
       {/* 6. Consensus Engine Highlight */}
-      <section className="py-24 bg-gradient-to-b from-white via-slate-50 to-white" aria-labelledby="consensus-highlight-heading">
+      <section className="py-24 bg-linear-to-b from-white via-slate-50 to-white" aria-labelledby="consensus-highlight-heading">
         <div className="container mx-auto px-4">
            <div className="text-center max-w-3xl mx-auto mb-12">
               <h2 id="consensus-highlight-heading" className="text-3xl md:text-4xl font-bold font-hero-accent text-slate-900 mb-4 tracking-tight leading-tight">
@@ -281,7 +281,7 @@ export default function HomePage() {
       </section>
 
       {/* 9. LGBTQ Banner */}
-      <section className="py-24 bg-gradient-to-br from-slate-800 to-slate-900 text-white" aria-labelledby="lgbtq-banner-heading">
+      <section className="py-24 bg-linear-to-br from-slate-800 to-slate-900 text-white" aria-labelledby="lgbtq-banner-heading">
         <div className="container mx-auto px-4 max-w-6xl">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
