@@ -19,7 +19,7 @@ export default function BrutusPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-950 to-slate-900 py-20">
+      <section className="relative overflow-hidden bg-linear-to-br from-slate-900 via-purple-950 to-slate-900 py-20">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute left-1/4 top-20 h-96 w-96 rounded-full bg-orange-500/10 blur-[120px]" />
           <div className="absolute right-1/4 bottom-20 h-96 w-96 rounded-full bg-purple-500/10 blur-[120px]" />
@@ -33,7 +33,7 @@ export default function BrutusPage() {
           <h1 className="font-hero-accent text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
             Brutus Intelligence
             <br />
-            <span className="bg-gradient-to-r from-orange-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-orange-400 to-purple-400 bg-clip-text text-transparent">
               Platform
             </span>
           </h1>
@@ -169,7 +169,7 @@ export default function BrutusPage() {
             ].map((feature) => (
               <div
                 key={feature.title}
-                className="bg-gradient-to-br from-slate-50 to-white p-6 rounded-xl shadow-sm ring-1 ring-slate-200 hover:ring-orange-200 transition-all"
+                className="bg-linear-to-br from-slate-50 to-white p-6 rounded-xl shadow-sm ring-1 ring-slate-200 hover:ring-orange-200 transition-all"
               >
                 <div className="text-4xl mb-4">{feature.icon}</div>
                 <h3 className="text-lg font-bold text-slate-900 mb-2">{feature.title}</h3>
@@ -217,7 +217,7 @@ export default function BrutusPage() {
             </div>
 
             {/* Enterprise */}
-            <div className="bg-gradient-to-br from-orange-500 to-purple-600 rounded-2xl p-8 shadow-2xl ring-1 ring-orange-400 transform scale-105">
+            <div className="bg-linear-to-br from-orange-500 to-purple-600 rounded-2xl p-8 shadow-2xl ring-1 ring-orange-400 transform scale-105">
               <div className="text-sm font-bold uppercase tracking-wider text-orange-100 mb-2">
                 Enterprise
               </div>
@@ -276,7 +276,7 @@ export default function BrutusPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 to-purple-950">
+      <section className="py-20 bg-linear-to-br from-slate-900 to-purple-950">
         <div className="container mx-auto max-w-4xl px-4 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
             Deploy Brutus in 5 Minutes

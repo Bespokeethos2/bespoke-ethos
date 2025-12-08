@@ -11,7 +11,7 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
   return (
     <div
       className={clsx(
-        "relative mx-auto my-20 max-w-5xl overflow-hidden rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100 shadow-xl dark:from-slate-800 dark:to-slate-900",
+        "relative mx-auto my-20 max-w-5xl overflow-hidden rounded-2xl bg-linear-to-br from-slate-50 to-slate-100 shadow-xl dark:from-slate-800 dark:to-slate-900",
         className,
       )}
     >
@@ -137,7 +137,7 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
               />
               <div className="relative z-10">
                 <motion.div
-                  className="w-20 h-20 rounded-full flex items-center justify-center text-slate-900 text-4xl font-bold mx-auto mb-4 bg-gradient-to-br from-orange-400 via-orange-500 to-amber-300 border border-white/70 shadow-[0_0_20px_rgba(249,115,22,0.45)]"
+                  className="w-20 h-20 rounded-full flex items-center justify-center text-slate-900 text-4xl font-bold mx-auto mb-4 bg-linear-to-br from-orange-400 via-orange-500 to-amber-300 border border-white/70 shadow-[0_0_20px_rgba(249,115,22,0.45)]"
                   whileHover={{ scale: 1.05 }}
                   animate={{
                     boxShadow: [
@@ -203,7 +203,7 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
         )}
 
         {/* Offer Callout */}
-        <div className="text-center mb-8 p-8 bg-gradient-to-r from-orange-100 to-red-100 dark:from-orange-900/30 dark:to-red-900/30 rounded-xl border-2 border-orange-300 dark:border-orange-700">
+        <div className="text-center mb-8 p-8 bg-linear-to-r from-orange-100 to-red-100 dark:from-orange-900/30 dark:to-red-900/30 rounded-xl border-2 border-orange-300 dark:border-orange-700">
           <p className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-3">
             Free With Your Consultation
           </p>
@@ -227,7 +227,7 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
       </div>
 
       {/* Bottom accent */}
-      <div className="h-2 bg-gradient-to-r from-orange-400 via-red-500 to-pink-500" />
+      <div className="h-2 bg-linear-to-r from-orange-400 via-red-500 to-pink-500" />
     </div>
   );
 }

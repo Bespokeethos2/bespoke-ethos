@@ -237,3 +237,78 @@ Appendix Rules:
 This is your only writable area for living documentation—treat it as the single source of truth for reusable workflows, tools, and non-sensitive process notes.
 
 [cite: 173, 202]: https://example.com/sovereign-stack
+
+---
+
+### ARIA Accessibility Rules (Deque University / axe-core 4.11)
+
+**Source:** [Deque aria-valid-attr-value](https://dequeuniversity.com/rules/axe/4.11/aria-valid-attr-value)
+
+#### Core Rule - aria-valid-attr-value
+
+ARIA attributes starting with `aria-` must contain valid values that are spelled correctly and correspond to values that make sense for the attribute.
+
+#### Valid ARIA Value Types
+
+| Type | Description | Example |
+|------|-------------|---------|
+| **True/False** | Binary boolean states | `aria-hidden="true"`, `aria-expanded="false"` |
+| **Tristate** | Includes "mixed" option | `aria-checked="mixed"` (for partial checkboxes) |
+| **ID Reference** | Points to another element's ID | `aria-controls="menu-panel"` |
+| **ID Reference List** | Space-separated IDs | `aria-describedby="hint1 hint2"` |
+| **Token** | Limited set of allowed values | `aria-haspopup="true"`, `"menu"`, `"listbox"`, `"tree"`, `"grid"`, `"dialog"` |
+| **Number** | Numerical value | `aria-valuemin="0"`, `aria-valuemax="100"` |
+| **String** | Free-form text | `aria-label="Close dialog"` |
+
+#### Common Pitfalls
+
+* **Misspellings:** `aria-hidden="rtue"` instead of `"true"`
+* **Invalid tokens:** `aria-hidden="pizza"` (not a valid value)
+* **Wrong type:** Using numbers where booleans expected
+
+#### Static Analysis Limitation (IMPORTANT)
+
+Microsoft Edge Tools axe linter performs **static source analysis** on JSX. It flags ANY dynamic expression like:
+
+```tsx
+aria-expanded={isOn}                           // Flagged - sees "{expression}"
+aria-expanded={isOn ? "true" : "false"}        // Flagged - sees "{expression}"
+aria-expanded={("true" as const)}              // Flagged - sees "{expression}"
+```
+
+**Reality:** React converts boolean props to string attributes at runtime. The actual HTML will be `aria-expanded="true"` or `aria-expanded="false"` - perfectly valid.
+
+**Resolution:** These are **false positives** from static analysis. The code is accessible and correct. Options:
+
+1. Accept warnings knowing runtime behavior is correct
+2. Disable Microsoft Edge Tools axe/aria rule for React projects
+3. Use eslint-plugin-jsx-a11y instead (understands JSX expressions)
+
+#### Verified Correct Patterns in This Codebase
+
+Preferred - use utility functions from `@/lib/aria-utils`:
+
+```tsx
+import { ariaExpanded, ariaHidden } from "@/lib/aria-utils";
+
+// Clean, type-safe, universally compatible:
+aria-expanded={ariaExpanded(isOn)}     // Returns "true" | "false"
+aria-hidden={ariaHidden(!isVisible)}   // Returns "true" | "false"
+aria-haspopup="true"                   // Static string
+aria-label="Toggle menu"               // Static string
+```
+
+Alternative - inline ternary with const assertions:
+
+```tsx
+aria-expanded={isOn ? ("true" as const) : ("false" as const)}
+aria-hidden={!isOn ? ("true" as const) : ("false" as const)}
+```
+
+#### Impact of Invalid ARIA Values
+
+Assistive technologies (screen readers, braille displays) cannot interpret content correctly, affecting:
+
+* Blind users
+* Deafblind users
+* Users with mobility impairments using voice navigation

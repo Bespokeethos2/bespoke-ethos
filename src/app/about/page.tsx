@@ -59,20 +59,20 @@ export default function AboutPage() {
           <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "About" }]} />
 
       {/* Stunning Hero Section with Upton's Image */}
-      <div className="relative w-full overflow-hidden rounded-3xl border border-slate-200/60 bg-gradient-to-br from-slate-50 via-white to-orange-50/30 shadow-2xl">
+      <div className="relative w-full overflow-hidden rounded-3xl border border-slate-200/60 bg-linear-to-br from-slate-50 via-white to-orange-50/30 shadow-2xl">
         {/* Decorative background elements - Clean Gradient Only */}
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-50/40 via-transparent to-slate-100/40 pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-br from-orange-50/40 via-transparent to-slate-100/40 pointer-events-none" />
         
         {/* Content container */}
         <div className="relative z-10 grid md:grid-cols-2 gap-6 p-6 md:p-8 items-center">
           {/* Left side - Image with premium frame */}
           <div className="relative group">
             {/* Outer glow effect - Subtle */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-orange-400/10 via-slate-400/10 to-orange-400/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute -inset-4 bg-linear-to-r from-orange-400/10 via-slate-400/10 to-orange-400/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             
             {/* Image container with inner shadow */}
             <div className="relative rounded-2xl overflow-hidden border-4 border-white shadow-2xl">
-              <div className="absolute inset-0 bg-gradient-to-br from-black/5 to-transparent pointer-events-none z-10" />
+              <div className="absolute inset-0 bg-linear-to-br from-black/5 to-transparent pointer-events-none z-10" />
               <Image
                 src="/assets/upton-hero.jpg"
                 alt="Upton Rand - Founder of Bespoke Ethos"
@@ -110,7 +110,7 @@ export default function AboutPage() {
                 &quot;There has never been a better time to be a founder&quot;
               </blockquote>
               <div className="mt-1 flex items-center gap-2 pl-8">
-                <div className="h-px flex-grow bg-gradient-to-r from-orange-300 to-transparent" />
+                <div className="h-px grow bg-linear-to-r from-orange-300 to-transparent" />
                 <span className="text-sm font-semibold text-orange-600">Upton Rand</span>
               </div>
             </div>

@@ -2,14 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 
 import { ButtonLink } from "@/common/button";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
 
 export function ConversionOptimizedHero() {
   return (
@@ -18,7 +12,7 @@ export function ConversionOptimizedHero() {
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[-20%] left-[20%] h-[800px] w-[800px] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,166,0,0.08),transparent_70%)]" />
         <div className="absolute bottom-[-10%] right-[-10%] h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.05),transparent_70%)]" />
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light brightness-100 contrast-150"></div>
+        <div className="absolute inset-0 bg-[url('/assets/noise.svg')] opacity-20 mix-blend-soft-light brightness-100 contrast-150"></div>
       </div>
 
       <div className="container relative mx-auto grid max-w-7xl grid-cols-1 gap-16 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
@@ -56,7 +50,7 @@ export function ConversionOptimizedHero() {
                     <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                   </span>
                   {/* Internal Spotlight */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:animate-[shimmer_1s_infinite] z-0" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_1s_infinite] z-0" />
                 </ButtonLink>
 
 <<<<<<< HEAD
@@ -103,14 +97,14 @@ export function ConversionOptimizedHero() {
         {/* Right Column: Image - Floating with Shadow Depth */}
         <div className="relative mt-10 lg:mt-0 perspective-[2000px]">
           {/* The "Desk Pad" Shadow */}
-          <div className="absolute inset-x-8 bottom-[-20px] h-[40px] bg-black/20 blur-[30px] rounded-[100%]" />
+          <div className="absolute inset-x-8 -bottom-5 h-10 bg-black/20 blur-[30px] rounded-full" />
           
           <div className="relative overflow-hidden rounded-[2rem] bg-white ring-1 ring-slate-900/5 shadow-2xl transform rotate-y-[-5deg] rotate-x-[2deg] hover:rotate-0 transition-transform duration-700 ease-out preserve-3d">
-            <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/40 to-white/0 z-20 pointer-events-none mix-blend-overlay"></div>
+            <div className="absolute inset-0 bg-linear-to-tr from-white/0 via-white/40 to-white/0 z-20 pointer-events-none mix-blend-overlay"></div>
             <div className="relative mx-auto flex max-w-md items-center justify-center px-6 pt-12 pb-8 sm:max-w-lg lg:pt-16">
               <div className="relative w-full max-w-xs sm:max-w-sm">
                 <div className="relative overflow-hidden rounded-[1.5rem] shadow-lg">
-                  <div className="relative aspect-[4/3]">
+                  <div className="relative">
                     <Image
                       src="/assets/we-heart-founders-mug.avif"
                       alt="We love founders mug on a warm workspace"

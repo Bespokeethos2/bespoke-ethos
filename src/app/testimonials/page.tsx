@@ -98,7 +98,7 @@ export default function TestimonialsPage() {
                 >
                   <div className="flex flex-col md:flex-row gap-6 items-start">
                     {t.imageSrc && (
-                      <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-xl border border-slate-200 shadow-sm">
+                      <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-xl border border-slate-200 shadow-sm">
                         <Image
                           src={t.imageSrc}
                           alt={t.author}

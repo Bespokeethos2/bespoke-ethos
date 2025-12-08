@@ -57,10 +57,10 @@ export function TestimonialMarquee() {
           {[...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
             <div
               key={`${t.name}-${i}`}
-              className="relative w-[350px] flex-shrink-0 rounded-2xl border border-slate-200/60 bg-white/60 p-6 shadow-sm backdrop-blur-md transition-transform hover:scale-[1.02] hover:shadow-md hover:border-orange-200/50"
+              className="relative w-[350px] shrink-0 rounded-2xl border border-slate-200/60 bg-white/60 p-6 shadow-sm backdrop-blur-md transition-transform hover:scale-[1.02] hover:shadow-md hover:border-orange-200/50"
             >
               <div className="flex items-center gap-4 mb-4">
-                <div className="relative h-12 w-12 flex-shrink-0 overflow-hidden rounded-full border border-slate-100 shadow-inner">
+                <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-slate-100 shadow-inner">
                   <Image
                     src={t.imageSrc}
                     alt={t.name}

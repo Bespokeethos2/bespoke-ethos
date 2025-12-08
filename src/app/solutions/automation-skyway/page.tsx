@@ -246,7 +246,7 @@ export default function AutomationSkywayPage() {
             {/* Vertical Timeline - More Visual, Less Generic */}
             <div className="relative mx-auto max-w-3xl">
               {/* Timeline Line */}
-              <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-slate-800 via-amber-500 to-emerald-600 md:left-1/2 md:-translate-x-1/2" aria-hidden="true"></div>
+              <div className="absolute left-8 top-0 bottom-0 w-1 bg-linear-to-b from-slate-800 via-amber-500 to-emerald-600 md:left-1/2 md:-translate-x-1/2" aria-hidden="true"></div>
 
               {/* Step 1: Discovery */}
               <div className="relative mb-12 pl-20 md:pl-0 md:grid md:grid-cols-2 md:gap-8">

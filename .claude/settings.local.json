@@ -16,7 +16,11 @@
       "Bash(npx eslint:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(vercel --prod)"
+      "Bash(vercel --prod)",
+      "Bash(Get-Process -Name \"git\" -ErrorAction SilentlyContinue)",
+      "Bash(vercel ls:*)",
+      "Bash(find:*)",
+      "Bash(ls:*)"
     ],
     "deny": [],
     "ask": []

@@ -16,6 +16,7 @@ import { Button, ButtonLink } from "@/common/button";
 import type { HeaderData, HeaderNavLink, HeaderNavLinkItem } from ".";
 import { useToggleState } from "@/hooks/use-toggle-state";
 import { useHasRendered } from "@/hooks/use-has-rendered";
+import { ariaExpanded, ariaHidden } from "@/lib/aria-utils";
 
 // #region desktop 💻
 /* -------------------------------------------------------------------------- */
@@ -255,7 +256,7 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
     <>
       <button
         aria-label="Toggle menu"
-        aria-expanded={isOn ? "true" : "false"}
+        aria-expanded={ariaExpanded(isOn)}
         aria-controls="mobile-navigation-panel"
         className="border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary col-start-3 flex items-center justify-center gap-2 justify-self-end rounded-sm border p-2 xl:hidden xl:h-7"
         onClick={handleToggle}
@@ -406,7 +407,7 @@ function ItemWithSublinks({
       <button
         className="flex items-center gap-2 px-3 py-2.5 text-base font-medium"
         onClick={handleToggle}
-        aria-expanded={isOn ? "true" : "false"}
+        aria-expanded={ariaExpanded(isOn)}
         aria-controls={submenuId}
         aria-haspopup="true"
       >
@@ -425,7 +426,7 @@ function ItemWithSublinks({
           "flex origin-top transform-gpu flex-col gap-2 pl-4 transition-all duration-300 ease-in-out",
           isOn ? "max-h-[500px] opacity-100 overflow-y-auto" : "max-h-0 opacity-0 overflow-hidden",
         )}
-        aria-hidden={isOn ? "false" : "true"}
+        aria-hidden={ariaHidden(!isOn)}
       >
         {sublinkItems.map((sublink) => {
           if (sublink.children?.length) {

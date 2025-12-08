@@ -72,7 +72,7 @@ export function AlexMollyStory() {
                   Why we do this:
                 </p>
                 <div className="flex items-start gap-5 bg-linear-to-br from-accent-50/80 to-accent-100/40 dark:from-accent-950/40 dark:to-accent-900/20 p-5 rounded-xl border border-accent-200/60 dark:border-accent-800/60 shadow-md">
-                  <div className="flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 relative">
+                  <div className="shrink-0 w-24 h-24 sm:w-28 sm:h-28 relative">
                     <Image
                       src="/assets/we-heart-founders-mug.avif"
                       alt="We love founders mug with heart icon"
