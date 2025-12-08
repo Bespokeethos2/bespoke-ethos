@@ -134,7 +134,7 @@ function DiscountButtonFallback() {
   return (
     <Link
       href="/lgbtq-discount"
-      className="relative inline-flex items-center gap-2 rounded-full border border-accent-400 bg-white px-5 py-2 text-sm font-semibold text-accent-600 shadow-sm transition hover:bg-accent-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-500"
+      className="relative inline-flex items-center gap-2 rounded-full border border-accent-400 bg-white px-5 py-2 text-sm font-semibold text-accent-600 shadow-sm transition hover:bg-accent-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-500"
     >
       Claim LGBTQ+ discount
     </Link>
@@ -154,7 +154,7 @@ export default function HomePage() {
       <ConversionOptimizedHero />
 
       {/* 1a. SEO-aligned intro */}
-      <section className="py-12 md:py-16 bg-gradient-to-b from-white to-slate-50">
+      <section className="py-12 md:py-16 bg-linear-to-b from-white to-slate-50">
         <div className="container mx-auto px-4 max-w-3xl">
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900 font-hero-accent leading-tight tracking-tight">
             AI consulting and workflow automation for small businesses.
@@ -195,19 +195,19 @@ export default function HomePage() {
               </ButtonLink>
             </div>
           </div>
-          <div className="be-section-card space-y-5 p-8 border-2 border-orange-100 bg-gradient-to-br from-white to-orange-50 shadow-xl rounded-2xl">
+          <div className="be-section-card space-y-5 p-8 border-2 border-orange-100 bg-linear-to-br from-white to-orange-50 shadow-xl rounded-2xl">
             <h3 className="text-lg font-bold text-slate-900 border-b-2 border-orange-200 pb-3">What you get</h3>
             <ul className="space-y-4 text-slate-700">
               <li className="flex items-start gap-3">
-                <span className="text-orange-500 font-bold text-lg mt-0.5 flex-shrink-0">✓</span>
+                <span className="text-orange-500 font-bold text-lg mt-0.5 shrink-0">✓</span>
                 <span>Decision Brief on your biggest question before you commit</span>
               </li>
               <li className="flex items-start gap-3">
-                 <span className="text-orange-500 font-bold text-lg mt-0.5 flex-shrink-0">✓</span>
+                 <span className="text-orange-500 font-bold text-lg mt-0.5 shrink-0">✓</span>
                  <span>Static/serverless builds with approvals, rollback, and docs</span>
               </li>
               <li className="flex items-start gap-3">
-                 <span className="text-orange-500 font-bold text-lg mt-0.5 flex-shrink-0">✓</span>
+                 <span className="text-orange-500 font-bold text-lg mt-0.5 shrink-0">✓</span>
                  <span>No enterprise fluff; founder answers every request</span>
               </li>
             </ul>

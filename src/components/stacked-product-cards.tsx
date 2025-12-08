@@ -1,8 +1,7 @@
 import Link from "next/link";
-import clsx from "clsx";
-import { VogueCard } from "./vogue-card";
+import Image from "next/image";
 
-type StackCard = {
+type ProductCard = {
   key: string;
   title: string;
   tagline: string;
@@ -12,16 +11,16 @@ type StackCard = {
   imageAlt: string;
 };
 
-const STACKED_CARDS: StackCard[] = [
+const PRODUCT_CARDS: ProductCard[] = [
   {
     key: "cadence",
-    title: "Meet Cadence  Your AI Concierge",
+    title: "Cadence – Your AI Concierge",
     tagline: "On-brand AI front door",
     description:
       "Customer-facing AI concierge that answers common questions, routes work, and hands off to you when it matters.",
     href: "/products/cadence",
     imageSrc: "/assets/generated/hero-chatbots-desktop.webp",
-    imageAlt: "AI Strategy Sprint hero image",
+    imageAlt: "AI chatbot concierge hero image",
   },
   {
     key: "automation-skyway",
@@ -30,12 +29,12 @@ const STACKED_CARDS: StackCard[] = [
     description:
       "Map your process, keep approvals intact, build production-ready cloud automation in days, not months.",
     href: "/solutions/automation-skyway",
-    imageSrc: "/assets/generated/hero-automation-skyway-desktop.webp",
+    imageSrc: "/assets/generated/hero-flowstack-desktop.webp",
     imageAlt: "Automation Skyway cloud workflow automation hero image",
   },
   {
     key: "consensus",
-    title: "Consensus Engine  Your AI Strategy Sprint",
+    title: "Consensus Engine",
     tagline: "Clarity with receipts",
     description:
       "Multi-lens research sprint that synthesizes sources, surfaces options, and delivers a cited brief for confident decisions.",
@@ -48,55 +47,42 @@ const STACKED_CARDS: StackCard[] = [
     title: "Automation Rescue",
     tagline: "Fix, fortify, monitor",
     description:
-      "Broken workflow? Duct-taped integrations? We fix what's failing and build it rightfast.",
+      "Broken workflow? Duct-taped integrations? We fix what's failing and build it right—fast.",
     href: "/solutions/redbridging",
     imageSrc: "/assets/generated/hero-redbridging-desktop.webp",
     imageAlt: "Automation rescue hero image",
   },
-] as const;
-
-const LAYER_CLASSES = [
-  // top card
-  "z-40 rotate-[-1deg] -translate-y-1",
-  // second card
-  "z-30 rotate-1 translate-y-4",
-  // third card
-  "z-20 rotate-[-2deg] translate-y-8",
-  // bottom card
-  "z-10 rotate-2 translate-y-12",
-] as const;
+];
 
 export function StackedProductCards() {
   return (
-    <div
-      className="relative mx-auto mt-6 flex max-w-5xl items-center justify-center"
-      aria-label="Stacked view of flagship small-business solutions"
-    >
-      <div className="relative h-[520px] w-full max-w-2xl sm:h-[560px]">
-        {STACKED_CARDS.map((card, index) => {
-          const layerClass = LAYER_CLASSES[index] ?? LAYER_CLASSES[LAYER_CLASSES.length - 1];
-
-          return (
-            <Link
-              key={card.key}
-              href={card.href}
-              className={clsx(
-                "group absolute inset-x-0 mx-auto max-w-md transition-transform duration-500 ease-out",
-                layerClass,
-              )}
-            >
-              <VogueCard
-                imageSrc={card.imageSrc}
-                imageAlt={card.imageAlt}
-                title={card.title}
-                tagline={card.tagline}
-                description={card.description}
-                className="pointer-events-none group-hover:-translate-y-3 group-hover:rotate-0"
-              />
-            </Link>
-          );
-        })}
-      </div>
+    <div className="grid gap-6 sm:grid-cols-2" aria-label="Flagship small-business solutions">
+      {PRODUCT_CARDS.map((card) => (
+        <Link
+          key={card.key}
+          href={card.href}
+          className="group flex flex-col rounded-xl border border-border bg-surface-secondary p-4 transition-all hover:border-accent-400 hover:shadow-lg dark:border-dark-border dark:bg-dark-surface-secondary dark:hover:border-accent-500"
+        >
+          <div className="relative mb-4 h-40 w-full overflow-hidden rounded-lg">
+            <Image
+              src={card.imageSrc}
+              alt={card.imageAlt}
+              fill
+              className="object-cover transition-transform group-hover:scale-105"
+              sizes="(max-width: 640px) 100vw, 50vw"
+            />
+          </div>
+          <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-accent-600 dark:text-accent-400">
+            {card.tagline}
+          </p>
+          <h3 className="mb-2 text-lg font-bold text-text-primary dark:text-dark-text-primary">
+            {card.title}
+          </h3>
+          <p className="text-sm text-text-secondary dark:text-dark-text-secondary">
+            {card.description}
+          </p>
+        </Link>
+      ))}
     </div>
   );
 }

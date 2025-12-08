@@ -36,7 +36,7 @@ export function AlexMollyStory() {
                   />
                   
                   {/* Overlay accent */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent" />
                   
                   {/* Zoom hint */}
                   <div className="absolute bottom-4 right-4 bg-black/60 text-white text-xs px-3 py-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -71,7 +71,7 @@ export function AlexMollyStory() {
                 <p className="text-base font-bold text-text-primary dark:text-dark-text-primary mb-4 tracking-wide">
                   Why we do this:
                 </p>
-                <div className="flex items-start gap-5 bg-gradient-to-br from-accent-50/80 to-accent-100/40 dark:from-accent-950/40 dark:to-accent-900/20 p-5 rounded-xl border border-accent-200/60 dark:border-accent-800/60 shadow-md">
+                <div className="flex items-start gap-5 bg-linear-to-br from-accent-50/80 to-accent-100/40 dark:from-accent-950/40 dark:to-accent-900/20 p-5 rounded-xl border border-accent-200/60 dark:border-accent-800/60 shadow-md">
                   <div className="flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 relative">
                     <Image
                       src="/assets/we-heart-founders-mug.avif"

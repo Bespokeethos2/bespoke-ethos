@@ -501,7 +501,7 @@ function FallbackStaticPage({ slug }: { slug?: string[] }) {
                 sizes="(max-width: 768px) 100vw, 520px"
                 priority
               />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/10 dark:from-black/70" />
+              <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-black/10 dark:from-black/70" />
             </div>
           </div>
         </div>

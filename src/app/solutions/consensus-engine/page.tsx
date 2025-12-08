@@ -8,7 +8,6 @@ import { ButtonLink } from "@/common/button";
 import { PRICING, formatMoney } from "@/config/pricing";
 import { ConsensusEngineCard } from "@/components/ConsensusEngineCard";
 import { TechNerdCard } from "@/components/tech-nerd-card";
-import { VogueCard } from "@/components/vogue-card";
 import { TrustStrip } from "@/app/_components/trust-strip";
 import { FounderConsensusQA } from "@/app/_components/founder-consensus-qa";
 import { ConsensusResearchers } from "@/components/consensus-researchers";
@@ -126,15 +125,6 @@ export default function ConsensusEnginePage() {
               </div>
             </div>
           </section>
-
-          {/* Couture card for consistency with other products */}
-          <VogueCard
-            imageSrc="/assets/logos/consensus.png"
-            imageAlt="Consensus Engine couture card"
-            title="Consensus Engine  Your AI Strategy Sprint"
-            tagline="Collaborative decisions"
-            description="Coordinated AI perspectives with citations and clear tradeoffs so your biggest calls come with receipts instead of guesses."
-          />
 
           {/* Trust + pricing */}
           <section className="grid gap-6 md:grid-cols-[minmax(0,1.35fr)_minmax(0,0.9fr)] items-start">

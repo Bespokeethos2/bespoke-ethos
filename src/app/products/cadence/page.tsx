@@ -10,7 +10,6 @@ import { FounderAiStrategySprintQA } from "@/app/_components/founder-ai-strategy
 import { TrustStrip } from "@/app/_components/trust-strip";
 import { CadenceLogoCard } from "@/common/cadence-logo-card";
 import { PRICING, formatMoney } from "@/config/pricing";
-import { VogueCard } from "@/components/vogue-card";
 import { TechNerdCard } from "@/components/tech-nerd-card";
 import { Accordion } from "@/app/_sections/accordion-faq/accordion";
 
@@ -93,7 +92,7 @@ export default function CadencePage() {
           />
 
           {/* Hero */}
-          <section className="cadence-hero relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-amber-50 via-white to-slate-100 p-6 shadow-xl dark:from-slate-900/70 dark:via-slate-900/50 dark:to-slate-900/30 md:p-8">
+          <section className="cadence-hero relative overflow-hidden rounded-3xl border border-border bg-linear-to-br from-amber-50 via-white to-slate-100 p-6 shadow-xl dark:from-slate-900/70 dark:via-slate-900/50 dark:to-slate-900/30 md:p-8">
             <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.9fr)]">
               {/* Left: copy + CTAs */}
               <div className="space-y-5 text-text-primary dark:text-dark-text-primary">
@@ -162,15 +161,6 @@ export default function CadencePage() {
               </div>
             </div>
           </section>
-
-          {/* Couture-style intro card */}
-          <VogueCard
-            imageSrc="/assets/logos/cadence.png"
-            imageAlt="Cadence couture card"
-            title="Meet Cadence – Your AI Concierge"
-            tagline="Your brand’s rhythm, on autopilot"
-            description="Cadence is a highly tailored customer chatbot for people who think chatbots are the worst. It behaves more like a patient sales associate who knows your stories than a pop‑up FAQ."
-          />
 
           {/* Personality ad banner (keeps the fun campaign visible) */}
           <section

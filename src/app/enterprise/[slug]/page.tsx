@@ -8,7 +8,6 @@ import {
   type EnterpriseOffering,
   getEnterpriseOffering,
 } from "../data";
-import { VogueCard } from "@/components/vogue-card";
 
 type EnterpriseParams = { slug: string };
 type EnterprisePageProps = {
@@ -74,14 +73,6 @@ export default async function EnterpriseOfferingPage({ params }: EnterprisePageP
               priority
             />
           </div>
-
-          <VogueCard
-            imageSrc={offering.card.image}
-            imageAlt={offering.card.alt}
-            title={offering.title}
-            tagline={offering.card.tagline}
-            description={offering.card.description}
-          />
 
           <div className="grid gap-6 md:grid-cols-2">
             <EnterpriseListCard title="Built for teams like" items={offering.idealFor} />
