@@ -10,7 +10,7 @@ export function AlexMollyStory() {
   return (
     <>
       <Section className="py-16 md:py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-accent-50/30 to-transparent dark:from-accent-950/20 pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-b from-accent-50/30 to-transparent dark:from-accent-950/20 pointer-events-none" />
         
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-12 lg:gap-12 items-center">
@@ -18,12 +18,12 @@ export function AlexMollyStory() {
             <div className="lg:col-span-6">
               <div className="relative">
                 {/* Glow backdrop */}
-                <div className="absolute -inset-4 bg-gradient-to-br from-accent-400/20 to-accent-600/10 rounded-2xl blur-2xl" />
+                <div className="absolute -inset-4 bg-linear-to-br from-accent-400/20 to-accent-600/10 rounded-2xl blur-2xl" />
                 
                 {/* Main image container - CLICKABLE */}
                 <button
                   onClick={() => setIsImageEnlarged(true)}
-                  className="relative aspect-[3/4] sm:aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-2xl border border-accent-200/50 dark:border-accent-800/50 cursor-zoom-in hover:shadow-3xl transition-shadow duration-300 group"
+                  className="relative aspect-3/4 sm:aspect-4/3 w-full overflow-hidden rounded-2xl shadow-2xl border border-accent-200/50 dark:border-accent-800/50 cursor-zoom-in hover:shadow-3xl transition-shadow duration-300 group"
                   aria-label="Click to enlarge Alex's photo with Molly on screen"
                 >
                   <Image

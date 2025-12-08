@@ -1,4 +1,5 @@
 # Deep Context Index (Local)
+
 Quick map of the most important guidance already in this repo so you don’t burn time hunting for it again.
 
 - **Pricing & offers**: `src/config/pricing.ts` drives Flowstack, Cadence, Chatbots, Consensus Engine, Redbridging numbers. Rendered on `src/app/pricing/page.tsx` and referenced across solutions/products pages.
