@@ -680,7 +680,7 @@ function FallbackStaticPage({ slug }: { slug?: string[] }) {
               href="https://calendly.com/contact-bespokeethos/30min"
               className="bg-white text-accent-600 hover:bg-slate-100 inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold transition"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               Schedule on Calendly
             </a>

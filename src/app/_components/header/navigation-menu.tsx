@@ -255,7 +255,7 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
     <>
       <button
         aria-label="Toggle menu"
-        aria-expanded={isOn}
+        aria-expanded={isOn ? "true" : "false"}
         aria-controls="mobile-navigation-panel"
         className="border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary col-start-3 flex items-center justify-center gap-2 justify-self-end rounded-sm border p-2 xl:hidden xl:h-7"
         onClick={handleToggle}
@@ -265,9 +265,8 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
       <div className="block xl:hidden">
         {isOn ? (
           <div
-            className="be-mobile-menu-backdrop fixed inset-0 z-[120] bg-surface-primary/95 dark:bg-dark-surface-primary/95"
+            className="be-mobile-menu-backdrop fixed inset-0 z-120 bg-surface-primary/95 dark:bg-dark-surface-primary/95 be-mobile-menu-fullscreen"
             onClick={handleOff}
-            style={{ height: "100dvh", width: "100vw" }}
           >
             <div
               id="mobile-navigation-panel"
@@ -407,7 +406,7 @@ function ItemWithSublinks({
       <button
         className="flex items-center gap-2 px-3 py-2.5 text-base font-medium"
         onClick={handleToggle}
-        aria-expanded={isOn}
+        aria-expanded={isOn ? "true" : "false"}
         aria-controls={submenuId}
         aria-haspopup="true"
       >
@@ -426,7 +425,7 @@ function ItemWithSublinks({
           "flex origin-top transform-gpu flex-col gap-2 pl-4 transition-all duration-300 ease-in-out",
           isOn ? "max-h-[500px] opacity-100 overflow-y-auto" : "max-h-0 opacity-0 overflow-hidden",
         )}
-        aria-hidden={!isOn}
+        aria-hidden={isOn ? "false" : "true"}
       >
         {sublinkItems.map((sublink) => {
           if (sublink.children?.length) {
