@@ -12,6 +12,7 @@ import { CadenceLogoCard } from "@/common/cadence-logo-card";
 import { PRICING, formatMoney } from "@/config/pricing";
 import { TechNerdCard } from "@/components/tech-nerd-card";
 import { Accordion } from "@/app/_sections/accordion-faq/accordion";
+import { CadenceInfographicModal } from "./infographic-modal";
 
 export const revalidate = 1800;
 
@@ -113,18 +114,18 @@ export default function CadencePage() {
                   sounding like a generic FAQ bot.
                 </p>
 
-                <div className="mt-4 flex flex-wrap items-center gap-3">
-                  <p className="inline-flex items-center rounded-full bg-white/90 px-4 py-1 text-xs font-medium text-text-secondary shadow-sm dark:bg-dark-surface-secondary/90 dark:text-dark-text-secondary">
+                <div className="mt-4 space-y-3">
+                  <p className="text-xs font-medium text-text-secondary dark:text-dark-text-secondary">
                     Starts at {formatMoney(PRICING.cadence.setup)} setup + {formatMoney(PRICING.cadence.monthly)}/mo.
                     <Link href="/solutions/automation-skyway" className="ml-1 underline underline-offset-2">
                       Need something simpler? Try Automation Skyway.
                     </Link>
                   </p>
-                  <div className="flex flex-wrap gap-3">
-                    <ButtonLink intent="primary" href="#demo">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                    <ButtonLink intent="primary" href="#demo" className="whitespace-nowrap">
                       See a live demo (2 min)
                     </ButtonLink>
-                    <ButtonLink intent="secondary" href="/contact?service=llm-setups">
+                    <ButtonLink intent="secondary" href="/contact?service=llm-setups" className="whitespace-nowrap">
                       Book a strategy call
                     </ButtonLink>
                     <ButtonLink
@@ -146,18 +147,9 @@ export default function CadencePage() {
                 </div>
               </div>
 
-              {/* Right: hero imagery for visual balance */}
+              {/* Right: Cadence infographic showing how it works */}
               <div className="mt-6 lg:mt-0">
-                <div className="relative h-52 w-full overflow-hidden rounded-2xl border border-border bg-white shadow-xl dark:border-dark-border dark:bg-black/40 md:h-64">
-                  <Image
-                    src="/assets/generated/hero-cadence-desktop.webp"
-                    alt={ALT.hero}
-                    fill
-                    className="object-cover object-center"
-                    sizes="(max-width: 768px) 100vw, 520px"
-                    priority
-                  />
-                </div>
+                <CadenceInfographicModal />
               </div>
             </div>
           </section>
