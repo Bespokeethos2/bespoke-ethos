@@ -258,7 +258,7 @@ export default function AIOutreachPlexusCaseStudy() {
                 </tbody>
               </table>
             </div>
-            <p c<p class="mt-4 rounded-lg bg-orange-50/80 p-4 text-sm text-orange-900/80 dark:bg-orange-950/50 dark:text-orange-200/80">
+            <p className="mt-4 rounded-lg bg-orange-50/80 p-4 text-sm text-orange-900/80 dark:bg-orange-950/50 dark:text-orange-200/80">
               <strong>Bottom Line:</strong> GPT-5.1 Pro gave us smart copy. Claude Opus 4.5 gave us soul-aligned copy.
               That's why we moved our later passes entirely into Opus.
             </p>
