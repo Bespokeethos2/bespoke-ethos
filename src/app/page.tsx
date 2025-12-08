@@ -54,7 +54,7 @@ const homeFaqItems = [
 export const metadata: Metadata = {
   title: "AI Automation Consulting for Small Businesses in Cleveland | Bespoke Ethos",
   description:
-    "AI consulting and workflow automation for small businesses. Bespoke Ethos helps founders in Cleveland and beyond fix broken Zapier/Make automations, design AI workflows, and ship fixed-price projects starting at $997.",
+    "AI consulting and workflow automation for small businesses. Bespoke Ethos helps founders in Cleveland and beyond fix broken Zapier/Make automations, design AI workflows, and ship fixed-price projects starting at $1,497.",
   keywords: [
     "AI consulting",
     "AI consulting for small business",
@@ -86,7 +86,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     title: "AI Automation Consulting for Small Businesses in Cleveland | Bespoke Ethos",
     description:
-      "AI consulting and workflow automation for small businesses. Get help fixing Zapier/Make automations, designing AI workflows, and launching fixed-price automation projects from $997.",
+      "AI consulting and workflow automation for small businesses. Get help fixing Zapier/Make automations, designing AI workflows, and launching fixed-price automation projects from $1,497.",
     images: [
       {
         url: `${siteUrl}/assets/generated/logo-square-dark.png`,
@@ -101,7 +101,7 @@ export const metadata: Metadata = {
     site: "@bespokeethos",
     creator: "@bespokeethos",
     title: "AI Automation Consulting for Small Businesses | Bespoke Ethos",
-    description: "Cleveland-based AI consulting. Fix broken automations, design AI workflows, ship fixed-price projects from $997.",
+    description: "Cleveland-based AI consulting. Fix broken automations, design AI workflows, ship fixed-price projects from $1,497.",
     images: [`${siteUrl}/assets/generated/logo-square-dark.png`],
   },
 };
@@ -162,7 +162,7 @@ export default function HomePage() {
           <p className="mt-4 text-lg text-slate-600 leading-relaxed">
             Bespoke Ethos is a Cleveland-based AI consulting firm led by a former AI trainer. We help small
             businesses escape broken Zapier and Make.com workflows, design practical AI automations, and launch fixed-price projects
-            starting at <span className="font-semibold text-orange-600">$997</span>.
+            starting at <span className="font-semibold text-orange-600">$1,497</span>.
           </p>
         </div>
       </section>
@@ -181,10 +181,10 @@ export default function HomePage() {
               <p className="text-xs font-bold uppercase tracking-widest text-orange-600 bg-orange-50 px-3 py-1 rounded-full">Straight Talk on Pricing</p>
             </div>
             <h2 id="pricing-transparent-heading" className="text-3xl md:text-4xl font-bold font-hero-accent text-slate-900 leading-tight tracking-tight">
-              Competitors bill $200-350/hr. <br /> Our projects start at <span className="text-orange-600">$997 total</span>.
+              Enterprise consultants charge $200-450/hr and drag projects out for months. <br /> We deliver fixed-scope builds starting at <span className="text-orange-600">$1,497</span>—or $1,122 for LGBTQ-owned businesses.
             </h2>
             <p className="text-lg text-slate-600 leading-relaxed max-w-lg">
-              Because we remember being broke. Fixed-scope projects with clear deliverables, no hourly billing surprises–and a 25% LGBTQ-owned discount on upfront fees.
+              No hourly billing surprises. No scope creep. Just results.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
               <ButtonLink intent="primary" href="/pricing">

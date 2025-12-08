@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     title: "Transparent AI Consulting Pricing | Bespoke Ethos",
     description:
-      "Fixed-price AI consulting and automation projects starting at $997. No hourly billing, no surprises—just clear scopes and founder-led delivery.",
+      "Fixed-price AI consulting and automation projects starting at $1,497. No hourly billing, no surprises—just clear scopes and founder-led delivery.",
     images: [
       {
         url: `${siteUrl}/assets/generated/logo-square-dark.png`,
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     site: "@bespokeethos",
     creator: "@bespokeethos",
     title: "AI Consulting Pricing | Bespoke Ethos",
-    description: "Fixed-price projects starting at $997 for small business AI and automation.",
+    description: "Fixed-price projects starting at $1,497 for small business AI and automation.",
     images: [`${siteUrl}/assets/generated/logo-square-dark.png`],
   },
 };

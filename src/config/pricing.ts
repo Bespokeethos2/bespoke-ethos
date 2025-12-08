@@ -12,12 +12,12 @@ export const PRICING = {
     rangeMax: 199,
   },
   cadence: {
-    setup: 997,
-    monthly: 149,
+    setup: 1497,
+    monthly: 197,
   },
   automationRescue: {
     // Standalone a la carte price for non-members
-   standaloneALaCarte: 149.99,
+   standaloneALaCarte: 147,
     aiToolStackConsultation: 99.99,
     zapierMakeWorkflowAudit: 199.99,
     chatbotAuditTuneUp: 249.99,
@@ -27,12 +27,12 @@ export const PRICING = {
     standaloneHigh: 99,
   },
   aiResearchAssistant: {
-    monthly: 299.99,
+    monthly: 497,
     queryLimit: 4,
   },
   aiStrategySprint: {
-    setup: 997,
-    monthly: 149,
+    setup: 1497,
+    monthly: 197,
     pilot: 500,
   },
   scale: {
