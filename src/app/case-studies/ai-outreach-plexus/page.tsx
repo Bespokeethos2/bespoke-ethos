@@ -97,7 +97,7 @@ export default function AIOutreachPlexusCaseStudy() {
             <p className="text-text-secondary dark:text-dark-text-secondary">So we brought in a specialist.</p>
 
             {/* GPT-5.1 Model Card */}
-            <d<div class="mt-6 rounded-2xl border border-orange-200 bg-orange-50/50 p-6 dark:border-orange-900/50 dark:bg-orange-950/30">">
+            <div className="mt-6 rounded-2xl border border-orange-200 bg-orange-50/50 p-6 dark:border-orange-900/50 dark:bg-orange-950/30">
               <h3 className="mb-4 text-lg font-semibold text-text-primary dark:text-dark-text-primary">
                 GPT-5.1 Pro (High Inference) at a glance
               </h3>
