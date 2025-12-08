@@ -8,11 +8,61 @@ import { Accordion } from "@/app/_sections/accordion-faq/accordion";
 
 export const revalidate = 1800;
 
+const siteUrl = "https://www.bespokeethos.com";
+
 export const metadata: Metadata = {
   title: "About Bespoke Ethos | AI Consulting & Workflow Automation for Small Businesses",
   description:
     "Learn about Bespoke Ethos, a Cleveland-based AI consulting and workflow automation firm for small businesses. NGLCC-certified, Catalant-vetted founder with 5+ years training AI models.",
+  keywords: [
+    "AI consulting Cleveland",
+    "workflow automation consulting",
+    "small business AI strategy",
+    "Zapier expert consultant",
+    "Make.com automation consultant",
+    "AI consulting for small business",
+    "automation consulting firm",
+    "Cleveland AI consultant",
+    "founder Upton Rand",
+    "LGBTQ owned business",
+  ],
   alternates: { canonical: "/about" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: `${siteUrl}/about`,
+    siteName: "Bespoke Ethos",
+    locale: "en_US",
+    title: "About Bespoke Ethos | Founder-Led AI Consulting for Small Business",
+    description:
+      "Meet the founder behind Bespoke Ethos—an NGLCC-certified AI consultant with 5+ years training AI models. We fix broken automations and build practical AI workflows for small businesses.",
+    images: [
+      {
+        url: `${siteUrl}/assets/generated/logo-square-dark.png`,
+        width: 512,
+        height: 512,
+        alt: "Bespoke Ethos orange square logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@bespokeethos",
+    creator: "@bespokeethos",
+    title: "About Bespoke Ethos | AI Consulting for Small Businesses",
+    description: "Learn about our founder-led approach to AI and workflow automation consulting.",
+    images: [`${siteUrl}/assets/generated/logo-square-dark.png`],
+  },
 };
 
 const aboutFaqItems = [

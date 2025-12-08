@@ -10,11 +10,61 @@ import { ENTERPRISE_CONTACT, ENTERPRISE_OFFERINGS } from "../enterprise/data";
 
 export const revalidate = 1800;
 
+const siteUrl = "https://www.bespokeethos.com";
+
 export const metadata: Metadata = {
-  title: "Pricing | Bespoke Ethos",
+  title: "Pricing | Bespoke Ethos - AI Consulting & Automation Solutions",
   description:
     "Simple, transparent pricing for small business: Cadence (Your AI Concierge), Consensus Engine (Your AI Strategy Sprint), Workflow Automation Setup, and Automation Rescue—with fixed scopes and 25% LGBTQ-owned discounts.",
+  keywords: [
+    "AI consulting pricing",
+    "automation consulting cost",
+    "workflow automation pricing",
+    "small business AI cost",
+    "Zapier rescue pricing",
+    "Make.com automation pricing",
+    "fixed price automation projects",
+    "affordable AI consulting",
+    "AI strategy sprint pricing",
+    "chatbot development pricing",
+  ],
   alternates: { canonical: "/pricing" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: `${siteUrl}/pricing`,
+    siteName: "Bespoke Ethos",
+    locale: "en_US",
+    title: "Transparent AI Consulting Pricing | Bespoke Ethos",
+    description:
+      "Fixed-price AI consulting and automation projects starting at $997. No hourly billing, no surprises—just clear scopes and founder-led delivery.",
+    images: [
+      {
+        url: `${siteUrl}/assets/generated/logo-square-dark.png`,
+        width: 512,
+        height: 512,
+        alt: "Bespoke Ethos orange square logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@bespokeethos",
+    creator: "@bespokeethos",
+    title: "AI Consulting Pricing | Bespoke Ethos",
+    description: "Fixed-price projects starting at $997 for small business AI and automation.",
+    images: [`${siteUrl}/assets/generated/logo-square-dark.png`],
+  },
 };
 
 export default function PricingPage() {

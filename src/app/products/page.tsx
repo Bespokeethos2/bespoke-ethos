@@ -7,11 +7,61 @@ import { StackedProductCards } from "@/components/stacked-product-cards";
 
 export const revalidate = 1800;
 
+const siteUrl = "https://www.bespokeethos.com";
+
 export const metadata: Metadata = {
   title: "Small Business AI Products | Bespoke Ethos",
   description:
     "Cadence, Consensus Engine, Workflow Automation Setup, and Automation Rescue—our flagship small-business AI products for chat, research sprints, automation, and reliability.",
+  keywords: [
+    "AI chatbot for small business",
+    "workflow automation software",
+    "AI strategy tool",
+    "Zapier alternative",
+    "Make.com automation",
+    "AI concierge service",
+    "business process automation",
+    "small business AI tools",
+    "workflow management solution",
+    "AI-powered customer service",
+  ],
   alternates: { canonical: "/products" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: `${siteUrl}/products`,
+    siteName: "Bespoke Ethos",
+    locale: "en_US",
+    title: "AI Products for Small Business | Bespoke Ethos",
+    description:
+      "Cadence, Consensus Engine, Workflow Automation Setup, and Automation Rescue—flagship tools for small business founders.",
+    images: [
+      {
+        url: `${siteUrl}/assets/generated/logo-square-dark.png`,
+        width: 512,
+        height: 512,
+        alt: "Bespoke Ethos orange square logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@bespokeethos",
+    creator: "@bespokeethos",
+    title: "AI Products for Small Business | Bespoke Ethos",
+    description: "Cadence, Consensus Engine, Automation Setup, Automation Rescue—AI tools for founders.",
+    images: [`${siteUrl}/assets/generated/logo-square-dark.png`],
+  },
 };
 
 export default function ProductsPage() {
