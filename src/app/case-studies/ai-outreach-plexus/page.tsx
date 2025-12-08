@@ -205,7 +205,7 @@ export default function AIOutreachPlexusCaseStudy() {
             <h2 className="text-2xl font-bold text-text-primary dark:text-dark-text-primary">
               GPT-5.1 Pro vs Claude Opus 4.5: Why We Switched
             </h2>
-            <d<div class="overflow-x-auto rounded-2xl border-2 border-orange-200 bg-white dark:border-orange-900/80 dark:bg-dark-surface-primary">">
+            <div className="overflow-x-auto rounded-2xl border-2 border-orange-200 bg-white dark:border-orange-900/80 dark:bg-dark-surface-primary">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-border bg-surface-secondary/80 dark:border-dark-border dark:bg-dark-surface-secondary/80">
