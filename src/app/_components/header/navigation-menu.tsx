@@ -271,7 +271,7 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
           >
             <div
               id="mobile-navigation-panel"
-              className="be-mobile-menu-card top-2 bottom-4 mx-auto max-w-md sm:max-w-lg rounded-2xl border border-border bg-surface-primary text-text-primary shadow-xl dark:border-dark-border dark:bg-dark-surface-primary dark:text-dark-text-primary"
+              className="be-mobile-menu-card absolute left-0 right-0 top-2 bottom-4 mx-auto max-w-md sm:max-w-lg rounded-2xl border border-border bg-surface-primary text-text-primary shadow-xl dark:border-dark-border dark:bg-dark-surface-primary dark:text-dark-text-primary"
               role="dialog"
               aria-modal="true"
               aria-label="Mobile navigation menu"

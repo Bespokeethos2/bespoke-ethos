@@ -50,7 +50,7 @@ export function ConversionOptimizedHero() {
                     <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                   </span>
                   {/* Internal Spotlight */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_1s_infinite] z-0" />
+                  <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_1s_infinite] z-0" />
                 </ButtonLink>
                 <ButtonLink href="/case-studies/ai-outreach-plexus" intent="secondary" size="lg" className="px-6 py-3 text-base font-semibold">
                   <span className="flex items-center gap-2">
@@ -84,11 +84,11 @@ export function ConversionOptimizedHero() {
           {/* The "Desk Pad" Shadow */}
           <div className="absolute inset-x-8 -bottom-5 h-10 bg-black/20 blur-[30px] rounded-full" />
           
-          <div className="relative overflow-hidden rounded-[2rem] bg-white ring-1 ring-slate-900/5 shadow-2xl transform rotate-y-[-5deg] rotate-x-[2deg] hover:rotate-0 transition-transform duration-700 ease-out preserve-3d">
+          <div className="relative overflow-hidden rounded-4xl bg-white ring-1 ring-slate-900/5 shadow-2xl transform rotate-y-[-5deg] rotate-x-2 hover:rotate-0 transition-transform duration-700 ease-out preserve-3d">
             <div className="absolute inset-0 bg-linear-to-tr from-white/0 via-white/40 to-white/0 z-20 pointer-events-none mix-blend-overlay"></div>
             <div className="relative mx-auto flex max-w-md items-center justify-center px-6 pt-12 pb-8 sm:max-w-lg lg:pt-16">
               <div className="relative w-full max-w-xs sm:max-w-sm">
-                <div className="relative overflow-hidden rounded-[1.5rem] shadow-lg">
+                <div className="relative overflow-hidden rounded-3xl shadow-lg">
                   <div className="relative">
                     <Image
                       src="/assets/we-heart-founders-mug.avif"

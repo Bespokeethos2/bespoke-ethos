@@ -264,7 +264,7 @@ export default function AIOutreachPlexusCaseStudy() {
             </p>
 
             {/* Comparison Visual Placeholder */}
-            <div className="mt-6 aspect-video w-full overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-surface-secondary to-surface-tertiary dark:border-dark-border dark:from-dark-surface-secondary dark:to-dark-surface-tertiary">
+            <div className="mt-6 aspect-video w-full overflow-hidden rounded-2xl border border-border bg-linear-to-br from-surface-secondary to-surface-tertiary dark:border-dark-border dark:from-dark-surface-secondary dark:to-dark-surface-tertiary">
               <div className="flex h-full items-center justify-center">
                 <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
                   [Comparison Visual: GPT sharp/geometric vs Claude soft/organic]

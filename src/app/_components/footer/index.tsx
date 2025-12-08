@@ -217,22 +217,18 @@ function FooterLayout({
               {
                 label: "Cadence - Your AI Concierge",
                 href: "/products/cadence",
-                icon: "??",
               },
               {
                 label: "Consensus Engine - Strategy Sprint",
                 href: "/solutions/consensus-engine",
-                icon: "??",
               },
               {
                 label: "Automation Rescue",
                 href: "/solutions/redbridging",
-                icon: "??",
               },
               {
                 label: "Automation Skyway - Setup",
                 href: "/enterprise/automation-skyway",
-                icon: "???",
               },
             ].map((i) => (
               <li key={i.href}>
@@ -241,9 +237,6 @@ function FooterLayout({
                   className="group flex items-center gap-2 text-left text-sm text-text-tertiary hover:text-text-primary dark:text-dark-text-tertiary dark:hover:text-dark-text-primary"
                   href={i.href}
                 >
-                  <span className="opacity-70 transition-opacity group-hover:opacity-100">
-                    {i.icon}
-                  </span>
                   <span className="underline-offset-4 group-hover:underline decoration-orange-400/50">
                     {i.label}
                   </span>
