@@ -51,7 +51,7 @@ export default function AIOutreachPlexusCaseStudy() {
           </div>
 
           {/* Stats Strip */}
-          <div claclass="grid grid-cols-1 md:grid-cols-3 gap-4 rounded-2xl border border-border bg-surface-secondary/80 p-6 dark:border-dark-border dark:bg-dark-surface-secondary/80"">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 rounded-2xl border border-border bg-surface-secondary/80 p-6 dark:border-dark-border dark:bg-dark-surface-secondary/80">
             <div className="text-center">
               <p className="text-2xl font-bold text-text-primary dark:text-dark-text-primary">328+</p>
               <p className="text-xs text-text-tertiary dark:text-dark-text-tertiary">Personalized Emails</p>
