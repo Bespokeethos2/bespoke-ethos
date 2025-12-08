@@ -29,9 +29,9 @@ export default function HelpPage() {
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <ProductCard
-              title="Workflow Automation Setup"
-              summary="Automate your most time-consuming task without losing approvals."
-              learnHref="/solutions/flowstack"
+              title="Automation Skyway"
+              summary="Cloud workflow automation for your most time-consuming task without losing approvals."
+              learnHref="/solutions/automation-skyway"
             >
               <Column
                 heading="Does"
@@ -120,7 +120,7 @@ export default function HelpPage() {
           </div>
           <p className="mt-4 max-w-3xl text-sm text-text-secondary dark:text-dark-text-secondary">
             We work hard to avoid opaque tooling that gives you an answer without showing how it got there. With
-            Workflow Automation Setup, Cadence, Consensus Engine, and Automation Rescue you can always ask, &quot;Why did
+            Automation Skyway, Cadence, Consensus Engine, and Automation Rescue you can always ask, &quot;Why did
             it do that?&quot; and expect a plain-English explanation and a paper trail, not just &quot;because the AI said
             so.&quot;
           </p>

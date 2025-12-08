@@ -117,8 +117,8 @@ export default function CadencePage() {
                 <div className="mt-4 flex flex-wrap items-center gap-3">
                   <p className="inline-flex items-center rounded-full bg-white/90 px-4 py-1 text-xs font-medium text-text-secondary shadow-sm dark:bg-dark-surface-secondary/90 dark:text-dark-text-secondary">
                     Starts at {formatMoney(PRICING.cadence.setup)} setup + {formatMoney(PRICING.cadence.monthly)}/mo.
-                    <Link href="/solutions/flowstack" className="ml-1 underline underline-offset-2">
-                      Need something simpler? Try Workflow Automation Setup.
+                    <Link href="/solutions/automation-skyway" className="ml-1 underline underline-offset-2">
+                      Need something simpler? Try Automation Skyway.
                     </Link>
                   </p>
                   <div className="flex flex-wrap gap-3">

@@ -16,23 +16,23 @@ import { PRICING, formatMoney } from "@/config/pricing";
 
 const SOLUTION_DATA = [
   {
-    slug: "flowstack",
-    name: "Workflow Automation Setup",
+    slug: "automation-skyway",
+    name: "Automation Skyway",
     summary:
-      "Automate the single, soul-sucking task stealing hours from your week—while you stay in the approval loop.",
+      "Cloud workflow automation that eliminates your most time-consuming task—while you stay in the approval loop.",
     stat: "Clients regain 15+ hours every week on average.",
-    href: "/solutions/flowstack",
+    href: "/solutions/automation-skyway",
     Icon: IconSparkles,
-    heroEyebrow: "Workflow Automation Setup",
-    heroTitle: "Automate Your Worst Task. Own the Results.",
-    heroSubtitle: `We map your real process, keep human approvals intact, and ship a production-ready automation in days. ${formatMoney(PRICING.workflowAutomationSetup.setup)} setup + ${formatMoney(PRICING.workflowAutomationSetup.monthly)}/mo.`,
+    heroEyebrow: "Automation Skyway",
+    heroTitle: "Your Direct Path to the Cloud. Own the Results.",
+    heroSubtitle: `We map your real process, keep human approvals intact, and ship production-ready cloud automation in days. ${formatMoney(PRICING.automationSkyway.setup)} setup + ${formatMoney(PRICING.automationSkyway.monthly)}/mo.`,
     heroDescription:
-      "Workflow Automation Setup eliminates swivel-chair work without inviting AI chaos. Discovery-first builds capture your nuance, document every dependency, and keep audit trails and rollback paths in reach.",
+      "Automation Skyway eliminates swivel-chair work without inviting AI chaos. Discovery-first builds capture your nuance, document every dependency, and keep audit trails and rollback paths in reach. Your direct path from desk to cloud.",
     primaryCTA: { label: "Automate My #1 Task", href: "/contact" },
     secondaryCTA: { label: "Schedule a Free Consultation", href: "/contact?service=llm-setups" },
     pricing: [
-      `${formatMoney(PRICING.workflowAutomationSetup.setup)} setup - process mapping + architecture`,
-      `${formatMoney(PRICING.workflowAutomationSetup.monthly)}/month - monitoring, tweaks, and on-call fixes`,
+      `${formatMoney(PRICING.automationSkyway.setup)} setup - process mapping + architecture`,
+      `${formatMoney(PRICING.automationSkyway.monthly)}/month - monitoring, tweaks, and on-call fixes`,
       "Includes documentation, audit trails, and approval checkpoints.",
     ],
     highlights: [
@@ -44,7 +44,7 @@ const SOLUTION_DATA = [
       {
         title: "Discovery Session (1 hour)",
         description:
-          "We interview the people doing the work today so Workflow Automation Setup mirrors your unique rules, exceptions, and tone.",
+          "We interview the people doing the work today so Automation Skyway mirrors your unique rules, exceptions, and tone.",
       },
       {
         title: "Custom Build (2 hours)",
@@ -66,10 +66,10 @@ const SOLUTION_DATA = [
       solutionName: "Workflow Automation Setup",
       title: "Molly, the Brewery Statistics Tutor",
       summary:
-        "Alex, a brewer in Marquette, Michigan, had to finish college statistics with learning disabilities and zero time. Workflow Automation Setup delivered Molly-an AI tutor that explains stats through brewery analogies.",
+        "Alex, a brewer in Marquette, Michigan, had to finish college statistics with learning disabilities and zero time. Automation Skyway delivered Molly-an AI tutor that explains stats through brewery analogies.",
       bullets: [
         "1 hour discovery, 2 hour build, ongoing 24/7 access.",
-        `Costs ${formatMoney(PRICING.workflowAutomationSetup.setup)} down + ${formatMoney(PRICING.workflowAutomationSetup.monthly)}/mo—far less than $30-$50/hr tutoring.`,
+        `Costs ${formatMoney(PRICING.automationSkyway.setup)} down + ${formatMoney(PRICING.automationSkyway.monthly)}/mo—far less than $30-$50/hr tutoring.`,
         "Confidence skyrocketed because explanations finally matched real life.",
       ],
       testimonial:
@@ -334,9 +334,9 @@ export async function generateMetadata({
 function FallbackStaticPage({ slug }: { slug?: string[] }) {
   const offerings = [
     {
-      name: "Workflow Automation Setup",
-      href: "/solutions/flowstack",
-      description: "Automate the single task stealing the most hours from your week—while you keep approvals, ownership, and audit trails.",
+      name: "Automation Skyway",
+      href: "/solutions/automation-skyway",
+      description: "Cloud workflow automation that eliminates the single task stealing the most hours from your week—while you keep approvals, ownership, and audit trails.",
       stat: "Clients regain 15+ hours every week on average.",
       Icon: IconSparkles,
     },
@@ -385,11 +385,11 @@ function FallbackStaticPage({ slug }: { slug?: string[] }) {
     {
       title: "Molly, the Brewery Statistics Tutor (Workflow Automation Setup)",
       summary:
-        "Alex, a brewer in Marquette, Michigan, needed statistics to finish college. Workflow Automation Setup delivered a custom Gemini tutor that speaks in fermentation batches, remembers his humor, and adapts to learning disabilities.",
+        "Alex, a brewer in Marquette, Michigan, needed statistics to finish college. Automation Skyway delivered a custom Gemini tutor that speaks in fermentation batches, remembers his humor, and adapts to learning disabilities.",
       bullets: [
         "1 hour discovery, 2 hours build, 24/7 availability forever.",
         "Time-to-understanding dropped from weeks to a single evening.",
-        `Cost certainty: ${formatMoney(PRICING.workflowAutomationSetup.setup)} setup + ${formatMoney(PRICING.workflowAutomationSetup.monthly)}/mo beats $30-50/hr tutors.`,
+        `Cost certainty: ${formatMoney(PRICING.automationSkyway.setup)} setup + ${formatMoney(PRICING.automationSkyway.monthly)}/mo beats $30-50/hr tutors.`,
       ],
       testimonial:
         "“Molly explains stats using my brewery floor. It&rsquo;s not generic—it&rsquo;s mine.”",
@@ -492,7 +492,7 @@ function FallbackStaticPage({ slug }: { slug?: string[] }) {
             <p className="mt-3 text-xs text-text-tertiary dark:text-dark-text-tertiary">AI Research Assistant and Automation Rescue are trademark pending.</p>
           </div>
           <div className="order-1 md:order-2 motion-safe:animate-enterFromRight">
-            <div className="relative h-[320px] w-full overflow-hidden rounded-3xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary">
+            <div className="relative h-80 w-full overflow-hidden rounded-3xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary">
               <Image
                 src="/assets/generated/hero-cadence-desktop.webp"
                 alt="AI Strategy Sprint concierge dashboard"

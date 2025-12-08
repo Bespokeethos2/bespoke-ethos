@@ -24,14 +24,14 @@ const STACKED_CARDS: StackCard[] = [
     imageAlt: "AI Strategy Sprint hero image",
   },
   {
-    key: "flowstack",
-    title: "Workflow Automation Setup",
-    tagline: "Process mapped, approvals kept",
+    key: "automation-skyway",
+    title: "Automation Skyway",
+    tagline: "Your direct path to the cloud",
     description:
-      "Map your process, keep approvals intact, build production-ready automation in days, not months.",
-    href: "/solutions/flowstack",
-    imageSrc: "/assets/generated/hero-flowstack-desktop.webp",
-    imageAlt: "Workflow automation setup hero image",
+      "Map your process, keep approvals intact, build production-ready cloud automation in days, not months.",
+    href: "/solutions/automation-skyway",
+    imageSrc: "/assets/generated/hero-automation-skyway-desktop.webp",
+    imageAlt: "Automation Skyway cloud workflow automation hero image",
   },
   {
     key: "consensus",

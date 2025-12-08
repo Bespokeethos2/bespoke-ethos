@@ -14,7 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/solutions`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${siteUrl}/solutions/a-la-carte`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
     { url: `${siteUrl}/solutions/essentials`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
-    { url: `${siteUrl}/solutions/flowstack`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${siteUrl}/solutions/automation-skyway`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${siteUrl}/solutions/chatbots`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${siteUrl}/solutions/consensus-engine`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${siteUrl}/solutions/redbridging`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
@@ -37,8 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/privacy-policy`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
     { url: `${siteUrl}/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
 
-    // Enterprise pages
-    { url: `${siteUrl}/enterprise/automation-fabric`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    // Enterprise pages (removed - focusing on small business only)
     { url: `${siteUrl}/enterprise/cloud-chatbot`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${siteUrl}/enterprise/decision-room`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${siteUrl}/enterprise/reliability-ops`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },

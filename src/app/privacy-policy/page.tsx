@@ -29,7 +29,7 @@ export default function PrivacyPolicy() {
                 The Short Version
               </h2>
               <p className="text-sm">
-                We collect only what we need to help you. We don't sell your data. We use industry-standard security. You can ask us to delete your information anytime. This policy is written in plain English—no legal jargon.
+                We collect only what we need to help you. We don&apos;t sell your data. We use industry-standard security. You can ask us to delete your information anytime. This policy is written in plain English—no legal jargon.
               </p>
             </div>
 
@@ -77,7 +77,7 @@ export default function PrivacyPolicy() {
                 <li><strong>To respond to your inquiries:</strong> We need your contact information to get back to you</li>
                 <li><strong>To prevent spam:</strong> We use technical data to block malicious activity and protect our site</li>
                 <li><strong>To improve our website:</strong> We analyze how visitors use our site to make it better</li>
-                <li><strong>To send you updates:</strong> If you opt in, we'll send you news about our services (you can unsubscribe anytime)</li>
+                <li><strong>To send you updates:</strong> If you opt in, we&apos;ll send you news about our services (you can unsubscribe anytime)</li>
                 <li><strong>To comply with the law:</strong> We keep records as required by tax and business regulations</li>
               </ul>
             </section>
@@ -104,7 +104,7 @@ export default function PrivacyPolicy() {
               </ul>
 
               <p className="text-xs text-text-secondary dark:text-dark-text-secondary mt-3">
-                All of these services have their own privacy policies. We've chosen them because they meet high security and privacy standards.
+                All of these services have their own privacy policies. We&apos;ve chosen them because they meet high security and privacy standards.
               </p>
             </section>
 
@@ -115,12 +115,12 @@ export default function PrivacyPolicy() {
               </h2>
               <ul className="list-disc pl-5 space-y-2">
                 <li><strong>Contact form submissions:</strong> We keep these for 2 years to follow up on opportunities and for record-keeping</li>
-                <li><strong>Email communications:</strong> We keep your email address as long as you're subscribed to our updates</li>
+                <li><strong>Email communications:</strong> We keep your email address as long as you&apos;re subscribed to our updates</li>
                 <li><strong>Website analytics:</strong> We keep usage data for up to 1 year</li>
                 <li><strong>Cookies:</strong> Most expire after 1 year, but you can clear them anytime</li>
               </ul>
               <p className="text-xs text-text-secondary dark:text-dark-text-secondary mt-3">
-                If you ask us to delete your information, we'll remove it within 30 days (except where we're required by law to keep it).
+                If you ask us to delete your information, we&apos;ll remove it within 30 days (except where we&apos;re required by law to keep it).
               </p>
             </section>
 
@@ -134,13 +134,13 @@ export default function PrivacyPolicy() {
               </p>
               <ul className="list-disc pl-5 space-y-2">
                 <li><strong>Access:</strong> Ask us what information we have about you</li>
-                <li><strong>Correct:</strong> Ask us to fix any information that's wrong</li>
-                <li><strong>Delete:</strong> Ask us to delete your information (we'll do this within 30 days)</li>
+                <li><strong>Correct:</strong> Ask us to fix any information that&apos;s wrong</li>
+                <li><strong>Delete:</strong> Ask us to delete your information (we&apos;ll do this within 30 days)</li>
                 <li><strong>Opt out:</strong> Unsubscribe from our emails anytime by clicking the link at the bottom of any email</li>
                 <li><strong>Opt out of cookies:</strong> Adjust your browser settings to reject cookies (though some features may not work as well)</li>
               </ul>
               <p className="mt-3">
-                To exercise any of these rights, email us at <a href="mailto:contact@bespokeethos.com" className="text-accent-600 hover:underline">contact@bespokeethos.com</a> with your request. We'll respond within 30 days.
+                To exercise any of these rights, email us at <a href="mailto:contact@bespokeethos.com" className="text-accent-600 hover:underline">contact@bespokeethos.com</a> with your request. We&apos;ll respond within 30 days.
               </p>
             </section>
 
@@ -150,7 +150,7 @@ export default function PrivacyPolicy() {
                 6. How We Protect Your Information
               </h2>
               <p>
-                We take security seriously. Here's what we do:
+                We take security seriously. Here&apos;s what we do:
               </p>
               <ul className="list-disc pl-5 space-y-2">
                 <li>We use HTTPS encryption on our website (look for the padlock in your browser)</li>
@@ -159,7 +159,7 @@ export default function PrivacyPolicy() {
                 <li>We use industry-standard security tools to detect and prevent attacks</li>
               </ul>
               <p className="text-xs text-text-secondary dark:text-dark-text-secondary mt-3">
-                No system is 100% secure, but we work hard to keep your data safe. If we discover a security breach, we'll notify you as soon as possible.
+                No system is 100% secure, but we work hard to keep your data safe. If we discover a security breach, we&apos;ll notify you as soon as possible.
               </p>
             </section>
 
@@ -180,7 +180,7 @@ export default function PrivacyPolicy() {
                 <strong>You can control cookies:</strong> Most browsers let you reject cookies or delete them. You can also use privacy extensions. If you disable cookies, some features may not work properly.
               </p>
               <p className="text-xs text-text-secondary dark:text-dark-text-secondary mt-3">
-                We do not use tracking pixels, retargeting ads, or cross-site tracking. We respect your privacy and don't follow you around the internet.
+                We do not use tracking pixels, retargeting ads, or cross-site tracking. We respect your privacy and don&apos;t follow you around the internet.
               </p>
             </section>
 
@@ -190,17 +190,17 @@ export default function PrivacyPolicy() {
                 8. Links to Other Websites
               </h2>
               <p>
-                Our website may contain links to other sites. We're not responsible for their privacy practices. If you click a link to another website, read their privacy policy—it may be different from ours.
+                Our website may contain links to other sites. We&apos;re not responsible for their privacy practices. If you click a link to another website, read their privacy policy—it may be different from ours.
               </p>
             </section>
 
-            {/* 9. Children's Privacy */}
+            {/* 9. Children&apos;s Privacy */}
             <section>
               <h2 className="text-base font-semibold text-text-primary dark:text-dark-text-primary mb-3">
-                9. Children's Privacy
+                9. Children&apos;s Privacy
               </h2>
               <p>
-                Our website is not intended for children under 13. We do not knowingly collect information from children. If we discover we've collected data from a child, we'll delete it immediately. If you believe we have, please contact us at <a href="mailto:contact@bespokeethos.com" className="text-accent-600 hover:underline">contact@bespokeethos.com</a>.
+                Our website is not intended for children under 13. We do not knowingly collect information from children. If we discover we&apos;ve collected data from a child, we&apos;ll delete it immediately. If you believe we have, please contact us at <a href="mailto:contact@bespokeethos.com" className="text-accent-600 hover:underline">contact@bespokeethos.com</a>.
               </p>
             </section>
 
@@ -218,9 +218,9 @@ export default function PrivacyPolicy() {
               </p>
               <ul className="list-disc pl-5 space-y-1">
                 <li>Know what personal information we collect</li>
-                <li>Know whether we sell your information (we don't)</li>
+                <li>Know whether we sell your information (we don&apos;t)</li>
                 <li>Delete your information</li>
-                <li>Opt out of any future sales (not applicable since we don't sell data)</li>
+                <li>Opt out of any future sales (not applicable since we don&apos;t sell data)</li>
               </ul>
 
               <h3 className="text-sm font-semibold text-text-primary dark:text-dark-text-primary mt-4 mb-2">
@@ -248,7 +248,7 @@ export default function PrivacyPolicy() {
                 11. Changes to This Privacy Policy
               </h2>
               <p>
-                We may update this policy from time to time. If we make significant changes, we'll notify you by email or by posting a notice on our website. Your continued use of our site means you accept the updated policy.
+                We may update this policy from time to time. If we make significant changes, we&apos;ll notify you by email or by posting a notice on our website. Your continued use of our site means you accept the updated policy.
               </p>
               <p className="text-xs text-text-secondary dark:text-dark-text-secondary mt-2">
                 Last updated: December 2025
@@ -261,14 +261,14 @@ export default function PrivacyPolicy() {
                 12. Questions? Get in Touch
               </h2>
               <p>
-                If you have questions about this privacy policy or how we handle your data, we're happy to help. Contact us:
+                If you have questions about this privacy policy or how we handle your data, we&apos;re happy to help. Contact us:
               </p>
               <ul className="list-disc pl-5 space-y-1">
                 <li><strong>Email:</strong> <a href="mailto:contact@bespokeethos.com" className="text-accent-600 hover:underline">contact@bespokeethos.com</a></li>
                 <li><strong>Website:</strong> <a href="https://www.bespokeethos.com" className="text-accent-600 hover:underline">bespokeethos.com</a></li>
               </ul>
               <p className="text-xs text-text-secondary dark:text-dark-text-secondary mt-3">
-                We'll get back to you within 5 business days.
+                We&apos;ll get back to you within 5 business days.
               </p>
             </section>
           </div>

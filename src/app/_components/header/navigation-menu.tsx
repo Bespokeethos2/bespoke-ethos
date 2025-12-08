@@ -86,8 +86,8 @@ function NavigationMenuLinkWithMenu({ _title, href, sublinks }: HeaderNavLink) {
 
   const getPreviewSrc = (hrefOrTitle: string) => {
     const href = (hrefOrTitle || "").toLowerCase();
-    if (href.includes("/solutions/flowstack") || href.includes("flowstack"))
-      return "/assets/generated/hero-flowstack-square.webp";
+    if (href.includes("/solutions/automation-skyway") || href.includes("skyway"))
+      return "/assets/generated/hero-automation-skyway-desktop.webp";
     if (href.includes("/solutions/chatbots") || href.includes("chatbot"))
       return "/assets/generated/hero-chatbots-square.webp";
     if (href.includes("/solutions/consensus-engine") || href.includes("consensus"))

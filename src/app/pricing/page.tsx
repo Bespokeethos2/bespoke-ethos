@@ -50,9 +50,11 @@ export default function PricingPage() {
 
         {/* Value Proposition */}
         <div className="rounded-lg border border-border bg-surface-secondary/50 dark:border-dark-border dark:bg-dark-surface-secondary/50 p-5 md:p-6">
-          <p className="text-sm text-text-secondary dark:text-dark-text-secondary leading-relaxed">
-            No hidden fees. No long-term contracts. No surprises. Each service has a clear scope, fixed pricing, and a defined outcome. Pick what you need, get results fast, and scale up when you're ready.
-          </p>
+          <div className="flex gap-3 items-start">
+            <p className="text-sm text-text-secondary dark:text-dark-text-secondary leading-relaxed">
+              No hidden fees. No long-term contracts. No surprises. Each service has a clear scope, fixed pricing, and a defined outcome. Pick what you need, get results fast, and scale up when you&#39;re ready.
+            </p>
+          </div>
         </div>
 
         {/* Four Flagship Offerings */}
@@ -73,7 +75,7 @@ export default function PricingPage() {
               <p className="mt-3 text-base font-semibold text-text-primary dark:text-dark-text-primary">
                 From {formatMoney(PRICING.aiStrategySprint.setup)} setup + {formatMoney(PRICING.aiStrategySprint.monthly)}/mo
               </p>
-              <ul className="mt-4 list-disc pl-5 text-sm text-text-secondary dark:text-dark-text-secondary space-y-2 flex-grow">
+              <ul className="mt-4 list-disc pl-5 text-sm text-text-secondary dark:text-dark-text-secondary space-y-2 grow">
                 <li>Relationship-first AI that feels like your best staffer</li>
                 <li>Trained on your stories, FAQs, and escalation rules</li>
                 <li>Lead capture, reporting, and guardrails included</li>
@@ -99,24 +101,24 @@ export default function PricingPage() {
               </div>
             </div>
 
-            {/* Workflow Automation Setup */}
+            {/* Automation Skyway */}
             <div className="ghost-card">
-              <div className="accent-bar mb-3">Automation</div>
-              <h2 className="text-lg font-semibold text-text-primary dark:text-dark-text-primary">Workflow Automation Setup</h2>
+              <div className="accent-bar mb-3">Cloud Automation</div>
+              <h2 className="text-lg font-semibold text-text-primary dark:text-dark-text-primary">Automation Skyway</h2>
               <p className="mt-2 text-sm text-text-secondary dark:text-dark-text-secondary">
-                One painful task solved. Built end-to-end with rollback, audit trails, and no lock-in.
+                Your direct path to the cloud. One painful task automated end-to-end with rollback, audit trails, and no lock-in.
               </p>
               <p className="mt-3 text-base font-semibold text-text-primary dark:text-dark-text-primary">
-                {formatMoney(PRICING.workflowAutomationSetup.setup)} setup + {formatMoney(PRICING.workflowAutomationSetup.monthly)}/mo
+                Starting at {formatMoney(PRICING.automationSkyway.setup)} setup + {formatMoney(PRICING.automationSkyway.monthly)}/mo
               </p>
               <ul className="mt-3 list-disc pl-5 text-sm text-text-secondary dark:text-dark-text-secondary space-y-2">
-                <li>One-task automation with edge cases handled</li>
+                <li>Cloud workflow automation with edge cases handled</li>
                 <li>Approvals and exceptions stay intact</li>
                 <li>You own the system—zero vendor lock-in</li>
               </ul>
               <div className="mt-4">
                 <ButtonLink
-                  href="/solutions/flowstack"
+                  href="/solutions/automation-skyway"
                   unstyled
                   className="inline-flex items-center justify-center rounded-full border border-accent-600 px-4 py-2 text-sm font-semibold text-accent-600 transition-colors duration-200 hover:bg-accent-600/10"
                 >
@@ -139,7 +141,7 @@ export default function PricingPage() {
                 Up to {PRICING.aiResearchAssistant.queryLimit} briefs per month
               </p>
               <ul className="mt-3 list-disc pl-5 text-sm text-text-secondary dark:text-dark-text-secondary space-y-2">
-                <li>Perfect for "Should we raise prices?" decisions</li>
+                <li>Perfect for &quot;Should we raise prices?&quot; decisions</li>
                 <li>Cited sources so you see the reasoning</li>
                 <li>Tradeoffs laid out clearly</li>
               </ul>
@@ -159,7 +161,7 @@ export default function PricingPage() {
               <div className="accent-bar mb-3">Rescue</div>
               <h2 className="text-lg font-semibold text-text-primary dark:text-dark-text-primary">Automation Rescue</h2>
               <p className="mt-2 text-sm text-text-secondary dark:text-dark-text-secondary">
-                Your broken automations fixed fast. Monitoring and alerts so failures don't stay silent.
+                Your broken automations fixed fast. Monitoring and alerts so failures don&#39;t stay silent.
               </p>
               <p className="mt-3 text-base font-semibold text-text-primary dark:text-dark-text-primary">
                 Starting at {formatMoney(PRICING.automationRescue.standaloneALaCarte)}
@@ -194,16 +196,16 @@ export default function PricingPage() {
                 <span className="text-accent-600">+</span> Can I combine services?
               </summary>
               <p className="mt-2 text-sm text-text-secondary dark:text-dark-text-secondary ml-6">
-                Yes. Many customers start with Cadence and add Automation Rescue when they need it. We'll work with you to find the right mix.
+                Yes. Many customers start with Cadence and add Automation Rescue when they need it. We&#39;ll work with you to find the right mix.
               </p>
             </details>
 
             <details className="group cursor-pointer">
-              <summary className="font-semibold text-text-primary dark:text-dark-text-primary text-sm flex items-center gap-2">
-                <span className="text-accent-600">+</span> What if I'm not sure which service I need?
-              </summary>
+                <summary className="font-semibold text-text-primary dark:text-dark-text-primary text-sm flex items-center gap-2">
+                <span className="text-accent-600">+</span> What if I&#39;m not sure which service I need?
+                </summary>
               <p className="mt-2 text-sm text-text-secondary dark:text-dark-text-secondary ml-6">
-                Book a free consultation. We'll ask about your biggest pain point and recommend what makes sense for your business.
+                Book a free consultation. We&#39;ll ask about your biggest pain point and recommend what makes sense for your business.
               </p>
             </details>
 
@@ -221,7 +223,7 @@ export default function PricingPage() {
                 <span className="text-accent-600">+</span> Can I cancel anytime?
               </summary>
               <p className="mt-2 text-sm text-text-secondary dark:text-dark-text-secondary ml-6">
-                Yes. No long-term contracts. You can cancel monthly services with 30 days' notice. Setup fees are non-refundable but cover the work done.
+                Yes. No long-term contracts. You can cancel monthly services with 30 days&#39; notice. Setup fees are non-refundable but cover the work done.
               </p>
             </details>
 
@@ -273,7 +275,7 @@ export default function PricingPage() {
                 Book a free 15-minute consultation. No sales pitch—just honest advice.
               </p>
             </div>
-            <div className="flex gap-2 flex-shrink-0">
+            <div className="flex gap-2 shrink-0">
               <ButtonLink
                 href="/contact?service=consultation"
                 unstyled
@@ -313,15 +315,15 @@ function OfferCatalogJsonLd() {
     itemListElement: [
       {
         "@type": "Offer",
-        url: `${base}/solutions/flowstack`,
-        itemOffered: { "@type": "Service", name: "Workflow Automation Setup" },
+        url: `${base}/solutions/automation-skyway`,
+        itemOffered: { "@type": "Service", name: "Automation Skyway" },
         priceCurrency: currency,
-        price: PRICING.workflowAutomationSetup.setup,
+        price: PRICING.automationSkyway.setup,
         priceSpecification: {
           "@type": "PriceSpecification",
-          name: "Setup + Monthly",
+          name: "Starting Setup + Monthly (varies by scope)",
           priceCurrency: currency,
-          price: PRICING.workflowAutomationSetup.setup,
+          price: PRICING.automationSkyway.setup,
           eligibleQuantity: 1,
         },
       },

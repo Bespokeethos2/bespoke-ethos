@@ -45,14 +45,14 @@ export const SEO_ROUTES: SeoRoute[] = [
     keywords: ["solutions", "AI concierge", "AI Strategy Sprint", "Workflow Automation Setup", "Automation Rescue"],
   },
   {
-    label: "Workflow Automation Setup Automations",
-    path: "/solutions/flowstack",
+    label: "Automation Skyway",
+    path: "/solutions/automation-skyway",
     description:
-      "Workflow Automation Setup — Upton's automation fabric that keeps approvals, runbooks, and rollback intact for busy founders.",
+      "Automation Skyway — cloud workflow automation that keeps approvals, runbooks, and rollback intact for busy founders. Your direct path from desk to cloud.",
     changeFrequency: "weekly",
     priority: 0.8,
     section: "solutions",
-    keywords: ["Workflow Automation Setup", "automation", "Upton Rand"],
+    keywords: ["Automation Skyway", "cloud automation", "workflow automation", "Upton Rand"],
   },
   {
     label: "Cadence  Your AI Concierge",

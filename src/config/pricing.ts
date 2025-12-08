@@ -1,8 +1,8 @@
 export const PRICING = {
   currency: "$",
-  workflowAutomationSetup: {
-    setup: 399,
-    monthly: 59.99,
+  automationSkyway: {
+    setup: 1497, // Starting price - varies by scope
+    monthly: 199, // Base monthly - scales with complexity
   },
   chatbots: {
     // Standard offering

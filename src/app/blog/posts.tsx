@@ -152,8 +152,8 @@ export const BLOG_POSTS: BlogPost[] = [
           </ul>
           <p>
             That first workflow is where a service like{" "}
-            <Link href="/solutions/flowstack" className="underline">
-              Workflow Automation Setup
+            <Link href="/solutions/automation-skyway" className="underline">
+              Automation Skyway
             </Link>{" "}
             shines: narrow scope, clear inputs/outputs, and very measurable time saved.
           </p>

@@ -41,10 +41,10 @@ const solutions = [
     logo: "/assets/logos/redbridging_logo.png",
   },
   {
-    slug: "flowstack",
-    title: "Workflow Automation Setup",
+    slug: "automation-skyway",
+    title: "Automation Skyway",
     summary:
-      "One painful task automated end-to-end with rollbacks and approvals intact—without hiring a full team.",
+      "Cloud workflow automation from desk to cloud. One painful task automated end-to-end with rollbacks and approvals intact.",
     logo: "/assets/logos/flowstack_logo.png",
   },
 ] as const;
@@ -69,10 +69,10 @@ const flagshipTools = [
     image: "/assets/generated/hero-redbridging-desktop.webp",
   },
   {
-    name: "Workflow Automation Setup",
-    tagline: "Workflow Automation",
-    href: "/solutions/flowstack",
-    image: "/assets/generated/hero-flowstack-desktop.webp",
+    name: "Automation Skyway",
+    tagline: "Cloud Workflow Automation",
+    href: "/solutions/automation-skyway",
+    image: "/assets/generated/hero-automation-skyway-desktop.webp",
   },
 ] as const;
 
@@ -80,7 +80,7 @@ const solutionsFaqItems = [
   {
     _title: "How do I know which solution is right for my business?",
     answer:
-      "If you’re not sure where to start, think about your biggest bottleneck. Broken automations or brittle handoffs usually point to Automation Rescue or Workflow Automation Setup, while bigger strategic questions tend to fit an AI strategy sprint. If you’re still unsure, a short contact form plus a call is enough to map you to the right option.",
+      "If you're not sure where to start, think about your biggest bottleneck. Broken automations or brittle handoffs usually point to Automation Rescue or Automation Skyway, while bigger strategic questions tend to fit an AI strategy sprint. If you're still unsure, a short contact form plus a call is enough to map you to the right option.",
   },
   {
     _title: "Can we start small before committing to a larger build?",
@@ -142,7 +142,7 @@ export default function SolutionsPage() {
                   className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2"
                 >
                   <div className="ghost-card ghost-card--soft space-y-3">
-                    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-border/60 dark:border-dark-border/60">
+                    <div className="relative aspect-4/3 w-full overflow-hidden rounded-xl border border-border/60 dark:border-dark-border/60">
                       <Image
                         src={tool.image}
                         alt={`${tool.name} feature image`}
@@ -185,11 +185,11 @@ export default function SolutionsPage() {
               } else if (s.slug === "redbridging") {
                 priceLine = `From ${formatMoney(
                   PRICING.automationRescue.standaloneLow,
-                )}/mo standalone or included with Workflow Automation Setup/Cadence retainers.`;
-              } else if (s.slug === "flowstack") {
+                )}/mo standalone or included with Automation Skyway/Cadence retainers.`;
+              } else if (s.slug === "automation-skyway") {
                 priceLine = planSummary(
-                  PRICING.workflowAutomationSetup.setup,
-                  PRICING.workflowAutomationSetup.monthly,
+                  PRICING.automationSkyway.setup,
+                  PRICING.automationSkyway.monthly,
                 );
               }
 
@@ -200,11 +200,11 @@ export default function SolutionsPage() {
                     ? "/assets/generated/hero-consensus-desktop.webp"
                     : s.slug === "redbridging"
                       ? "/assets/generated/hero-redbridging-desktop.webp"
-                      : "/assets/generated/hero-flowstack-desktop.webp";
+                      : "/assets/generated/hero-automation-skyway-desktop.webp";
 
               return (
                 <div key={s.slug} className="ghost-card">
-                  <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-border/60 bg-white dark:border-dark-border/60">
+                  <div className="relative aspect-video overflow-hidden rounded-lg border border-border/60 bg-white dark:border-dark-border/60">
                     <Image
                       src={heroImage}
                       alt={`${s.title} feature visual`}
@@ -268,7 +268,7 @@ function SolutionsItemListJsonLd() {
     { name: "Cadence  Your AI Concierge", url: `${base}/products/cadence` },
     { name: "Consensus Engine  Your AI Strategy Sprint", url: `${base}/solutions/consensus-engine` },
     { name: "Automation Rescue", url: `${base}/solutions/redbridging` },
-    { name: "Workflow Automation Setup", url: `${base}/solutions/flowstack` },
+    { name: "Automation Skyway", url: `${base}/solutions/automation-skyway` },
   ] as const;
 
   const json = {
