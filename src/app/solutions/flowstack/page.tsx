@@ -126,8 +126,10 @@ export default function AutomationSkywayPage() {
                     Your direct path to the cloud
                   </span>
                 </div>
-                <Heading subtitle="Cloud workflow automation for small businesses. Own the automation, keep control." align="left">
-                  <h1 className="font-hero-accent">Automation Skyway</h1>
+                <div className="mb-6 space-y-2 text-left">
+                  <h1 className="font-hero-accent text-3xl md:text-4xl text-text-primary dark:text-dark-text-primary">Automation Skyway</h1>
+                  <p className="text-lg font-medium text-amber-600">Cloud workflow automation for small businesses. Own the automation, keep control.</p>
+                </div>
                 <div className="space-y-3">
                   <p>
                     When I was drowning in my publishing business, I didn&apos;t need a fancy AI platform. I needed someone
@@ -221,8 +223,10 @@ export default function AutomationSkywayPage() {
           </div>
 
           <div className="space-y-4">
-            <Heading align="left" subtitle="Comprehensive assets you keep after we hand off.">
-              <h2 className="text-2xl font-hero-accent">Automation Skyway deliverable library</h2>
+            <div className="mb-8 space-y-2 text-left">
+              <h2 className="font-hero-accent text-2xl text-text-primary dark:text-dark-text-primary">Automation Skyway deliverable library</h2>
+              <p className="text-text-secondary dark:text-dark-text-secondary">Comprehensive assets you keep after we hand off.</p>
+            </div>
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {AUTOMATION_SKYWAY_ASSETS.map((asset) => (
                 <article
@@ -248,8 +252,10 @@ export default function AutomationSkywayPage() {
           </div>
 
           <div className="mt-10">
-            <Heading align="center" title="Questions about Automation Skyway">
-              <h2 className="text-2xl font-semibold">What to expect from your first automation build</h2>
+          <div className="mt-10 mb-8 text-center space-y-2">
+            <p className="text-sm font-bold uppercase tracking-wider text-amber-600">Questions about Automation Skyway</p>
+            <h2 className="text-2xl font-semibold text-text-primary dark:text-dark-text-primary">What to expect from your first automation build</h2>
+          </div>
             <div className="mx-auto mt-6 flex w-full gap-8 md:max-w-(--breakpoint-sm) lg:max-w-(--breakpoint-md) lg:gap-14 lg:px-24 xl:max-w-(--breakpoint-xl)">
               <Accordion items={automationSkywayFaqItems} />
             </div>
@@ -261,7 +267,7 @@ export default function AutomationSkywayPage() {
 }
 
 function ProductJsonLd() {
-// ProductJsonLd removed (referenced variables not available)
+  return null;
 }
 
 function AutomationSkywayServiceJsonLd() {
