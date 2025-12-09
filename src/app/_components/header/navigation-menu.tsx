@@ -1,5 +1,6 @@
 "use client";
 import * as React from "react";
+import { createPortal } from "react-dom";
 import clsx from "clsx";
 import Link from "next/link";
 import { ChevronDownIcon, HamburgerMenuIcon } from "@radix-ui/react-icons";
@@ -228,6 +229,11 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
   const { handleToggle, isOn, handleOff } = useToggleState();
   const navItems = navbar?.items ?? [];
   const ctaItems = rightCtas?.items ?? [];
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
   React.useEffect(() => {
     const body = document.body;
@@ -252,23 +258,12 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
     };
   }, [isOn]);
 
-  return (
-    <>
-      <button
-        aria-label="Toggle menu"
-        aria-expanded={ariaExpanded(isOn)}
-        aria-controls="mobile-navigation-panel"
-        className="border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary col-start-3 flex items-center justify-center gap-2 justify-self-end rounded-sm border p-2 xl:hidden xl:h-7"
-        onClick={handleToggle}
-      >
-        <HamburgerMenuIcon className="size-4" />
-      </button>
-      <div className="block xl:hidden">
-        {isOn ? (
-          <div
-            className="be-mobile-menu-backdrop fixed inset-0 z-[120] bg-surface-primary/95 dark:bg-dark-surface-primary/95 be-mobile-menu-fullscreen"
-            onClick={handleOff}
-          >
+  // Menu content to be portaled
+  const menuContent = isOn ? (
+    <div
+      className="be-mobile-menu-backdrop fixed inset-0 z-[120] bg-surface-primary/95 dark:bg-dark-surface-primary/95 be-mobile-menu-fullscreen"
+      onClick={handleOff}
+    >
             <div
               id="mobile-navigation-panel"
               className="be-mobile-menu-card absolute left-0 right-0 top-2 bottom-4 mx-auto max-w-md sm:max-w-lg rounded-2xl border border-border bg-surface-primary text-text-primary shadow-xl dark:border-dark-border dark:bg-dark-surface-primary dark:text-dark-text-primary"
@@ -364,8 +359,20 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
               </div>
             </div>
           </div>
-        ) : null}
-      </div>
+  ) : null;
+
+  return (
+    <>
+      <button
+        aria-label="Toggle menu"
+        aria-expanded={ariaExpanded(isOn)}
+        aria-controls="mobile-navigation-panel"
+        className="border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary col-start-3 flex items-center justify-center gap-2 justify-self-end rounded-sm border p-2 xl:hidden xl:h-7"
+        onClick={handleToggle}
+      >
+        <HamburgerMenuIcon className="size-4" />
+      </button>
+      {mounted && menuContent && createPortal(menuContent, document.body)}
     </>
   );
 }

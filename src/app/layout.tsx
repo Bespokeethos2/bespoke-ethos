@@ -9,6 +9,7 @@ import { Providers } from "./providers";
 import { OrganizationJsonLd } from "./_components/seo/organization-jsonld";
 import { WebsiteJsonLd } from "./_components/seo/website-jsonld";
 import { LocalBusinessJsonLd } from "./_components/seo/localbusiness-jsonld";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 
 const rawSkipSetting = (process.env.SKIP_REMOTE_DATA ?? "").trim();
 const SKIP_REMOTE_DATA = rawSkipSetting ? rawSkipSetting !== "0" : true;
@@ -137,6 +138,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://calendly.com" />
         <link rel="dns-prefetch" href="https://calendly.com" />
         <link rel="preconnect" href="https://assets.calendly.com" crossOrigin="anonymous" />
+        <GoogleAnalytics />
       </head>
       <body
         className={`min-h-svh max-w-[100vw] bg-surface-primary text-text-primary dark:bg-dark-surface-primary dark:text-dark-text-primary ${inter.variable} ${playfair.variable} font-sans`}
