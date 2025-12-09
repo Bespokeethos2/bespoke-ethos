@@ -195,7 +195,7 @@ export default function HomePage() {
               </ButtonLink>
             </div>
           </div>
-          <div className="be-section-card space-y-5 p-8 border-2 border-orange-100 bg-linear-to-br from-white to-orange-50 shadow-xl rounded-2xl">
+          <div className="be-section-card space-y-5 p-8 border-2 border-orange-100 bg-linear-to-br from-white to-orange-50 shadow-tactile hover:shadow-tactile-hover transition-shadow duration-300 rounded-2xl">
             <h3 className="text-lg font-bold text-slate-900 border-b-2 border-orange-200 pb-3">What you get</h3>
             <ul className="space-y-4 text-slate-700">
               <li className="flex items-start gap-3">
