@@ -10,7 +10,7 @@ const FALLBACK_COPY = {
 
 export function Newsletter() {
   return (
-    <Section className="bg-surface-secondary dark:bg-dark-surface-secondary py-10! overflow-hidden" container="full">
+    <Section aria-label="Newsletter signup" className="bg-surface-secondary dark:bg-dark-surface-secondary py-10! overflow-hidden" container="full">
       <div className="container mx-auto flex w-full max-w-4xl flex-col gap-6 px-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between">
         <div className="flex flex-1 flex-col items-start gap-2">
           <h2 className="text-3xl font-bold lg:text-4xl text-slate-900">{FALLBACK_COPY.title}</h2>
