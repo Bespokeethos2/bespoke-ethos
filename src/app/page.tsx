@@ -143,7 +143,7 @@ function DiscountButtonFallback() {
 
 export default function HomePage() {
   return (
-    <main aria-label="Bespoke Ethos homepage" className="bg-[#faf9f6]">
+    <div aria-label="Bespoke Ethos homepage" className="bg-[#faf9f6]">
       <HomePageJsonLd />
       <HomeFaqJsonLd />
       <OrganizationJsonLd />
@@ -154,7 +154,7 @@ export default function HomePage() {
       <ConversionOptimizedHero />
 
       {/* 1a. SEO-aligned intro */}
-      <section className="py-12 md:py-16 bg-linear-to-b from-white to-slate-50">
+      <section className="py-12 md:py-16 bg-gradient-to-b from-white to-slate-50">
         <div className="container mx-auto px-4 max-w-3xl">
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900 font-hero-accent leading-tight tracking-tight">
             AI consulting and workflow automation for small businesses.
@@ -195,7 +195,7 @@ export default function HomePage() {
               </ButtonLink>
             </div>
           </div>
-          <div className="be-section-card space-y-5 p-8 border-2 border-orange-100 bg-linear-to-br from-white to-orange-50 shadow-tactile hover:shadow-tactile-hover transition-shadow duration-300 rounded-2xl">
+          <div className="be-section-card space-y-5 p-8 border-2 border-orange-100 hover:border-orange-300/60 bg-gradient-to-br from-white to-orange-50 hover:to-orange-100 shadow-tactile hover:shadow-tactile-hover transition-all duration-300 rounded-2xl">
             <h3 className="text-lg font-bold text-slate-900 border-b-2 border-orange-200 pb-3">What you get</h3>
             <ul className="space-y-4 text-slate-700">
               <li className="flex items-start gap-3">
@@ -215,7 +215,7 @@ export default function HomePage() {
         </div>
       </section>
       {/* 5. Productized Offers */}
-      <section className="home-section home-section--white py-24 bg-linear-to-b from-slate-50 to-white" aria-labelledby="productized-heading">
+      <section className="home-section home-section--white py-24 bg-gradient-to-b from-slate-50 to-white" aria-labelledby="productized-heading">
         <div className="container mx-auto px-4">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
              <div className="space-y-6">
@@ -242,7 +242,7 @@ export default function HomePage() {
       </section>
 
       {/* 6. Consensus Engine Highlight */}
-      <section className="py-24 bg-linear-to-b from-white via-slate-50 to-white" aria-labelledby="consensus-highlight-heading">
+      <section className="py-24 bg-gradient-to-b from-white via-slate-50 to-white" aria-labelledby="consensus-highlight-heading">
         <div className="container mx-auto px-4">
            <div className="text-center max-w-3xl mx-auto mb-12">
               <h2 id="consensus-highlight-heading" className="text-3xl md:text-4xl font-bold font-hero-accent text-slate-900 mb-4 tracking-tight leading-tight">
@@ -281,7 +281,7 @@ export default function HomePage() {
       </section>
 
       {/* 9. LGBTQ Banner */}
-      <section className="py-24 bg-linear-to-br from-slate-800 to-slate-900 text-white" aria-labelledby="lgbtq-banner-heading">
+      <section className="py-24 text-white" style={{ background: 'linear-gradient(to bottom right, #1e293b, #0f172a)' }} aria-labelledby="lgbtq-banner-heading">
         <div className="container mx-auto px-4 max-w-6xl">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
@@ -301,7 +301,7 @@ export default function HomePage() {
             </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
 

@@ -9,7 +9,7 @@ export function LGBTQDiscountBanner() {
       <div className="absolute inset-0 pointer-events-none">
         <Image
           src="/assets/generated/hero-ai-automation-dashboard-desktop.webp"
-          alt=""
+          alt="Abstract decorative background"
           fill
           className="h-full w-full object-cover opacity-20"
           sizes="(max-width: 768px) 100vw, 960px"

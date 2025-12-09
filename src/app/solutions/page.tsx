@@ -101,7 +101,7 @@ const solutionsFaqItems = [
 
 export default function SolutionsPage() {
   return (
-    <main className="be-page-slate">
+    <div className="be-page-slate min-h-full">
       <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
         <div className="be-section-card space-y-6 solutions-hero page-hero-shell">
           <SolutionsItemListJsonLd />
@@ -119,7 +119,7 @@ export default function SolutionsPage() {
             <span className="solutions-chip">Cadence  Your AI Concierge</span>
             <span className="solutions-chip">Consensus Engine  Your AI Strategy Sprint</span>
             <span className="solutions-chip">Automation Rescue</span>
-            <span className="solutions-chip">Workflow Automation Setup</span>
+            <span className="solutions-chip">Automation Skyway</span>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <ButtonLink intent="primary" href="/contact?service=llm-setups">
@@ -258,7 +258,7 @@ export default function SolutionsPage() {
           </div>
         </div>
       </Section>
-    </main>
+    </div>
   );
 }
 

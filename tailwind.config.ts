@@ -112,7 +112,7 @@ const config: Config = {
       boxShadow: {
         neon: "0 0 2px 2px var(--tw-shadow), 0 0 6px 3px var(--tw-ring-offset-shadow), 0 0 8px 4px var(--tw-ring-shadow)",
         tactile: "0 1px 1px rgba(0,0,0,0.02), 0 2px 4px rgba(0,0,0,0.02), 0 4px 8px rgba(0,0,0,0.02), 0 12px 24px -6px rgba(0,0,0,0.03)",
-        "tactile-hover": "0 2px 4px rgba(0,0,0,0.03), 0 8px 16px rgba(0,0,0,0.04), 0 24px 48px -8px rgba(0,0,0,0.06)",
+        "tactile-hover": "0 2px 4px rgba(0,0,0,0.03), 0 8px 16px rgba(0,0,0,0.04), 0 24px 48px -8px rgba(0,0,0,0.06), 0 0 30px -5px rgba(249, 115, 22, 0.4)",
       },
       zIndex: {
         modal: "9999",

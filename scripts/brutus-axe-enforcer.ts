@@ -14,10 +14,11 @@ async function enforce() {
   console.log('🪓 BRUTUS AXE ENFORCER: Initiating ruthless CSS/A11y Audit...');
 
   const browser = await chromium.launch();
-  const page = await browser.newPage();
+  const context = await browser.newContext();
+  const page = await context.newPage();
 
   // Target: Production site
-  const targetUrl = 'https://bespoke-ethos.vercel.app'; 
+  const targetUrl = 'https://bespokeethos.com'; 
   
   try {
     console.log(`🎯 Targeting: ${targetUrl}`);

@@ -266,7 +266,7 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
       <div className="block xl:hidden">
         {isOn ? (
           <div
-            className="be-mobile-menu-backdrop fixed inset-0 z-120 bg-surface-primary/95 dark:bg-dark-surface-primary/95 be-mobile-menu-fullscreen"
+            className="be-mobile-menu-backdrop fixed inset-0 z-[120] bg-surface-primary/95 dark:bg-dark-surface-primary/95 be-mobile-menu-fullscreen"
             onClick={handleOff}
           >
             <div

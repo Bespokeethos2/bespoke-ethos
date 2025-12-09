@@ -1834,80 +1834,9 @@ html.dark .be-page-slate {
 }
 
 /* LGBTQ Discount Button with trailing glow */
+/* LGBTQ Discount Button - moved to component utility classes */
 .lgbtq-discount-btn {
-  position: relative;
-  background: radial-gradient(circle at 30% 0%, rgba(255,255,255,0.9), rgba(248,250,252,0.85));
-  color: #111827;
-  padding: 16px 32px;
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 18px;
-  border: 2px solid transparent;
-  cursor: pointer;
-  overflow: hidden;
-  z-index: 1;
-  min-width: 44px;
-  min-height: 44px;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.25);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-}
-
-.lgbtq-discount-btn::before {
-  content: "";
-  position: absolute;
-  inset: -4px;
-  border-radius: 999px;
-  background:
-    conic-gradient(
-      from 0deg,
-      #e40303,
-      #ff8c00,
-      #ffed00,
-      #008026,
-      #24408e,
-      #732982,
-      #e40303
-    );
-  filter: blur(10px);
-  opacity: 0.85;
-  z-index: -2;
-  animation: lgbtq-prism-ring 12s linear infinite;
-}
-
-.lgbtq-discount-btn::after {
-  content: "";
-  position: absolute;
-  top: 1px;
-  left: -100%;
-  width: 120%;
-  height: calc(100% - 2px);
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.4),
-    transparent
-  );
-  border-radius: inherit;
-  transition: left 0.8s ease;
-}
-
-.lgbtq-discount-btn:hover::after {
-  left: 100%;
-}
-
-@keyframes lgbtq-prism-ring {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.lgbtq-discount-btn:focus-visible {
-  outline: 2px solid rgba(255, 255, 255, 0.9);
-  outline-offset: 3px;
+  /* Legacy styles removed for border-beam implementation */
 }
 
 /* Modal / popup styles */

@@ -55,15 +55,12 @@ export function TrustCredentials() {
             Starting a business as a minority is hard as hell. I know—I&rsquo;ve been there. That&rsquo;s why LGBTQ-owned businesses get 25% off. No hoops, no fine print. Just mention it when you reach out.
           </p>
           <div className="mt-6 flex justify-center">
-            <div className="relative inline-flex rounded-full">
-              <BorderBeam borderWidth={2} lightWidth={360} duration={10} />
-              <Link
-                href="/lgbtq-discount"
-                className="relative z-[1] inline-flex items-center rounded-full bg-white px-8 py-3 text-sm font-semibold text-slate-900 shadow-md transition-colors duration-200 hover:bg-slate-100"
-              >
-                Learn about the 25% discount
-              </Link>
-            </div>
+            <Link
+              href="/lgbtq-discount"
+              className="inline-flex items-center rounded-full border border-slate-300 bg-white px-8 py-3 text-sm font-semibold text-slate-900 shadow-sm transition-colors duration-200 hover:bg-slate-50"
+            >
+              Learn about the 25% discount
+            </Link>
           </div>
         </div>
       </div>

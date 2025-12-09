@@ -29,7 +29,7 @@ export function BorderBeam({
       style={styleVars}
       aria-hidden="true"
     >
-      <div className="absolute inset-0 rounded-[inherit] border-[length:var(--border-width)] border-transparent [background:linear-gradient(var(--light-color),var(--light-color))_border-box] [mask:linear-gradient(#fff_0_0)_padding-box,linear-gradient(#fff_0_0)] [mask-composite:exclude] animate-border-beam" />
+      <div className="absolute inset-0 rounded-[inherit] border-[length:var(--border-width)] border-transparent [background:var(--light-color)_border-box] [mask:linear-gradient(#fff_0_0)_padding-box,linear-gradient(#fff_0_0)] [mask-composite:exclude] animate-border-beam" />
     </div>
   );
 }

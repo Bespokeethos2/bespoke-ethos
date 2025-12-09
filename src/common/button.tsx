@@ -9,12 +9,9 @@ export const $button = cva(
         primary:
           "bg-[var(--amber-cta)] hover:bg-[var(--gold-accent)] text-[var(--charcoal-text)] shadow-md hover:shadow-lg border-transparent",
         secondary:
-          "bg-surface-secondary text-text-primary border-border border dark:bg-dark-surface-secondary dark:text-dark-text-primary dark:border-dark-border hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary",
+          "bg-surface-secondary text-slate-900 border-border border dark:bg-dark-surface-secondary dark:text-white dark:border-dark-border hover:bg-surface-tertiary hover:text-slate-950 dark:hover:bg-dark-surface-tertiary dark:hover:text-white",
         tertiary:
           "bg-text-primary text-surface-primary dark:bg-dark-text-primary dark:text-dark-surface-primary border border-dark-border dark:border-border hover:bg-dark-surface-tertiary dark:hover:bg-surface-tertiary",
-      },
-      disabled: {
-        true: "opacity-30",
       },
       onlyButton: {
         true: "rounded-xs",
@@ -35,9 +32,10 @@ export const $button = cva(
 );
 
 type ButtonProps<C extends keyof React.JSX.IntrinsicElements> = VariantProps<typeof $button> &
-  React.JSX.IntrinsicElements[C] & {
+  Omit<React.JSX.IntrinsicElements[C], 'disabled'> & {
     icon?: React.ReactNode;
     unstyled?: boolean;
+    disabled?: boolean;
   };
 
 export const Button = ({
@@ -60,7 +58,6 @@ export const Button = ({
         !unstyled
           ? {
               intent,
-              disabled,
               onlyButton,
               iconSide: icon ? iconSide : undefined,
               unstyled,
@@ -98,7 +95,6 @@ export const ButtonLink = ({
         !unstyled
           ? {
               intent,
-              disabled,
               onlyButton,
               iconSide: icon ? iconSide : undefined,
               className,

@@ -12,7 +12,7 @@ export function ConversionOptimizedHero() {
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[-20%] left-[20%] h-[800px] w-[800px] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,166,0,0.08),transparent_70%)]" />
         <div className="absolute bottom-[-10%] right-[-10%] h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.05),transparent_70%)]" />
-        <div className="absolute inset-0 bg-[url('/assets/noise.svg')] opacity-20 mix-blend-soft-light brightness-100 contrast-150"></div>
+        <div className="absolute inset-0 bg-[url('/assets/noise.svg')] opacity-20 mix-blend-soft-light brightness-100 contrast-150" aria-hidden="true"></div>
       </div>
 
       <div className="container relative mx-auto grid max-w-7xl grid-cols-1 gap-16 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
