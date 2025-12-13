@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import PostContentAiParadox from "./post-content-ai-paradox";
 
 export type BlogPost = {
   slug: string;
@@ -17,6 +18,22 @@ export type BlogPost = {
 };
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    slug: "the-paradox-of-progress-a-gay-mens-field-guide-to-tech",
+    title: "The Paradox of Progress: A Gay Men's Field Guide to Tech",
+    description:
+      "We're hyper-linked, yet isolated. Trillions chase AI companions to fix the loneliness epidemic tech created. It's Heidegger's 'enframing' turning real bonds into data points. Don't let the tool become the whole toolbox. Augment the human mess.",
+    publishedAt: "2025-12-13",
+    readingTimeMinutes: 6,
+    hero: {
+      src: "/assets/generated/editorial-ai-isolation-1.png",
+      alt: "A stylized, high-contrast image of a single human figure standing in a vast, empty digital landscape, connected to a glowing network by a single, fragile thread.",
+    },
+    tags: ["AI", "philosophy", "connection", "Gay Men's Field Guide"],
+    content: function PostContent() {
+      return <PostContentAiParadox />;
+    },
+  },
   {
     slug: "last-180-days-with-the-future-of-ai",
     title: "My Last 180 Days With the Future of AI",
