@@ -53,8 +53,28 @@
 
 ## Vertex AI Billing Setup
 
-### Current API Key
-Your provided key: `AIzaSyDYKa5Bylu4xwNoTWRneTAKcamCuHKd-gM`
+### Current API Key (Updated: 2025-12-13)
+**Project**: `bespokeethos-analytics-475007`  
+**Billing Account**: `01D82D-EE885B-C29459`  
+**Active Key**: `AIzaSyD8veKWYoNPQcxPfJcEANSv322UDiM_2IQ`
+
+**Previous Key** (deprecated): `AIzaSyDYKa5Bylu4xwNoTWRneTAKcamCuHKd-gM`
+
+### Quota Tier Information
+
+**Current Tier**: Tier 1 (Free)
+- 15 requests per minute (RPM)
+- 1 million tokens per minute (TPM)
+- 1,500 requests per day (RPD)
+
+**Quota Increase Requested**: Tier 2+
+- Target: 1,000 RPM, 4 million TPM
+- Status: Pending approval
+- Check status: https://console.cloud.google.com/apis/api/generativelanguage.googleapis.com/quotas?project=bespokeethos-analytics-475007
+
+**Alternative: Vertex AI** (Higher default quotas)
+- 300 RPM for Gemini Pro (20x higher than Tier 1)
+- Enable at: https://console.cloud.google.com/vertex-ai?project=bespokeethos-analytics-475007
 
 ### Enable Vertex AI
 
