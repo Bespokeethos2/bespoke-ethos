@@ -6,331 +6,115 @@ import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
 import { ButtonLink } from "@/common/button";
 import { PRICING, formatMoney } from "@/config/pricing";
-import { ConsensusEngineCard } from "@/components/ConsensusEngineCard";
-import { TechNerdCard } from "@/components/tech-nerd-card";
-import { TrustStrip } from "@/app/_components/trust-strip";
-import { FounderConsensusQA } from "@/app/_components/founder-consensus-qa";
-import { ConsensusResearchers } from "@/components/consensus-researchers";
 import { Accordion } from "@/app/_sections/accordion-faq/accordion";
 import { OrganizationJsonLd } from '@/app/_components/seo/organization-jsonld';
-
+import { PremiumContainer } from "@/components/ui/premium-container";
+import { TechNerdCard } from "@/components/tech-nerd-card";
 
 export const revalidate = 1800;
 
 export const metadata: Metadata = {
-  title: "Consensus Engine – AI Strategy Sprint for Small Businesses | Bespoke Ethos",
+  title: "AI Strategy Sprints | Bespoke Ethos",
   description:
-    "Consensus Engine runs an AI Strategy Sprint for founders who need research-level clarity on big decisions without a full research team. Get cited briefs, tradeoffs, and a clear path you trust.",
+    "Don't guess. We run multi-agent adversarial research sprints to stress-test your big decisions before you sign the check. Powered by Consensus Engine.",
   alternates: { canonical: "/solutions/consensus-engine" },
 };
 
 const consensusFaqItems = [
   {
-    _title: "What kinds of questions are a good fit for Consensus Engine?",
+    _title: "How is this different from asking ChatGPT?",
     answer:
-      "Consensus Engine works best on decisions that materially change your business: pricing changes, product pivots, repositioning, or choosing between a few high-stakes paths. If the question keeps you up at night or would be expensive to get wrong, it’s probably a fit.",
+      "ChatGPT gives you the 'average' internet answer. Our Strategy Sprint uses multiple competing agents (A Red Team, a Blue Team, a Financial Analyst) to argue over your decision, then synthesizes the winners. It's adversarial, not agreeable.",
   },
   {
-    _title: "How is this different from just asking a single AI model for advice?",
+    _title: "What do I get?",
     answer:
-      "Instead of one confident answer, Consensus Engine runs multiple research agents that challenge each other’s assumptions, surface tradeoffs, and then synthesize a recommendation. You see the reasoning, citations, and disagreements—not just a polished paragraph.",
+      "A cited Decision Brief. Options, Risks, Tradeoffs, and a recommended path with a confidence core. It's a document you can take to the bank (or your board).",
   },
   {
-    _title: "What do I actually receive at the end of a sprint?",
+    _title: "How long does it take?",
     answer:
-      "You get a structured, cited brief that lays out the question, the options, supporting evidence, tradeoffs, and a recommended path. It’s designed so you can share it with a partner, investor, or team member and have a concrete conversation instead of hand-waving.",
+      "5 days. We scope it on Monday, run the agents Tuesday-Wednesday, review Thursday, and hand off the brief on Friday.",
   },
-  {
-    _title: "How long does an AI Strategy Sprint take?",
-    answer:
-      "Most sprints wrap in days rather than weeks. After an initial scoping call to define the question and constraints, the research run begins, and you review the brief soon after with room for follow-up questions.",
-  },
-] as const;
+];
 
 export default function ConsensusEnginePage() {
   return (
-    <main className="be-page-slate">
+    <div className="bg-background min-h-screen relative overflow-hidden">
+        {/* Cinematic Background */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+         <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-indigo-900/10 blur-[150px] rounded-full" />
+         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-orange-500/5 blur-[100px] rounded-full" />
+      </div>
+
       <OrganizationJsonLd />
-      <Section className="gap-6 -mt-6 md:-mt-4">
-        <div className="be-section-card space-y-8 pt-4 md:pt-5">
-          <Breadcrumbs
+      
+      <Section className="relative z-10 pt-24 pb-16">
+        <div className="container mx-auto px-4 max-w-6xl space-y-12">
+          
+           <Breadcrumbs
             items={[
               { name: "Home", href: "/" },
               { name: "Solutions", href: "/solutions" },
-              { name: "Consensus Engine  Your AI Strategy Sprint" },
+              { name: "AI Strategy Sprint" },
             ]}
+            className="mb-8"
           />
-          <ProductJsonLd />
-          <ConsensusServiceJsonLd />
-          <ConsensusFaqJsonLd />
 
-          {/* Hero */}
-          <section
-            aria-labelledby="consensus-hero-heading"
-            className="relative overflow-hidden rounded-3xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-tactile-glow"
-          >
-            <div className="relative h-40 w-full sm:h-48 lg:h-56">
-              <Image
-                src="/assets/generated/hero_consensus_desktop.svg"
-                alt="Abstract ribbons of light converging into one clear decision point on a strategist's screen"
-                fill
-                className="object-cover object-top"
-                sizes="(max-width: 768px) 100vw, 960px"
-                priority
-              />
-              <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                <div className="rounded-2xl bg-black/45 px-5 py-3 text-center text-sm sm:text-base font-medium text-white/95 shadow-2xl backdrop-blur-md">
-                  <div className="mb-1 text-xs uppercase tracking-[0.22em] text-amber-200">
-                    Consensus Engine  Your AI Strategy Sprint
-                  </div>
-                  <div className="text-sm sm:text-base">Decision clarity when the stakes feel heavy</div>
-                </div>
-              </div>
-            </div>
-          </section>
+           {/* SOTA HERO */}
+          <PremiumContainer variant="obsidian" className="p-8 md:p-12 relative overflow-hidden group">
+             <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
+               <div className="space-y-6">
+                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-500/30 bg-orange-950/30">
+                   <span className="w-1.5 h-1.5 bg-orange-500 rounded-full animate-pulse" />
+                   <span className="text-xs font-bold text-orange-400 uppercase tracking-widest">AI Strategy Sprints</span>
+                 </div>
+                 
+                 <h1 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-none">
+                   DECISION <br/> <span className="text-stroke-thin text-slate-800">CLARITY.</span>
+                 </h1>
+                 
+                 <p className="text-xl text-slate-300 font-light leading-relaxed">
+                   Powered by <strong>Consensus Engine</strong>. Don't bet the company on a gut check. We run 
+                   adversarial multi-agent research sprints to stress-test your big decisions.
+                 </p>
 
-          {/* Intro + hero title */}
-          <section aria-labelledby="consensus-hero-heading" className="space-y-4">
-            <Heading
-              align="left"
-              subtitle="When a decision is big enough to keep you up at night, you need more than one opinion and a gut check."
-            >
-              <h1 id="consensus-hero-heading" className="font-hero-accent">
-                Consensus Engine  Your AI Strategy Sprint
-              </h1>
-            </Heading>
-            <p className="text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
-              Most AI tools give you one very smart answer and hope that&apos;s enough. Consensus Engine runs a
-              coordinated research process that looks at your question from multiple vantage points, lets those
-              perspectives challenge each other, and hands you back a calm, cited brief you can actually act on.
-            </p>
-            <p className="text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
-              Always-on research partner. Synthesizes data, surfaces insights, delivers briefs for confident decisions.
-            </p>
+                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                   <ButtonLink intent="primary" href="/contact?subject=Strategy%20Sprint">Book Sprint</ButtonLink>
+                   <ButtonLink intent="secondary" href="#specs">View Specs</ButtonLink>
+                 </div>
+               </div>
 
-            <div className="mt-3 rounded-2xl border border-border bg-surface-secondary/70 p-4 text-sm text-text-secondary shadow-sm dark:border-dark-border dark:bg-dark-surface-secondary/70 dark:text-dark-text-secondary md:flex md:items-center md:justify-between md:gap-4">
-              <div className="space-y-1">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-text-tertiary dark:text-dark-text-tertiary">
-                  Who it&apos;s for
-                </p>
-                <p>
-                  Founders and operators without a research team who still need research-level clarity on pricing, pivots,
-                  positioning, or other moves that change the shape of the business.
-                </p>
-              </div>
-              <div className="mt-3 flex flex-wrap gap-2 md:mt-0 md:justify-end">
-                <span className="inline-flex items-center rounded-full bg-surface-primary/80 px-3 py-1 text-xs font-semibold text-text-primary dark:bg-dark-surface-primary/80 dark:text-dark-text-primary">
-                  Cited briefs, not mystery answers
-                </span>
-                <span className="inline-flex items-center rounded-full bg-surface-primary/80 px-3 py-1 text-xs font-semibold text-text-primary dark:bg-dark-surface-primary/80 dark:text-dark-text-primary">
-                  You still make the call
-                </span>
-              </div>
-            </div>
-          </section>
-
-          {/* Trust + pricing */}
-          <section className="grid gap-6 md:grid-cols-[minmax(0,1.35fr)_minmax(0,0.9fr)] items-start">
-            <div className="space-y-3 text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
-              <h2 className="text-lg font-semibold text-text-primary dark:text-dark-text-primary">
-                Not just &quot;more AI&quot;—a different vantage point
-              </h2>
-              <p>
-                Most tools give you one model with a single vantage point. Consensus Engine brings several
-                specialized lenses to your question—copy and narrative, numbers, legal and compliance, and future
-                modelling—then synthesizes what they find into one decision brief. You see options, evidence,
-                tradeoffs, and a recommendation, not just a confident paragraph.
-              </p>
-              <ul className="mt-1 list-disc space-y-1 pl-5">
-                <li>Several perspectives weigh the same decision, then synthesize a recommendation.</li>
-                <li>Transparent reasoning and tradeoffs you can push back on.</li>
-                <li>Reusable context so follow-up questions get sharper over time.</li>
-              </ul>
-              <div className="mt-4 rounded-2xl border border-border bg-surface-secondary/70 p-3 text-xs text-text-secondary shadow-sm dark:border-dark-border dark:bg-dark-surface-secondary/70 dark:text-dark-text-secondary md:text-sm">
-                <p>
-                  You&apos;re not handing your toughest calls to a mystery lab. Consensus Engine is built by an
-                  independent founder who has spent years training and evaluating frontier models—and who still has to
-                  live with the consequences of his own decisions. We start with one big question and earn your trust
-                  from there.
-                </p>
-              </div>
-            </div>
-
-            <div className="home-section-card">
-              <p className="home-section-card-title">Pricing at a glance</p>
-              <p className="mb-2 text-lg font-semibold text-text-primary dark:text-dark-text-primary">
-                {formatMoney(PRICING.aiResearchAssistant.monthly)}/mo for up to {PRICING.aiResearchAssistant.queryLimit} research
-                queries.
-              </p>
-              <p className="text-sm text-text-secondary dark:text-dark-text-secondary">
-                Every free 30-minute consultation comes with one Consensus Engine research brief on a reasonable
-                strategic question, so you can see the process before you ever pay for a plan. Many clients then move to
-                a single, fixed-price research question or a monthly subscription. LGBTQ-owned businesses receive 25%
-                off upfront project fees on approved scopes; subscriptions stay at standard rates. If this level of
-                clarity would materially change your trajectory but the price is out of reach, email about our annual
-                Consensus Engine grant slot.
-              </p>
-              <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <ButtonLink
-                  className="w-full justify-center sm:w-auto"
-                  intent="primary"
-                  href="/contact?service=llm-setups"
-                >
-                  Talk through a question with me
-                </ButtonLink>
-                <ButtonLink className="w-full justify-center sm:w-auto" intent="secondary" href="/contact">
-                  Ask about the grant slot
-                </ButtonLink>
-              </div>
-              <div className="mt-4 rounded-2xl border border-border bg-surface-secondary/70 p-3 dark:border-dark-border dark:bg-dark-surface-secondary/70">
-                <TrustStrip size="thin" />
-              </div>
-            </div>
-          </section>
-
-          {/* Cinematic Consensus Engine card + researcher lenses */}
-          <ConsensusEngineCard className="my-10" />
-
-          <ConsensusResearchers />
-
-          {/* Real-world case: Cleveland LGBTQ+ Consensus Calendar */}
-          <section className="mt-8 space-y-3 text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
-            <Heading align="left" subtitle="Built for real stakes, not lab demos.">
-              <h2 className="text-base font-semibold text-text-primary dark:text-dark-text-primary">
-                Case study: Consensus Calendar for Cleveland&apos;s LGBTQ+ community
-              </h2>
-            </Heading>
-            <p>
-              In Cleveland, there wasn&apos;t a single, trustworthy place for queer folks to see what was happening this
-              week. Events were scattered across Instagram posts, flyers, and half-updated websites—which meant people
-              often heard about shows and meetups only after they were over.
-            </p>
-            <p>
-              We turned that into a Consensus Engine problem. Three AI research agents went on independent sprints to
-              find and verify events. Each agent knew it was competing with two others, would lose points for
-              hallucinated or outdated listings, and would earn bonus points for catching bad data from the others. A
-              simple scorecard—verified events, faulty events, unique finds—kept the game honest.
-            </p>
-            <p>
-              After several rounds, we promoted the winner&apos;s findings into a verified feed and manually spot-checked
-              the riskiest entries. The result is{" "}
-              <ButtonLink href="/calendar" intent="tertiary" className="inline px-0 align-baseline underline">
-                Consensus Calendar
-              </ButtonLink>
-              —a Cleveland LGBTQ+ social calendar hosted on this site and updated on a quarterly cadence so people can
-              actually find each other instead of guessing where to go.
-            </p>
-          </section>
-
-          {/* How it looks in practice */}
-          <section className="mt-6 grid gap-4 md:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] items-start">
-            <div className="space-y-3 text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
-              <h2 className="text-base font-semibold text-text-primary dark:text-dark-text-primary">
-                What a Consensus Engine run actually looks like
-              </h2>
-              <p>
-                Under the hood, Consensus Engine walks through your options side by side, shows the evidence each
-                lens leaned on, and explains why the recommended path makes sense. Instead of a single verdict, you get
-                a structured outline of: options, supporting facts, tradeoffs, and a clear &quot;if this, then
-                that&quot; recommendation.
-              </p>
-              <ul className="mt-1 list-disc space-y-1 pl-5">
-                <li>Your question in plain language, plus any constraints we agree on.</li>
-                <li>Several perspectives—story, numbers, legal, and future—summarized separately.</li>
-                <li>A synthesized recommendation with citations you can check.</li>
-              </ul>
-            </div>
-            <div className="relative h-48 w-full overflow-hidden rounded-xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-xl md:h-56">
-              <Image
-                src="/assets/generated/consensus_interface.svg"
-                alt="Consensus Engine decision interface comparing options with votes, notes, and cited AI insights"
-                fill
-                className="h-full w-full object-cover"
-                sizes="(max-width: 768px) 100vw, 480px"
-              />
-            </div>
-          </section>
-
-          {/* Founder Q&A in your voice */}
-          <FounderConsensusQA />
-
-          {/* Nerd card for technical readers */}
-          <TechNerdCard product="consensus" />
-        </div>
-
-        <div className="mt-10">
-          <Heading align="center" title="Questions founders ask about Consensus Engine">
-            <h2 className="text-2xl font-semibold">How the AI Strategy Sprint works in practice</h2>
-          </Heading>
-          <div className="mx-auto mt-6 flex w-full gap-8 md:max-w-(--breakpoint-sm) lg:max-w-(--breakpoint-md) lg:gap-14 lg:px-24 xl:max-w-(--breakpoint-xl)">
-            <Accordion items={consensusFaqItems} />
+               {/* Visual */}
+               <div className="relative aspect-video rounded-xl overflow-hidden border border-white/10 bg-black/50 shadow-2xl">
+                 <div className="absolute inset-0 flex items-center justify-center">
+                    {/* Placeholder for complex agent graph visual */}
+                   <div className="text-center p-8">
+                     <div className="w-16 h-16 bg-orange-500/20 rounded-full mx-auto mb-4 flex items-center justify-center animate-pulse">
+                        <Image src="/assets/logos/consensus_engine_logo.png" alt="Consensus Logo" width={32} height={32} className="opacity-80" />
+                     </div>
+                     <p className="text-slate-400 font-mono text-sm">Agents debating...</p>
+                   </div>
+                 </div>
+               </div>
+             </div>
+          </PremiumContainer>
+          
+          {/* Tech Specs */}
+          <div id="specs">
+             <TechNerdCard product="consensus" />
           </div>
+
+          {/* FAQ */}
+          <div className="max-w-3xl mx-auto pt-16">
+            <h2 className="text-3xl font-bold text-white text-center mb-8 font-hero-accent">Standard Operating Procedure</h2>
+            <div className="text-slate-300">
+               <Accordion items={consensusFaqItems} />
+            </div>
+          </div>
+
         </div>
       </Section>
-    </main>
+    </div>
   );
-}
-
-function ProductJsonLd() {
-  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Consensus Engine  Your AI Strategy Sprint",
-    description:
-      "Always-on research partner. Synthesizes data, surfaces insights, delivers briefs for confident decisions.",
-    image: [`${base}/assets/generated/hero_consensus_desktop.svg`],
-    provider: {
-      "@type": "Organization",
-      name: "Bespoke Ethos",
-      url: base,
-    },
-    url: `${base}/solutions/consensus-engine`,
-  } as const;
-
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
-}
-
-function ConsensusFaqJsonLd() {
-  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: consensusFaqItems.map((item) => ({
-      "@type": "Question",
-      name: item._title,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-    mainEntityOfPage: `${base}/solutions/consensus-engine`,
-  } as const;
-
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
-}
-
-function ConsensusServiceJsonLd() {
-  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": `${base}/solutions/consensus-engine#service`,
-    name: "Consensus Engine  Your AI Strategy Sprint",
-    description:
-      "Always-on research partner. Synthesizes data, surfaces insights, delivers briefs for confident decisions. LGBTQ-owned businesses receive 25% off upfront project fees on approved scopes.",
-    image: [`${base}/assets/generated/hero_consensus_desktop.svg`],
-    provider: {
-      "@type": "Organization",
-      name: "Bespoke Ethos",
-      url: base,
-    },
-    areaServed: {
-      "@type": "AdministrativeArea",
-      name: "Cleveland, OH",
-    },
-    url: `${base}/solutions/consensus-engine`,
-  } as const;
-
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }
