@@ -73,6 +73,48 @@ const config: Config = {
           secondary: "rgba(var(--grayscale-rgb-100), <alpha-value>)",
           tertiary: "rgba(var(--grayscale-rgb-200), <alpha-value>)",
         },
+
+        // Shadcn Base Colors (Added to fix border-border build error)
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+          // ... preserve existing accent object below if needed, but 'accent' key collision?
+          // The existing 'accent' object uses RGB vars. 
+          // I will use 'accent-color' or just let the existing accent object stand if it works.
+          // Re-reading: 'accent' is already defined as an object on line 18.
+          // I should NOT overwrite it with a string/simple object unless I merge.
+          // The existing accent object is robust 50-950.
+          // I will only add the missing ones: border, input, ring, background, foreground.
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
       },
       maxWidth: {
         prose: "75ch",
