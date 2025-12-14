@@ -11,6 +11,8 @@ import type {
   SanityChangelogPost,
 } from "@/lib/sanity/types";
 import type { ChangelogListItem } from "./_components/changelog.fragment";
+import { OrganizationJsonLd } from '@/app/_components/seo/organization-jsonld';
+
 
 const SKIP_REMOTE_DATA = (process.env.SKIP_REMOTE_DATA ?? "").trim() === "1";
 
@@ -42,6 +44,7 @@ export default async function ChangelogPage() {
   if (SKIP_REMOTE_DATA) {
     return (
       <ChangelogLayout>
+      <OrganizationJsonLd />
         <Heading
           align="left"
           className="flex-1 flex-col-reverse!"

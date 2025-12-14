@@ -12,6 +12,8 @@ import { TrustStrip } from "@/app/_components/trust-strip";
 import { FounderConsensusQA } from "@/app/_components/founder-consensus-qa";
 import { ConsensusResearchers } from "@/components/consensus-researchers";
 import { Accordion } from "@/app/_sections/accordion-faq/accordion";
+import { OrganizationJsonLd } from '@/app/_components/seo/organization-jsonld';
+
 
 export const revalidate = 1800;
 
@@ -48,6 +50,7 @@ const consensusFaqItems = [
 export default function ConsensusEnginePage() {
   return (
     <main className="be-page-slate">
+      <OrganizationJsonLd />
       <Section className="gap-6 -mt-6 md:-mt-4">
         <div className="be-section-card space-y-8 pt-4 md:pt-5">
           <Breadcrumbs
@@ -64,11 +67,11 @@ export default function ConsensusEnginePage() {
           {/* Hero */}
           <section
             aria-labelledby="consensus-hero-heading"
-            className="relative overflow-hidden rounded-3xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-xl"
+            className="relative overflow-hidden rounded-3xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-tactile-glow"
           >
             <div className="relative h-40 w-full sm:h-48 lg:h-56">
               <Image
-                src="/assets/generated/hero-consensus-desktop.webp"
+                src="/assets/generated/hero_consensus_desktop.svg"
                 alt="Abstract ribbons of light converging into one clear decision point on a strategist's screen"
                 fill
                 className="object-cover object-top"
@@ -239,7 +242,7 @@ export default function ConsensusEnginePage() {
             </div>
             <div className="relative h-48 w-full overflow-hidden rounded-xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-xl md:h-56">
               <Image
-                src="/assets/generated/service-consensus-decision-interface-desktop.webp"
+                src="/assets/generated/consensus_interface.svg"
                 alt="Consensus Engine decision interface comparing options with votes, notes, and cited AI insights"
                 fill
                 className="h-full w-full object-cover"
@@ -276,7 +279,7 @@ function ProductJsonLd() {
     name: "Consensus Engine  Your AI Strategy Sprint",
     description:
       "Always-on research partner. Synthesizes data, surfaces insights, delivers briefs for confident decisions.",
-    image: [`${base}/assets/generated/hero-consensus-desktop.webp`],
+    image: [`${base}/assets/generated/hero_consensus_desktop.svg`],
     provider: {
       "@type": "Organization",
       name: "Bespoke Ethos",
@@ -316,7 +319,7 @@ function ConsensusServiceJsonLd() {
     name: "Consensus Engine  Your AI Strategy Sprint",
     description:
       "Always-on research partner. Synthesizes data, surfaces insights, delivers briefs for confident decisions. LGBTQ-owned businesses receive 25% off upfront project fees on approved scopes.",
-    image: [`${base}/assets/generated/hero-consensus-desktop.webp`],
+    image: [`${base}/assets/generated/hero_consensus_desktop.svg`],
     provider: {
       "@type": "Organization",
       name: "Bespoke Ethos",

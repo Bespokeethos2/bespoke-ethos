@@ -13,6 +13,8 @@ import {
 } from "@tabler/icons-react";
 
 import { PRICING, formatMoney } from "@/config/pricing";
+import { OrganizationJsonLd } from '@/app/_components/seo/organization-jsonld';
+
 
 const SOLUTION_DATA = [
   {
@@ -443,6 +445,7 @@ function FallbackStaticPage({ slug }: { slug?: string[] }) {
 
   return (
     <div className="bg-surface-primary dark:bg-dark-surface-primary">
+      <OrganizationJsonLd />
       <section className="relative overflow-hidden">
         <div className="be-hero-aurora absolute inset-0 -z-10" />
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-6 pb-14 pt-20 md:grid-cols-2 md:pt-24">

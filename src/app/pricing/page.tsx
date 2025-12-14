@@ -7,6 +7,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { ButtonLink } from "@/common/button";
 import { ENTERPRISE_CONTACT, ENTERPRISE_OFFERINGS } from "../enterprise/data";
+import { OrganizationJsonLd } from '@/app/_components/seo/organization-jsonld';
+
 
 export const revalidate = 1800;
 
@@ -70,22 +72,28 @@ export const metadata: Metadata = {
 export default function PricingPage() {
   return (
     <main className="be-page-slate">
+      <OrganizationJsonLd />
       <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
         <OfferCatalogJsonLd />
         <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Pricing" }]} />
 
         {/* Hero Section */}
         <div className="page-hero-shell space-y-4">
-          <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-xl pricing-hero-glow">
+          <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-tactile-glow pricing-hero-glow">
             <div className="relative h-40 w-full sm:h-48 lg:h-56">
               <Image
-                src="/assets/generated/hero-pricing-desktop.webp"
-                alt="Calm workspace with an automation dashboard open beside a notebook and coffee"
+                src="/assets/generated/pricing_hero.svg"
+                alt="Minimalist workspace with 'Simple Pricing' notebook and calculator"
                 fill
                 className="object-cover object-center"
                 sizes="(max-width: 768px) 100vw, 960px"
                 priority={true}
               />
+              {/* NANO_BANANA_OPTIMIZATION:
+                  Ref: IMG-OPT-001/5A/PricingHero
+                  Prompt: Minimalist workspace top-down view, open notebook with 'Simple Pricing' handwritten, vintage calculator, black coffee in slate mug.
+                  Status: Pending Generation
+              */}
             </div>
           </div>
           <Heading subtitle="Simple, transparent pricing built for founders" align="left">
@@ -133,8 +141,9 @@ export default function PricingPage() {
               </ul>
               <div className="mt-5">
                 <ButtonLink
-                  href="/products/cadence"
+                href="/products/cadence"
                   unstyled
+                  aria-label="Explore Cadence features and pricing"
                   className="w-full inline-flex items-center justify-center rounded-full bg-success px-5 py-2.5 text-base font-bold text-black shadow-lg transition-transform duration-200 hover:scale-[1.05] active:scale-[0.98]"
                 >
                   Explore Cadence
@@ -144,6 +153,7 @@ export default function PricingPage() {
                 <ButtonLink
                   href="/contact?service=cadence"
                   unstyled
+                  aria-label="Schedule a demo for Cadence"
                   className="w-full inline-flex items-center justify-center rounded-full border-2 border-success px-5 py-2 text-sm font-semibold text-success transition-colors duration-200 hover:bg-success/10"
                 >
                   Schedule Demo

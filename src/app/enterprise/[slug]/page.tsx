@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { OrganizationJsonLd } from '@/app/_components/seo/organization-jsonld';
 import {
   ENTERPRISE_OFFERINGS,
   ENTERPRISE_CONTACT,
@@ -40,6 +41,7 @@ export default async function EnterpriseOfferingPage({ params }: EnterprisePageP
 
   return (
     <main className="be-page-slate">
+      <OrganizationJsonLd />
       <section className="gap-6 -mt-10 md:-mt-6">
         <div className="be-section-card space-y-8">
           <header className="space-y-4 text-center">

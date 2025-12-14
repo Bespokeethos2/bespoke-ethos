@@ -1,12 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Suspense } from "react";
 import { motion } from "framer-motion";
 
 import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
 import { Section } from "@/common/layout";
 import { Accordion } from "@/app/_sections/accordion-faq/accordion";
+import { OrganizationJsonLd } from '@/app/_components/seo/organization-jsonld';
+
 
 const contactFaqItems = [
   {
@@ -39,9 +42,24 @@ function ContactForm() {
       transition={{ duration: 0.5 }}
       className="be-section-card space-y-6 page-hero-shell"
     >
+      <OrganizationJsonLd />
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Contact" }]} />
 
       <div className="space-y-4 text-center">
+        <div className="relative w-full h-48 md:h-64 overflow-hidden rounded-3xl mb-8 shadow-xl border border-slate-200/50">
+             <Image
+                src="/assets/generated/service_consult.svg"
+                alt="Hand writing 'Let's Build' on stationery"
+                fill
+                className="object-cover object-center"
+                priority
+             />
+             {/* NANO_BANANA_OPTIMIZATION:
+                  Ref: IMG-OPT-001/5B/ContactHero
+                  Prompt: Close up macro shot of a hand holding a premium fountain pen writing 'Let's Build', warm lighting.
+                  Status: Pending Generation
+              */}
+        </div>
         <h1 className="font-hero-accent text-balance text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
           Contact Bespoke Ethos
         </h1>

@@ -1,43 +1,44 @@
-# Iteration Summary - Final Polish & Quality Assurance
+# Iteration Summary - Infrastructure & Quota Optimization
 
-**Date**: November 30, 2025  
-**Focus**: Rigorous visual audit, linting fixes, and contact page refinement
+**Date**: December 14, 2025
+**Focus**: Google Cloud Vertex AI Quota Verification & API Hardening
 
 ---
 
 ## 🎯 Objectives Completed
 
-### 1. ✅ Code Quality & Linting
-**Action**:
-- Fixed unescaped quotes in `src/app/about/page.tsx` and `src/components/ui/testimonial-marquee.tsx`.
-- Verified type safety and build integrity.
+### 1. ✅ Infrastructure & Billing Verification
+**Context**: We encountered API rate limits (`429`) on the "Nano Banana 3" (Gemini 2.5 Pro) and "Vision" pipelines.
+**Findings**:
+- **Paid Tier 2 Confirmed**: Project `bespokeethos-analytics-475007` is correctly effectively on Paid Tier 2.
+- **High Limits**:
+    - **Gemini 2.5 Pro**: 1,000 requests/minute.
+    - **Gemini 3 Pro Image**: 500 requests/minute.
+- **Root Cause**: Burst traffic (millisecond spikes) rather than daily quota exhaustion.
 
-### 2. ✅ Contact Page Refinement
-**Feedback**: "broken jobform on contact Huge awkward buttons"
+### 2. ✅ API Hardening (Exponential Backoff)
 **Action**:
-- Increased JotForm iframe height to `800px` to prevent internal scrolling.
-- Added `scrolling="no"` attribute.
-- Refined the "LGBTQ+ Discount" box to be more subtle (reduced border/padding) to avoid visual clutter.
-- Note: Internal JotForm buttons cannot be styled via CSS due to iframe cross-origin policies, but the container is now optimized.
+- Patched `src/app/api/intelligence/vision/route.ts` to include robust retry logic.
+- **Strategy**: 3 retries with exponential backoff (2s, 4s, 8s) to handle transient 429/503 errors gracefully without crashing the client.
 
-### 3. ✅ Visual Audit & Fixes
+### 3. ✅ Quota Intelligence
 **Action**:
-- Restored `src/app/about/page.tsx` after a file corruption issue, ensuring all visual changes (no orbs, clean hero) are preserved.
-- Verified Homepage flow: Hero -> Testimonials -> Product Quadrant.
-- Verified About Page hero layout.
+- Created `QUOTA_INCREASE_GUIDE.md` with direct links to the Google Cloud Console for future scaling.
+- Generated `QUOTA_VERIFICATION_REPORT.md` snapshotting current capabilities.
+- Cached raw quota dumps (`aiplatform_quotas.json`) for reference.
 
 ---
 
 ## 🚀 Deployment Status
 
 ### Build Process
-- ✅ TypeScript compilation in progress
-- ✅ Linting passed (after fixes)
+- ✅ Intelligence API routes updated.
+- ✅ Quota verification scripts archived.
 
-### Live Deployment
-- **Target**: Production (main branch)
-- **URL**: https://bespoke-ethos.vercel.app
+### Next Steps
+- **Monitor**: Watch logs for `⚠️ Quota hit. Retrying...` to verify backoff effectiveness.
+- **Resume**: Return to visual asset generation utilizing verified high quotas.
 
 ---
 
-**Status**: 🚀 Building for production
+**Status**: 🟢 Infrastructure Optimized & Limits Verified

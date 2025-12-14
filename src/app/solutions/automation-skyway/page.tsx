@@ -7,6 +7,8 @@ import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
 import { PRICING, planSummary } from "@/config/pricing";
 import { Accordion } from "@/app/_sections/accordion-faq/accordion";
+import { OrganizationJsonLd } from '@/app/_components/seo/organization-jsonld';
+
 
 export const revalidate = 1800;
 
@@ -117,6 +119,7 @@ const automationSkywayFaqItems = [
 export default function AutomationSkywayPage() {
   return (
     <main className="be-page-slate">
+      <OrganizationJsonLd />
       <Section className="gap-6 -mt-6 md:-mt-4">
         <div className="be-section-card space-y-6 pt-4 md:pt-5">
           <Breadcrumbs

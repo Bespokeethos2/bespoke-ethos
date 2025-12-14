@@ -2,6 +2,8 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import PostContentAiParadox from "./post-content-ai-paradox";
+import { EfficiencyEngine } from "../../components/games/efficiency-engine";
+import { LeadGeneratorClicker } from "../../components/games/lead-generator";
 
 export type BlogPost = {
   slug: string;
@@ -170,10 +172,14 @@ export const BLOG_POSTS: BlogPost[] = [
           <p>
             That first workflow is where a service like{" "}
             <Link href="/solutions/automation-skyway" className="underline">
-              Automation Skyway
+            Automation Skyway
             </Link>{" "}
             shines: narrow scope, clear inputs/outputs, and very measurable time saved.
           </p>
+
+          <div className="my-10 not-prose">
+            <EfficiencyEngine />
+          </div>
 
           <h2>What “Good” AI Automation Looks Like</h2>
           <p>AI can be risky when it’s bolted on without guardrails. For small businesses, good automation is defined by three rules:</p>
@@ -379,6 +385,12 @@ export const BLOG_POSTS: BlogPost[] = [
             <li>Better CSAT/feedback scores on conversations that start with the bot.</li>
             <li>Lower escalation volume for simple questions—and better context when humans do step in.</li>
           </ul>
+
+          <div className="my-10 not-prose">
+             <h3 className="text-xl font-bold mb-4 font-hero-accent text-center">Simulate the Impact</h3>
+             <p className="text-center text-sm text-zinc-500 mb-6">See how automation scales your lead generation compared to manual clicks.</p>
+             <LeadGeneratorClicker />
+          </div>
 
           <h2>Where AI Strategy Sprint Fits in Your Business</h2>
           <p>

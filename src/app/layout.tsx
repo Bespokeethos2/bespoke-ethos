@@ -10,6 +10,7 @@ import { OrganizationJsonLd } from "./_components/seo/organization-jsonld";
 import { WebsiteJsonLd } from "./_components/seo/website-jsonld";
 import { LocalBusinessJsonLd } from "./_components/seo/localbusiness-jsonld";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { ClientComponents } from "@/components/ClientComponents";
 
 const rawSkipSetting = (process.env.SKIP_REMOTE_DATA ?? "").trim();
 const SKIP_REMOTE_DATA = rawSkipSetting ? rawSkipSetting !== "0" : true;
@@ -121,6 +122,15 @@ export const generateMetadata = async (): Promise<Metadata> => {
       images: [FALLBACK_METADATA.ogImageUrl],
       site: FALLBACK_METADATA.sitename,
     },
+    keywords: [
+      "AI consulting Cleveland",
+      "small business automation",
+      "AI strategy sprint",
+      "Zapier alternative",
+      "Make.com consultant",
+      "chatbot for small business",
+      "LGBTQ owned business Cleveland",
+    ],
   };
 };
 
@@ -156,6 +166,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <OrganizationJsonLd />
           <WebsiteJsonLd />
           <LocalBusinessJsonLd />
+          <ClientComponents />
         </Providers>
       </body>
     </html>

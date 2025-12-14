@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { OrganizationJsonLd } from '@/app/_components/seo/organization-jsonld';
+
 
 export const metadata = {
   title: "Faces of Bespoke AI",
@@ -8,6 +10,7 @@ export const metadata = {
 export default function FacesOfBespokeAIPage() {
   return (
     <main className="min-h-[60vh] px-4 py-12 sm:px-6 lg:px-8">
+      <OrganizationJsonLd />
       <div className="mx-auto max-w-3xl space-y-10">
         <header className="space-y-2 text-center">
           <p className="text-xs uppercase tracking-[0.25em] text-text-tertiary dark:text-dark-text-tertiary">

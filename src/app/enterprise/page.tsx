@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { ENTERPRISE_OFFERINGS, ENTERPRISE_CONTACT } from "./data";
+import { OrganizationJsonLd } from '@/app/_components/seo/organization-jsonld';
+
 
 export const metadata: Metadata = {
   title: "Enterprise AI Services | Bespoke Ethos",
@@ -13,6 +15,7 @@ export const metadata: Metadata = {
 export default function EnterpriseLandingPage() {
   return (
     <main className="be-page-slate">
+      <OrganizationJsonLd />
       <section className="gap-6 -mt-10 md:-mt-6">
         <div className="be-section-card space-y-6">
           <header className="text-center space-y-3">

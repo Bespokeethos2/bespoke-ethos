@@ -26,13 +26,13 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
       <div className="p-8 md:p-12 lg:p-14">
         <div className="mb-8 grid w-full items-center gap-6 text-center md:grid-cols-[auto,1fr]">
           {/* 4-agent grid image (kept as a card, not a hero) */}
-          <div className="mx-auto rounded-3xl border border-white/60 bg-white/40 p-3 shadow-[0_40px_80px_rgba(15,23,42,0.4)] backdrop-blur-xl">
+          <div className="mx-auto rounded-3xl border border-white/60 bg-white/40 p-3 shadow-tactile-glow backdrop-blur-xl">
             <Image
               src="/assets/consensus-infographic.png"
               alt="Four research lenses inside the Consensus Engine-copy, finance, legal, and future modeling-converging into one brief"
               width={300}
-              height={200}
-              className="h-[200px] w-[300px] object-contain"
+              height={300}
+              className="h-[200px] w-auto object-contain"
               sizes="(max-width: 640px) 90vw, 300px"
               priority={false}
             />

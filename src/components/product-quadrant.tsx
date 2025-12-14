@@ -24,7 +24,7 @@ function ProductCard({ title, description, icon, href, colorClass, delay }: Prod
       whileHover={{ y: -5 }}
       className="group relative flex flex-col h-full"
     >
-      <Link href={href} className="flex flex-col h-full p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-orange-200 transition-all">
+      <Link href={href} className="flex flex-col h-full p-6 rounded-2xl bg-white border border-slate-200 shadow-tactile-glow hover:border-orange-200 transition-all">
         <div className={cn("w-12 h-12 rounded-full flex items-center justify-center mb-4 transition-colors", colorClass)}>
           {icon}
         </div>

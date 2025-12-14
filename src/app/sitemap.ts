@@ -38,9 +38,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
 
     // Enterprise pages (removed - focusing on small business only)
-    { url: `${siteUrl}/enterprise/cloud-chatbot`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${siteUrl}/enterprise/decision-room`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${siteUrl}/enterprise/reliability-ops`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    // { url: `${siteUrl}/enterprise/cloud-chatbot`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    // { url: `${siteUrl}/enterprise/decision-room`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    // { url: `${siteUrl}/enterprise/reliability-ops`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
 
     // AI Chat
     { url: `${siteUrl}/chat`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },

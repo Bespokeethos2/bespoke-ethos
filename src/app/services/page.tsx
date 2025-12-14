@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { OrganizationJsonLd } from '@/app/_components/seo/organization-jsonld';
+
 
 export const metadata: Metadata = {
   title: "Services | Bespoke Ethos",
@@ -9,6 +11,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <main>
+      <OrganizationJsonLd />
       <h1>Our Services</h1>
       <p>Explore our range of services for small businesses.</p>
       {/* Add your actual services content here */}

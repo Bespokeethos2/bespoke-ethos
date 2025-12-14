@@ -5,6 +5,8 @@ import { Section } from "@/common/layout";
 import { Heading } from "@/common/heading";
 import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
 import { BorderBeam } from "@/components/ui/border-beam";
+import { OrganizationJsonLd } from '@/app/_components/seo/organization-jsonld';
+
 
 export const revalidate = 1800;
 
@@ -18,6 +20,7 @@ export const metadata: Metadata = {
 export default function LGBTQDiscountPage() {
   return (
     <main className="be-page-slate">
+      <OrganizationJsonLd />
       <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
         <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "LGBTQ+ Discount" }]} />
 

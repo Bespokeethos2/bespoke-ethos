@@ -14,6 +14,8 @@ import { sanityFetch } from "@/lib/sanity/client";
 import { changelogPostQuery, changelogSlugsQuery } from "@/lib/sanity/queries";
 import type { SanityChangelogPost } from "@/lib/sanity/types";
 import { notFound } from "next/navigation";
+import { OrganizationJsonLd } from '@/app/_components/seo/organization-jsonld';
+
 
 const SKIP_REMOTE_DATA = (process.env.SKIP_REMOTE_DATA ?? "").trim() === "1";
 
@@ -61,6 +63,7 @@ export default async function ChangelogPage({ params: awaitedParams }: Changelog
   if (SKIP_REMOTE_DATA) {
     return (
       <ChangelogLayout>
+      <OrganizationJsonLd />
         <div className="flex flex-col gap-1">
           <Link className="text-text-tertiary dark:text-dark-text-tertiary flex w-max items-center gap-1 text-sm hover:underline md:text-sm" href="/changelog">
             Back to changelog

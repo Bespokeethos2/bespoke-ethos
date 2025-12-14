@@ -6,6 +6,8 @@ import { Section } from "@/common/layout";
 import { Heading } from "@/common/heading";
 import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
 import { BLOG_POSTS, getPostBySlug } from "../posts";
+import { OrganizationJsonLd } from '@/app/_components/seo/organization-jsonld';
+
 
 export const revalidate = 1800;
 
@@ -56,6 +58,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <main className="be-page-slate">
+      <OrganizationJsonLd />
       <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4 items-start">
         <div className="be-section-card space-y-6">
           <BlogPostJsonLd slug={post.slug} />

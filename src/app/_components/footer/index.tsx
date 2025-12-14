@@ -99,209 +99,86 @@ function FooterLayout({
   logo,
   navItems,
   socialLinks,
-  showUseTemplate,
   copyright,
   logoIsLocal,
-  backgroundSrc = "/assets/generated/footer-wave.svg",
 }: FooterLayoutProps) {
   return (
-    <footer className="relative overflow-hidden border-t border-border py-5 dark:border-dark-border">
-      <div className="container relative z-10 mx-auto px-4 sm:px-6">
-        <div className="flex w-full items-center justify-center gap-2.5 opacity-80">
-          {/* NGLCC with caption */}
-          <figure className="flex flex-col items-center">
-            {/* light theme */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/assets/nglcc-badge-dark.svg"
-              alt="NGLCC Certified"
-              height={12}
-              className="h-3 w-auto block dark:hidden"
-              loading="lazy"
-              decoding="async"
-            />
-            {/* dark theme */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/assets/nglcc-badge-light.svg"
-              alt="NGLCC Certified"
-              height={12}
-              className="h-3 w-auto hidden dark:block"
-              loading="lazy"
-              decoding="async"
-            />
-            <figcaption className="mt-1 text-center text-[7pt] text-text-tertiary dark:text-dark-text-tertiary">
-              Gaymensfieldguide DBA Bespoke Ethos
-            </figcaption>
-          </figure>
-          {/* Catalant (theme-aware) */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/assets/catalant-badge-dark.svg"
-            alt="Catalant Vetted Consultant"
-            height={12}
-            className="h-3 w-auto block dark:hidden"
-            loading="lazy"
-            decoding="async"
-          />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/assets/catalant-badge-light.svg"
-            alt="Catalant Vetted Consultant"
-            height={12}
-            className="h-3 w-auto hidden dark:block"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-      </div>
-      {backgroundSrc ? (
-        <Image
-          src={backgroundSrc}
-          alt=""
-          fill
-          priority
-          className="pointer-events-none select-none object-cover opacity-20"
-        />
-      ) : null}
-      <div className="container relative z-10 mx-auto grid grid-cols-1 place-items-start items-center gap-y-6 px-4 py-6 sm:px-6 sm:grid-cols-[1fr_auto_1fr] sm:grid-rows-2 sm:gap-x-3 sm:gap-y-4">
-        <Link aria-label="Homepage" href="/" className="footer-logo-container">
-          {logoIsLocal ? (
-            <>
-              <Image
-                alt="Bespoke Ethos logo"
-                className="block h-auto w-32 sm:w-40 dark:hidden logo-no-bg"
-                height={logo.light.height}
-                src={logo.light.url}
-                width={logo.light.width}
-                priority
-              />
-              <Image
-                alt="Bespoke Ethos logo"
-                className="hidden h-auto w-32 sm:w-40 dark:block logo-no-bg"
-                height={logo.dark.height}
-                src={logo.dark.url}
-                width={logo.dark.width}
-                priority
-              />
-            </>
-          ) : (
-            <DarkLightImageAutoscale priority {...logo} />
-          )}
-        </Link>
-        <nav
-          aria-label="Footer quick links"
-          className="w-full flex flex-col gap-x-3 gap-y-2 self-start sm:col-span-1 sm:col-start-2 sm:row-start-1 sm:flex-row sm:items-center sm:place-self-center md:gap-x-3 lg:gap-x-6"
-        >
-          {navItems.map(({ title, url }) => (
-            <ButtonLink
-              key={title}
-              unstyled
-              className="px-1 text-sm font-medium tracking-tight text-left text-text-tertiary hover:text-text-primary dark:text-dark-text-secondary dark:hover:text-dark-text-primary"
-              href={url}
-              target={isExternalLink(url) ? "_blank" : "_self"}
-            >
-              {title}
-            </ButtonLink>
-          ))}
-        </nav>
-        <nav
-          aria-label="Product offerings"
-          className="w-full space-y-2 sm:col-span-1 sm:col-start-2 sm:row-start-2"
-        >
-          <p className="text-sm font-semibold text-text-primary dark:text-dark-text-primary">
-            Offerings
-          </p>
-          <ul className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-            {[
-              {
-                label: "Cadence - Your AI Concierge",
-                href: "/products/cadence",
-              },
-              {
-                label: "Consensus Engine - Strategy Sprint",
-                href: "/solutions/consensus-engine",
-              },
-              {
-                label: "Automation Rescue",
-                href: "/solutions/redbridging",
-              },
-              {
-                label: "Automation Skyway - Setup",
-                href: "/enterprise/automation-skyway",
-              },
-            ].map((i) => (
-              <li key={i.href}>
-                <ButtonLink
-                  unstyled
-                  className="group flex items-center gap-2 text-left text-sm text-text-tertiary hover:text-text-primary dark:text-dark-text-tertiary dark:hover:text-dark-text-primary"
-                  href={i.href}
-                >
-                  <span className="underline-offset-4 group-hover:underline decoration-orange-400/50">
-                    {i.label}
-                  </span>
-                </ButtonLink>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        {/* Theme switcher removed - site is light mode only */}
+    <footer className="w-full border-t border-slate-200 bg-white pt-16 pb-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+          
+          {/* Column 1: Brand & Logo */}
+          <div className="col-span-1 md:col-span-1">
+             <Link aria-label="Homepage" href="/" className="inline-block mb-4">
+                {logoIsLocal ? (
+                  <Image
+                    alt="Bespoke Ethos logo"
+                    className="h-auto w-32 logo-no-bg"
+                    height={logo.light.height}
+                    src={logo.light.url}
+                    width={logo.light.width}
+                    priority
+                  />
+                ) : (
+                  <DarkLightImageAutoscale priority {...logo} />
+                )}
+            </Link>
+            <p className="text-xs text-slate-500 max-w-xs mt-2">
+              AI consulting and workflow automation for small businesses.
+            </p>
+          </div>
 
-        <p className="w-full text-pretty text-[10px] text-left text-text-tertiary dark:text-dark-text-tertiary sm:col-span-1 sm:col-start-1 sm:row-start-2 sm:text-center">
-          {copyright}
-        </p>
-
-        <ul className="w-full flex items-center justify-start gap-x-3 gap-y-3 sm:col-span-1 sm:col-start-3 sm:row-start-2 sm:w-auto sm:flex-wrap sm:justify-self-end">
-          {socialLinks
-            .filter((link) => (link.title || "").toLowerCase().includes("linkedin"))
-            .map((link) => {
-              const IconComponent = link.Icon;
-              return (
-                <li key={link.title} className="shrink-0 sm:first:ml-auto">
-                  <ButtonLink
-                    unstyled
-                    className="flex aspect-square items-center justify-center rounded-full p-2 hover:brightness-90 dark:brightness-90 dark:hover:brightness-110"
-                    href={link.url}
-                    target="_blank"
-                    aria-label={link.title}
-                  >
-                    {IconComponent ? (
-                      <IconComponent className="size-5" />
-                    ) : link.iconAsset ? (
-                      <Image
-                        alt={link.title}
-                        height={24}
-                        src={link.iconAsset}
-                        width={24}
-                      />
-                    ) : link.iconUrl ? (
-                      <Image
-                        alt={link.title}
-                        height={24}
-                        src={link.iconUrl}
-                        width={24}
-                      />
-                    ) : (
-                      <span className="text-xs font-semibold uppercase">
-                        {link.title}
-                      </span>
-                    )}
-                  </ButtonLink>
+          {/* Column 2: Navigation */}
+          <div>
+            <h3 className="text-sm font-semibold text-slate-900 mb-4">Nav</h3>
+            <ul className="space-y-3">
+              {navItems.slice(0, 5).map(({ title, url }) => (
+                <li key={title}>
+                  <Link href={url} className="text-sm text-slate-600 hover:text-indigo-600 hover:underline transition-colors">
+                    {title}
+                  </Link>
                 </li>
-              );
-            })}
-          {/* Tiny easter egg: Faces of Bespoke AI */}
-          <li className="shrink-0">
-            <ButtonLink
-              unstyled
-              href="/faces"
-              aria-label="Faces of Bespoke AI"
-              className="group flex h-7 w-7 items-center justify-center rounded-full border border-slate-300/70 bg-slate-900/5 text-[13px] opacity-70 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:rotate-3 hover:border-orange-400/70 hover:bg-slate-900/10 hover:opacity-100 hover:shadow-md dark:border-slate-500/60 dark:bg-slate-50/10 dark:hover:bg-slate-50/20"
-            >
-              <SillyBeanIcon />
-            </ButtonLink>
-          </li>
-        </ul>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 3: Legal & More */}
+          <div>
+            <h3 className="text-sm font-semibold text-slate-900 mb-4">Company</h3>
+            <ul className="space-y-3">
+               {navItems.slice(5).map(({ title, url }) => (
+                <li key={title}>
+                  <Link href={url} className="text-sm text-slate-600 hover:text-indigo-600 hover:underline transition-colors">
+                    {title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 4: Offerings & Social */}
+           <div>
+            <h3 className="text-sm font-semibold text-slate-900 mb-4">Solutions</h3>
+            <ul className="space-y-3">
+                <li><Link href="/products/cadence" className="text-sm text-slate-600 hover:text-indigo-600 hover:underline">Cadence AI Concierge</Link></li>
+                <li><Link href="/solutions/consensus-engine" className="text-sm text-slate-600 hover:text-indigo-600 hover:underline">Consensus Engine</Link></li>
+                <li><Link href="/solutions/redbridging" className="text-sm text-slate-600 hover:text-indigo-600 hover:underline">Automation Rescue</Link></li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="mt-16 border-t border-slate-100 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-slate-400">
+            {copyright}
+          </p>
+          <div className="flex items-center gap-4 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+             {/* Simple small badges */}
+             <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold">NGLCC Certified</div>
+             <div className="h-3 w-px bg-slate-200"></div>
+             <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold">Catalant Vetted</div>
+          </div>
+        </div>
       </div>
     </footer>
   );

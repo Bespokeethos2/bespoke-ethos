@@ -1,140 +1,139 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --color-background: #1a1a2e; /* Deep Navy */
-  --color-primary: #e94560; /* Coral */
-  --color-secondary: #533483; /* Purple */
-  --color-text-primary: #ffffff; /* White */
-  --color-text-secondary: #d4d4d8; /* Light Gray */
-  --border-radius: 8px;
-}
+/* =============================================================================
+   BESPOKE ETHOS - STATE OF THE ART "LUMINOUS DARK" THEME
+   Features: Cinematic Glassmorphism, Noise Textures, Reactive Glows
+   ============================================================================= */
 
-[data-theme='dark'] {
-  --color-background: #1a1a2e;
-  --color-primary: #e94560;
-  --color-secondary: #533483;
-  --color-text-primary: #ffffff;
-  --color-text-secondary: #d4d4d8;
-}
+@layer base {
+  :root {
+    /* Base Colors - Deep Charcoal & Obsidian */
+    --background: 220 16% 12%; 
+    --foreground: 0 0% 98%;
 
-body {
-  font-family: sans-serif; /* Or your preferred font */
-  background-color: var(--color-background);
-  color: var(--color-text-primary);
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transitions */
-}
+    --card: 224 16% 14%;
+    --card-foreground: 0 0% 98%;
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: bold;
-  margin-bottom: 0.75rem;
-  line-height: 1.2;
-}
+    --popover: 224 16% 14%;
+    --popover-foreground: 0 0% 98%;
 
-a {
-  color: var(--color-primary);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
+    --primary: 24 95% 53%;
+    --primary-foreground: 0 0% 100%;
 
-a:hover {
-  color: lighten(var(--color-primary), 10%); /* Example: Needs a CSS preprocessor */
-  text-decoration: underline;
-}
+    --secondary: 220 16% 20%;
+    --secondary-foreground: 0 0% 95%;
 
-/* Shimmer animation */
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
+    --muted: 220 16% 18%;
+    --muted-foreground: 220 10% 70%;
+
+    --accent: 24 95% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 16% 25%;
+    --input: 220 16% 20%;
+    --ring: 24 95% 53%;
+    
+    --radius: 0.75rem;
+
+    /* Semantic Aliases */
+    --color-background: 27, 31, 34; 
   }
-  100% {
-    background-position: 200% 0;
+
+  /* Force Dark Mode Default */
+  html {
+    @apply antialiased;
+    background-color: rgb(27, 31, 34);
+    color: white;
   }
 }
 
-/* Spotlight animation */
-@keyframes spotlight {
-  0% {
-    opacity: 0.1;
+@layer base {
+  * {
+    @apply border-border;
   }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 0.1;
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
   }
 }
 
+@layer components {
+  /* ==========================================================================
+     STATE OF THE ART CONTAINERS
+     ========================================================================== */
 
-/* Ensure forms look consistent */
-input,
-textarea,
-select {
-  background-color: #2d2d45;
-  color: var(--color-text-primary);
-  border: 1px solid #44445a;
-  padding: 0.5rem;
-  border-radius: var(--border-radius);
-  margin-bottom: 1rem;
-  width: 100%; /* Full width by default */
-  box-sizing: border-box; /* Padding within the width */
+  .sota-card {
+    @apply relative overflow-hidden rounded-2xl;
+    @apply border border-white/10 bg-slate-900/60 backdrop-blur-xl;
+    @apply shadow-[0_8px_32px_0_rgba(0,0,0,0.36)];
+    @apply transition-all duration-500 ease-out;
+  }
+
+  .sota-card:hover {
+    @apply bg-slate-800/80 -translate-y-1;
+    box-shadow: 
+      0 0 0 1px rgba(249, 115, 22, 0.2),
+      0 12px 40px -8px rgba(249, 115, 22, 0.3);
+  }
+
+  .sota-obsidian {
+    @apply border border-white/5 bg-black/40 backdrop-blur-md rounded-2xl;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+  }
+
+  /* Nav Links with Glow */
+  .sota-nav-link {
+    @apply relative px-4 py-2 text-sm font-medium text-white/70 transition-colors duration-200;
+  }
+  .sota-nav-link:hover {
+    @apply text-white;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  }
+
+  /* Typography */
+  .text-glow {
+    text-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+  }
+  
+  .text-super-heading {
+    @apply text-4xl md:text-6xl font-black tracking-tight text-white;
+    background: linear-gradient(to bottom right, #ffffff, #a8a29e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Buttons */
+  .btn-luminous {
+    @apply relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50;
+  }
+  .btn-luminous span.spark {
+    @apply absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)] opacity-0 transition-opacity;
+  }
+  .btn-luminous:hover span.spark {
+    @apply opacity-100;
+  }
+  .btn-luminous-content {
+    @apply inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-6 py-1 text-sm font-medium text-white backdrop-blur-3xl transition-colors hover:bg-slate-900;
+  }
 }
 
-input:focus,
-textarea:focus,
-select:focus {
-  outline: none;
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 2px rgba(var(--color-primary-rgb), 0.3); /* Needs RGB version of primary color */
-}
-
-/* Accessibility improvements */
-button:focus,
-a:focus {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-}
-
-
-
-/* Primary CTA Button */
-.primary-cta {
-  @apply bg-bespoke-coral text-bespoke-text-primary font-bold py-2 px-4 rounded-bespoke shadow-md transition-colors duration-300;
-  border: 2px solid transparent;
-  background-image: linear-gradient(to right, #e94560, #533483); /* Example Gradient */
-  background-clip: padding-box;
-
-}
-
-.primary-cta:hover {
-  @apply bg-bespoke-purple;
-  border-color: #ffffff;
-}
-
-.primary-cta:focus {
-  @apply outline-none ring-2 ring-bespoke-coral ring-opacity-50; /* Using Tailwind ring utilities */
-}
-
-
-/* Secondary Button */
-.secondary-button {
-  @apply bg-transparent text-bespoke-text-secondary font-medium py-2 px-4 rounded-bespoke border border-bespoke-text-secondary transition-colors duration-300;
-}
-
-.secondary-button:hover {
-  @apply bg-bespoke-navy text-bespoke-text-primary border-bespoke-coral;
-}
-
-.secondary-button:focus {
-  @apply outline-none ring-2 ring-bespoke-purple ring-opacity-50;
+@layer utilities {
+  .mask-radial-faded {
+    mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+  }
+  
+  .crimson-glow-drop {
+     filter: drop-shadow(0 0 15px rgba(249, 115, 22, 0.4));
+  }
+  
+  .text-stroke-thin {
+    -webkit-text-stroke: 1px rgba(255,255,255,0.2);
+    color: transparent;
+  }
 }

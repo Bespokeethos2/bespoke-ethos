@@ -6,6 +6,8 @@ import { Breadcrumbs } from "../../_components/seo/breadcrumbs";
 // Removed Heading, Section, and pricing imports as requested
 // Update the import path to the correct location of Accordion
 import { Accordion } from "../../_sections/accordion-faq/accordion";
+import { OrganizationJsonLd } from '@/app/_components/seo/organization-jsonld';
+
 
 export const revalidate = 1800;
 
@@ -103,6 +105,7 @@ const automationSkywayFaqItems = [
 export default function AutomationSkywayPage() {
   return (
     <main className="be-page-slate">
+      <OrganizationJsonLd />
       <div className="gap-6 -mt-6 md:-mt-4">
         <div className="be-section-card space-y-6 pt-4 md:pt-5">
           <Breadcrumbs

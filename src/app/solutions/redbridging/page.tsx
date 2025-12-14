@@ -6,6 +6,8 @@ import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
 import { ButtonLink } from "@/common/button";
 import { Accordion } from "@/app/_sections/accordion-faq/accordion";
+import { OrganizationJsonLd } from '@/app/_components/seo/organization-jsonld';
+
 
 export const revalidate = 1800;
 
@@ -42,6 +44,7 @@ const automationRescueFaqItems = [
 export default function AutomationRescuePage() {
   return (
     <main className="be-page-slate">
+      <OrganizationJsonLd />
       <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
         <div className="be-section-card space-y-6">
           <Breadcrumbs

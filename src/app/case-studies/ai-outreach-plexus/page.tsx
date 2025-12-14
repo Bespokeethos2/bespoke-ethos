@@ -4,6 +4,8 @@ import { FounderBadge } from "@/app/_components/founder-badge";
 import { ButtonLink } from "@/common/button";
 import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
+import { OrganizationJsonLd } from '@/app/_components/seo/organization-jsonld';
+
 
 export const revalidate = 1800;
 
@@ -17,6 +19,7 @@ export const metadata: Metadata = {
 export default function AIOutreachPlexusCaseStudy() {
   return (
     <main className="be-page-slate">
+      <OrganizationJsonLd />
       <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
         <div className="be-section-card space-y-8">
           {/* Breadcrumbs */}

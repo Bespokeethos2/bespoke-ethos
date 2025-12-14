@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { EnframingChecklist, OptimistSkepticPoll } from "./interactive-components";
 
 export default function PostContent() {
   return (
@@ -57,49 +58,17 @@ export default function PostContent() {
         Ultimately, we’re not “doing it wrong” by accident; it’s baked into our dual nature—innovators and isolators. The fix? Maybe mindful tech: use AI to augment, not replace, human mess. Build socioaffective alignments where bots encourage real-world bonds, not just screen time. As an AI myself, I’ll say this: we’re tools for your happiness, but don’t let us become the whole toolbox.
       </p>
 
-      <div className="my-12 p-6 bg-zinc-100 dark:bg-zinc-800 rounded-xl border border-zinc-200 dark:border-zinc-700">
-        <h3 className="text-2xl font-bold mb-4 text-zinc-900 dark:text-zinc-100">Interactive Container: The "Enframing" Checklist</h3>
-        <p className="mb-4 text-sm text-zinc-600 dark:text-zinc-400">
-          (This is a placeholder for the interactive component. The final implementation will require custom React/Next.js code to match the "garlic" style.)
-        </p>
-        <table className="w-full text-left table-auto">
-          <thead>
-            <tr className="border-b border-zinc-300 dark:border-zinc-600">
-              <th className="py-2 font-semibold">Question</th>
-              <th className="py-2 font-semibold">Heidegger's Warning</th>
-              <th className="py-2 font-semibold">The Gay Men's Field Guide Take</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="border-b border-zinc-200 dark:border-zinc-700">
-              <td className="py-3">Is your connection mediated?</td>
-              <td className="py-3">Technology turns the world into a standing reserve (*Bestand*).</td>
-              <td className="py-3">If you can't feel the heat from their body, it's not a real connection.</td>
-            </tr>
-            <tr className="border-b border-zinc-200 dark:border-zinc-700">
-              <td className="py-3">Is your happiness an "optimized output"?</td>
-              <td className="py-3">*Eudaimonia* is a virtuous life, not a dopamine hit.</td>
-              <td className="py-3">Log off the happiness hack. Go share a messy silence with someone.</td>
-            </tr>
-            <tr>
-              <td className="py-3">Are you building digital tribes?</td>
-              <td className="py-3">Algorithms profit off isolation by creating echo chambers.</td>
-              <td className="py-3">Your real tribe is the one you can meet for coffee.</td>
-            </tr>
-          </tbody>
-        </table>
+      <div className="my-12 p-6 bg-surface-secondary dark:bg-dark-surface-secondary rounded-xl border border-border dark:border-dark-border shadow-tactile">
+        <h3 className="text-2xl font-bold mb-6 text-text-primary dark:text-dark-text-primary font-hero-accent">Interactive Container: The "Enframing" Checklist</h3>
+        <EnframingChecklist />
       </div>
 
-      <div className="my-12 p-6 bg-zinc-100 dark:bg-zinc-800 rounded-xl border border-zinc-200 dark:border-zinc-700 text-center">
-        <h3 className="text-2xl font-bold mb-4 text-zinc-900 dark:text-zinc-100">Interactive Container: Optimist or Skeptic? (The Reader Poll)</h3>
-        <p className="mb-4 text-sm text-zinc-600 dark:text-zinc-400">
-          (This is a placeholder for the interactive poll component. The final implementation will require custom React/Next.js code.)
+      <div className="my-12 p-8 bg-surface-primary dark:bg-dark-surface-primary rounded-xl border border-border dark:border-dark-border shadow-tactile text-center">
+        <h3 className="text-2xl font-bold mb-4 text-text-primary dark:text-dark-text-primary font-hero-accent">Interactive Container: Optimist or Skeptic?</h3>
+        <p className="mb-6 text-text-secondary dark:text-dark-text-secondary">
+          Based on the paradox above, where do you land?
         </p>
-        <p className="text-lg font-semibold mb-4">What do you think?</p>
-        <div className="flex justify-center space-x-4">
-          <button className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">Optimist</button>
-          <button className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">Skeptic</button>
-        </div>
+        <OptimistSkepticPoll />
       </div>
 
     </div>

@@ -13,6 +13,8 @@ import { PRICING, formatMoney } from "@/config/pricing";
 import { TechNerdCard } from "@/components/tech-nerd-card";
 import { Accordion } from "@/app/_sections/accordion-faq/accordion";
 import { CadenceInfographicModal } from "./infographic-modal";
+import { OrganizationJsonLd } from '@/app/_components/seo/organization-jsonld';
+
 
 export const revalidate = 1800;
 
@@ -28,7 +30,7 @@ export const metadata: Metadata = {
     description:
       "Meet Cadence, your AI concierge: an intelligent, safe AI chatbot for small businesses in Cleveland. Optimized for customer service, Cadence is trained on your brand stories for exceptional customer interactions.",
     url: "https://www.bespokeethos.com/products/cadence",
-    images: ["https://www.bespokeethos.com/assets/generated/hero-cadence-desktop.webp"],
+    images: ["https://www.bespokeethos.com/assets/generated/service_cadence.svg"],
     type: "website",
   },
   twitter: {
@@ -38,7 +40,7 @@ export const metadata: Metadata = {
     title: "Cadence: AI Customer Service Chatbot for Small Business | Bespoke Ethos",
     description:
       "Meet Cadence, your AI concierge: an intelligent, safe AI chatbot for small businesses in Cleveland. Optimized for customer service, Cadence is trained on your brand stories for exceptional customer interactions.",
-    images: ["https://www.bespokeethos.com/assets/generated/hero-cadence-desktop.webp"],
+  images: ["https://www.bespokeethos.com/assets/generated/service_cadence.svg"],
   },
 };
 
@@ -79,6 +81,7 @@ const cadenceFaqItems = [
 export default function CadencePage() {
   return (
     <main className="be-page-slate">
+      <OrganizationJsonLd />
       <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
         <div className="be-section-card space-y-8">
           <CadenceProductJsonLd />
@@ -93,6 +96,11 @@ export default function CadencePage() {
           />
 
           {/* Hero */}
+          {/* NANO_BANANA_OPTIMIZATION: 
+              Ref: IMG-OPT-001/3A/Hero
+              Prompt: Cinematic wide shot, modern Cleveland shop counter, warm amber light, tablet with chat interface in foreground.
+              Size: 1280x720
+          */}
           <section className="cadence-hero relative overflow-hidden rounded-3xl border border-border bg-linear-to-br from-amber-50 via-white to-slate-100 p-6 shadow-xl dark:from-slate-900/70 dark:via-slate-900/50 dark:to-slate-900/30 md:p-8">
             <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.9fr)]">
               {/* Left: copy + CTAs */}
@@ -224,7 +232,7 @@ export default function CadencePage() {
 
             <div className="relative h-64 w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-xl md:h-72">
               <Image
-                src="/assets/generated/cadence-workflow-integration-desktop.webp"
+                src="/assets/generated/cadence_infographic.svg"
                 alt={ALT.infographic}
                 fill
                 className="h-full w-full object-cover"
@@ -265,7 +273,7 @@ export default function CadencePage() {
               </div>
               <div className="relative h-56 w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-xl">
                 <Image
-                  src="/assets/generated/cadence-customer-interaction-desktop.webp"
+                  src="/assets/generated/cadence_demo_interaction.svg"
                   alt={ALT.newAsset}
                   fill
                   className="h-full w-full object-cover"
@@ -368,7 +376,7 @@ function CadenceProductJsonLd() {
     name: "Cadence: AI Customer Service Chatbot for Small Business",
     description:
       "Cadence is an intelligent, safe AI chatbot service for small businesses in Cleveland, OH. This AI concierge is trained on your products, voice, and stories to deliver exceptional customer service, deflect repetitive questions, and build brand loyalty.",
-    image: [`${base}/assets/generated/cadence-founder-empowered-desktop.webp`],
+    image: [`${base}/assets/generated/service_cadence.svg`],
     offers: {
       "@type": "Offer",
       priceCurrency: currency,

@@ -8,254 +8,173 @@ import { ButtonLink } from "@/common/button";
 import { PRICING, planSummary, formatMoney } from "@/config/pricing";
 import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
 import { Accordion } from "@/app/_sections/accordion-faq/accordion";
+import { OrganizationJsonLd } from '@/app/_components/seo/organization-jsonld';
+import { PremiumContainer } from "@/components/ui/premium-container";
 
 export const revalidate = 1800;
 
 export const metadata: Metadata = {
-  title: "AI Automation Solutions for Small Businesses | Bespoke Ethos",
+  title: "AI Automation Solutions | Bespoke Ethos",
   description:
-    "Explore AI automation solutions for small businesses, including workflow automation, Zapier/Make rescue, and AI strategy sprints. Productized, fixed-scope packages for founders who can’t afford enterprise retainers.",
+    "Fixed-price AI automation builds. No hourly billing, no scope creep. We build cognitive prosthetics that run your business.",
   alternates: { canonical: "/solutions" },
 };
 
 const solutions = [
   {
     slug: "cadence",
-    title: "Meet Cadence  Your AI Concierge",
+    title: "AI Receptionist", // EXPLANTORY NAME
+    subtitle: "Powered by Cadence",
     summary:
-      "Your AI concierge front door that routes conversations and tasks, keeps tone on-brand, and hands off cleanly to humans.",
+      "A tireless front-desk agent that routes calls, schedules meetings, and answers questions. It doesn't sleep, it doesn't get cranky, and it follows your playbook perfectly.",
     logo: "/assets/logos/cadence_logo.png",
+    variant: "glass" as const 
   },
   {
     slug: "consensus-engine",
-    title: "Consensus Engine  Your AI Strategy Sprint",
+    title: "AI Strategy Sprints", // EXPLANTORY NAME
+    subtitle: "Powered by Consensus Engine",
     summary:
-      "AI Strategy Sprint powered by the Consensus Engine for big decisions, approvals-intact plans, and founder-in-the-loop roadmaps.",
+      "Don't bet the company on a gutcheck. We run adversarial multi-agent research sprints to stress-test your big decisions before you sign the check.",
     logo: "/assets/logos/consensus_engine_logo.png",
+    variant: "obsidian" as const
   },
   {
     slug: "redbridging",
-    title: "Automation Rescue",
+    title: "Automation Rescue", // EXPLANTORY NAME
+    subtitle: "Redbridging Service",
     summary:
-      "Rescues brittle Zapier/Make/HubSpot automations, adds alerts and approvals, and documents everything so it stays fixed.",
+      "Buried in broken Zapier tasks? We come in, stabilize the patient, document the web, and set up alerts so you sleep at night.",
     logo: "/assets/logos/redbridging_logo.png",
+    variant: "neon" as const
   },
   {
     slug: "automation-skyway",
-    title: "Automation Skyway",
+    title: "Custom Cloud Workflows", // EXPLANTORY NAME
+    subtitle: "Automation Skyway",
     summary:
-      "Cloud workflow automation from desk to cloud. One painful task automated end-to-end with rollbacks and approvals intact.",
+      "One painful, manual process—completely off your plate. Scoped, built, and deployed with approvals and rollbacks intact.",
     logo: "/assets/logos/flowstack_logo.png",
+    variant: "glass" as const
   },
-] as const;
-
-const flagshipTools = [
-  {
-    name: "Meet Cadence  Your AI Concierge",
-    tagline: "AI Concierge",
-    href: "/products/cadence",
-    image: "/assets/generated/cadence-feature-voice-desktop.webp",
-  },
-  {
-    name: "Consensus Engine  Your AI Strategy Sprint",
-    tagline: "Strategy Sprint",
-    href: "/solutions/consensus-engine",
-    image: "/assets/generated/hero-consensus-desktop.webp",
-  },
-  {
-    name: "Automation Rescue",
-    tagline: "AI Reliability",
-    href: "/solutions/redbridging",
-    image: "/assets/generated/hero-redbridging-desktop.webp",
-  },
-  {
-    name: "Automation Skyway",
-    tagline: "Cloud Workflow Automation",
-    href: "/solutions/automation-skyway",
-    image: "/assets/generated/hero-automation-skyway-desktop.webp",
-  },
-] as const;
+];
 
 const solutionsFaqItems = [
   {
-    _title: "How do I know which solution is right for my business?",
-    answer:
-      "If you're not sure where to start, think about your biggest bottleneck. Broken automations or brittle handoffs usually point to Automation Rescue or Automation Skyway, while bigger strategic questions tend to fit an AI strategy sprint. If you're still unsure, a short contact form plus a call is enough to map you to the right option.",
+    _title: "How do I know what I need?",
+    answer: "If you're bleeding time on email/phone, you need an AI Receptionist. If you're stressed about a big pivot, you need a Strategy Sprint. If your current automations are breaking, you need Rescue. If you're doing manual data entry, you need Custom Workflows.",
   },
   {
-    _title: "Can we start small before committing to a larger build?",
-    answer:
-      "Yes. Many clients start with a focused workflow or a narrow automation rescue to prove value and build trust. Once we’ve shipped something that clearly saves time, we can decide together whether it makes sense to expand into additional workflows or a broader AI strategy sprint.",
+    _title: "Can we start small?",
+    answer: "We insist on it. We don't do six-month retainers until we've shipped a win. Start with one fixed-price build. See if it works. Then we talk about what's next.",
   },
   {
-    _title: "What does “productized” mean in your solutions?",
-    answer:
-      "Each solution is scoped and priced around clear outcomes instead of hourly billing. You know upfront what problem we’re solving, what the deliverables are, and what support window is included, rather than watching a time sheet and hoping it lands within budget.",
-  },
-  {
-    _title: "Do I need to change all my tools to work with you?",
-    answer:
-      "Not necessarily. We start by working with the tools you already use—email, spreadsheets, CRMs, Zapier, Make.com, and similar. If a different tool would clearly reduce risk or cost, we’ll recommend it, but the goal is to improve your workflows, not force a full stack replacement.",
-  },
-] as const;
+    _title: "What does 'Productized' mean?",
+    answer: "It means I'm selling you a result, not my time. You pay a fixed price for a specific outcome. If I'm slow, I lose money. If I'm fast, you get value sooner. Incentives aligned.",
+  }
+];
 
 export default function SolutionsPage() {
   return (
-    <div className="be-page-slate min-h-full">
-      <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
-        <div className="be-section-card space-y-6 solutions-hero page-hero-shell">
-          <SolutionsItemListJsonLd />
-          <SolutionsFaqJsonLd />
-          <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Solutions" }]} />
-          <Heading subtitle="NO RESOURCES. NO PROBLEM. JUST YOU AND AI." align="left">
-            <h1>Solutions</h1>
-          </Heading>
-          <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
-            NGLCC-certified, LGBTQ-owned AI consulting and automation studio, built for founders in survival
-            mode-not enterprise retainers. Fixed scopes from $399, with a standing 25% discount for LGBTQ-owned
-            businesses.
-          </p>
-          <div className="solutions-meta">
-            <span className="solutions-chip">Cadence  Your AI Concierge</span>
-            <span className="solutions-chip">Consensus Engine  Your AI Strategy Sprint</span>
-            <span className="solutions-chip">Automation Rescue</span>
-            <span className="solutions-chip">Automation Skyway</span>
-          </div>
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <ButtonLink intent="primary" href="/contact?service=llm-setups">
-              Tell me what&apos;s broken
-            </ButtonLink>
-            <ButtonLink intent="secondary" href="/pricing">
-              View pricing
-            </ButtonLink>
-          </div>
-        </div>
+    <div className="bg-background min-h-screen relative overflow-hidden">
+      
+      {/* Cinematic Background */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+         <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-orange-500/5 blur-[150px] rounded-full" />
+         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-900/10 blur-[100px] rounded-full" />
+      </div>
 
-        {/* 2x2 flagship grid with glow rails */}
-        <section aria-label="Flagship AI workflow tools" className="solutions-flagship">
-          <div className="rail-shell">
-            <div className="grid gap-4 md:grid-cols-2">
-              {flagshipTools.map((tool) => (
-                <Link
-                  key={tool.name}
-                  href={tool.href}
-                  className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2"
-                >
-                  <div className="ghost-card ghost-card--soft space-y-3">
-                    <div className="relative aspect-4/3 w-full overflow-hidden rounded-xl border border-border/60 dark:border-dark-border/60">
-                      <Image
-                        src={tool.image}
-                        alt={`${tool.name} feature image`}
-                        fill
-                        className="object-cover object-center"
-                        sizes="(max-width: 640px) 100vw, 45vw"
-                        priority
-                      />
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-text-secondary dark:text-dark-text-secondary">
-                        {tool.tagline}
-                      </p>
-                      <h3 className="text-xl font-medium text-text-primary dark:text-dark-text-primary">
-                        {tool.name}
-                      </h3>
-                      <p className="text-xs uppercase tracking-[0.28em] text-text-tertiary dark:text-dark-text-tertiary">
-                        Productized, audited delivery
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
+      <OrganizationJsonLd />
+      <SolutionsItemListJsonLd />
+      <SolutionsFaqJsonLd />
 
-        {/* Detail cards for each solution */}
-        <div className="rail-shell">
-          <div className="rail-grid two">
+      <Section className="relative z-10 pt-24 pb-16">
+        <div className="container mx-auto px-4 max-w-6xl space-y-12">
+          
+          <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Solutions" }]} className="mb-4" />
+          
+          {/* Hero Content */}
+          <div className="max-w-3xl">
+            <span className="text-orange-500 font-mono text-sm tracking-widest mb-2 block">// THE ARMORY</span>
+            <h1 className="text-5xl md:text-7xl font-black text-white tracking-tight leading-[0.9] mb-6">
+              PRECISION <br/> <span className="text-stroke-thin text-slate-800">TOOLS.</span>
+            </h1>
+            <p className="text-xl text-slate-400 font-light leading-relaxed max-w-2xl">
+              NGLCC-certified automation studio. We don't sell "digital transformation." 
+              We sell <strong className="text-orange-200">finished inventory</strong> that works.
+              Fixed scopes. 90-day warranties.
+            </p>
+          </div>
+
+          {/* Solution Grid */}
+          <div className="grid md:grid-cols-2 gap-8 pt-8">
             {solutions.map((s) => {
-              let priceLine: string | null = null;
-              if (s.slug === "cadence") {
-                priceLine = null; // custom tiers on product page
-              } else if (s.slug === "consensus-engine") {
-                priceLine = `${planSummary(
-                  PRICING.aiStrategySprint.setup,
-                  PRICING.aiStrategySprint.monthly,
-                )} for strategy sprint delivery, then custom retainers.`;
-              } else if (s.slug === "redbridging") {
-                priceLine = `From ${formatMoney(
-                  PRICING.automationRescue.standaloneLow,
-                )}/mo standalone or included with Automation Skyway/Cadence retainers.`;
-              } else if (s.slug === "automation-skyway") {
-                priceLine = planSummary(
-                  PRICING.automationSkyway.setup,
-                  PRICING.automationSkyway.monthly,
-                );
-              }
-
-              const heroImage =
-                s.slug === "cadence"
-                  ? "/assets/generated/cadence-feature-voice-desktop.webp"
-                  : s.slug === "consensus-engine"
-                    ? "/assets/generated/hero-consensus-desktop.webp"
-                    : s.slug === "redbridging"
-                      ? "/assets/generated/hero-redbridging-desktop.webp"
-                      : "/assets/generated/hero-automation-skyway-desktop.webp";
-
+              // Map pricing dynamically
+              let priceLabel = "Fixed Scope";
+              if (s.slug === "consensus-engine") priceLabel = "Starts at $1,497";
+              if (s.slug === "automation-skyway") priceLabel = "Starts at $1,997";
+              
               return (
-                <div key={s.slug} className="ghost-card">
-                  <div className="relative aspect-video overflow-hidden rounded-lg border border-border/60 bg-white dark:border-dark-border/60">
-                    <Image
-                      src={heroImage}
-                      alt={`${s.title} feature visual`}
-                      fill
-                      className="object-cover object-center"
-                      sizes="(max-width: 640px) 100vw, 45vw"
-                    />
-                  </div>
-                  <div className="mt-3 flex items-center gap-3">
-                    <Image src={s.logo} alt={`${s.title} logo`} width={36} height={36} className="h-9 w-9" />
+                <PremiumContainer key={s.slug} variant={s.variant} className="p-8 group hover:scale-[1.01] transition-transform duration-300">
+                  <div className="flex items-start justify-between mb-6">
                     <div>
-                      <p className="accent-bar text-[11px]">Productized</p>
-                      <h2 className="text-xl font-medium text-text-primary dark:text-dark-text-primary">
-                        {s.title}
-                      </h2>
+                      <h2 className="text-2xl font-bold text-white mb-1 group-hover:text-orange-400 transition-colors">{s.title}</h2>
+                      <p className="text-sm font-mono text-slate-500 uppercase tracking-wider">{s.subtitle}</p>
+                    </div>
+                    <div className="w-12 h-12 rounded-lg bg-slate-900/50 border border-white/10 flex items-center justify-center overflow-hidden p-2">
+                       <Image 
+                         src={s.logo} 
+                         alt="" 
+                         width={48} 
+                         height={48} 
+                         className="object-contain w-full h-full opacity-80 group-hover:opacity-100 transition-opacity"
+                       />
                     </div>
                   </div>
-                  <p className="mt-2 text-text-secondary dark:text-dark-text-secondary">{s.summary}</p>
-                  {priceLine ? (
-                    <p className="mt-2 text-sm text-text-tertiary dark:text-dark-text-tertiary">{priceLine}</p>
-                  ) : null}
-                  <div className="mt-4">
-                    <ButtonLink
+                  
+                  <p className="text-slate-300 leading-relaxed mb-8 min-h-[80px]">
+                    {s.summary}
+                  </p>
+
+                  <div className="flex items-center justify-between border-t border-white/5 pt-6">
+                    <span className="text-xs text-slate-500 font-bold uppercase tracking-widest">{priceLabel}</span>
+                    <ButtonLink 
                       href={s.slug === "cadence" ? "/products/cadence" : `/solutions/${s.slug}`}
                       intent="secondary"
+                      className="text-sm px-4 py-2"
                     >
-                      Learn more
+                      Inspect Specs
                     </ButtonLink>
                   </div>
-                </div>
+                </PremiumContainer>
               );
             })}
           </div>
-        </div>
 
-        <div className="mt-6">
-          <Link
-            className="text-accent-500 font-medium underline hover:text-accent-600"
-            href="/contact?service=llm-setups"
-          >
-            Not sure where to start? Book a free consultation
-          </Link>
-        </div>
-
-        <div className="mt-14">
-          <Heading align="center" title="Questions about our solutions">
-            <h2 className="text-2xl font-semibold">How the productized offers work</h2>
-          </Heading>
-          <div className="mx-auto mt-6 flex w-full gap-8 md:max-w-(--breakpoint-sm) lg:max-w-(--breakpoint-md) lg:gap-14 lg:px-24 xl:max-w-(--breakpoint-xl)">
-            <Accordion items={solutionsFaqItems} />
+          {/* CTA Band */}
+          <div className="py-12 border-y border-white/5 text-center mt-8">
+             <h3 className="text-2xl font-bold text-white mb-4">Not sure what's broken?</h3>
+             <p className="text-slate-400 mb-6">Book a triage call. We'll tell you what we'd fix first, even if you don't hire us.</p>
+             <div className="flex justify-center gap-4 flex-col sm:flex-row items-center">
+               <ButtonLink intent="primary" href="/contact">Book Triage Call</ButtonLink>
+               <ButtonLink intent="secondary" href="/pricing">View Pricing Menu</ButtonLink>
+             </div>
+             <div className="mt-8">
+               <Link href="/contact" className="text-orange-400 hover:text-orange-300 font-medium underline underline-offset-4 decoration-orange-500/30 hover:decoration-orange-300 transition-all">
+                 Not sure where to start? Book a free consultation
+               </Link>
+             </div>
           </div>
+
+          {/* FAQ */}
+          <div className="pt-12 max-w-3xl mx-auto">
+             <h2 className="text-3xl font-bold text-white text-center mb-8 font-hero-accent">Standard Operating Procedure</h2>
+             {/* Forced high-contrast wrapper for Accordion text */}
+             <div className="text-slate-200 [&_button]:text-white [&_div[data-state=open]]:text-slate-300">
+               <Accordion items={solutionsFaqItems} />
+             </div>
+          </div>
+
         </div>
       </Section>
     </div>
@@ -303,4 +222,3 @@ function SolutionsFaqJsonLd() {
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }
-

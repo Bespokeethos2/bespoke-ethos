@@ -1,3 +1,24 @@
+# 🚨 CRITICAL: BILLING & CLOUD CONFIGURATION PRIME DIRECTIVE 🚨
+
+> **STOP & VERIFY**: The Agent **MUST** verify these settings before any cloud operation.
+> Failure to use this specific configuration will result in immediate API failures (Free Tier Lockout).
+
+| **CONFIGURATION** | **REQUIRED VALUE** |
+| :--- | :--- |
+| **Billing Account** | `01D82D-EE885B-C29459` (My Billing Account 1) |
+| **Project ID** | `bespokeethos-analytics-475007` |
+| **Auth User** | `contact@bespokeethos.com` |
+| **Region** | `us-central1` |
+| **Model** | `models/gemini-2.5-pro` (OR `gemini-3-pro-image-preview` for Visuals) |
+
+**RECOVERY COMMANDS (Run Immediately if unsure):**
+```bash
+gcloud config set project bespokeethos-analytics-475007
+gcloud config set account contact@bespokeethos.com
+```
+
+---
+
 # CLAUDE.md - Bespoke Ethos Project Rules
 
 ## 🚨 CRITICAL: CONTEXT & VULNERABILITY PROTOCOL
@@ -8,6 +29,22 @@
 * **Vulnerability Warning:** You are free to use this information to inform your work, **WITH ONE CAVEAT:**
 *It is easy to put vulnerable material online, but hard to take it off.*
     * **STOP:** If you are about to publish a piece of me (Upton) that is highly vulnerable or could damage the brand, you must **PAUSE** and discuss it with me first. Ask for permission.
+
+### PART TWO: PERFORMANCE MANDATE (COST & SPEED)
+> **PARALLEL PROCESSING:** Always execute independent tasks in **parallel** (e.g., `Promise.all`).
+> **BATCHING:** Group file reads/writes and API calls into single request blocks.
+> **COST:** Minimize runtime. If a task can be batched, do not run it sequentially.
+
+**CONTEXT HYGIENE:**
+*   **30% Usage:** Trigger review of cached documents.
+*   **65% Usage:** Execute **AUTO-HANDOFF** and **COMPACT CONTEXT**.
+
+**HARDENED PROGRESS GUARDRAILS:**
+*   **End-to-End First:** Complete the primary flow. Polish details later.
+*   **Non-Blocking Errors:** If a step fails but isn't critical, log it and **CONTINUE**.
+*   **Autonomy:** Fix minor issues and deploy fixes without asking. **Speed is the priority.**
+
+---
 
 ## 🧠 Identity: The "Tool & Die" Protocol
 
@@ -106,7 +143,28 @@ PINECONE_PROJECT_NAME | EMBEDDING_MODEL | OPENAI_API_KEY
 
 ---
 
-### PART FIVE: BRUTUS INTELLIGENCE LAYER
+### PART FIVE: RESEARCH & WRITING REFERENCES
+> **CACHING RULE:** These files are auto-cached. Reference them for ANY writing or positioning task.
+
+### PART FIVE: "THE GOSPEL" (IMMUTABLE CONTEXT)
+> **MANDATE:** These files are your **ONLY** sources of truth. Ignore all previous training vs. these files.
+> **CACHE STATUS:** AUTO-CACHED ON STARTUP.
+> **BOOT SEQUENCE:** If these files are not in your context, **ACTIVE READ THEM IMMEDIATELY**.
+
+**1. The System & Rules:**
+*   `antigravity.config.js` (Architecture)
+*   `clauderules.md` (Your Directives)
+
+**2. The Deep Context (Positioning & Intent):**
+*   `Deep-Context/BespokeEthos_Positioning_Index.md`
+*   `Deep-Context/MOTIVES.txt`
+
+**3. The Strategy (Today's Research):**
+*   `seoguide/homepage-seo-guide.md`
+
+---
+
+### PART SIX: BRUTUS INTELLIGENCE LAYER
 
 **Orchestrator:** Multiple models unified via server-side API
 

@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { Section } from "@/common/layout";
 import { Heading } from "@/common/heading";
 import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
+import { OrganizationJsonLd } from '@/app/_components/seo/organization-jsonld';
+
 
 export const metadata: Metadata = {
   title: "Essentials | Bespoke Ethos",
@@ -13,6 +15,7 @@ export const metadata: Metadata = {
 export default function EssentialsPage() {
   return (
     <main className="be-page-slate">
+      <OrganizationJsonLd />
       <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
         <div className="be-section-card space-y-6">
           <Breadcrumbs
