@@ -142,4 +142,92 @@
     -webkit-text-stroke: 1px rgba(255,255,255,0.2);
     color: transparent;
   }
+
+  /* ==========================================================================
+     PREMIUM TEXT EFFECTS - 2024 "CALM CRIMSON" COLLECTION
+     Features: Layered blur, multi-shadow depth, ambient glow
+     ========================================================================== */
+
+  /* Calm Crimson Glow - Warm, inviting orange/amber glow with depth */
+  .text-glow-crimson {
+    text-shadow: 
+      0 0 4px rgba(249, 115, 22, 0.8),
+      0 0 11px rgba(249, 115, 22, 0.6),
+      0 0 19px rgba(249, 115, 22, 0.4),
+      0 0 40px rgba(249, 115, 22, 0.25),
+      0 0 80px rgba(249, 115, 22, 0.15);
+  }
+
+  /* Layered Blur Drop Shadow - Creates depth beneath text */
+  .text-shadow-layered {
+    text-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.9),
+      0 4px 8px rgba(0, 0, 0, 0.5),
+      0 8px 16px rgba(0, 0, 0, 0.3),
+      0 16px 32px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Ambient Crimson - Soft surrounding halo for hero text */
+  .text-glow-ambient {
+    text-shadow:
+      0 0 30px rgba(249, 115, 22, 0.15),
+      0 0 60px rgba(249, 115, 22, 0.1),
+      0 0 100px rgba(249, 115, 22, 0.05);
+    filter: drop-shadow(0 0 20px rgba(249, 115, 22, 0.2));
+  }
+
+  /* Hero Headline - Combines gradient text with crimson undertow */
+  .text-hero-luminous {
+    background: linear-gradient(135deg, #ffffff 0%, #fef3e2 50%, #fdba74 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 4px 12px rgba(249, 115, 22, 0.3));
+  }
+
+  /* Frosted Glass Text Container - Blurred backdrop for readable text */
+  .text-glass-container {
+    @apply relative px-6 py-4 rounded-xl;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 
+      0 4px 30px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  /* Pulse Glow Animation - For CTAs and emphasis */
+  .text-glow-pulse {
+    animation: crimson-pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes crimson-pulse {
+    0%, 100% {
+      text-shadow: 
+        0 0 4px rgba(249, 115, 22, 0.6),
+        0 0 20px rgba(249, 115, 22, 0.3);
+    }
+    50% {
+      text-shadow: 
+        0 0 8px rgba(249, 115, 22, 0.9),
+        0 0 40px rgba(249, 115, 22, 0.5),
+        0 0 60px rgba(249, 115, 22, 0.3);
+    }
+  }
+
+  /* White Glow for Dark Backgrounds */
+  .text-glow-white {
+    text-shadow:
+      0 0 5px rgba(255, 255, 255, 0.8),
+      0 0 15px rgba(255, 255, 255, 0.5),
+      0 0 30px rgba(255, 255, 255, 0.3);
+  }
+
+  /* Cinematic Title - Deep shadows with warm rim light */
+  .text-cinematic {
+    text-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.8),
+      0 4px 16px rgba(0, 0, 0, 0.6),
+      0 -1px 0 rgba(249, 115, 22, 0.3);
+  }
 }

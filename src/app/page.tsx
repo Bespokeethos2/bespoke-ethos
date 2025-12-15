@@ -66,9 +66,9 @@ export default function HomePage() {
                   <span className="text-xs font-bold text-orange-200 tracking-widest uppercase font-mono">Operations Normal</span>
                 </div>
                 
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-white mb-8 leading-[0.9]">
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-white mb-8 leading-[0.9] text-glow-ambient">
                   WE BUILD <br className="hidden md:block" />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-br from-white via-orange-100 to-orange-400">
+                  <span className="text-hero-luminous text-glow-crimson">
                     INTELLIGENT WORKFLOWS
                   </span>
                 </h1>
