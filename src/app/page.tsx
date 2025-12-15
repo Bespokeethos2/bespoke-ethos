@@ -30,7 +30,7 @@ const homeFaqItems = [
   },
   {
     question: "Is this just ChatGPT wrappers?",
-    answer: "No. We build distinct 'Cognitive Prosthetics'—systems that hold your specific context and follow strict rules. We use professional-grade orchestration (vector databases, RAG, multi-agent swarms) to ensure the AI follows your process, not its own whims.",
+    answer: "No. We build distinct intelligent workflows—systems that hold your specific context and follow strict rules. We use professional-grade orchestration (vector databases, RAG, multi-agent swarms) to ensure the AI follows your process, not its own whims.",
   },
 ];
 
@@ -63,7 +63,7 @@ export default function HomePage() {
                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-white mb-8 leading-[0.9]">
                   WE BUILD <br className="hidden md:block" />
                   <span className="text-transparent bg-clip-text bg-gradient-to-br from-white via-orange-100 to-orange-400">
-                    COGNITIVE PROSTHETICS
+                    INTELLIGENT WORKFLOWS
                   </span>
                 </h1>
                 

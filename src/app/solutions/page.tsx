@@ -16,7 +16,7 @@ export const revalidate = 1800;
 export const metadata: Metadata = {
   title: "AI Automation Solutions | Bespoke Ethos",
   description:
-    "Fixed-price AI automation builds. No hourly billing, no scope creep. We build cognitive prosthetics that run your business.",
+    "Fixed-price AI automation builds. No hourly billing, no scope creep. We build intelligent workflows that run your business.",
   alternates: { canonical: "/solutions" },
 };
 
