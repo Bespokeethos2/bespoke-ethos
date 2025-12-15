@@ -257,11 +257,15 @@
 
   /* High-conversion CTA button in nav */
   .nav-cta {
-    @apply bg-orange-500/20 border border-orange-500/50 text-orange-300 !important;
+    background-color: rgba(249, 115, 22, 0.2) !important;
+    border: 1px solid rgba(249, 115, 22, 0.5) !important;
+    color: rgb(253, 186, 116) !important;
     transition: all 0.3s ease;
   }
   .nav-cta:hover {
-    @apply bg-orange-500/40 border-orange-400 text-white !important;
+    background-color: rgba(249, 115, 22, 0.4) !important;
+    border-color: rgb(251, 146, 60) !important;
+    color: white !important;
     box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
   }
 }

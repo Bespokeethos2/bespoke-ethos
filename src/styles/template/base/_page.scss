@@ -6,10 +6,7 @@
 
 /* Basic */
 
-	// MSIE: Required for IEMobile.
-		@-ms-viewport {
-			width: device-width;
-		}
+	// Legacy MSIE viewport rule removed - not supported by modern CSS parsers
 
 	// Ensures page width is always >=320px.
 		@include breakpoint(xsmall) {

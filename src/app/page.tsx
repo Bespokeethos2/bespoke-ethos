@@ -66,9 +66,9 @@ export default function HomePage() {
                   <span className="text-xs font-bold text-orange-200 tracking-widest uppercase font-mono">Operations Normal</span>
                 </div>
                 
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-white mb-8 leading-[0.9] text-glow-ambient">
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-white mb-8 leading-[0.9]">
                   WE BUILD <br className="hidden md:block" />
-                  <span className="text-hero-luminous text-glow-crimson">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-br from-orange-200 via-orange-400 to-orange-500 text-cinematic">
                     INTELLIGENT WORKFLOWS
                   </span>
                 </h1>
@@ -86,6 +86,34 @@ export default function HomePage() {
                     See The Specs
                   </ButtonLink>
                 </div>
+
+                {/* Template-style Line Menu */}
+                <nav className="mt-12 relative">
+                  {/* Vertical connecting line */}
+                  <div className="absolute left-1/2 -top-12 w-px h-12 bg-gradient-to-b from-transparent via-white/30 to-white/50" />
+                  <ul className="flex flex-wrap justify-center items-center border border-white/20 rounded-md backdrop-blur-sm bg-white/5">
+                    <li className="border-r border-white/20 last:border-r-0">
+                      <a href="/solutions" className="block px-6 py-3 text-xs uppercase tracking-[0.2em] text-white/70 hover:text-white hover:bg-white/10 transition-all">
+                        Solutions
+                      </a>
+                    </li>
+                    <li className="border-r border-white/20 last:border-r-0">
+                      <a href="/pricing" className="block px-6 py-3 text-xs uppercase tracking-[0.2em] text-white/70 hover:text-white hover:bg-white/10 transition-all">
+                        Pricing
+                      </a>
+                    </li>
+                    <li className="border-r border-white/20 last:border-r-0">
+                      <a href="/about" className="block px-6 py-3 text-xs uppercase tracking-[0.2em] text-white/70 hover:text-white hover:bg-white/10 transition-all">
+                        About
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/contact" className="block px-6 py-3 text-xs uppercase tracking-[0.2em] text-orange-400 hover:text-orange-300 hover:bg-white/10 transition-all font-medium">
+                        Contact
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
               </div>
             </div>
           </PremiumContainer>
