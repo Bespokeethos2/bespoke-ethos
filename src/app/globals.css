@@ -230,4 +230,38 @@
       0 4px 16px rgba(0, 0, 0, 0.6),
       0 -1px 0 rgba(249, 115, 22, 0.3);
   }
+
+  /* ==========================================================================
+     SPLASH PAGE HERO UTILITIES
+     ========================================================================== */
+
+  /* Header hidden state (replaces inline style) */
+  .header-hidden {
+    display: none !important;
+  }
+
+  /* Logo white glow for visibility on dark backgrounds */
+  .logo-glow {
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
+    position: relative;
+    z-index: 100;
+  }
+  .logo-glow::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: -1;
+  }
+
+  /* High-conversion CTA button in nav */
+  .nav-cta {
+    @apply bg-orange-500/20 border border-orange-500/50 text-orange-300 !important;
+    transition: all 0.3s ease;
+  }
+  .nav-cta:hover {
+    @apply bg-orange-500/40 border-orange-400 text-white !important;
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
+  }
 }
