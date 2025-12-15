@@ -87,15 +87,13 @@ export default function ConsensusEnginePage() {
 
                {/* Visual */}
                <div className="relative aspect-video rounded-xl overflow-hidden border border-white/10 bg-black/50 shadow-2xl">
-                 <div className="absolute inset-0 flex items-center justify-center">
-                    {/* Placeholder for complex agent graph visual */}
-                   <div className="text-center p-8">
-                     <div className="w-16 h-16 bg-orange-500/20 rounded-full mx-auto mb-4 flex items-center justify-center animate-pulse">
-                        <Image src="/assets/logos/consensus_engine_logo.png" alt="Consensus Logo" width={32} height={32} className="opacity-80" />
-                     </div>
-                     <p className="text-slate-400 font-mono text-sm">Agents debating...</p>
-                   </div>
-                 </div>
+                 <Image
+                   src="/assets/generated/service-consensus-decision-interface-desktop.webp"
+                   alt="Consensus Engine Decision Interface"
+                   fill
+                   className="object-cover"
+                   priority
+                 />
                </div>
              </div>
           </PremiumContainer>

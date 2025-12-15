@@ -48,7 +48,7 @@ const config = {
     // Visual Generation & Editing
     nano_banana: { 
       enabled: true, 
-      model: "gemini-3-pro-image-preview",
+      model: "gemini-2.5-pro",
       commands: ["/generate", "/edit", "/restore", "/icon", "/pattern", "/story", "/diagram"]
     },
     // Cloud Services

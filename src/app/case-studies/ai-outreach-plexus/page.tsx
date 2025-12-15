@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
 import { FounderBadge } from "@/app/_components/founder-badge";
@@ -43,13 +44,16 @@ export default function AIOutreachPlexusCaseStudy() {
               Bespoke Ethos | Upton Rand (Founder)
             </p>
 
-            {/* Hero Image Placeholder */}
-            <div className="mt-6 aspect-video w-full overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-surface-secondary to-surface-tertiary dark:border-dark-border dark:from-dark-surface-secondary dark:to-dark-surface-tertiary">
-              <div className="flex h-full items-center justify-center">
-                <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
-                  [Hero Illustration: Small studio with AI megaphone → connection lines]
-                </p>
-              </div>
+            {/* Hero Image */}
+            <div className="mt-6 aspect-video w-full overflow-hidden rounded-2xl border border-border dark:border-dark-border">
+              <Image
+                src="/assets/generated/editorial-ai-enframing-2.png"
+                alt="Soul-Aligned AI Outreach"
+                width={1200}
+                height={675}
+                className="w-full h-full object-cover"
+                priority
+              />
             </div>
           </div>
 

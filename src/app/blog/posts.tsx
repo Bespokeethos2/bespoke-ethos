@@ -4,6 +4,9 @@ import Link from "next/link";
 import PostContentAiParadox from "./post-content-ai-paradox";
 import { EfficiencyEngine } from "../../components/games/efficiency-engine";
 import { LeadGeneratorClicker } from "../../components/games/lead-generator";
+import { ContextWindowGame } from "../../components/games/context-window-game";
+import { TokenizerGame } from "../../components/games/tokenizer-game";
+import { TemperatureGame } from "../../components/games/temperature-game";
 
 export type BlogPost = {
   slug: string;
@@ -33,7 +36,14 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     tags: ["AI", "philosophy", "connection", "Gay Men's Field Guide"],
     content: function PostContent() {
-      return <PostContentAiParadox />;
+      return (
+        <>
+          <PostContentAiParadox />
+          <div className="my-12 not-prose">
+            <TokenizerGame />
+          </div>
+        </>
+      );
     },
   },
   {
@@ -60,8 +70,15 @@ export const BLOG_POSTS: BlogPost[] = [
           <p>
             By magic, I don&apos;t mean tricks or hype. I mean the moments where I run a question all the way through
             our Consensus Engine and it hands back an option I never would have considered in a million years&mdash;and
-            it&apos;s better than anything I had on the table. Same constraints, same facts, completely different
-            vantage point.
+            it&apos;s better than anything I had on the table.
+          </p>
+
+          <div className="my-10 not-prose">
+            <ContextWindowGame />
+          </div>
+
+          <p>
+            Same constraints, same facts, completely different vantage point.
           </p>
 
           <h2>Raw Power Isn&apos;t the Point</h2>
@@ -368,6 +385,10 @@ export const BLOG_POSTS: BlogPost[] = [
             <li>It mirrors your tone—whether that’s warm, nerdy, or no-nonsense.</li>
             <li>It understands when to escalate to a human and how to hand off gracefully.</li>
           </ul>
+
+          <div className="my-10 not-prose">
+            <TemperatureGame />
+          </div>
 
           <h2>What Goes Into Training AI Strategy Sprint</h2>
           <p>When we build AI Strategy Sprint for a client, we don’t start with prompts. We start with:</p>

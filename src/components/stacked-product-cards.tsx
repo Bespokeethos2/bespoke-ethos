@@ -29,7 +29,7 @@ const PRODUCT_CARDS: ProductCard[] = [
     description:
       "Map your process, keep approvals intact, build production-ready cloud automation in days, not months.",
     href: "/solutions/automation-skyway",
-    imageSrc: "/assets/generated/hero-flowstack-desktop.webp",
+    imageSrc: "/assets/generated/hero-flowstack-desktop-v2.png",
     imageAlt: "Automation Skyway cloud workflow automation hero image",
   },
   {
@@ -49,7 +49,7 @@ const PRODUCT_CARDS: ProductCard[] = [
     description:
       "Broken workflow? Duct-taped integrations? We fix what's failing and build it right—fast.",
     href: "/solutions/redbridging",
-    imageSrc: "/assets/generated/hero-redbridging-desktop.webp",
+    imageSrc: "/assets/generated/hero-redbridging-desktop-v2.png",
     imageAlt: "Automation rescue hero image",
   },
 ];

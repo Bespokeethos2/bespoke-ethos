@@ -47,7 +47,13 @@ export default function HomePage() {
               {/* Background Abstract Visuals (Warm Orange) */}
               <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(249,115,22,0.15)_0%,rgba(0,0,0,1)_80%)]" />
-                 {/* Placeholder for the new abstract geometric lines background */}
+                <Image
+                  src="/assets/generated/hero-home.png"
+                  alt=""
+                  fill
+                  className="object-cover opacity-20 mix-blend-lighten"
+                  priority
+                />
               </div>
 
               {/* Hero Content Layer */}
