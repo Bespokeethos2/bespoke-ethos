@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
 import { FounderBadge } from "@/app/_components/founder-badge";
@@ -126,12 +127,14 @@ export default function SoulAlignedOutreachCaseStudy() {
                         ))}
                     </ul>
                  </div>
-                 {/* Abstract Visualization Placeholder */}
-                 <div className="aspect-square rounded-xl bg-gradient-to-tr from-blue-600/20 to-purple-600/20 border border-white/10 flex items-center justify-center relative backdrop-blur-sm">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-32 h-32 bg-slate-500 rounded-full blur-[60px] opacity-40 animate-pulse" />
-                    </div>
-                     <p className="relative z-10 font-hero-accent text-2xl text-white/50 italic">Visualization: <br/>The Connection Graph</p>
+                 {/* Abstract Visualization */}
+                 <div className="aspect-square rounded-xl overflow-hidden border border-white/10 relative">
+                    <Image
+                      src="/assets/generated/cleveland-business-ecosystem-map-desktop.webp"
+                      alt="The Connection Graph"
+                      fill
+                      className="object-cover"
+                    />
                  </div>
               </div>
           </div>

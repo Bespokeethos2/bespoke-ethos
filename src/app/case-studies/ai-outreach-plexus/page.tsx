@@ -270,13 +270,15 @@ export default function AIOutreachPlexusCaseStudy() {
               That's why we moved our later passes entirely into Opus.
             </p>
 
-            {/* Comparison Visual Placeholder */}
-            <div className="mt-6 aspect-video w-full overflow-hidden rounded-2xl border border-border bg-linear-to-br from-surface-secondary to-surface-tertiary dark:border-dark-border dark:from-dark-surface-secondary dark:to-dark-surface-tertiary">
-              <div className="flex h-full items-center justify-center">
-                <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
-                  [Comparison Visual: GPT sharp/geometric vs Claude soft/organic]
-                </p>
-              </div>
+            {/* Comparison Visual */}
+            <div className="mt-6 aspect-video w-full overflow-hidden rounded-2xl border border-border dark:border-dark-border">
+              <Image
+                src="/assets/generated/editorial-ai-isolation-1.png"
+                alt="AI Model Comparison"
+                width={1200}
+                height={675}
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 
@@ -323,13 +325,15 @@ export default function AIOutreachPlexusCaseStudy() {
               </li>
             </ol>
 
-            {/* Multi-pass Refinement Visual Placeholder */}
-            <div className="mt-6 aspect-video w-full overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-surface-secondary to-surface-tertiary dark:border-dark-border dark:from-dark-surface-secondary dark:to-dark-surface-tertiary">
-              <div className="flex h-full items-center justify-center">
-                <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
-                  [Multi-pass Visual: 5 refinement steps with improving clarity]
-                </p>
-              </div>
+            {/* Multi-pass Refinement Visual */}
+            <div className="mt-6 aspect-video w-full overflow-hidden rounded-2xl border border-border dark:border-dark-border">
+              <Image
+                src="/assets/generated/editorial-ai-toolbox-3.png"
+                alt="Multi-pass AI Refinement System"
+                width={1200}
+                height={675}
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 
@@ -370,13 +374,15 @@ export default function AIOutreachPlexusCaseStudy() {
               </li>
             </ul>
 
-            {/* Infrastructure Visual Placeholder */}
-            <div className="mt-6 aspect-video w-full overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-surface-secondary to-surface-tertiary dark:border-dark-border dark:from-dark-surface-secondary dark:to-dark-surface-tertiary">
-              <div className="flex h-full items-center justify-center">
-                <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
-                  [Infrastructure Visual: Research → AI → Refinement → Output flow]
-                </p>
-              </div>
+            {/* Infrastructure Visual */}
+            <div className="mt-6 aspect-video w-full overflow-hidden rounded-2xl border border-border dark:border-dark-border">
+              <Image
+                src="/assets/generated/service-flowstack-builder-desktop.webp"
+                alt="AI Infrastructure Pipeline"
+                width={1200}
+                height={675}
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 
@@ -432,13 +438,15 @@ export default function AIOutreachPlexusCaseStudy() {
               And we're doing it with models that can hold a human voice — not just fake it.
             </p>
 
-            {/* Closing Visual Placeholder */}
-            <div className="mt-6 aspect-video w-full overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-surface-secondary to-surface-tertiary dark:border-dark-border dark:from-dark-surface-secondary dark:to-dark-surface-tertiary">
-              <div className="flex h-full items-center justify-center">
-                <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
-                  [Closing Visual: Bridge made of message bubbles connecting two sides]
-                </p>
-              </div>
+            {/* Closing Visual */}
+            <div className="mt-6 aspect-video w-full overflow-hidden rounded-2xl border border-border dark:border-dark-border">
+              <Image
+                src="/assets/generated/promo-lgbtq-discount-banner-desktop.webp"
+                alt="Building Bridges with AI"
+                width={1200}
+                height={675}
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 
