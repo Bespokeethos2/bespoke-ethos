@@ -268,4 +268,30 @@
     color: white !important;
     box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
   }
+
+  /* ==========================================================================
+     SPLASH PAGE MODE - Hide main site chrome
+     ========================================================================== */
+  
+  /* When splash page is active, hide main site navigation, footer, newsletter */
+  body[data-splash-mode="true"] > div > header,
+  body[data-splash-mode="true"] > div > main > *:not(#dimension-wrapper),
+  body[data-splash-mode="true"] > div > section,
+  body[data-splash-mode="true"] > div > footer,
+  body[data-splash-mode="true"] > .skip-link,
+  body[data-splash-mode="true"] #main-content > *:not(#dimension-wrapper):not(.body) {
+    display: none !important;
+  }
+
+  /* Remove main site styling on splash page */
+  body[data-splash-mode="true"] {
+    background: #1b1f22 !important;
+    min-height: 100vh;
+  }
+
+  body[data-splash-mode="true"] #main-content {
+    min-height: 100vh !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
 }
