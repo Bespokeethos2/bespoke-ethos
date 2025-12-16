@@ -184,52 +184,52 @@ export default function HomePage() {
       {/* 5. PRICING: Fixed Price */}
       <section className="relative z-10 py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6">
         <div className="container mx-auto max-w-6xl">
-          <PremiumContainer variant="obsidian" className="p-8 sm:p-10 md:p-12 lg:p-14 xl:p-16 relative overflow-hidden group">
+          <PremiumContainer variant="obsidian" className="p-10 sm:p-12 md:p-14 lg:p-16 xl:p-20 relative overflow-hidden group">
             {/* Background Glow */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/5 blur-[120px] rounded-full group-hover:bg-orange-500/10 transition-colors duration-700" />
 
-            <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 relative z-10">
-              <div className="space-y-4 sm:space-y-6 md:space-y-8">
-                 <div className="inline-block px-3 py-1.5 rounded bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest">
+            <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 md:gap-14 lg:gap-20 relative z-10">
+              <div className="space-y-6 sm:space-y-7 md:space-y-8">
+                 <div className="inline-block px-4 py-2 rounded-lg bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-bold uppercase tracking-widest">
                    The Anti-Consulting Offer
                  </div>
-                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-hero-accent leading-tight">
-                   <span className="text-white text-glow-crimson">Stop paying for</span>{" "}
-                   <span className="line-through decoration-orange-500/50 decoration-2 text-slate-500">slide decks.</span>
+                 <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-hero-accent leading-[1.15]">
+                   <span className="text-white text-glow-crimson block mb-2">Stop paying for</span>
+                   <span className="line-through decoration-orange-500/50 decoration-2 text-slate-600">slide decks.</span>
                  </h2>
-                 <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-200 leading-relaxed">
+                 <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-200 leading-relaxed font-light">
                    Enterprise firms charge $300/hr to "delve" into your problems. 
-                   We charge a <strong className="text-white">fixed price</strong> to ship a solution.
+                   We charge a <strong className="text-white font-semibold">fixed price</strong> to ship a solution.
                  </p>
-                 <ul className="space-y-2 sm:space-y-3 md:space-y-4 pt-2 sm:pt-4">
+                 <ul className="space-y-4 sm:space-y-5 pt-4 sm:pt-6">
                    {[
                      "Zero hourly billings. Fixed scope.",
                      "You own the code and the keys.",
                      "90-day 'Break It, We Fix It' warranty.",
                      "Founder-led. No junior associates."
                    ].map((item, i) => (
-                     <li key={i} className="flex items-center gap-3 text-sm sm:text-base text-slate-200">
-                       <span className="w-1.5 h-1.5 rounded-full bg-orange-500 shadow-[0_0_8px_rgba(249,115,22,0.8)] flex-shrink-0" />
+                     <li key={i} className="flex items-center gap-4 text-base sm:text-lg text-slate-200 font-medium">
+                       <span className="w-2 h-2 rounded-full bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.8)] flex-shrink-0" />
                        {item}
                      </li>
                    ))}
                  </ul>
               </div>
 
-              <div className="flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-white/10 pt-6 sm:pt-8 lg:pt-0 lg:pl-10 xl:pl-12">
-                 <div className="text-xs sm:text-sm font-medium text-slate-500 uppercase tracking-widest mb-1.5 sm:mb-2">Builds Starting At</div>
-                 <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight mb-2 sm:mb-3 md:mb-4">
+              <div className="flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-white/10 pt-8 sm:pt-10 lg:pt-0 lg:pl-12 xl:pl-16 space-y-6 sm:space-y-8">
+                 <div className="text-sm font-bold text-slate-400 uppercase tracking-widest">Builds Starting At</div>
+                 <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white tracking-tight leading-none">
                    $1,497
                  </div>
-                 <p className="text-xs sm:text-sm md:text-base text-slate-300 mb-4 sm:mb-6 md:mb-8 max-w-md">
-                   Includes full scoping decision brief, build, deployment, and documentation. 
-                   <span className="block mt-2 text-orange-400 font-medium">LGBTQ-owned businesses pay $1,122.</span>
+                 <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-md">
+                   Includes full scoping decision brief, build, deployment, and documentation.
+                   <span className="block mt-3 text-lg sm:text-xl text-orange-400 font-bold">LGBTQ-owned businesses pay $1,122.</span>
                  </p>
-                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                   <ButtonLink intent="primary" href="/pricing" className="bg-white text-slate-950 hover:bg-slate-200 min-h-[44px]">
+                 <div className="flex flex-col sm:flex-row gap-4 pt-2">
+                   <ButtonLink intent="primary" href="/pricing" className="bg-white text-slate-950 hover:bg-slate-200 min-h-[52px] text-base font-bold">
                      View The Menu
                    </ButtonLink>
-                   <ButtonLink intent="secondary" href="/contact" className="min-h-[44px]">
+                   <ButtonLink intent="secondary" href="/contact" className="min-h-[52px] text-base font-semibold border-white/30 hover:bg-white/10">
                      Book Grant Call
                    </ButtonLink>
                  </div>

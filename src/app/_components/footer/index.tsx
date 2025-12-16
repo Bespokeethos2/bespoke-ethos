@@ -103,17 +103,17 @@ function FooterLayout({
   logoIsLocal,
 }: FooterLayoutProps) {
   return (
-    <footer className="w-full border-t border-slate-200 bg-white pt-16 pb-8">
+    <footer className="w-full border-t border-white/10 bg-slate-950 pt-16 pb-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
           
           {/* Column 1: Brand & Logo */}
           <div className="col-span-1 md:col-span-1">
-             <Link aria-label="Homepage" href="/" className="inline-block mb-4">
+             <Link aria-label="Homepage" href="/" className="inline-block mb-6">
                 {logoIsLocal ? (
                   <Image
                     alt="Bespoke Ethos logo"
-                    className="h-auto w-32 logo-no-bg"
+                    className="h-auto w-36 logo-no-bg brightness-0 invert"
                     height={logo.light.height}
                     src={logo.light.url}
                     width={logo.light.width}
@@ -123,18 +123,18 @@ function FooterLayout({
                   <DarkLightImageAutoscale priority {...logo} />
                 )}
             </Link>
-            <p className="text-xs text-slate-500 max-w-xs mt-2">
+            <p className="text-sm text-slate-400 max-w-xs leading-relaxed">
               AI consulting and workflow automation for small businesses.
             </p>
           </div>
 
           {/* Column 2: Navigation */}
           <div>
-            <h3 className="text-sm font-semibold text-slate-900 mb-4">Nav</h3>
+            <h3 className="text-base font-bold text-white mb-5 tracking-wide">Navigate</h3>
             <ul className="space-y-3">
               {navItems.slice(0, 5).map(({ title, url }) => (
                 <li key={title}>
-                  <Link href={url} className="text-sm text-slate-600 hover:text-indigo-600 hover:underline transition-colors">
+                  <Link href={url} className="text-sm text-slate-300 hover:text-orange-400 hover:underline transition-colors font-medium min-h-[24px] inline-block">
                     {title}
                   </Link>
                 </li>
@@ -144,11 +144,11 @@ function FooterLayout({
 
           {/* Column 3: Legal & More */}
           <div>
-            <h3 className="text-sm font-semibold text-slate-900 mb-4">Company</h3>
+            <h3 className="text-base font-bold text-white mb-5 tracking-wide">Company</h3>
             <ul className="space-y-3">
                {navItems.slice(5).map(({ title, url }) => (
                 <li key={title}>
-                  <Link href={url} className="text-sm text-slate-600 hover:text-indigo-600 hover:underline transition-colors">
+                  <Link href={url} className="text-sm text-slate-300 hover:text-orange-400 hover:underline transition-colors font-medium min-h-[24px] inline-block">
                     {title}
                   </Link>
                 </li>
@@ -158,25 +158,25 @@ function FooterLayout({
 
           {/* Column 4: Offerings & Social */}
            <div>
-            <h3 className="text-sm font-semibold text-slate-900 mb-4">Solutions</h3>
+            <h3 className="text-base font-bold text-white mb-5 tracking-wide">Solutions</h3>
             <ul className="space-y-3">
-                <li><Link href="/products/cadence" className="text-sm text-slate-600 hover:text-indigo-600 hover:underline">Cadence AI Concierge</Link></li>
-                <li><Link href="/solutions/consensus-engine" className="text-sm text-slate-600 hover:text-indigo-600 hover:underline">Consensus Engine</Link></li>
-                <li><Link href="/solutions/redbridging" className="text-sm text-slate-600 hover:text-indigo-600 hover:underline">Automation Rescue</Link></li>
+                <li><Link href="/products/cadence" className="text-sm text-slate-300 hover:text-orange-400 hover:underline transition-colors font-medium min-h-[24px] inline-block">Cadence AI Concierge</Link></li>
+                <li><Link href="/solutions/consensus-engine" className="text-sm text-slate-300 hover:text-orange-400 hover:underline transition-colors font-medium min-h-[24px] inline-block">Consensus Engine</Link></li>
+                <li><Link href="/solutions/redbridging" className="text-sm text-slate-300 hover:text-orange-400 hover:underline transition-colors font-medium min-h-[24px] inline-block">Automation Rescue</Link></li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 border-t border-slate-100 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-slate-400">
+        <div className="mt-16 border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <p className="text-sm text-slate-400 font-medium">
             {copyright}
           </p>
-          <div className="flex items-center gap-4 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-             {/* Simple small badges */}
-             <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold">NGLCC Certified</div>
-             <div className="h-3 w-px bg-slate-200"></div>
-             <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold">Catalant Vetted</div>
+          <div className="flex items-center gap-4">
+             {/* Improved badge visibility */}
+             <div className="text-xs uppercase tracking-wider text-orange-400 font-bold">NGLCC Certified</div>
+             <div className="h-4 w-px bg-white/20"></div>
+             <div className="text-xs uppercase tracking-wider text-orange-400 font-bold">Catalant Vetted</div>
           </div>
         </div>
       </div>
