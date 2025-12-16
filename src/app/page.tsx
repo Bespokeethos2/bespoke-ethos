@@ -185,21 +185,21 @@ export default function HomePage() {
       <section className="relative z-10 py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6">
         <div className="container mx-auto max-w-6xl">
           <PremiumContainer variant="obsidian" className="p-6 sm:p-8 md:p-10 lg:p-12 xl:p-16 relative overflow-hidden group">
-            {/* Background Glow */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/5 blur-[120px] rounded-full group-hover:bg-orange-500/10 transition-colors duration-700" />
+            {/* Background Glow - Enhanced */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/10 blur-[120px] rounded-full group-hover:bg-orange-500/15 transition-colors duration-700" />
 
             <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 relative z-10">
               <div className="space-y-4 sm:space-y-6 md:space-y-8">
-                 <div className="inline-block px-3 py-1.5 rounded bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest">
+                 <div className="inline-block px-3 py-1.5 rounded bg-orange-500/20 border border-orange-500/40 text-orange-300 text-xs font-bold uppercase tracking-widest shadow-sm">
                    The Anti-Consulting Offer
                  </div>
                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-hero-accent leading-tight">
-                   <span className="text-white text-glow-crimson">Stop paying for</span>{" "}
-                   <span className="line-through decoration-orange-500/50 decoration-2 text-slate-500">slide decks.</span>
+                   <span className="text-white text-glow-crimson drop-shadow-lg">Stop paying for</span>{" "}
+                   <span className="line-through decoration-orange-400/60 decoration-2 text-slate-400">slide decks.</span>
                  </h2>
-                 <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-200 leading-relaxed">
+                 <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-100 leading-relaxed">
                    Enterprise firms charge $300/hr to "delve" into your problems. 
-                   We charge a <strong className="text-white">fixed price</strong> to ship a solution.
+                   We charge a <strong className="text-white font-bold">fixed price</strong> to ship a solution.
                  </p>
                  <ul className="space-y-2 sm:space-y-3 md:space-y-4 pt-2 sm:pt-4">
                    {[
@@ -208,28 +208,28 @@ export default function HomePage() {
                      "90-day 'Break It, We Fix It' warranty.",
                      "Founder-led. No junior associates."
                    ].map((item, i) => (
-                     <li key={i} className="flex items-center gap-3 text-sm sm:text-base text-slate-200">
-                       <span className="w-1.5 h-1.5 rounded-full bg-orange-500 shadow-[0_0_8px_rgba(249,115,22,0.8)] flex-shrink-0" />
+                     <li key={i} className="flex items-center gap-3 text-sm sm:text-base text-slate-100 font-medium">
+                       <span className="w-2 h-2 rounded-full bg-orange-500 shadow-[0_0_12px_rgba(249,115,22,1)] flex-shrink-0" />
                        {item}
                      </li>
                    ))}
                  </ul>
               </div>
 
-              <div className="flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-white/10 pt-6 sm:pt-8 lg:pt-0 lg:pl-10 xl:pl-12">
-                 <div className="text-xs sm:text-sm font-medium text-slate-400 uppercase tracking-widest mb-1.5 sm:mb-2">Builds Starting At</div>
-                 <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight mb-2 sm:mb-3 md:mb-4 drop-shadow-lg">
+              <div className="flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-white/20 pt-6 sm:pt-8 lg:pt-0 lg:pl-10 xl:pl-12">
+                 <div className="text-xs sm:text-sm font-bold text-slate-300 uppercase tracking-widest mb-1.5 sm:mb-2">Builds Starting At</div>
+                 <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight mb-2 sm:mb-3 md:mb-4 drop-shadow-[0_0_20px_rgba(255,255,255,0.3)]">
                    $1,497
                  </div>
-                 <p className="text-xs sm:text-sm md:text-base text-slate-200 mb-4 sm:mb-6 md:mb-8 max-w-md">
+                 <p className="text-xs sm:text-sm md:text-base text-slate-100 mb-4 sm:mb-6 md:mb-8 max-w-md">
                    Includes full scoping decision brief, build, deployment, and documentation. 
-                   <span className="block mt-2 text-orange-300 font-semibold">LGBTQ-owned businesses pay $1,122.</span>
+                   <span className="block mt-2 text-orange-200 font-bold">LGBTQ-owned businesses pay $1,122.</span>
                  </p>
                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                   <ButtonLink intent="primary" href="/pricing" className="bg-white text-slate-950 hover:bg-slate-100 font-bold shadow-md hover:shadow-lg transition-shadow min-h-[44px]">
+                   <ButtonLink intent="primary" href="/pricing" className="bg-white text-slate-950 hover:bg-orange-50 font-bold shadow-[0_4px_20px_rgba(255,255,255,0.3)] hover:shadow-[0_6px_30px_rgba(255,255,255,0.4)] transition-all min-h-[44px]">
                      View The Menu
                    </ButtonLink>
-                   <ButtonLink intent="secondary" href="/contact" className="bg-white/10 hover:bg-white/20 text-white font-semibold border-white/20 hover:border-white/30 backdrop-blur-sm min-h-[44px]">
+                   <ButtonLink intent="secondary" href="/contact" className="bg-white/20 hover:bg-white/30 text-white font-bold border-2 border-white/40 hover:border-white/60 backdrop-blur-sm shadow-lg min-h-[44px]">
                      Book Grant Call
                    </ButtonLink>
                  </div>
@@ -271,8 +271,8 @@ export default function HomePage() {
       <section className="relative z-10 py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6">
         <div className="container mx-auto max-w-3xl">
           <div className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16">
-            <span className="text-orange-400 font-mono text-xs tracking-widest mb-2 sm:mb-3 md:mb-4 block opacity-80">01001000 01000101 01001100 01010000</span>
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white font-hero-accent text-glow-crimson drop-shadow-lg">
+            <span className="text-orange-400 font-mono text-xs tracking-widest mb-2 sm:mb-3 md:mb-4 block font-bold">01001000 01000101 01001100 01010000</span>
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white font-hero-accent text-glow-crimson drop-shadow-[0_0_20px_rgba(239,68,68,0.5)]">
               Quick Answers. No Fluff.
             </h2>
           </div>

@@ -103,7 +103,7 @@ function FooterLayout({
   logoIsLocal,
 }: FooterLayoutProps) {
   return (
-    <footer className="w-full border-t-2 border-slate-300 bg-slate-50 pt-16 pb-8">
+    <footer className="w-full border-t-4 border-slate-400 bg-slate-50 pt-16 pb-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           
@@ -123,18 +123,18 @@ function FooterLayout({
                   <DarkLightImageAutoscale priority {...logo} />
                 )}
             </Link>
-            <p className="text-xs text-slate-700 max-w-xs mt-2 leading-relaxed">
+            <p className="text-xs text-slate-900 max-w-xs mt-2 leading-relaxed font-semibold">
               AI consulting and workflow automation for small businesses.
             </p>
           </div>
 
           {/* Column 2: Navigation */}
           <div>
-            <h3 className="text-sm font-bold text-slate-900 mb-4 uppercase tracking-wide">Nav</h3>
+            <h3 className="text-sm font-black text-slate-950 mb-4 uppercase tracking-wide">Nav</h3>
             <ul className="space-y-3">
               {navItems.slice(0, 5).map(({ title, url }) => (
                 <li key={title}>
-                  <Link href={url} className="text-sm text-slate-700 hover:text-orange-600 hover:underline transition-colors font-medium">
+                  <Link href={url} className="text-sm text-slate-900 hover:text-orange-600 hover:underline transition-colors font-bold">
                     {title}
                   </Link>
                 </li>
@@ -144,11 +144,11 @@ function FooterLayout({
 
           {/* Column 3: Legal & More */}
           <div>
-            <h3 className="text-sm font-bold text-slate-900 mb-4 uppercase tracking-wide">Company</h3>
+            <h3 className="text-sm font-black text-slate-950 mb-4 uppercase tracking-wide">Company</h3>
             <ul className="space-y-3">
                {navItems.slice(5).map(({ title, url }) => (
                 <li key={title}>
-                  <Link href={url} className="text-sm text-slate-700 hover:text-orange-600 hover:underline transition-colors font-medium">
+                  <Link href={url} className="text-sm text-slate-900 hover:text-orange-600 hover:underline transition-colors font-bold">
                     {title}
                   </Link>
                 </li>
@@ -158,25 +158,25 @@ function FooterLayout({
 
           {/* Column 4: Offerings & Social */}
            <div>
-            <h3 className="text-sm font-bold text-slate-900 mb-4 uppercase tracking-wide">Solutions</h3>
+            <h3 className="text-sm font-black text-slate-950 mb-4 uppercase tracking-wide">Solutions</h3>
             <ul className="space-y-3">
-                <li><Link href="/products/cadence" className="text-sm text-slate-700 hover:text-orange-600 hover:underline font-medium">Cadence AI Concierge</Link></li>
-                <li><Link href="/solutions/consensus-engine" className="text-sm text-slate-700 hover:text-orange-600 hover:underline font-medium">Consensus Engine</Link></li>
-                <li><Link href="/solutions/redbridging" className="text-sm text-slate-700 hover:text-orange-600 hover:underline font-medium">Automation Rescue</Link></li>
+                <li><Link href="/products/cadence" className="text-sm text-slate-900 hover:text-orange-600 hover:underline font-bold">Cadence AI Concierge</Link></li>
+                <li><Link href="/solutions/consensus-engine" className="text-sm text-slate-900 hover:text-orange-600 hover:underline font-bold">Consensus Engine</Link></li>
+                <li><Link href="/solutions/redbridging" className="text-sm text-slate-900 hover:text-orange-600 hover:underline font-bold">Automation Rescue</Link></li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 border-t-2 border-slate-200 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-slate-600 font-medium">
+        <div className="mt-16 border-t-2 border-slate-300 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-slate-900 font-bold">
             {copyright}
           </p>
-          <div className="flex items-center gap-4 opacity-80 hover:opacity-100 transition-opacity duration-300">
-             {/* Simple small badges */}
-             <div className="text-[10px] uppercase tracking-wider text-slate-700 font-bold">NGLCC Certified</div>
-             <div className="h-3 w-px bg-slate-300"></div>
-             <div className="text-[10px] uppercase tracking-wider text-slate-700 font-bold">Catalant Vetted</div>
+          <div className="flex items-center gap-4">
+             {/* Certification badges with consistent styling */}
+             <div className="text-[10px] uppercase tracking-wider text-slate-950 font-black px-3 py-1.5 bg-orange-100 rounded-md border-2 border-orange-300">NGLCC Certified</div>
+             <div className="h-4 w-px bg-slate-400"></div>
+             <div className="text-[10px] uppercase tracking-wider text-slate-950 font-black px-3 py-1.5 bg-orange-100 rounded-md border-2 border-orange-300">Catalant Vetted</div>
           </div>
         </div>
       </div>
