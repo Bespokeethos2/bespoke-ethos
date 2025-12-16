@@ -85,19 +85,19 @@ export function CapabilitiesBento() {
         {/* Standard Items */}
         <BentoItem
           title="Drafted Replies"
-          serviceDescription="Auto-draft responses for your review"
+          serviceDescription="Auto-draft responses for review"
           description="AI drafts the response, you click send. Maintain control without the typing."
           icon={<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>}
         />
         <BentoItem
           title="Smart Scheduling"
-          serviceDescription="Automated calendar coordination without conflicts"
+          serviceDescription="Automated conflict-free calendar coordination"
           description="Booking that actually syncs. No double-booking or email tag."
           icon={<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>}
         />
         <BentoItem
           title="Workflow Rescue"
-          serviceDescription="Fix broken integrations and automation"
+          serviceDescription="Repair broken integrations and workflows"
           description="Broken Zaps? Data leaks? We fix the duct-tape and build robust connections."
           icon={<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>}
         />
