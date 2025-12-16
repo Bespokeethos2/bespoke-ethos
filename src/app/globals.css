@@ -69,6 +69,42 @@
   }
 
   /* ==========================================================================
+     IMPROVED READABILITY: Better text contrast and spacing
+     ========================================================================== */
+  h1, h2, h3, h4, h5, h6 {
+    @apply leading-tight;
+    letter-spacing: -0.02em;
+  }
+
+  p, li, span {
+    @apply leading-relaxed;
+  }
+
+  /* Improved text readability on dark backgrounds */
+  .dark-text-readable {
+    color: rgb(226, 232, 240);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Better mobile spacing for cards */
+  @media (max-width: 768px) {
+    .mobile-card-spacing {
+      padding: 1.5rem;
+    }
+  }
+
+  /* Prevent text overflow and ensure proper wrapping */
+  p, span, li {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  /* Better line height for body text */
+  body {
+    line-height: 1.6;
+  }
+
+  /* ==========================================================================
      ACCESSIBILITY: Focus-Visible Styles (Keyboard Navigation)
      ========================================================================== */
   a:focus-visible,
