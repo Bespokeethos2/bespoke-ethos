@@ -7,17 +7,18 @@ export function TrustCredentials() {
   return (
     <Section>
       <div className="mx-auto max-w-7xl text-center px-4 sm:px-6">
-        <p className="text-accent-500 text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] sm:tracking-[0.3em]">
+        <p className="text-orange-500 text-xs sm:text-sm font-black uppercase tracking-[0.25em] sm:tracking-[0.3em] mb-3">
           Trusted & Certified
         </p>
-        <h2 className="mt-4 sm:mt-5 text-balance text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight text-slate-900">
+        <h2 className="mt-3 sm:mt-4 text-balance text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-slate-900">
           Real Credentials. Real Experience.
         </h2>
-        <p className="mx-auto mt-4 sm:mt-5 max-w-2xl text-base sm:text-lg text-slate-600">
+        <p className="mx-auto mt-4 sm:mt-5 max-w-2xl text-base sm:text-lg text-slate-800 font-medium">
           We&rsquo;re not just another AI consultant. We&rsquo;re vetted, certified, and battle-tested.
         </p>
 
-        <div className="mt-10 sm:mt-12 md:mt-16 grid gap-8 sm:gap-10 md:grid-cols-3 items-stretch px-4 sm:px-6">
+        {/* Add extra padding around cards for shadow visibility */}
+        <div className="mt-12 sm:mt-14 md:mt-16 grid gap-8 md:gap-10 lg:gap-12 md:grid-cols-3 items-stretch px-4">
           {/* NGLCC Certified */}
           <CredentialCard
             title="NGLCC Certified"
@@ -45,19 +46,18 @@ export function TrustCredentials() {
 
         {/* 25% Discount Callout with LGBTQ+ button */}
         <div
-          className="mt-12 sm:mt-16 mx-auto max-w-4xl rounded-2xl border-2 border-accent-500/20 p-8 sm:p-10 text-center"
-          style={{ backgroundColor: "var(--cream-bg)" }}
+          className="mt-16 sm:mt-20 mx-auto max-w-4xl rounded-2xl border-4 border-orange-500/50 p-8 sm:p-10 text-center bg-gradient-to-br from-orange-100 to-amber-100 shadow-2xl"
         >
-          <h3 className="text-xl sm:text-2xl font-semibold text-slate-900">
+          <h3 className="text-xl sm:text-2xl font-black text-slate-950">
             25% Off for LGBTQ+ Businesses
           </h3>
-          <p className="mx-auto mt-2 sm:mt-3 max-w-2xl text-sm sm:text-base text-slate-600">
+          <p className="mx-auto mt-3 sm:mt-4 max-w-2xl text-sm sm:text-base text-slate-900 leading-relaxed font-semibold">
             Starting a business as a minority is hard as hell. I know—I&rsquo;ve been there. That&rsquo;s why LGBTQ-owned businesses get 25% off. No hoops, no fine print. Just mention it when you reach out.
           </p>
-          <div className="mt-4 sm:mt-6 flex justify-center">
+          <div className="mt-6 sm:mt-7 flex justify-center">
             <Link
               href="/lgbtq-discount"
-              className="inline-flex items-center rounded-full border border-slate-300 bg-white px-8 py-3 text-sm font-semibold text-slate-900 shadow-sm transition-colors duration-200 hover:bg-slate-50"
+              className="inline-flex items-center rounded-full border-2 border-slate-900 bg-slate-900 px-8 py-3 text-sm font-bold text-white shadow-xl transition-all duration-200 hover:bg-slate-800 hover:shadow-2xl hover:scale-105"
             >
               Learn about the 25% discount
             </Link>
