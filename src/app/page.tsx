@@ -450,7 +450,7 @@ function OfferJsonLd() {
       "@id": `${base}/#organization`,
     },
     availability: "https://schema.org/InStock",
-    validFrom: "2025-10-01",
+    validFrom: "2024-11-01",
     itemOffered: {
       "@type": "Service",
       name: "AI Workflow Automation Build",
