@@ -51,7 +51,7 @@ const BentoItem = ({ title, description, serviceDescription, icon, className, im
 
 export function CapabilitiesBento() {
   return (
-    <section className="py-0 container mx-auto px-4 sm:px-6 max-w-7xl">
+    <section className="py-4 container mx-auto px-4 sm:px-6 max-w-7xl">
       <div className="mb-8 md:mb-10 text-center max-w-3xl mx-auto">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-hero-accent text-slate-900 mb-3 md:mb-4 px-2">
           The work that keeps you up at night. <br className="hidden sm:block" /> Handled.

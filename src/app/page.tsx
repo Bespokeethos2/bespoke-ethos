@@ -92,26 +92,21 @@ export default function HomePage() {
                   {/* Vertical connecting line - hidden on mobile */}
                   <div className="hidden sm:block absolute left-1/2 -top-12 w-px h-12 bg-gradient-to-b from-transparent via-white/30 to-white/50" />
                   <ul className="flex flex-wrap justify-center items-center border border-white/20 rounded-md backdrop-blur-sm bg-white/5">
-                    <li className="border-r border-white/20 last:border-r-0">
-                      <a href="/solutions" className="block px-4 sm:px-6 py-2 sm:py-3 text-[0.65rem] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] text-white/70 hover:text-white hover:bg-white/10 transition-all">
-                        Solutions
-                      </a>
-                    </li>
-                    <li className="border-r border-white/20 last:border-r-0">
-                      <a href="/pricing" className="block px-4 sm:px-6 py-2 sm:py-3 text-[0.65rem] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] text-white/70 hover:text-white hover:bg-white/10 transition-all">
-                        Pricing
-                      </a>
-                    </li>
-                    <li className="border-r border-white/20 last:border-r-0">
-                      <a href="/about" className="block px-4 sm:px-6 py-2 sm:py-3 text-[0.65rem] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] text-white/70 hover:text-white hover:bg-white/10 transition-all">
-                        About
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/contact" className="block px-4 sm:px-6 py-2 sm:py-3 text-[0.65rem] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] text-orange-400 hover:text-orange-300 hover:bg-white/10 transition-all font-medium">
-                        Contact
-                      </a>
-                    </li>
+                    {[
+                      { href: "/solutions", label: "Solutions", primary: false },
+                      { href: "/pricing", label: "Pricing", primary: false },
+                      { href: "/about", label: "About", primary: false },
+                      { href: "/contact", label: "Contact", primary: true }
+                    ].map((item, i) => (
+                      <li key={item.label} className="border-r border-white/20 last:border-r-0">
+                        <a 
+                          href={item.href} 
+                          className={`block px-4 sm:px-6 py-2 sm:py-3 text-[0.65rem] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] hover:bg-white/10 transition-all ${item.primary ? 'text-orange-400 hover:text-orange-300 font-medium' : 'text-white/70 hover:text-white'}`}
+                        >
+                          {item.label}
+                        </a>
+                      </li>
+                    ))}
                   </ul>
                 </nav>
               </div>
