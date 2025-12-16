@@ -223,13 +223,13 @@ export default function HomePage() {
                  </div>
                  <p className="text-sm sm:text-base md:text-lg text-slate-100 mb-4 sm:mb-6 md:mb-8 max-w-md leading-relaxed">
                    Includes full scoping decision brief, build, deployment, and documentation. 
-                   <span className="block mt-3 text-orange-300 font-bold">LGBTQ-owned businesses pay $1,122.</span>
+                   <span className="block mt-3 text-orange-300 font-bold text-base sm:text-lg">LGBTQ-owned businesses pay $1,122.</span>
                  </p>
                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                   <ButtonLink intent="primary" href="/pricing" className="bg-white text-slate-950 hover:bg-orange-50 font-bold min-h-[44px] shadow-lg">
+                   <ButtonLink intent="primary" href="/pricing" className="bg-white text-slate-950 hover:bg-orange-50 font-bold min-h-[44px] shadow-lg hover:shadow-xl transition-all">
                      View The Menu
                    </ButtonLink>
-                   <ButtonLink intent="secondary" href="/contact" className="min-h-[44px] border-white/30 text-white hover:bg-white/10 font-semibold">
+                   <ButtonLink intent="secondary" href="/contact" className="min-h-[44px] border-2 border-white/40 text-white hover:bg-white/20 hover:border-white/60 font-bold transition-all">
                      Book Grant Call
                    </ButtonLink>
                  </div>

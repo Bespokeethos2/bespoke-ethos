@@ -10,20 +10,20 @@ const FALLBACK_COPY = {
 
 export function Newsletter() {
   return (
-    <Section aria-label="Newsletter signup" className="bg-surface-secondary dark:bg-dark-surface-secondary py-10! overflow-hidden" container="full">
+    <Section aria-label="Newsletter signup" className="bg-slate-900 py-12 sm:py-16 overflow-hidden border-y border-white/10" container="full">
       <div className="container mx-auto flex w-full max-w-4xl flex-col gap-6 px-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between">
-        <div className="flex flex-1 flex-col items-start gap-2">
-          <h2 className="text-3xl font-bold lg:text-4xl text-slate-900">{FALLBACK_COPY.title}</h2>
-          <p className="text-lg text-slate-700 dark:text-dark-text-tertiary lg:text-xl leading-relaxed">
+        <div className="flex flex-1 flex-col items-start gap-3">
+          <h2 className="text-2xl sm:text-3xl font-bold lg:text-4xl text-white">{FALLBACK_COPY.title}</h2>
+          <p className="text-base sm:text-lg text-slate-200 lg:text-xl leading-relaxed">
             {FALLBACK_COPY.description}
           </p>
         </div>
 
-        <div className="flex w-full flex-col gap-2 sm:max-w-lg sm:flex-row sm:items-center sm:justify-end">
-          <ButtonLink intent="primary" size="lg" href="https://form.jotform.com/253292960463058" target="_blank">
+        <div className="flex w-full flex-col gap-3 sm:max-w-lg sm:flex-row sm:items-center sm:justify-end">
+          <ButtonLink intent="primary" size="lg" href="https://form.jotform.com/253292960463058" target="_blank" className="bg-orange-600 hover:bg-orange-500 text-white font-bold shadow-lg">
             Subscribe via Jotform
           </ButtonLink>
-          <ButtonLink intent="secondary" size="lg" href="https://calendly.com/contact-bespokeethos/30min" target="_blank">
+          <ButtonLink intent="secondary" size="lg" href="https://calendly.com/contact-bespokeethos/30min" target="_blank" className="border-white/30 text-white hover:bg-white/10 font-semibold">
             Book a call
           </ButtonLink>
         </div>
