@@ -110,18 +110,7 @@ function FooterLayout({
           {/* Column 1: Brand & Logo */}
           <div className="col-span-1 md:col-span-1">
              <Link aria-label="Homepage" href="/" className="inline-block mb-4">
-                {logoIsLocal ? (
-                  <Image
-                    alt="Bespoke Ethos logo"
-                    className="h-auto w-32 logo-no-bg brightness-0 invert"
-                    height={logo.light.height}
-                    src={logo.light.url}
-                    width={logo.light.width}
-                    priority
-                  />
-                ) : (
-                  <DarkLightImageAutoscale priority {...logo} />
-                )}
+                <DarkLightImageAutoscale priority {...logo} />
             </Link>
             <p className="text-sm text-slate-300 max-w-xs mt-2 leading-relaxed">
               AI consulting and workflow automation for small businesses.

@@ -7,7 +7,7 @@ export function FounderStory() {
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
           {/* Image Column */}
           <div className="relative">
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl border border-white/10 aspect-square md:aspect-[4/5]">
+            <div className="relative overflow-hidden rounded-2xl shadow-2xl border border-white/10 w-[400px] h-[400px]">
               <Image
                 src="/founder-upton-rand.jpg"
                 alt="Upton Rand, Founder of Bespoke Ethos"

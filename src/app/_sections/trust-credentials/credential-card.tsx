@@ -38,7 +38,7 @@ export function CredentialCard({
         {/* Badge container at top - now larger and more prominent */}
         <div className="relative mb-5 flex-shrink-0">
           <div className="relative rounded-xl bg-gradient-to-br from-slate-700/50 to-slate-900/50 p-5 border border-white/10 shadow-inner flex items-center justify-center">
-            <div className="relative w-28 h-28 flex items-center justify-center">
+            <div className="relative w-24 h-24 flex items-center justify-center">
               <Image
                 src={imageSrc}
                 alt={imageAlt}
