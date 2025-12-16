@@ -66,14 +66,14 @@ export default function HomePage() {
                   <span className="text-xs font-bold text-orange-200 tracking-widest uppercase font-mono">Operations Normal</span>
                 </div>
                 
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-white mb-8 leading-[0.9]">
-                  WE BUILD <br className="hidden md:block" />
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-8 leading-[0.9]">
+                  <span className="text-white text-glow-crimson">WE BUILD</span> <br className="hidden md:block" />
                   <span className="text-transparent bg-clip-text bg-gradient-to-br from-orange-200 via-orange-400 to-orange-500 text-cinematic">
                     INTELLIGENT WORKFLOWS
                   </span>
                 </h1>
                 
-                <p className="text-lg md:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-light mb-10">
+                <p className="text-base md:text-xl lg:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-light mb-10">
                   You don't need another "AI Chatbot." You need a <strong className="text-orange-200 font-medium">machine shop</strong>. 
                   We build resilient, fixed-price automation workflows with tight tolerances.
                 </p>
@@ -128,11 +128,11 @@ export default function HomePage() {
              <div className="absolute -top-12 -left-8 text-9xl text-white/5 font-serif select-none">"</div>
              
              <h2 className="text-3xl md:text-5xl font-bold font-hero-accent text-white mb-8 leading-tight text-center md:text-left">
-               It's not about the model. <br/> 
-               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-200">It's about the tolerance.</span>
+               <span className="text-white text-glow-crimson">It's not about the model.</span> <br/> 
+               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-200 text-glow-ambient">It's about the tolerance.</span>
              </h2>
 
-             <div className="space-y-6 text-xl text-slate-300 leading-relaxed font-light">
+             <div className="space-y-6 text-base md:text-lg lg:text-xl text-slate-300 leading-relaxed font-light">
                <p>
                  I'm <span className="text-white font-medium">Upton Rand</span>. I spent 5 years training these models back when they were just research papers. 
                  Here is the honest truth: <strong className="text-white">AI is messy.</strong> It hallucinates. It drifts. It forgets.
@@ -159,8 +159,8 @@ export default function HomePage() {
           <div className="mb-16 md:flex md:items-end md:justify-between">
             <div className="max-w-2xl">
               <span className="text-orange-500 font-mono text-sm tracking-tight mb-4 block">// SYSTEM CAPABILITIES</span>
-              <h2 className="text-5xl md:text-6xl font-black text-white tracking-tight leading-none">
-                BUILT TO <span className="text-slate-800 text-stroke-thin">LAST.</span>
+              <h2 className="text-5xl md:text-6xl font-black tracking-tight leading-none">
+                <span className="text-white text-glow-crimson">BUILT TO</span> <span className="text-slate-800 text-stroke-thin">LAST.</span>
               </h2>
             </div>
             <p className="mt-6 md:mt-0 text-slate-400 max-w-md text-base border-l-2 border-orange-500/30 pl-6 py-2">
@@ -183,10 +183,10 @@ export default function HomePage() {
                  <div className="inline-block px-3 py-1 rounded bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest">
                    The Anti-Consulting Offer
                  </div>
-                 <h2 className="text-4xl md:text-5xl font-bold font-hero-accent text-white leading-tight">
-                   Stop paying for <br/> <span className="line-through decoration-orange-500/50 decoration-2 text-slate-500">slide decks.</span>
+                 <h2 className="text-4xl md:text-5xl font-bold font-hero-accent leading-tight">
+                   <span className="text-white text-glow-crimson">Stop paying for</span> <br/> <span className="line-through decoration-orange-500/50 decoration-2 text-slate-500">slide decks.</span>
                  </h2>
-                 <p className="text-xl text-slate-300 leading-relaxed">
+                 <p className="text-base md:text-lg lg:text-xl text-slate-300 leading-relaxed">
                    Enterprise firms charge $300/hr to "delve" into your problems. 
                    We charge a <strong className="text-white">fixed price</strong> to ship a solution.
                  </p>
@@ -233,11 +233,11 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
            <PremiumContainer variant="glass" className="p-8 md:p-16 text-center border-white/5 bg-slate-900/40">
              <div className="max-w-3xl mx-auto space-y-6">
-               <h2 className="text-3xl md:text-5xl font-bold font-hero-accent text-white">
+               <h2 className="text-3xl md:text-5xl font-bold font-hero-accent text-white text-glow-crimson">
                  AI Strategy Sprints™
                </h2>
                <div className="text-orange-500 font-mono text-sm tracking-wide uppercase mb-4">Powered by Consensus Engine</div>
-               <p className="text-xl text-slate-300 leading-relaxed font-light">
+               <p className="text-base md:text-lg lg:text-xl text-slate-300 leading-relaxed font-light">
                  Don't guess. We run multi-agent adversarial research sprints to stress-test your strategy before you spend a dime. 
                  It's like having a boardroom of experts in a box.
                </p>
@@ -258,7 +258,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 max-w-3xl">
           <div className="text-center mb-16">
             <span className="text-orange-500/50 font-mono text-xs tracking-widest mb-4 block">01001000 01000101 01001100 01010000</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-white font-hero-accent">
+            <h2 className="text-3xl md:text-4xl font-bold text-white font-hero-accent text-glow-crimson">
               Quick Answers. No Fluff.
             </h2>
           </div>
@@ -276,11 +276,11 @@ export default function HomePage() {
         <div className="container relative z-10 mx-auto px-4 max-w-5xl">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-white font-hero-accent leading-tight">
+              <h2 className="text-3xl md:text-4xl font-bold text-white font-hero-accent leading-tight text-glow-crimson">
                 We lift as we climb.
               </h2>
               <div className="h-1 w-24 bg-orange-500 rounded-full" />
-              <p className="text-lg text-slate-300 leading-relaxed">
+              <p className="text-base md:text-lg text-slate-300 leading-relaxed">
                 As an NGLCC-certified business, we know the hustle. We reserve grant slots and offer a 
                 permanent <span className="text-orange-400 font-semibold">25% discount</span> for LGBTQ-owned businesses.
               </p>
