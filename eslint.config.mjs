@@ -20,6 +20,9 @@ const config = [
       ".vercel/**",
       "pnpm-lock.yaml",
       ".backups/**",
+      "src/components/generated/**",
+      "src/components/games/**",
+      "site-template/**",
     ],
   },
 ];

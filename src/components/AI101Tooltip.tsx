@@ -117,13 +117,9 @@ export function AI101Tooltip({ term, children, inline = true }: AI101TooltipProp
 
   const glossaryEntry = AI_GLOSSARY[term];
 
-  if (!glossaryEntry) {
-    console.warn(`AI101Tooltip: Unknown term "${term}"`);
-    return <>{children}</>;
-  }
-
   // Position calculation
   useEffect(() => {
+    if (!glossaryEntry) return;
     if (isOpen && triggerRef.current && tooltipRef.current) {
       const triggerRect = triggerRef.current.getBoundingClientRect();
       const tooltipRect = tooltipRef.current.getBoundingClientRect();
@@ -146,10 +142,12 @@ export function AI101Tooltip({ term, children, inline = true }: AI101TooltipProp
 
       setPosition({ top, left });
     }
-  }, [isOpen]);
+  }, [isOpen, glossaryEntry]);
 
   // Keyboard support
   useEffect(() => {
+    if (!glossaryEntry) return;
+    
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isOpen) {
         setIsOpen(false);
@@ -159,10 +157,12 @@ export function AI101Tooltip({ term, children, inline = true }: AI101TooltipProp
 
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen]);
+  }, [isOpen, glossaryEntry]);
 
   // Close on click outside
   useEffect(() => {
+    if (!glossaryEntry) return;
+    
     const handleClickOutside = (e: MouseEvent) => {
       if (
         isOpen &&
@@ -177,7 +177,7 @@ export function AI101Tooltip({ term, children, inline = true }: AI101TooltipProp
 
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [isOpen]);
+  }, [isOpen, glossaryEntry]);
 
   const handleMouseEnter = () => {
     clearTimeout(timeoutRef.current);
@@ -202,6 +202,11 @@ export function AI101Tooltip({ term, children, inline = true }: AI101TooltipProp
   };
 
   const tooltipId = `ai101-tooltip-${term}`;
+
+  if (!glossaryEntry) {
+    console.warn(`AI101Tooltip: Unknown term "${term}"`);
+    return <>{children}</>;
+  }
 
   return (
     <>
