@@ -39,9 +39,9 @@ export default function HomePage() {
     <div aria-label="Bespoke Ethos homepage" className="min-h-screen relative overflow-hidden bg-background selection:bg-orange-500/30">
       
       {/* 1. HERO: The Console */}
-      <section className="relative z-10 pt-24 pb-16 md:pt-32 md:pb-24">
+      <section className="relative z-10 pt-20 pb-12 md:pt-28 md:pb-16">
         <div className="container mx-auto px-4">
-          <PremiumContainer variant="glass" className="p-1 md:p-2 border-orange-500/20 shadow-2xl shadow-orange-900/10">
+          <PremiumContainer variant="glass" className="p-1 md:p-2 border-orange-500/20 shadow-2xl shadow-orange-900/10 mx-2">
             <div className="relative overflow-hidden rounded-xl bg-slate-950/90 aspect-[16/9] md:aspect-[21/9] flex items-center justify-center">
               
               {/* Background Abstract Visuals (Warm Orange) */}
@@ -58,7 +58,7 @@ export default function HomePage() {
 
               {/* Hero Content Layer */}
               <div className="relative z-20 text-center max-w-5xl px-4 animate-fadeIn">
-                <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-orange-500/30 bg-orange-950/40 backdrop-blur-md mb-8">
+                <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-orange-500/30 bg-orange-950/40 backdrop-blur-md mb-6">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
@@ -66,52 +66,47 @@ export default function HomePage() {
                   <span className="text-xs font-bold text-orange-200 tracking-widest uppercase font-mono">Operations Normal</span>
                 </div>
                 
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-8 leading-[0.9]">
+                <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-5 md:mb-6 leading-[0.9]">
                   <span className="text-white text-glow-crimson">WE BUILD</span> <br className="hidden md:block" />
                   <span className="text-transparent bg-clip-text bg-gradient-to-br from-orange-200 via-orange-400 to-orange-500 text-cinematic">
                     INTELLIGENT WORKFLOWS
                   </span>
                 </h1>
                 
-                <p className="text-base md:text-xl lg:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-light mb-10">
+                <p className="text-sm sm:text-base md:text-xl lg:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-light mb-6 md:mb-8 px-2">
                   You don't need another "AI Chatbot." You need a <strong className="text-orange-200 font-medium">machine shop</strong>. 
                   We build resilient, fixed-price automation workflows with tight tolerances.
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
-                  <ButtonLink intent="primary" href="/contact" className="h-14 px-10 text-lg rounded-full shadow-[0_0_25px_rgba(249,115,22,0.3)] hover:shadow-[0_0_40px_rgba(249,115,22,0.5)] transition-all bg-orange-600 hover:bg-orange-500 border-none text-white font-bold tracking-wide">
+                <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center w-full sm:w-auto px-4 sm:px-0">
+                  <ButtonLink intent="primary" href="/contact" className="w-full sm:w-auto h-12 md:h-14 px-8 md:px-10 text-base md:text-lg rounded-full shadow-[0_0_25px_rgba(249,115,22,0.3)] hover:shadow-[0_0_40px_rgba(249,115,22,0.5)] transition-all bg-orange-600 hover:bg-orange-500 border-none text-white font-bold tracking-wide">
                     Start Your Build
                   </ButtonLink>
-                  <ButtonLink intent="secondary" href="/solutions" className="h-14 px-10 text-lg rounded-full border-white/10 hover:bg-white/5 backdrop-blur-md text-slate-200">
+                  <ButtonLink intent="secondary" href="/solutions" className="w-full sm:w-auto h-12 md:h-14 px-8 md:px-10 text-base md:text-lg rounded-full border-white/10 hover:bg-white/5 backdrop-blur-md text-slate-200">
                     See The Specs
                   </ButtonLink>
                 </div>
 
                 {/* Template-style Line Menu */}
-                <nav className="mt-12 relative">
-                  {/* Vertical connecting line */}
-                  <div className="absolute left-1/2 -top-12 w-px h-12 bg-gradient-to-b from-transparent via-white/30 to-white/50" />
+                <nav className="mt-8 md:mt-10 relative px-2">
+                  {/* Vertical connecting line - hidden on mobile */}
+                  <div className="hidden sm:block absolute left-1/2 -top-12 w-px h-12 bg-gradient-to-b from-transparent via-white/30 to-white/50" />
                   <ul className="flex flex-wrap justify-center items-center border border-white/20 rounded-md backdrop-blur-sm bg-white/5">
-                    <li className="border-r border-white/20 last:border-r-0">
-                      <a href="/solutions" className="block px-6 py-3 text-xs uppercase tracking-[0.2em] text-white/70 hover:text-white hover:bg-white/10 transition-all">
-                        Solutions
-                      </a>
-                    </li>
-                    <li className="border-r border-white/20 last:border-r-0">
-                      <a href="/pricing" className="block px-6 py-3 text-xs uppercase tracking-[0.2em] text-white/70 hover:text-white hover:bg-white/10 transition-all">
-                        Pricing
-                      </a>
-                    </li>
-                    <li className="border-r border-white/20 last:border-r-0">
-                      <a href="/about" className="block px-6 py-3 text-xs uppercase tracking-[0.2em] text-white/70 hover:text-white hover:bg-white/10 transition-all">
-                        About
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/contact" className="block px-6 py-3 text-xs uppercase tracking-[0.2em] text-orange-400 hover:text-orange-300 hover:bg-white/10 transition-all font-medium">
-                        Contact
-                      </a>
-                    </li>
+                    {[
+                      { href: "/solutions", label: "Solutions", primary: false },
+                      { href: "/pricing", label: "Pricing", primary: false },
+                      { href: "/about", label: "About", primary: false },
+                      { href: "/contact", label: "Contact", primary: true }
+                    ].map((item, i) => (
+                      <li key={item.label} className="border-r border-white/20 last:border-r-0">
+                        <a 
+                          href={item.href} 
+                          className={`block px-4 sm:px-6 py-2 sm:py-3 text-[0.65rem] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] hover:bg-white/10 transition-all ${item.primary ? 'text-orange-400 hover:text-orange-300 font-medium' : 'text-white/70 hover:text-white'}`}
+                        >
+                          {item.label}
+                        </a>
+                      </li>
+                    ))}
                   </ul>
                 </nav>
               </div>
@@ -121,18 +116,18 @@ export default function HomePage() {
       </section>
 
       {/* 2. THE CHASM: Authentic Voice */}
-      <section className="relative z-10 py-20">
+      <section className="relative z-10 py-16 md:py-20">
         <div className="container mx-auto px-4 max-w-4xl">
            <div className="relative">
              {/* Quote Decor */}
              <div className="absolute -top-12 -left-8 text-9xl text-white/5 font-serif select-none">"</div>
              
-             <h2 className="text-3xl md:text-5xl font-bold font-hero-accent text-white mb-8 leading-tight text-center md:text-left">
+             <h2 className="text-3xl md:text-5xl font-bold font-hero-accent text-white mb-6 leading-tight text-center md:text-left">
                <span className="text-white text-glow-crimson">It's not about the model.</span> <br/> 
                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-200 text-glow-ambient">It's about the tolerance.</span>
              </h2>
 
-             <div className="space-y-6 text-base md:text-lg lg:text-xl text-slate-300 leading-relaxed font-light">
+             <div className="space-y-5 text-base md:text-lg lg:text-xl text-slate-300 leading-relaxed font-light">
                <p>
                  I'm <span className="text-white font-medium">Upton Rand</span>. I spent 5 years training these models back when they were just research papers. 
                  Here is the honest truth: <strong className="text-white">AI is messy.</strong> It hallucinates. It drifts. It forgets.
@@ -148,22 +143,22 @@ export default function HomePage() {
       </section>
 
       {/* 3. SOCIAL PROOF */}
-      <div className="relative z-10 py-16 border-y border-white/5 bg-slate-950/50 backdrop-blur-sm">
-        <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-slate-600 mb-10">Trusted Operating Systems</p>
+      <div className="relative z-10 py-12 border-y border-white/5 bg-slate-950/50 backdrop-blur-sm">
+        <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-slate-600 mb-8">Trusted Operating Systems</p>
         <TestimonialMarquee />
       </div>
 
       {/* 4. CAPABILITIES: Bento */}
-      <section className="relative z-10 py-32 bg-slate-950">
-        <div className="container mx-auto px-4">
-          <div className="mb-16 md:flex md:items-end md:justify-between">
+      <section className="relative z-10 py-16 md:py-20 lg:py-24 bg-slate-950">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="mb-10 md:mb-12 md:flex md:items-end md:justify-between gap-8">
             <div className="max-w-2xl">
-              <span className="text-orange-500 font-mono text-sm tracking-tight mb-4 block">// SYSTEM CAPABILITIES</span>
-              <h2 className="text-5xl md:text-6xl font-black tracking-tight leading-none">
+              <span className="text-orange-500 font-mono text-xs md:text-sm tracking-tight mb-3 md:mb-4 block">// SYSTEM CAPABILITIES</span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none">
                 <span className="text-white text-glow-crimson">BUILT TO</span> <span className="text-slate-800 text-stroke-thin">LAST.</span>
               </h2>
             </div>
-            <p className="mt-6 md:mt-0 text-slate-400 max-w-md text-base border-l-2 border-orange-500/30 pl-6 py-2">
+            <p className="mt-4 md:mt-0 text-slate-400 max-w-md text-sm md:text-base border-l-2 border-orange-500/30 pl-4 md:pl-6 py-2">
               We don't ship "demos." We deploy production-grade infrastructure that runs your business while you sleep.
             </p>
           </div>
@@ -172,32 +167,32 @@ export default function HomePage() {
       </section>
 
       {/* 5. PRICING: Fixed Price */}
-      <section className="relative z-10 py-24">
+      <section className="relative z-10 py-16 md:py-20">
         <div className="container mx-auto px-4 max-w-6xl">
-          <PremiumContainer variant="obsidian" className="p-8 md:p-12 lg:p-20 relative overflow-hidden group">
+          <PremiumContainer variant="obsidian" className="p-6 md:p-10 lg:p-14 relative overflow-hidden group mx-2">
             {/* Background Glow */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/5 blur-[120px] rounded-full group-hover:bg-orange-500/10 transition-colors duration-700" />
 
-            <div className="grid lg:grid-cols-2 gap-16 relative z-10">
-              <div className="space-y-8">
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 relative z-10">
+              <div className="space-y-5">
                  <div className="inline-block px-3 py-1 rounded bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest">
                    The Anti-Consulting Offer
                  </div>
-                 <h2 className="text-4xl md:text-5xl font-bold font-hero-accent leading-tight">
+                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-hero-accent leading-tight">
                    <span className="text-white text-glow-crimson">Stop paying for</span> <br/> <span className="line-through decoration-orange-500/50 decoration-2 text-slate-500">slide decks.</span>
                  </h2>
-                 <p className="text-base md:text-lg lg:text-xl text-slate-300 leading-relaxed">
+                 <p className="text-sm md:text-base lg:text-lg text-slate-300 leading-relaxed">
                    Enterprise firms charge $300/hr to "delve" into your problems. 
                    We charge a <strong className="text-white">fixed price</strong> to ship a solution.
                  </p>
-                 <ul className="space-y-4 pt-4">
+                 <ul className="space-y-2.5 pt-2">
                    {[
                      "Zero hourly billings. Fixed scope.",
                      "You own the code and the keys.",
                      "90-day 'Break It, We Fix It' warranty.",
                      "Founder-led. No junior associates."
                    ].map((item, i) => (
-                     <li key={i} className="flex items-center gap-3 text-slate-300">
+                     <li key={i} className="flex items-center gap-3 text-sm md:text-base text-slate-300">
                        <span className="w-1.5 h-1.5 rounded-full bg-orange-500 shadow-[0_0_8px_rgba(249,115,22,0.8)]" />
                        {item}
                      </li>
@@ -205,16 +200,16 @@ export default function HomePage() {
                  </ul>
               </div>
 
-              <div className="flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-white/10 pt-8 lg:pt-0 lg:pl-16">
-                 <div className="text-sm font-medium text-slate-500 uppercase tracking-widest mb-2">Builds Starting At</div>
-                 <div className="text-6xl md:text-7xl font-black text-white tracking-tight mb-4">
+              <div className="flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-white/10 pt-6 lg:pt-0 lg:pl-10">
+                 <div className="text-xs md:text-sm font-medium text-slate-500 uppercase tracking-widest mb-2">Builds Starting At</div>
+                 <div className="text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight mb-3 md:mb-4">
                    $1,497
                  </div>
-                 <p className="text-sm text-slate-400 mb-8 max-w-md">
+                 <p className="text-xs md:text-sm text-slate-400 mb-5 md:mb-6 max-w-md">
                    Includes full scoping decision brief, build, deployment, and documentation. 
-                   <span className="block mt-2 text-orange-400 font-medium">LGBTQ-owned businesses pay $1,122.</span>
+                   <span className="block mt-1.5 md:mt-2 text-orange-400 font-medium">LGBTQ-owned businesses pay $1,122.</span>
                  </p>
-                 <div className="flex flex-col sm:flex-row gap-4">
+                 <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
                    <ButtonLink intent="primary" href="/pricing" className="bg-white text-slate-950 hover:bg-slate-200">
                      View The Menu
                    </ButtonLink>
@@ -229,19 +224,19 @@ export default function HomePage() {
       </section>
 
       {/* 6. AI STRATEGY SPRINTS (Formerly Consensus Engine) */}
-      <section className="relative z-10 py-24 bg-slate-950">
-        <div className="container mx-auto px-4">
-           <PremiumContainer variant="glass" className="p-8 md:p-16 text-center border-white/5 bg-slate-900/40">
-             <div className="max-w-3xl mx-auto space-y-6">
-               <h2 className="text-3xl md:text-5xl font-bold font-hero-accent text-white text-glow-crimson">
+      <section className="relative z-10 py-16 md:py-20 bg-slate-950">
+        <div className="container mx-auto px-4 max-w-6xl">
+           <PremiumContainer variant="glass" className="p-6 md:p-10 lg:p-12 text-center border-white/5 bg-slate-900/40 mx-2">
+             <div className="max-w-3xl mx-auto space-y-5">
+               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-hero-accent text-white text-glow-crimson">
                  AI Strategy Sprints™
                </h2>
-               <div className="text-orange-500 font-mono text-sm tracking-wide uppercase mb-4">Powered by Consensus Engine</div>
-               <p className="text-base md:text-lg lg:text-xl text-slate-300 leading-relaxed font-light">
+               <div className="text-orange-500 font-mono text-xs md:text-sm tracking-wide uppercase">Powered by Consensus Engine</div>
+               <p className="text-base md:text-lg lg:text-xl text-slate-300 leading-relaxed font-light px-4">
                  Don't guess. We run multi-agent adversarial research sprints to stress-test your strategy before you spend a dime. 
                  It's like having a boardroom of experts in a box.
                </p>
-               <div className="pt-8">
+               <div className="pt-6">
                  <ConsensusEngineCard />
                </div>
              </div>
@@ -254,47 +249,49 @@ export default function HomePage() {
       <TrustCredentials />
 
       {/* 8. FAQ */}
-      <section className="relative z-10 py-24">
-        <div className="container mx-auto px-4 max-w-3xl">
-          <div className="text-center mb-16">
-            <span className="text-orange-500/50 font-mono text-xs tracking-widest mb-4 block">01001000 01000101 01001100 01010000</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-white font-hero-accent text-glow-crimson">
+      <section className="relative z-10 py-16 md:py-20">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center mb-10 md:mb-12">
+            <span className="text-orange-500/50 font-mono text-xs tracking-widest mb-2 md:mb-3 block">01001000 01000101 01001100 01010000</span>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white font-hero-accent text-glow-crimson">
               Quick Answers. No Fluff.
             </h2>
           </div>
-          <Accordion
-            items={homeFaqItems.map((item) => ({
-              _title: item.question,
-              answer: item.answer,
-            }))}
-          />
+          <div className="mx-2">
+            <Accordion
+              items={homeFaqItems.map((item) => ({
+                _title: item.question,
+                answer: item.answer,
+              }))}
+            />
+          </div>
         </div>
       </section>
 
       {/* 9. SAFETY NET */}
-      <section className="relative z-10 py-24 bg-gradient-to-t from-orange-950/20 to-slate-950">
-        <div className="container relative z-10 mx-auto px-4 max-w-5xl">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-white font-hero-accent leading-tight text-glow-crimson">
+      <section className="relative z-10 py-16 md:py-20 bg-gradient-to-t from-orange-950/20 to-slate-950">
+        <div className="container relative z-10 mx-auto px-4 max-w-6xl">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
+            <div className="space-y-5">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white font-hero-accent leading-tight text-glow-crimson">
                 We lift as we climb.
               </h2>
-              <div className="h-1 w-24 bg-orange-500 rounded-full" />
-              <p className="text-base md:text-lg text-slate-300 leading-relaxed">
+              <div className="h-1 w-20 bg-orange-500 rounded-full" />
+              <p className="text-sm md:text-base lg:text-lg text-slate-300 leading-relaxed">
                 As an NGLCC-certified business, we know the hustle. We reserve grant slots and offer a 
                 permanent <span className="text-orange-400 font-semibold">25% discount</span> for LGBTQ-owned businesses.
               </p>
-              <div className="pt-4">
+              <div className="pt-3">
                 <LGBTQDiscountModalTrigger />
               </div>
             </div>
             
             {/* Visual: The Abstract 'Lift' */}
-            <div className="relative aspect-square md:aspect-auto md:h-80 rounded-2xl overflow-hidden border border-white/10 bg-slate-900/50 shadow-2xl flex items-center justify-center p-8 text-center group">
+            <div className="relative aspect-square md:aspect-auto md:h-80 rounded-2xl overflow-hidden border border-white/10 bg-slate-900/50 shadow-2xl flex items-center justify-center p-6 md:p-8 text-center group m-2">
                <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/10 via-transparent to-indigo-500/10 opacity-50 group-hover:opacity-100 transition-opacity duration-700" />
                
                <blockquote className="relative z-10">
-                 <p className="text-lg text-slate-200 italic font-light mb-4">
+                 <p className="text-base md:text-lg text-slate-200 italic font-light mb-3 md:mb-4">
                    "Upton helped us automate our entire intake process. We got our weekends back."
                  </p>
                  <footer className="text-xs font-bold text-orange-500/80 uppercase tracking-widest">
@@ -310,6 +307,7 @@ export default function HomePage() {
       <OrganizationJsonLd />
       <HomePageJsonLd />
       <WebSiteJsonLd />
+      <HomeFaqJsonLd />
     </div>
   );
 }
