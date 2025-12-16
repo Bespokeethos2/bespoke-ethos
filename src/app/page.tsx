@@ -58,7 +58,7 @@ export default function HomePage() {
 
               {/* Hero Content Layer */}
               <div className="relative z-20 text-center max-w-5xl px-4 sm:px-6 md:px-8 animate-fadeIn">
-                <div className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 rounded-full border border-orange-500/30 bg-orange-950/60 backdrop-blur-md mb-6 sm:mb-8">
+                <div className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 rounded-full border border-orange-500/30 bg-orange-950/80 backdrop-blur-md mb-6 sm:mb-8">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
@@ -67,7 +67,7 @@ export default function HomePage() {
                 </div>
                 
                 <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6 sm:mb-8 leading-[0.95] sm:leading-[0.9]">
-                  <span className="text-white text-glow-crimson">WE BUILD</span> <br className="hidden sm:block" />
+                  <span className="text-white text-glow-crimson">WE BUILD</span>{" "}
                   <span className="text-transparent bg-clip-text bg-gradient-to-br from-orange-200 via-orange-400 to-orange-500 text-cinematic">
                     INTELLIGENT WORKFLOWS
                   </span>
@@ -125,10 +125,10 @@ export default function HomePage() {
         <div className="container mx-auto max-w-4xl">
            <div className="relative">
              {/* Quote Decor */}
-             <div className="absolute -top-8 sm:-top-12 -left-4 sm:-left-8 text-7xl sm:text-9xl text-white/5 font-serif select-none pointer-events-none">"</div>
+             <div aria-hidden="true" className="absolute -top-8 sm:-top-12 -left-4 sm:-left-8 text-7xl sm:text-9xl text-white/5 font-serif select-none pointer-events-none">"</div>
              
              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-hero-accent text-white mb-6 sm:mb-8 leading-tight text-center md:text-left">
-               <span className="text-white text-glow-crimson">It's not about the model.</span> <br/> 
+               <span className="text-white text-glow-crimson">It's not about the model.</span>{" "}
                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-amber-200 text-glow-ambient">It's about the tolerance.</span>
              </h2>
 
@@ -148,10 +148,10 @@ export default function HomePage() {
       </section>
 
       {/* 3. SOCIAL PROOF */}
-      <div className="relative z-10 py-12 sm:py-16 border-y border-white/5 bg-slate-950/50 backdrop-blur-sm px-4 sm:px-6">
+      <section className="relative z-10 py-12 sm:py-16 border-y border-white/5 bg-slate-950/50 backdrop-blur-sm px-4 sm:px-6">
         <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-slate-500 mb-8 sm:mb-10">Trusted Operating Systems</p>
         <TestimonialMarquee />
-      </div>
+      </section>
 
       {/* 4. CAPABILITIES: Bento */}
       <section className="relative z-10 py-20 sm:py-28 md:py-32 bg-slate-950 px-4 sm:px-6">
@@ -184,7 +184,8 @@ export default function HomePage() {
                    The Anti-Consulting Offer
                  </div>
                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-hero-accent leading-tight">
-                   <span className="text-white text-glow-crimson">Stop paying for</span> <br/> <span className="line-through decoration-orange-500/50 decoration-2 text-slate-500">slide decks.</span>
+                   <span className="text-white text-glow-crimson">Stop paying for</span>{" "}
+                   <span className="line-through decoration-orange-500/50 decoration-2 text-slate-500">slide decks.</span>
                  </h2>
                  <p className="text-base md:text-lg lg:text-xl text-slate-200 leading-relaxed">
                    Enterprise firms charge $300/hr to "delve" into your problems. 
