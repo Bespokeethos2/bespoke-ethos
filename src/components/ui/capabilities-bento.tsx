@@ -17,7 +17,7 @@ const BentoItem = ({ title, description, icon, className, imageSrc, imageAlt }: 
   <motion.div
     whileHover={{ scale: 1.02 }}
     className={cn(
-      "group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/60 bg-white/60 p-6 shadow-sm backdrop-blur-md transition-all hover:shadow-lg hover:border-orange-200/60",
+      "group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/60 bg-white/60 p-5 sm:p-6 shadow-[0_8px_30px_rgba(0,0,0,0.12)] backdrop-blur-md transition-all hover:shadow-[0_12px_40px_rgba(249,115,22,0.15)] hover:border-orange-200/60",
       className
     )}
   >
@@ -39,25 +39,25 @@ const BentoItem = ({ title, description, icon, className, imageSrc, imageAlt }: 
       <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-orange-50 text-orange-600 group-hover:bg-orange-100 group-hover:text-orange-700 transition-colors shadow-sm">
         {icon}
       </div>
-      <h3 className="text-lg font-bold text-slate-900 mb-2 font-heading">{title}</h3>
-      <p className="text-sm text-slate-600 leading-relaxed">{description}</p>
+      <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2 font-heading">{title}</h3>
+      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{description}</p>
     </div>
   </motion.div>
 );
 
 export function CapabilitiesBento() {
   return (
-    <section className="py-24 container mx-auto px-4 sm:px-6 max-w-7xl">
-      <div className="mb-12 text-center max-w-3xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold font-hero-accent text-slate-900 mb-4">
-          The work that keeps you up at night. <br /> Handled.
+    <section className="container mx-auto px-4 sm:px-6 max-w-7xl">
+      <div className="mb-10 sm:mb-12 text-center max-w-3xl mx-auto">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-hero-accent text-slate-900 mb-3 sm:mb-4 px-4 sm:px-0">
+          The work that keeps you up at night. <br className="hidden sm:block" /> Handled.
         </h2>
-        <p className="text-lg text-slate-600">
+        <p className="text-base sm:text-lg text-slate-600 px-4 sm:px-0">
           Approvals on everything. No black boxes. Just relief.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[minmax(200px,auto)]">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 auto-rows-[minmax(200px,auto)]">
         {/* Large Item 1 */}
         <BentoItem
           className="md:col-span-2 md:row-span-2 bg-gradient-to-br from-white to-orange-50/30"
