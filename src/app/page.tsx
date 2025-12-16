@@ -456,7 +456,7 @@ function OfferJsonLd() {
     },
     warranty: {
       "@type": "WarrantyPromise",
-      durationOfWaranty: {
+      durationOfWarranty: {
         "@type": "QuantitativeValue",
         value: 90,
         unitCode: "DAY",
