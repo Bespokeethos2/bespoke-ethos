@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ButtonLink } from "@/common/button";
 import { PremiumContainer } from "@/components/ui/premium-container";
 import { TestimonialMarquee } from "@/components/ui/testimonial-marquee";
@@ -83,7 +84,7 @@ export default function HomePage() {
                 </h1>
                 
                 <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-light mb-6 sm:mb-8 md:mb-10">
-                  You don't need another "AI Chatbot." You need a <strong className="text-orange-200 font-medium">machine shop</strong>. 
+                  You don&apos;t need another &quot;AI Chatbot.&quot; You need a <strong className="text-orange-200 font-medium">machine shop</strong>. 
                   We build resilient, fixed-price automation workflows with tight tolerances.
                 </p>
 
@@ -102,24 +103,24 @@ export default function HomePage() {
                   <div className="absolute left-1/2 -top-10 sm:-top-12 md:-top-16 w-px h-10 sm:h-12 md:h-16 bg-gradient-to-b from-transparent via-white/30 to-white/50" />
                   <ul className="flex flex-wrap justify-center items-center border border-white/30 rounded-md backdrop-blur-sm bg-white/5 shadow-lg">
                     <li className="border-r border-white/30 last:border-r-0">
-                      <a href="/solutions" className="block px-5 sm:px-6 md:px-8 py-3.5 text-xs uppercase tracking-[0.2em] text-white hover:text-white hover:bg-white/10 transition-all min-h-[48px] flex items-center font-medium">
+                      <Link href="/solutions" className="block px-5 sm:px-6 md:px-8 py-3.5 text-xs uppercase tracking-[0.2em] text-white hover:text-white hover:bg-white/10 transition-all min-h-[48px] flex items-center font-medium">
                         Solutions
-                      </a>
+                      </Link>
                     </li>
                     <li className="border-r border-white/30 last:border-r-0">
-                      <a href="/case-studies" className="block px-5 sm:px-6 md:px-8 py-3.5 text-xs uppercase tracking-[0.2em] text-white hover:text-white hover:bg-white/10 transition-all min-h-[48px] flex items-center font-medium">
+                      <Link href="/case-studies" className="block px-5 sm:px-6 md:px-8 py-3.5 text-xs uppercase tracking-[0.2em] text-white hover:text-white hover:bg-white/10 transition-all min-h-[48px] flex items-center font-medium">
                         Case Studies
-                      </a>
+                      </Link>
                     </li>
                     <li className="border-r border-white/30 last:border-r-0">
-                      <a href="/about" className="block px-5 sm:px-6 md:px-8 py-3.5 text-xs uppercase tracking-[0.2em] text-white hover:text-white hover:bg-white/10 transition-all min-h-[48px] flex items-center font-medium">
+                      <Link href="/about" className="block px-5 sm:px-6 md:px-8 py-3.5 text-xs uppercase tracking-[0.2em] text-white hover:text-white hover:bg-white/10 transition-all min-h-[48px] flex items-center font-medium">
                         About
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="/contact" className="block px-5 sm:px-6 md:px-8 py-3.5 text-xs uppercase tracking-[0.2em] text-orange-400 hover:text-orange-300 hover:bg-white/10 transition-all font-bold min-h-[48px] flex items-center">
+                      <Link href="/contact" className="block px-5 sm:px-6 md:px-8 py-3.5 text-xs uppercase tracking-[0.2em] text-orange-400 hover:text-orange-300 hover:bg-white/10 transition-all font-bold min-h-[48px] flex items-center">
                         Get Started
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </nav>
@@ -134,20 +135,20 @@ export default function HomePage() {
         <div className="container mx-auto max-w-4xl">
            <div className="relative">
              {/* Quote Decor */}
-             <div aria-hidden="true" className="absolute -top-6 sm:-top-8 md:-top-12 -left-3 sm:-left-4 md:-left-8 text-6xl sm:text-7xl md:text-9xl text-white/5 font-serif select-none">"</div>
+             <div aria-hidden="true" className="absolute -top-6 sm:-top-8 md:-top-12 -left-3 sm:-left-4 md:-left-8 text-6xl sm:text-7xl md:text-9xl text-white/5 font-serif select-none">&quot;</div>
              
              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold font-hero-accent text-white mb-4 sm:mb-6 md:mb-8 leading-tight text-center md:text-left">
-               <span className="text-white text-glow-crimson">It's not about the model.</span>{" "}
-               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-amber-200 text-glow-ambient">It's about the tolerance.</span>
+               <span className="text-white text-glow-crimson">It&apos;s not about the model.</span>{" "}
+               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-amber-200 text-glow-ambient">It&apos;s about the tolerance.</span>
              </h2>
 
              <div className="space-y-3 sm:space-y-4 md:space-y-6 text-sm sm:text-base md:text-lg lg:text-xl text-slate-200 leading-relaxed font-light">
                <p>
-                 I'm <span className="text-white font-medium">Upton Rand</span>. I spent 5 years training these models back when they were just research papers. 
+                 I&apos;m <span className="text-white font-medium">Upton Rand</span>. I spent 5 years training these models back when they were just research papers. 
                  Here is the honest truth: <strong className="text-white">AI is messy.</strong> It hallucinates. It drifts. It forgets.
                </p>
                <p>
-                 Most consultants try to sell you a "magic button." I sell you a <strong>machine shop</strong>. 
+                 Most consultants try to sell you a &quot;magic button.&quot; I sell you a <strong>machine shop</strong>. 
                  We build workflows that handle the messiness. We engineer the{" "}
                  <AI101Modal explainerKey="humanInLoop" triggerText="approvals" className="text-sm font-medium" />, the rollbacks, and the audit trails. 
                  We treat AI like high-voltage wiring: powerful, essential, and dangerous if not grounded properly.
@@ -168,13 +169,13 @@ export default function HomePage() {
         <div className="container mx-auto max-w-7xl">
           <div className="mb-12 sm:mb-14 md:mb-18 md:flex md:items-end md:justify-between md:gap-8">
             <div className="max-w-2xl">
-              <span className="text-orange-500 font-mono text-xs sm:text-sm tracking-tight mb-2 sm:mb-3 md:mb-4 block">// SYSTEM CAPABILITIES</span>
+              <span className="text-orange-500 font-mono text-xs sm:text-sm tracking-tight mb-2 sm:mb-3 md:mb-4 block">{`// SYSTEM CAPABILITIES`}</span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none">
                 <span className="text-white text-glow-crimson">BUILT TO</span> <span className="text-slate-800 text-stroke-thin">LAST.</span>
               </h2>
             </div>
             <p className="mt-4 md:mt-0 text-slate-300 max-w-md text-xs sm:text-sm md:text-base border-l-2 border-orange-500/30 pl-3 sm:pl-4 md:pl-6 py-2">
-              We don't ship "demos." We deploy production-grade infrastructure that runs your business while you sleep.
+              We don&apos;t ship &quot;demos.&quot; We deploy production-grade infrastructure that runs your business while you sleep.
             </p>
           </div>
           <CapabilitiesBento />
@@ -198,7 +199,7 @@ export default function HomePage() {
                    <span className="line-through decoration-orange-400/60 decoration-2 text-slate-400">slide decks.</span>
                  </h2>
                  <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-100 leading-relaxed">
-                   Enterprise firms charge $300/hr to "delve" into your problems. 
+                   Enterprise firms charge $300/hr to &quot;delve&quot; into your problems. 
                    We charge a <strong className="text-white font-bold">fixed price</strong> to ship a solution.
                  </p>
                  <ul className="space-y-2 sm:space-y-3 md:space-y-4 pt-2 sm:pt-4">
@@ -252,8 +253,8 @@ export default function HomePage() {
                </h2>
                <div className="text-orange-500 font-mono text-xs sm:text-sm tracking-wide uppercase mb-1 sm:mb-2 md:mb-4">Powered by Consensus Engine</div>
                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-200 leading-relaxed font-light">
-                 Don't guess. We run multi-agent adversarial research sprints to stress-test your strategy before you spend a dime. 
-                 It's like having a boardroom of experts in a box.
+                 Don&apos;t guess. We run multi-agent adversarial research sprints to stress-test your strategy before you spend a dime. 
+                 It&apos;s like having a boardroom of experts in a box.
                </p>
                <div className="pt-4 sm:pt-6 md:pt-8">
                  <ConsensusEngineCard />
@@ -309,7 +310,7 @@ export default function HomePage() {
                
                <blockquote className="relative z-10">
                  <p className="text-sm sm:text-base md:text-lg text-slate-200 italic font-light mb-2 sm:mb-3 md:mb-4">
-                   "Upton helped us automate our entire intake process. We got our weekends back."
+                   &quot;Upton helped us automate our entire intake process. We got our weekends back.&quot;
                  </p>
                  <footer className="text-xs font-bold text-orange-400 uppercase tracking-widest">
                    — Sarah & Jen, Cleveland
