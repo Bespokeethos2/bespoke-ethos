@@ -48,9 +48,9 @@ const TESTIMONIALS: Testimonial[] = [
 export function TestimonialMarquee() {
   return (
     <section id="testimonials" className="relative w-full overflow-hidden py-12 bg-transparent">
-      {/* Fade Edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-[#faf9f6] to-transparent pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-[#faf9f6] to-transparent pointer-events-none" />
+      {/* Fade Edges - 40% reduced opacity */}
+      <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-[#faf9f6]/60 to-transparent pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-[#faf9f6]/60 to-transparent pointer-events-none" />
 
       <div className="flex w-full">
         <div className="flex w-max animate-marquee gap-6 hover:[animation-play-state:paused]">
