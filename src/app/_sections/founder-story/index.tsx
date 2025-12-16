@@ -14,7 +14,7 @@ export function FounderStory() {
                 fill
                 className="object-cover"
                 loading="lazy"
-                sizes="(max-width: 768px) 100vw, 400px"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
               />
             </div>
           </div>

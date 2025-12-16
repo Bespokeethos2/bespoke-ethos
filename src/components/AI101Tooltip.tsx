@@ -140,9 +140,10 @@ export function AI101Tooltip({ term, children, inline = true }: AI101TooltipProp
         top = triggerRect.top - tooltipRect.height - 8;
       }
 
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setPosition({ top, left });
     }
-  }, [isOpen]);
+  }, [isOpen, glossaryEntry]);
 
   // Keyboard support
   useEffect(() => {
@@ -157,7 +158,7 @@ export function AI101Tooltip({ term, children, inline = true }: AI101TooltipProp
 
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen]);
+  }, [isOpen, glossaryEntry]);
 
   // Close on click outside
   useEffect(() => {
@@ -177,7 +178,7 @@ export function AI101Tooltip({ term, children, inline = true }: AI101TooltipProp
 
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [isOpen]);
+  }, [isOpen, glossaryEntry]);
 
   const handleMouseEnter = () => {
     clearTimeout(timeoutRef.current);

@@ -121,6 +121,7 @@ export function VoiceChatbot({
         recognitionRef.current = recognition;
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Toggle listening

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import * as Dialog from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 
@@ -92,9 +93,9 @@ export function AI101Modal({ triggerText, explainerKey, className = "" }: AI101M
             <div className="mt-6 pt-4 border-t border-slate-700">
               <p className="text-xs text-slate-400">
                 Want to see how this applies to your business?{" "}
-                <a href="/contact" className="text-orange-400 hover:text-orange-300 underline">
+                <Link href="/contact" className="text-orange-400 hover:text-orange-300 underline">
                   Let&apos;s talk
-                </a>
+                </Link>
               </p>
             </div>
           </div>

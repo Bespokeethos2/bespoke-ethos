@@ -15,6 +15,7 @@ export default function AnalyticsTest() {
       const primary = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-8GN8YM8KRK';
       const secondary = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID_2 || 'G-88HHX2W6PV';
       
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setGaIds({ primary, secondary });
 
       if (typeof window.gtag === 'function') {

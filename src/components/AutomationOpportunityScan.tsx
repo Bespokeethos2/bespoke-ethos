@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { ButtonLink } from "@/common/button";
 import { PremiumContainer } from "@/components/ui/premium-container";
 import { AI101Modal } from "@/components/ai-explainer/AI101Modal";
@@ -247,9 +248,9 @@ export function AutomationOpportunityScan() {
 
                 <p className="text-xs text-center text-slate-500">
                   This scan uses pattern matching for instant results. Want a human expert to review your specific case?{" "}
-                  <a href="/contact" className="text-orange-400 hover:text-orange-300 underline">
+                  <Link href="/contact" className="text-orange-400 hover:text-orange-300 underline">
                     Let&apos;s talk.
-                  </a>
+                  </Link>
                 </p>
               </div>
             )}

@@ -89,7 +89,7 @@ export default function HomePage() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 md:gap-6 justify-center items-center">
-                  <ButtonLink intent="primary" href="/contact" className="w-full sm:w-auto min-h-[48px] h-12 sm:h-14 px-8 sm:px-10 md:px-12 text-base sm:text-lg md:text-xl rounded-full shadow-[0_0_25px_rgba(249,115,22,0.3)] hover:shadow-[0_0_40px_rgba(249,115,22,0.5)] transition-all bg-orange-600 hover:bg-orange-500 border-none text-white font-bold tracking-wide">
+                  <ButtonLink href="/contact" className="w-full sm:w-auto min-h-[48px] h-12 sm:h-14 px-8 sm:px-10 md:px-12 text-base sm:text-lg md:text-xl rounded-full shadow-[0_0_25px_rgba(249,115,22,0.3)] hover:shadow-[0_0_40px_rgba(249,115,22,0.5)] transition-all bg-orange-600 hover:bg-orange-500 border-none text-white font-bold tracking-wide">
                     Start Your Build
                   </ButtonLink>
                   <ButtonLink href="/solutions" className="w-full sm:w-auto min-h-[48px] h-12 sm:h-14 px-8 sm:px-10 md:px-12 text-base sm:text-lg md:text-xl rounded-full border border-white/30 hover:bg-white/10 backdrop-blur-md text-white font-semibold bg-transparent">
@@ -399,6 +399,7 @@ function ServiceJsonLd() {
     description: "Fixed-price AI automation workflows including AI Strategy Sprints, intelligent email outreach, lead qualification, and workflow rescue services. Built with strict tolerances and human approval checkpoints for small business reliability.",
     provider: {
       "@id": `${base}/#organization`,
+      name: "Bespoke Ethos"
     },
     areaServed: "United States",
     hasOfferCatalog: {

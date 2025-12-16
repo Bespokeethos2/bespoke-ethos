@@ -111,12 +111,12 @@ export default function AboutPage() {
               <h2 className="text-2xl font-bold text-white mb-6 uppercase tracking-wide">The Mission</h2>
               <div className="prose prose-invert text-slate-300">
                 <p>
-                  I live between two extremes: "the Torrent"—hyper-systemizing bursts where solutions click into place—and 
+                  I live between two extremes: &quot;the Torrent&quot;—hyper-systemizing bursts where solutions click into place—and 
                   the needing a steady anchor. I built Bespoke Ethos because I needed a 
                   <strong> cognitive prosthetic</strong> before I even knew what to call it.
                 </p>
                 <p>
-                  Our "Rust Belt" roots mean we hold tight tolerances. Audit trails, approvals, rollbacks, and documentation. 
+                  Our &quot;Rust Belt&quot; roots mean we hold tight tolerances. Audit trails, approvals, rollbacks, and documentation. 
                   No black-box infrastructure. Just resilient workflows you can trust.
                 </p>
               </div>
@@ -142,7 +142,7 @@ export default function AboutPage() {
 
               <PremiumContainer variant="obsidian" className="p-6 flex flex-col justify-center items-center text-center h-full">
                 <p className="text-slate-400 mb-6 font-light">
-                  "There has never been a better time to be a builder. Let's get to work."
+                  &quot;There has never been a better time to be a builder. Let&apos;s get to work.&quot;
                 </p>
                 <ButtonLink href="/contact" intent="primary" className="w-full justify-center">
                   Start Your Project

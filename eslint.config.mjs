@@ -25,6 +25,15 @@ const config = [
       "site-template/**",
     ],
   },
+  // Disable overly strict rules for content
+  {
+    rules: {
+      // Allow apostrophes and quotes in JSX text content
+      'react/no-unescaped-entities': 'off',
+      // Allow jsx comments
+      'react/jsx-no-comment-textnodes': 'off',
+    },
+  },
 ];
 
 export default config;
