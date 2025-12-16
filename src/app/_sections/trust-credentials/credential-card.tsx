@@ -55,7 +55,7 @@ export function CredentialCard({
                 fill
                 className="object-contain transition-transform duration-300 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 96px"
-                priority={false}
+                loading="lazy"
               />
             </div>
           </div>

@@ -29,12 +29,12 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
           <div className="mx-auto rounded-3xl border border-orange-500/20 bg-slate-900/60 p-3 shadow-[0_8px_32px_rgba(249,115,22,0.3)] backdrop-blur-xl">
             <Image
               src="/assets/consensus-infographic.png"
-              alt="Four research lenses inside the Consensus Engine-copy, finance, legal, and future modeling-converging into one brief"
+              alt="Consensus Engine AI Strategy Sprint: Four specialized research agents (copy, finance, legal, and future modeling) analyzing 1000+ sources to deliver one actionable business brief"
               width={300}
               height={300}
               className="h-[200px] w-auto object-contain"
               sizes="(max-width: 640px) 90vw, 300px"
-              priority={false}
+              loading="lazy"
             />
           </div>
 

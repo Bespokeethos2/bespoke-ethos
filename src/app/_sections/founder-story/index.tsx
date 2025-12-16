@@ -7,10 +7,11 @@ export function FounderStory() {
         <div className="founder-story-portrait relative overflow-hidden rounded-2xl shadow-2xl be-image-frame">
           <Image
             src="/founder-upton-rand.jpg"
-            alt="Upton Rand, Founder of Bespoke Ethos"
+            alt="Upton Rand, Founder and CEO of Bespoke Ethos - NGLCC-certified AI automation consultant with 5+ years of frontier model training experience"
             fill
             className="object-cover"
-            priority
+            loading="lazy"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
           />
         </div>
 
