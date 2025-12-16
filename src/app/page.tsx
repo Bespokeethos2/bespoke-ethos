@@ -48,9 +48,9 @@ export default function HomePage() {
     <div aria-label="Bespoke Ethos homepage" className="min-h-screen relative overflow-hidden bg-background selection:bg-orange-500/30">
       
       {/* 1. HERO: The Console */}
-      <section className="relative z-10 pt-20 pb-16 sm:pt-24 sm:pb-20 md:pt-36 md:pb-28 px-4 sm:px-6">
-        <div className="container mx-auto">
-          <PremiumContainer variant="glass" className="p-4 md:p-6 lg:p-8 border-orange-500/20 shadow-2xl shadow-orange-900/10">
+      <section className="relative z-10 pt-24 pb-20 sm:pt-28 sm:pb-24 md:pt-40 md:pb-32 px-4 sm:px-6">
+        <div className="container mx-auto max-w-7xl">
+          <PremiumContainer variant="glass" className="p-6 md:p-8 lg:p-10 border-orange-500/20 shadow-2xl shadow-orange-900/10">
             <div className="relative overflow-hidden rounded-xl bg-slate-950/90 aspect-[16/9] md:aspect-[21/9] flex items-center justify-center">
               
               {/* Background Abstract Visuals (Warm Orange) */}
@@ -97,28 +97,28 @@ export default function HomePage() {
                 </div>
 
                 {/* Template-style Line Menu */}
-                <nav className="mt-8 sm:mt-10 md:mt-14 relative">
+                <nav className="mt-10 sm:mt-12 md:mt-16 relative">
                   {/* Vertical connecting line */}
-                  <div className="absolute left-1/2 -top-8 sm:-top-10 md:-top-14 w-px h-8 sm:h-10 md:h-14 bg-gradient-to-b from-transparent via-white/30 to-white/50" />
-                  <ul className="flex flex-wrap justify-center items-center border border-white/30 rounded-md backdrop-blur-sm bg-white/5">
+                  <div className="absolute left-1/2 -top-10 sm:-top-12 md:-top-16 w-px h-10 sm:h-12 md:h-16 bg-gradient-to-b from-transparent via-white/30 to-white/50" />
+                  <ul className="flex flex-wrap justify-center items-center border border-white/30 rounded-md backdrop-blur-sm bg-white/5 shadow-lg">
                     <li className="border-r border-white/30 last:border-r-0">
-                      <a href="/solutions" className="block px-4 sm:px-5 md:px-7 py-3 text-xs uppercase tracking-[0.2em] text-white hover:text-white hover:bg-white/10 transition-all min-h-[48px] flex items-center font-medium">
+                      <a href="/solutions" className="block px-5 sm:px-6 md:px-8 py-3.5 text-xs uppercase tracking-[0.2em] text-white hover:text-white hover:bg-white/10 transition-all min-h-[48px] flex items-center font-medium">
                         Solutions
                       </a>
                     </li>
                     <li className="border-r border-white/30 last:border-r-0">
-                      <a href="/pricing" className="block px-4 sm:px-5 md:px-7 py-3 text-xs uppercase tracking-[0.2em] text-white hover:text-white hover:bg-white/10 transition-all min-h-[48px] flex items-center font-medium">
-                        Pricing
+                      <a href="/case-studies" className="block px-5 sm:px-6 md:px-8 py-3.5 text-xs uppercase tracking-[0.2em] text-white hover:text-white hover:bg-white/10 transition-all min-h-[48px] flex items-center font-medium">
+                        Case Studies
                       </a>
                     </li>
                     <li className="border-r border-white/30 last:border-r-0">
-                      <a href="/about" className="block px-4 sm:px-5 md:px-7 py-3 text-xs uppercase tracking-[0.2em] text-white hover:text-white hover:bg-white/10 transition-all min-h-[48px] flex items-center font-medium">
+                      <a href="/about" className="block px-5 sm:px-6 md:px-8 py-3.5 text-xs uppercase tracking-[0.2em] text-white hover:text-white hover:bg-white/10 transition-all min-h-[48px] flex items-center font-medium">
                         About
                       </a>
                     </li>
                     <li>
-                      <a href="/contact" className="block px-4 sm:px-5 md:px-7 py-3 text-xs uppercase tracking-[0.2em] text-orange-400 hover:text-orange-300 hover:bg-white/10 transition-all font-bold min-h-[48px] flex items-center">
-                        Contact
+                      <a href="/contact" className="block px-5 sm:px-6 md:px-8 py-3.5 text-xs uppercase tracking-[0.2em] text-orange-400 hover:text-orange-300 hover:bg-white/10 transition-all font-bold min-h-[48px] flex items-center">
+                        Get Started
                       </a>
                     </li>
                   </ul>
@@ -130,7 +130,7 @@ export default function HomePage() {
       </section>
 
       {/* 2. THE CHASM: Authentic Voice */}
-      <section className="relative z-10 py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6">
+      <section className="relative z-10 py-20 sm:py-24 md:py-28 lg:py-32 px-4 sm:px-6">
         <div className="container mx-auto max-w-4xl">
            <div className="relative">
              {/* Quote Decor */}
@@ -158,15 +158,15 @@ export default function HomePage() {
       </section>
 
       {/* 3. SOCIAL PROOF */}
-      <section className="relative z-10 py-10 sm:py-12 md:py-16 border-y border-white/5 bg-slate-950/50 backdrop-blur-sm px-4 sm:px-6">
-        <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-slate-500 mb-6 sm:mb-8 md:mb-10">Trusted Operating Systems</p>
+      <section className="relative z-10 py-12 sm:py-14 md:py-18 border-y border-white/5 bg-slate-950/50 backdrop-blur-sm px-4 sm:px-6">
+        <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-slate-500 mb-8 sm:mb-10 md:mb-12">Trusted Operating Systems</p>
         <TestimonialMarquee />
       </section>
 
       {/* 4. CAPABILITIES: Bento */}
-      <section className="relative z-10 py-16 sm:py-20 md:py-28 lg:py-32 bg-slate-950 px-4 sm:px-6">
-        <div className="container mx-auto">
-          <div className="mb-10 sm:mb-12 md:mb-16 md:flex md:items-end md:justify-between md:gap-8">
+      <section className="relative z-10 py-20 sm:py-24 md:py-32 lg:py-36 bg-slate-950 px-4 sm:px-6">
+        <div className="container mx-auto max-w-7xl">
+          <div className="mb-12 sm:mb-14 md:mb-18 md:flex md:items-end md:justify-between md:gap-8">
             <div className="max-w-2xl">
               <span className="text-orange-500 font-mono text-xs sm:text-sm tracking-tight mb-2 sm:mb-3 md:mb-4 block">// SYSTEM CAPABILITIES</span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none">
@@ -182,7 +182,7 @@ export default function HomePage() {
       </section>
 
       {/* 5. PRICING: Fixed Price */}
-      <section className="relative z-10 py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6">
+      <section className="relative z-10 py-20 sm:py-24 md:py-28 lg:py-32 px-4 sm:px-6">
         <div className="container mx-auto max-w-6xl">
           <PremiumContainer variant="obsidian" className="p-6 sm:p-8 md:p-10 lg:p-12 xl:p-16 relative overflow-hidden group">
             {/* Background Glow - Enhanced */}
@@ -243,8 +243,8 @@ export default function HomePage() {
       <AutomationOpportunityScan />
 
       {/* 6. AI STRATEGY SPRINTS (Formerly Consensus Engine) */}
-      <section className="relative z-10 py-12 sm:py-16 md:py-20 lg:py-24 bg-slate-950 px-4 sm:px-6">
-        <div className="container mx-auto">
+      <section className="relative z-10 py-16 sm:py-20 md:py-24 lg:py-28 bg-slate-950 px-4 sm:px-6">
+        <div className="container mx-auto max-w-6xl">
            <PremiumContainer variant="glass" className="p-6 sm:p-8 md:p-10 lg:p-12 xl:p-16 text-center border-white/5 bg-slate-900/40">
              <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4 md:space-y-6">
                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold font-hero-accent text-white text-glow-crimson">
@@ -268,9 +268,9 @@ export default function HomePage() {
       <TrustCredentials />
 
       {/* 8. FAQ */}
-      <section className="relative z-10 py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6">
+      <section className="relative z-10 py-20 sm:py-24 md:py-28 lg:py-32 px-4 sm:px-6">
         <div className="container mx-auto max-w-3xl">
-          <div className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16">
+          <div className="text-center mb-10 sm:mb-12 md:mb-14 lg:mb-18">
             <span className="text-orange-400 font-mono text-xs tracking-widest mb-2 sm:mb-3 md:mb-4 block font-bold">01001000 01000101 01001100 01010000</span>
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white font-hero-accent text-glow-crimson drop-shadow-[0_0_20px_rgba(239,68,68,0.5)]">
               Quick Answers. No Fluff.
@@ -286,7 +286,7 @@ export default function HomePage() {
       </section>
 
       {/* 9. SAFETY NET */}
-      <section className="relative z-10 py-16 sm:py-20 md:py-24 lg:py-28 bg-gradient-to-t from-orange-950/20 to-slate-950 px-4 sm:px-6">
+      <section className="relative z-10 py-20 sm:py-24 md:py-28 lg:py-32 bg-gradient-to-t from-orange-950/20 to-slate-950 px-4 sm:px-6">
         <div className="container relative z-10 mx-auto max-w-5xl">
           <div className="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-center">
             <div className="space-y-3 sm:space-y-4 md:space-y-6">

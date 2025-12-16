@@ -17,7 +17,7 @@ const BentoItem = ({ title, description, icon, className, imageSrc, imageAlt }: 
   <motion.div
     whileHover={{ scale: 1.02 }}
     className={cn(
-      "group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/60 bg-white/60 p-5 sm:p-6 shadow-lg backdrop-blur-md transition-all hover:shadow-xl hover:border-orange-200/60",
+      "group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/60 bg-white/60 p-6 sm:p-7 md:p-8 shadow-xl backdrop-blur-md transition-all hover:shadow-2xl hover:border-orange-200/60",
       className
     )}
   >
@@ -59,7 +59,7 @@ export function CapabilitiesBento() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 auto-rows-[minmax(200px,auto)]">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7 md:gap-8 auto-rows-[minmax(220px,auto)]">
         {/* Large Item 1 */}
         <BentoItem
           className="md:col-span-2 md:row-span-2 bg-gradient-to-br from-white to-orange-50/30"

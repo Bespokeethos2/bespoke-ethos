@@ -63,3 +63,8 @@ models/
 *.chache
 package-lock.json
 .eslintcache
+
+# backup files
+*-backup.tsx
+*-backup-*.tsx
+page-new.tsx
