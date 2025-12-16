@@ -24,7 +24,7 @@ export function CredentialCard({
       whileHover={{ y: -6, scale: 1.02 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
       className={cn(
-        "group relative flex h-full flex-col overflow-hidden rounded-2xl border-4 border-orange-200/60 bg-gradient-to-br from-amber-50 to-orange-50 p-8 shadow-2xl hover:shadow-[0_20px_50px_rgba(251,146,60,0.3)] hover:border-orange-400 transition-all will-change-transform",
+        "group relative flex h-full flex-col overflow-hidden rounded-2xl border-4 border-orange-200/60 bg-gradient-to-br from-amber-50 to-orange-50 p-8 shadow-2xl hover:shadow-[0_20px_50px_rgba(251,146,60,0.3)] hover:border-orange-400 transition-all aspect-square will-change-transform",
         className
       )}
     >
@@ -48,13 +48,13 @@ export function CredentialCard({
           {/* Inner frame with subtle shadow */}
           <div className="relative rounded-xl bg-gradient-to-br from-white to-orange-50 p-6 border-2 border-orange-300/40 shadow-lg flex items-center justify-center">
             {/* Badge image - larger size for better visibility */}
-            <div className="relative w-32 aspect-square flex items-center justify-center">
+            <div className="relative w-24 h-24 flex items-center justify-center">
               <Image
                 src={imageSrc}
                 alt={imageAlt}
                 fill
                 className="object-contain transition-transform duration-300 group-hover:scale-110 will-change-transform"
-                sizes="(max-width: 768px) 100vw, 128px"
+                sizes="(max-width: 768px) 100vw, 96px"
                 loading="lazy"
               />
             </div>

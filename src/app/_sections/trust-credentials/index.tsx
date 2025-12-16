@@ -22,7 +22,7 @@ export function TrustCredentials() {
           {/* NGLCC Certified */}
           <CredentialCard
             title="NGLCC Certified"
-            description="Officially recognized as an LGBTQ-owned business by the National LGBT Chamber of Commerce."
+            description="Officially recognized as an LGBTQ-owned business by the National LGBT Chamber of Commerce, supporting diverse supply chains."
             imageSrc="/assets/generated/badge_nglcc.svg"
             imageAlt="NGLCC Certified LGBT Business Enterprise"
           />
@@ -30,7 +30,7 @@ export function TrustCredentials() {
           {/* Catalant Vetted */}
           <CredentialCard
             title="Catalant Certified"
-            description="Vetted and approved as a professional business consultant through Catalant's rigorous screening process."
+            description="Vetted and approved as a professional business consultant through Catalant's enterprise-grade screening process for Fortune 500 clients."
             imageSrc="/assets/generated/badge_catalant.svg"
             imageAlt="Catalant Vetted Consultant"
           />
