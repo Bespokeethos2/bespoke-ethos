@@ -17,7 +17,7 @@ const BentoItem = ({ title, description, icon, className, imageSrc, imageAlt }: 
   <motion.div
     whileHover={{ scale: 1.02 }}
     className={cn(
-      "group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/60 bg-white/60 p-6 shadow-sm backdrop-blur-md transition-all hover:shadow-lg hover:border-orange-200/60",
+      "group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/60 bg-white/60 p-5 sm:p-6 shadow-lg backdrop-blur-md transition-all hover:shadow-xl hover:border-orange-200/60",
       className
     )}
   >
@@ -38,10 +38,10 @@ const BentoItem = ({ title, description, icon, className, imageSrc, imageAlt }: 
     <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-orange-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
     
     <div className="relative z-20">
-      <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-orange-50 text-orange-600 group-hover:bg-orange-100 group-hover:text-orange-700 transition-colors shadow-sm">
+      <div className="mb-3 sm:mb-4 inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg bg-orange-50 text-orange-600 group-hover:bg-orange-100 group-hover:text-orange-700 transition-colors shadow-sm">
         {icon}
       </div>
-      <h3 className="text-lg font-bold text-slate-900 mb-2 font-heading">{title}</h3>
+      <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2 font-heading">{title}</h3>
       <p className="text-sm text-slate-600 leading-relaxed">{description}</p>
     </div>
   </motion.div>
@@ -49,17 +49,17 @@ const BentoItem = ({ title, description, icon, className, imageSrc, imageAlt }: 
 
 export function CapabilitiesBento() {
   return (
-    <section className="py-24 container mx-auto px-4 sm:px-6 max-w-7xl">
-      <div className="mb-12 text-center max-w-3xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold font-hero-accent text-slate-900 mb-4">
-          The work that keeps you up at night. <br /> Handled.
+    <>
+      <div className="mb-10 sm:mb-12 text-center max-w-3xl mx-auto">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-hero-accent text-slate-900 mb-3 sm:mb-4">
+          The work that keeps you up at night. <br className="hidden sm:block" /> Handled.
         </h2>
-        <p className="text-lg text-slate-600">
+        <p className="text-base sm:text-lg text-slate-600">
           Approvals on everything. No black boxes. Just relief.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[minmax(200px,auto)]">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 auto-rows-[minmax(200px,auto)]">
         {/* Large Item 1 */}
         <BentoItem
           className="md:col-span-2 md:row-span-2 bg-gradient-to-br from-white to-orange-50/30"
@@ -95,6 +95,6 @@ export function CapabilitiesBento() {
           icon={<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>}
         />
       </div>
-    </section>
+    </>
   );
 }
