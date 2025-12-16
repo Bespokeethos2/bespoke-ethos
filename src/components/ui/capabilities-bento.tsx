@@ -28,6 +28,8 @@ const BentoItem = ({ title, description, icon, className, imageSrc, imageAlt }: 
           alt={imageAlt || ""}
           fill
           className="object-cover opacity-15 group-hover:opacity-25 transition-opacity duration-700"
+          loading="lazy"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/60 to-white/30" />
       </div>

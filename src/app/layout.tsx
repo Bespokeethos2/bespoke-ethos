@@ -104,14 +104,20 @@ export const generateMetadata = async (): Promise<Metadata> => {
       { url: FALLBACK_METADATA.appleTouchIcon, rel: "apple-touch-icon" },
     ],
     manifest: FALLBACK_METADATA.manifest,
+    alternates: {
+      canonical: DEFAULT_SITE_URL,
+    },
     openGraph: {
       type: "website",
       title: FALLBACK_METADATA.defaultTitle,
       description: FALLBACK_METADATA.defaultDescription,
       url: DEFAULT_SITE_URL,
+      locale: "en_US",
       images: [
         {
           url: FALLBACK_METADATA.ogImageUrl,
+          width: 1200,
+          height: 630,
           alt: "Bespoke Ethos - Cleveland AI automation for small business",
         },
       ],
@@ -119,17 +125,25 @@ export const generateMetadata = async (): Promise<Metadata> => {
     },
     twitter: {
       card: "summary_large_image",
+      title: FALLBACK_METADATA.defaultTitle,
+      description: FALLBACK_METADATA.defaultDescription,
       images: [FALLBACK_METADATA.ogImageUrl],
-      site: FALLBACK_METADATA.sitename,
+      site: "@bespokeethos",
+      creator: "@bespokeethos",
     },
     keywords: [
       "AI consulting Cleveland",
       "small business automation",
       "AI strategy sprint",
+      "AI workflow automation",
+      "intelligent automation",
       "Zapier alternative",
       "Make.com consultant",
       "chatbot for small business",
       "LGBTQ owned business Cleveland",
+      "NGLCC certified business",
+      "Cleveland AI consultant",
+      "fixed-price AI consulting",
     ],
   };
 };
@@ -148,6 +162,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://calendly.com" />
         <link rel="dns-prefetch" href="https://calendly.com" />
         <link rel="preconnect" href="https://assets.calendly.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <GoogleAnalytics />
       </head>
       <body
