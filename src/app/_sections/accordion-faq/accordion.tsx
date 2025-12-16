@@ -13,7 +13,7 @@ export function Accordion({
 
   return (
     <AccordionPrimitive.Root
-      className="flex w-full flex-col items-stretch gap-2 lg:gap-8"
+      className="flex w-full flex-col items-stretch gap-3 sm:gap-4"
       type="multiple"
       value={activeItems}
       onValueChange={(activeItems) => setActiveItems(activeItems)}
@@ -35,22 +35,26 @@ function AccordionItem({
   isActive,
 }: FaqQuestion & { isActive: boolean }) {
   return (
-    <AccordionPrimitive.Item key={_title} className="flex flex-col" value={_title}>
+    <AccordionPrimitive.Item 
+      key={_title} 
+      className="flex flex-col border border-white/10 rounded-lg bg-slate-800/40 backdrop-blur-sm px-5 py-4 hover:bg-slate-800/60 transition-all" 
+      value={_title}
+    >
       <AccordionPrimitive.Header>
         <AccordionPrimitive.Trigger
-          className="ring-accent-500 flex w-full items-start gap-3 rounded-md py-2 text-lg leading-relaxed font-medium tracking-tighter outline-hidden focus-visible:ring-3 text-slate-900"
+          className="ring-orange-500 flex w-full items-start gap-3 py-2 text-base sm:text-lg leading-relaxed font-semibold outline-hidden focus-visible:ring-2 text-white hover:text-orange-300 transition-colors"
         >
           {isActive ? (
-            <MinusCircledIcon className="my-1.5 size-4 shrink-0 text-slate-900" />
+            <MinusCircledIcon className="my-1.5 size-5 shrink-0 text-orange-400" />
           ) : (
-            <PlusCircledIcon className="my-1.5 size-4 shrink-0 text-slate-900" />
+            <PlusCircledIcon className="my-1.5 size-5 shrink-0 text-orange-400" />
           )}
 
           <span className="text-start">{_title}</span>
         </AccordionPrimitive.Trigger>
       </AccordionPrimitive.Header>
-      <AccordionPrimitive.Content className="text-slate-600 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown transform overflow-hidden pl-7 leading-relaxed tracking-tight">
-        <div>{answer}</div>
+      <AccordionPrimitive.Content className="text-slate-200 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown transform overflow-hidden pl-8 pt-2 leading-relaxed text-sm sm:text-base">
+        <div className="pb-2">{answer}</div>
       </AccordionPrimitive.Content>
     </AccordionPrimitive.Item>
   );

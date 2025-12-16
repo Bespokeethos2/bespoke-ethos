@@ -182,24 +182,24 @@ export default function HomePage() {
       </section>
 
       {/* 5. PRICING: Fixed Price */}
-      <section className="relative z-10 py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6">
+      <section className="relative z-10 py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 bg-slate-950">
         <div className="container mx-auto max-w-6xl">
-          <PremiumContainer variant="obsidian" className="p-6 sm:p-8 md:p-10 lg:p-12 xl:p-16 relative overflow-hidden group">
+          <PremiumContainer variant="obsidian" className="p-6 sm:p-8 md:p-10 lg:p-12 xl:p-16 relative overflow-hidden group bg-slate-900/80 backdrop-blur-xl">
             {/* Background Glow */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/5 blur-[120px] rounded-full group-hover:bg-orange-500/10 transition-colors duration-700" />
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/10 blur-[120px] rounded-full group-hover:bg-orange-500/15 transition-colors duration-700" />
 
             <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 relative z-10">
               <div className="space-y-4 sm:space-y-6 md:space-y-8">
-                 <div className="inline-block px-3 py-1.5 rounded bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest">
+                 <div className="inline-block px-3 py-1.5 rounded bg-orange-500/20 border border-orange-500/40 text-orange-300 text-xs font-bold uppercase tracking-widest">
                    The Anti-Consulting Offer
                  </div>
                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-hero-accent leading-tight">
                    <span className="text-white text-glow-crimson">Stop paying for</span>{" "}
-                   <span className="line-through decoration-orange-500/50 decoration-2 text-slate-500">slide decks.</span>
+                   <span className="line-through decoration-orange-500/50 decoration-2 text-slate-400">slide decks.</span>
                  </h2>
-                 <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-200 leading-relaxed">
+                 <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-100 leading-relaxed font-light">
                    Enterprise firms charge $300/hr to "delve" into your problems. 
-                   We charge a <strong className="text-white">fixed price</strong> to ship a solution.
+                   We charge a <strong className="text-white font-semibold">fixed price</strong> to ship a solution.
                  </p>
                  <ul className="space-y-2 sm:space-y-3 md:space-y-4 pt-2 sm:pt-4">
                    {[
@@ -208,28 +208,28 @@ export default function HomePage() {
                      "90-day 'Break It, We Fix It' warranty.",
                      "Founder-led. No junior associates."
                    ].map((item, i) => (
-                     <li key={i} className="flex items-center gap-3 text-sm sm:text-base text-slate-200">
-                       <span className="w-1.5 h-1.5 rounded-full bg-orange-500 shadow-[0_0_8px_rgba(249,115,22,0.8)] flex-shrink-0" />
+                     <li key={i} className="flex items-center gap-3 text-sm sm:text-base text-white font-medium">
+                       <span className="w-1.5 h-1.5 rounded-full bg-orange-500 shadow-[0_0_12px_rgba(249,115,22,1)] flex-shrink-0" />
                        {item}
                      </li>
                    ))}
                  </ul>
               </div>
 
-              <div className="flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-white/10 pt-6 sm:pt-8 lg:pt-0 lg:pl-10 xl:pl-12">
-                 <div className="text-xs sm:text-sm font-medium text-slate-500 uppercase tracking-widest mb-1.5 sm:mb-2">Builds Starting At</div>
-                 <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight mb-2 sm:mb-3 md:mb-4">
+              <div className="flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-white/20 pt-6 sm:pt-8 lg:pt-0 lg:pl-10 xl:pl-12">
+                 <div className="text-xs sm:text-sm font-bold text-orange-300 uppercase tracking-widest mb-2">Builds Starting At</div>
+                 <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight mb-3 sm:mb-4">
                    $1,497
                  </div>
-                 <p className="text-xs sm:text-sm md:text-base text-slate-300 mb-4 sm:mb-6 md:mb-8 max-w-md">
+                 <p className="text-sm sm:text-base md:text-lg text-slate-100 mb-4 sm:mb-6 md:mb-8 max-w-md leading-relaxed">
                    Includes full scoping decision brief, build, deployment, and documentation. 
-                   <span className="block mt-2 text-orange-400 font-medium">LGBTQ-owned businesses pay $1,122.</span>
+                   <span className="block mt-3 text-orange-300 font-bold">LGBTQ-owned businesses pay $1,122.</span>
                  </p>
                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                   <ButtonLink intent="primary" href="/pricing" className="bg-white text-slate-950 hover:bg-slate-200 min-h-[44px]">
+                   <ButtonLink intent="primary" href="/pricing" className="bg-white text-slate-950 hover:bg-orange-50 font-bold min-h-[44px] shadow-lg">
                      View The Menu
                    </ButtonLink>
-                   <ButtonLink intent="secondary" href="/contact" className="min-h-[44px]">
+                   <ButtonLink intent="secondary" href="/contact" className="min-h-[44px] border-white/30 text-white hover:bg-white/10 font-semibold">
                      Book Grant Call
                    </ButtonLink>
                  </div>
@@ -268,10 +268,10 @@ export default function HomePage() {
       <TrustCredentials />
 
       {/* 8. FAQ */}
-      <section className="relative z-10 py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6">
+      <section className="relative z-10 py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 bg-slate-900/50">
         <div className="container mx-auto max-w-3xl">
           <div className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16">
-            <span className="text-orange-500/50 font-mono text-xs tracking-widest mb-2 sm:mb-3 md:mb-4 block">01001000 01000101 01001100 01010000</span>
+            <span className="text-orange-400 font-mono text-xs tracking-widest mb-2 sm:mb-3 md:mb-4 block font-bold">01001000 01000101 01001100 01010000</span>
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white font-hero-accent text-glow-crimson">
               Quick Answers. No Fluff.
             </h2>
