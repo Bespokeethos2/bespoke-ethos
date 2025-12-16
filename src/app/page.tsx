@@ -8,6 +8,8 @@ import { FounderStory } from "./_sections/founder-story";
 import { TrustCredentials } from "./_sections/trust-credentials";
 import { LGBTQDiscountModalTrigger } from "./_components/lgbtq-discount-modal-trigger";
 import { ConsensusEngineCard } from "@/components/ConsensusEngineCard";
+import { AutomationOpportunityScan } from "@/components/AutomationOpportunityScan";
+import { AI101Modal } from "@/components/ai-explainer/AI101Modal";
 
 // SEO & JSON-LD
 import { OrganizationJsonLd } from '@/app/_components/seo/organization-jsonld';
@@ -18,6 +20,13 @@ import { OrganizationJsonLd } from '@/app/_components/seo/organization-jsonld';
    Tone: Rust Belt, Direct, "Machine Shop" metaphor.
    Naming: Explanatory (SEO) over Proprietary.
    ============================================================================= */
+
+// Homepage-specific metadata
+export const metadata = {
+  alternates: {
+    canonical: 'https://www.bespokeethos.com',
+  },
+};
 
 const homeFaqItems = [
   {
@@ -58,12 +67,12 @@ export default function HomePage() {
 
               {/* Hero Content Layer */}
               <div className="relative z-20 text-center max-w-5xl px-4 sm:px-6 md:px-8 animate-fadeIn">
-                <div className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-orange-500/30 bg-orange-950/80 backdrop-blur-md mb-4 sm:mb-6 md:mb-8">
+                <div className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-orange-500/50 bg-orange-950/90 backdrop-blur-md mb-4 sm:mb-6 md:mb-8">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
                   </span>
-                  <span className="text-xs font-bold text-orange-200 tracking-widest uppercase font-mono">Operations Normal</span>
+                  <span className="text-xs font-bold text-orange-100 tracking-widest uppercase font-mono">Operations Normal</span>
                 </div>
                 
                 <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight mb-4 sm:mb-6 md:mb-8 leading-[0.95] sm:leading-[0.9]">
@@ -139,7 +148,8 @@ export default function HomePage() {
                </p>
                <p>
                  Most consultants try to sell you a "magic button." I sell you a <strong>machine shop</strong>. 
-                 We build workflows that handle the messiness. We engineer the approvals, the rollbacks, and the audit trails. 
+                 We build workflows that handle the messiness. We engineer the{" "}
+                 <AI101Modal explainerKey="humanInLoop" triggerText="approvals" className="text-sm font-medium" />, the rollbacks, and the audit trails. 
                  We treat AI like high-voltage wiring: powerful, essential, and dangerous if not grounded properly.
                </p>
              </div>
@@ -228,6 +238,9 @@ export default function HomePage() {
           </PremiumContainer>
         </div>
       </section>
+
+      {/* 5.5 AI AUTOMATION OPPORTUNITY SCAN - New Interactive Value Component */}
+      <AutomationOpportunityScan />
 
       {/* 6. AI STRATEGY SPRINTS (Formerly Consensus Engine) */}
       <section className="relative z-10 py-12 sm:py-16 md:py-20 lg:py-24 bg-slate-950 px-4 sm:px-6">
