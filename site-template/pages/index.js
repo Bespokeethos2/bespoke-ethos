@@ -1,3 +1,4 @@
+import React from 'react'
 import Head from "next/head"
 import stylesheet from 'styles/main.scss'
 
@@ -29,21 +30,41 @@ class IndexPage extends React.Component {
         if (this.timeoutId) {
             clearTimeout(this.timeoutId)
         }
+        if (this.openTimeoutId) {
+            clearTimeout(this.openTimeoutId)
+        }
+        if (this.openArticleTimeoutId) {
+            clearTimeout(this.openArticleTimeoutId)
+        }
+        if (this.closeArticleTimeoutId) {
+            clearTimeout(this.closeArticleTimeoutId)
+        }
+        if (this.closeTimeoutId) {
+            clearTimeout(this.closeTimeoutId)
+        }
     }
 
     handleOpenArticle(article) {
+        // Clear any existing timeouts to prevent race conditions
+        if (this.openTimeoutId) {
+            clearTimeout(this.openTimeoutId)
+        }
+        if (this.openArticleTimeoutId) {
+            clearTimeout(this.openArticleTimeoutId)
+        }
+
         this.setState({
             isArticleVisible: !this.state.isArticleVisible,
             article
         })
 
-        setTimeout(() => {
+        this.openTimeoutId = setTimeout(() => {
             this.setState({
                 timeout: !this.state.timeout
             })
         }, 325)
 
-        setTimeout(() => {
+        this.openArticleTimeoutId = setTimeout(() => {
             this.setState({
                 articleTimeout: !this.state.articleTimeout
             })
@@ -51,17 +72,25 @@ class IndexPage extends React.Component {
     }
 
     handleCloseArticle() {
+        // Clear any existing timeouts to prevent race conditions
+        if (this.closeTimeoutId) {
+            clearTimeout(this.closeTimeoutId)
+        }
+        if (this.closeArticleTimeoutId) {
+            clearTimeout(this.closeArticleTimeoutId)
+        }
+
         this.setState({
             articleTimeout: !this.state.articleTimeout
         })
 
-        setTimeout(() => {
+        this.closeTimeoutId = setTimeout(() => {
             this.setState({
                 timeout: !this.state.timeout
             })
         }, 325)
 
-        setTimeout(() => {
+        this.closeArticleTimeoutId = setTimeout(() => {
             this.setState({
                 isArticleVisible: !this.state.isArticleVisible,
                 article: ""
@@ -74,6 +103,7 @@ class IndexPage extends React.Component {
                 <div>
                     <Head>
                         <title>Next.js Starter</title>
+                        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
                         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600,600i" rel="stylesheet" />
                     </Head>
 
