@@ -134,13 +134,13 @@ export function AutomationOpportunityScan() {
 
                 <div>
                   <label htmlFor="pain-point" className="block text-sm font-medium text-slate-300 mb-2">
-                    What's drowning you in busywork right now?
+                    What&apos;s drowning you in busywork right now?
                   </label>
                   <textarea
                     id="pain-point"
                     value={painPoint}
                     onChange={(e) => setPainPoint(e.target.value)}
-                    placeholder="e.g., Spending 3 hours/day in email hell, manually qualifying leads, scheduling chaos..."
+                    placeholder="e.g., Spending 3 hours per day in email hell, manually qualifying leads, scheduling chaos..."
                     rows={4}
                     className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all resize-none"
                   />
@@ -200,10 +200,10 @@ export function AutomationOpportunityScan() {
                     <div>
                       <h3 className="text-lg font-bold text-white mb-1">
                         Built-In Controls{" "}
-                        <AI101Modal explainerKey="humanInLoop" triggerText="(What's this?)" className="text-xs" />
+                        <AI101Modal explainerKey="humanInLoop" triggerText="(What&apos;s this?)" className="text-xs" />
                       </h3>
                       <p className="text-sm text-slate-400">
-                        We don't build "magic buttons." Every system has guardrails.
+                        We don&apos;t build &quot;magic buttons.&quot; Every system has guardrails.
                       </p>
                     </div>
                   </div>
@@ -248,7 +248,7 @@ export function AutomationOpportunityScan() {
                 <p className="text-xs text-center text-slate-500">
                   This scan uses pattern matching for instant results. Want a human expert to review your specific case?{" "}
                   <a href="/contact" className="text-orange-400 hover:text-orange-300 underline">
-                    Let's talk.
+                    Let&apos;s talk.
                   </a>
                 </p>
               </div>
