@@ -7,6 +7,7 @@ import { LeadGeneratorClicker } from "../../components/games/lead-generator";
 import { ContextWindowGame } from "../../components/games/context-window-game";
 import { TokenizerGame } from "../../components/games/tokenizer-game";
 import { TemperatureGame } from "../../components/games/temperature-game";
+import { CLEVELAND_BATCH_POSTS } from "./posts-cleveland-batch";
 
 export type BlogPost = {
   slug: string;
@@ -20,6 +21,7 @@ export type BlogPost = {
   };
   tags: string[];
   content: () => ReactNode;
+  faqs?: Array<{ question: string; answer: string }>;
 };
 
 export const BLOG_POSTS: BlogPost[] = [
@@ -444,11 +446,14 @@ export const BLOG_POSTS: BlogPost[] = [
   },
 ];
 
+// Merge Cleveland batch posts into main array
+const ALL_BLOG_POSTS: BlogPost[] = [...BLOG_POSTS, ...CLEVELAND_BATCH_POSTS];
+
 export function getAllPosts() {
-  return BLOG_POSTS.slice().sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : -1));
+  return ALL_BLOG_POSTS.slice().sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : -1));
 }
 
 export function getPostBySlug(slug: string) {
-  return BLOG_POSTS.find((post) => post.slug === slug);
+  return ALL_BLOG_POSTS.find((post) => post.slug === slug);
 }
 
