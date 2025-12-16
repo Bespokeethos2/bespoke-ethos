@@ -184,7 +184,7 @@ export default function HomePage() {
       {/* 5. PRICING: Fixed Price */}
       <section className="relative z-10 py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6">
         <div className="container mx-auto max-w-6xl">
-          <PremiumContainer variant="obsidian" className="p-8 sm:p-10 md:p-12 lg:p-14 xl:p-18 relative overflow-hidden group">
+          <PremiumContainer variant="obsidian" className="p-8 sm:p-10 md:p-12 lg:p-14 xl:p-16 relative overflow-hidden group">
             {/* Background Glow */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/5 blur-[120px] rounded-full group-hover:bg-orange-500/10 transition-colors duration-700" />
 
@@ -270,7 +270,7 @@ export default function HomePage() {
       {/* 8. FAQ */}
       <section className="relative z-10 py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6">
         <div className="container mx-auto max-w-3xl">
-          <div className="text-center mb-10 sm:mb-12 md:mb-14 lg:mb-18">
+          <div className="text-center mb-10 sm:mb-12 md:mb-14 lg:mb-16">
             <span className="text-orange-400 font-mono text-sm tracking-widest mb-3 sm:mb-4 md:mb-5 block font-semibold">01001000 01000101 01001100 01010000</span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white font-hero-accent text-glow-crimson">
               Quick Answers. No Fluff.
