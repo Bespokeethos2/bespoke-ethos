@@ -25,7 +25,7 @@ export default function MainBespoke({ article, articleTimeout, onCloseArticle, t
       role="button"
       tabIndex={0}
       aria-label="Close article"
-      onKeyDown={(e) => { if(e.key === 'Enter') onCloseArticle() }}
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onCloseArticle() }}
     ></div>
   );
 
