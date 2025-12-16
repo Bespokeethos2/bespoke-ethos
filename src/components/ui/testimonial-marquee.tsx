@@ -63,9 +63,11 @@ export function TestimonialMarquee() {
                 <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-slate-100 shadow-inner">
                   <Image
                     src={t.imageSrc}
-                    alt={t.name}
+                    alt={`${t.name}, ${t.role} at ${t.company} - Bespoke Ethos client testimonial`}
                     fill
                     className="object-cover"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 48px, 48px"
                   />
                 </div>
                 <div>
