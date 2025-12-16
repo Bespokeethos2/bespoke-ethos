@@ -47,17 +47,17 @@ const TESTIMONIALS: Testimonial[] = [
 
 export function TestimonialMarquee() {
   return (
-    <section id="testimonials" className="relative w-full overflow-hidden py-12 bg-transparent">
+    <section id="testimonials" className="relative w-full overflow-hidden bg-transparent">
       {/* Fade Edges - 40% reduced opacity */}
       <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-[#faf9f6]/60 to-transparent pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-[#faf9f6]/60 to-transparent pointer-events-none" />
 
       <div className="flex w-full">
-        <div className="flex w-max animate-marquee gap-6 hover:[animation-play-state:paused]">
+        <div className="flex w-max animate-marquee gap-8 hover:[animation-play-state:paused]">
           {[...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
             <div
               key={`${t.name}-${i}`}
-              className="relative w-[350px] shrink-0 rounded-2xl border border-slate-200/60 bg-white/60 p-6 shadow-sm backdrop-blur-md transition-transform hover:scale-[1.02] hover:shadow-md hover:border-orange-200/50"
+              className="relative w-[360px] shrink-0 rounded-2xl border border-slate-200/60 bg-white/60 p-7 shadow-lg backdrop-blur-md transition-transform hover:scale-[1.02] hover:shadow-xl hover:border-orange-200/50 my-4"
             >
               <div className="flex items-center gap-4 mb-4">
                 <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-slate-100 shadow-inner">

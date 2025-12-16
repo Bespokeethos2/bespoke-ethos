@@ -21,10 +21,10 @@ export function CredentialCard({
 }: CredentialCardProps) {
   return (
     <motion.div
-      whileHover={{ y: -4, scale: 1.02 }}
+      whileHover={{ y: -6, scale: 1.02 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
       className={cn(
-        "group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/60 bg-white/80 p-6 shadow-lg backdrop-blur-md transition-all hover:shadow-xl hover:border-orange-200/60",
+        "group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/60 bg-white/80 p-8 shadow-[0_8px_40px_rgba(0,0,0,0.12)] backdrop-blur-md transition-all hover:shadow-[0_16px_56px_rgba(0,0,0,0.16)] hover:border-orange-200/60 m-2",
         className
       )}
     >

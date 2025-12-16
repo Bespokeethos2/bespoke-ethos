@@ -5,8 +5,8 @@ import { CredentialCard } from "./credential-card";
 
 export function TrustCredentials() {
   return (
-    <Section>
-      <div className="mx-auto max-w-6xl text-center">
+    <Section className="py-20 md:py-28">
+      <div className="mx-auto max-w-6xl text-center px-4 md:px-6">
         <p className="text-accent-500 text-sm font-semibold uppercase tracking-[0.3em]">
           Trusted & Certified
         </p>
@@ -17,7 +17,7 @@ export function TrustCredentials() {
           We&rsquo;re not just another AI consultant. We&rsquo;re vetted, certified, and battle-tested.
         </p>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3 items-stretch">
+        <div className="mt-16 grid gap-8 md:grid-cols-3 items-stretch">
           {/* NGLCC Certified */}
           <CredentialCard
             title="NGLCC Certified"
@@ -45,7 +45,7 @@ export function TrustCredentials() {
 
         {/* 25% Discount Callout with LGBTQ+ button */}
         <div
-          className="mt-12 mx-auto max-w-4xl rounded-2xl border-2 border-accent-500/20 p-8 text-center"
+          className="mt-16 mx-auto max-w-4xl rounded-2xl border-2 border-accent-500/20 p-10 text-center shadow-[0_8px_40px_rgba(0,0,0,0.08)]"
           style={{ backgroundColor: "var(--cream-bg)" }}
         >
           <h3 className="text-2xl font-semibold text-slate-900">

@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export function FounderStory() {
   return (
-    <section className="bg-surface-secondary dark:bg-dark-surface-secondary py-10 md:py-12">
-      <div className="mx-auto max-w-4xl px-6 founder-story-wrap">
-        <div className="founder-story-portrait relative overflow-hidden rounded-2xl shadow-2xl be-image-frame">
+    <section className="bg-surface-secondary dark:bg-dark-surface-secondary py-20 md:py-28">
+      <div className="mx-auto max-w-4xl px-6 md:px-8 founder-story-wrap">
+        <div className="founder-story-portrait relative overflow-hidden rounded-2xl shadow-[0_12px_48px_0_rgba(0,0,0,0.3)] be-image-frame mb-8">
           <Image
             src="/founder-upton-rand.jpg"
             alt="Upton Rand, Founder and CEO of Bespoke Ethos - NGLCC-certified AI automation consultant with 5+ years of frontier model training experience"
@@ -15,7 +15,7 @@ export function FounderStory() {
           />
         </div>
 
-        <div className="space-y-5">
+        <div className="space-y-6">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-text-tertiary dark:text-dark-text-tertiary">
               Meet the Founder

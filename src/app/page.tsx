@@ -39,9 +39,9 @@ export default function HomePage() {
     <div aria-label="Bespoke Ethos homepage" className="min-h-screen relative overflow-hidden bg-background selection:bg-orange-500/30">
       
       {/* 1. HERO: The Console */}
-      <section className="relative z-10 pt-24 pb-16 md:pt-32 md:pb-24">
-        <div className="container mx-auto px-4">
-          <PremiumContainer variant="glass" className="p-1 md:p-2 border-orange-500/20 shadow-2xl shadow-orange-900/10">
+      <section className="relative z-10 pt-28 pb-20 md:pt-36 md:pb-28">
+        <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+          <PremiumContainer variant="glass" className="p-1 md:p-2 border-orange-500/20 shadow-2xl shadow-orange-900/20">
             <div className="relative overflow-hidden rounded-xl bg-slate-950/90 aspect-[16/9] md:aspect-[21/9] flex items-center justify-center">
               
               {/* Background Abstract Visuals (Warm Orange) */}
@@ -121,8 +121,8 @@ export default function HomePage() {
       </section>
 
       {/* 2. THE CHASM: Authentic Voice */}
-      <section className="relative z-10 py-20">
-        <div className="container mx-auto px-4 max-w-4xl">
+      <section className="relative z-10 py-24 md:py-32">
+        <div className="container mx-auto px-4 md:px-6 max-w-4xl">
            <div className="relative">
              {/* Quote Decor */}
              <div className="absolute -top-12 -left-8 text-9xl text-white/5 font-serif select-none">"</div>
@@ -148,14 +148,14 @@ export default function HomePage() {
       </section>
 
       {/* 3. SOCIAL PROOF */}
-      <div className="relative z-10 py-16 border-y border-white/5 bg-slate-950/50 backdrop-blur-sm">
-        <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-slate-600 mb-10">Trusted Operating Systems</p>
+      <div className="relative z-10 py-20 md:py-24 border-y border-white/5 bg-slate-950/50 backdrop-blur-sm">
+        <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-slate-600 mb-12">Trusted Operating Systems</p>
         <TestimonialMarquee />
       </div>
 
       {/* 4. CAPABILITIES: Bento */}
-      <section className="relative z-10 py-32 bg-slate-950">
-        <div className="container mx-auto px-4">
+      <section className="relative z-10 py-32 md:py-40 bg-slate-950">
+        <div className="container mx-auto px-4 md:px-6 max-w-7xl">
           <div className="mb-16 md:flex md:items-end md:justify-between">
             <div className="max-w-2xl">
               <span className="text-orange-500 font-mono text-sm tracking-tight mb-4 block">// SYSTEM CAPABILITIES</span>
@@ -172,9 +172,9 @@ export default function HomePage() {
       </section>
 
       {/* 5. PRICING: Fixed Price */}
-      <section className="relative z-10 py-24">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <PremiumContainer variant="obsidian" className="p-8 md:p-12 lg:p-20 relative overflow-hidden group">
+      <section className="relative z-10 py-28 md:py-36">
+        <div className="container mx-auto px-4 md:px-6 max-w-6xl">
+          <PremiumContainer variant="obsidian" className="p-10 md:p-14 lg:p-20 relative overflow-hidden group">
             {/* Background Glow */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/5 blur-[120px] rounded-full group-hover:bg-orange-500/10 transition-colors duration-700" />
 
@@ -229,9 +229,9 @@ export default function HomePage() {
       </section>
 
       {/* 6. AI STRATEGY SPRINTS (Formerly Consensus Engine) */}
-      <section className="relative z-10 py-24 bg-slate-950">
-        <div className="container mx-auto px-4">
-           <PremiumContainer variant="glass" className="p-8 md:p-16 text-center border-white/5 bg-slate-900/40">
+      <section className="relative z-10 py-28 md:py-36 bg-slate-950">
+        <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+           <PremiumContainer variant="glass" className="p-10 md:p-16 text-center border-white/5 bg-slate-900/40">
              <div className="max-w-3xl mx-auto space-y-6">
                <h2 className="text-3xl md:text-5xl font-bold font-hero-accent text-white text-glow-crimson">
                  AI Strategy Sprints™
@@ -254,8 +254,8 @@ export default function HomePage() {
       <TrustCredentials />
 
       {/* 8. FAQ */}
-      <section className="relative z-10 py-24">
-        <div className="container mx-auto px-4 max-w-3xl">
+      <section className="relative z-10 py-28 md:py-36">
+        <div className="container mx-auto px-4 md:px-6 max-w-3xl">
           <div className="text-center mb-16">
             <span className="text-orange-500/50 font-mono text-xs tracking-widest mb-4 block">01001000 01000101 01001100 01010000</span>
             <h2 className="text-3xl md:text-4xl font-bold text-white font-hero-accent text-glow-crimson">
@@ -272,8 +272,8 @@ export default function HomePage() {
       </section>
 
       {/* 9. SAFETY NET */}
-      <section className="relative z-10 py-24 bg-gradient-to-t from-orange-950/20 to-slate-950">
-        <div className="container relative z-10 mx-auto px-4 max-w-5xl">
+      <section className="relative z-10 py-28 md:py-36 bg-gradient-to-t from-orange-950/20 to-slate-950">
+        <div className="container relative z-10 mx-auto px-4 md:px-6 max-w-5xl">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold text-white font-hero-accent leading-tight text-glow-crimson">
