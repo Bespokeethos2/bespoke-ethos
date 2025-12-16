@@ -35,7 +35,7 @@ function AccordionItem({
   isActive,
 }: FaqQuestion & { isActive: boolean }) {
   return (
-    <AccordionPrimitive.Item key={_title} className="flex flex-col" value={_title}>
+    <AccordionPrimitive.Item className="flex flex-col" value={_title}>
       <AccordionPrimitive.Header>
         <AccordionPrimitive.Trigger
           className="ring-accent-500 flex w-full items-start gap-3 rounded-md py-2 text-lg leading-relaxed font-medium tracking-tighter outline-hidden focus-visible:ring-3 text-slate-900"
