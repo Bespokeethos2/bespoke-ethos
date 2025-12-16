@@ -31,4 +31,4 @@ jobs:
       - name: Type check
         run: pnpm run typecheck
       - name: Run tests
-        run: pnpm test || echo "No tests configured"
+        run: pnpm test
