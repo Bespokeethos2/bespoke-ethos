@@ -84,15 +84,19 @@ export default function AutomationSkywayPage() {
                  </div>
                </div>
 
-               {/* Visual */}
-               <div className="relative aspect-video rounded-xl overflow-hidden border border-white/10 bg-black/50 shadow-2xl">
-                 <div className="absolute inset-0 flex items-center justify-center">
-                   <div className="text-center p-8">
-                     <div className="w-16 h-16 bg-sky-500/20 rounded-full mx-auto mb-4 flex items-center justify-center animate-pulse">
-                        <Image src="/assets/logos/flowstack_logo.png" alt="Skyway Logo" width={32} height={32} className="opacity-80" />
-                     </div>
-                     <p className="text-slate-400 font-mono text-sm">Pipeline Active...</p>
-                   </div>
+              {/* Visual */}
+               <div className="relative aspect-video rounded-xl overflow-hidden border border-white/10 bg-black/50 shadow-2xl group-hover:border-orange-500/30 transition-colors duration-500">
+                 <Image 
+                    src="/assets/generated/skyway-hero.png" 
+                    alt="Automation Skyway Infrastructure" 
+                    fill 
+                    className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" 
+                 />
+                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60" />
+                 
+                 <div className="absolute bottom-4 right-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-950/80 backdrop-blur border border-white/10">
+                    <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+                    <span className="text-[10px] font-mono text-emerald-400 font-bold tracking-wider">SYSTEM ACTIVE</span>
                  </div>
                </div>
              </div>
