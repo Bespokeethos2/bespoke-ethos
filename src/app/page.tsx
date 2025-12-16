@@ -88,10 +88,10 @@ export default function HomePage() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 md:gap-6 justify-center items-center">
-                  <ButtonLink intent="primary" href="/contact" className="w-full sm:w-auto min-h-[48px] h-12 sm:h-14 px-8 sm:px-10 md:px-12 text-base sm:text-lg md:text-xl rounded-full shadow-[0_0_25px_rgba(249,115,22,0.3)] hover:shadow-[0_0_40px_rgba(249,115,22,0.5)] transition-all bg-orange-600 hover:bg-orange-500 border-none text-white font-bold tracking-wide">
+                  <ButtonLink href="/contact" className="w-full sm:w-auto min-h-[48px] h-12 sm:h-14 px-8 sm:px-10 md:px-12 text-base sm:text-lg md:text-xl rounded-full shadow-[0_0_25px_rgba(249,115,22,0.3)] hover:shadow-[0_0_40px_rgba(249,115,22,0.5)] transition-all bg-orange-600 hover:bg-orange-500 border-none text-white font-bold tracking-wide">
                     Start Your Build
                   </ButtonLink>
-                  <ButtonLink intent="secondary" href="/solutions" className="w-full sm:w-auto min-h-[48px] h-12 sm:h-14 px-8 sm:px-10 md:px-12 text-base sm:text-lg md:text-xl rounded-full border-white/30 hover:bg-white/10 backdrop-blur-md text-white font-semibold">
+                  <ButtonLink href="/solutions" className="w-full sm:w-auto min-h-[48px] h-12 sm:h-14 px-8 sm:px-10 md:px-12 text-base sm:text-lg md:text-xl rounded-full border border-white/30 hover:bg-white/10 backdrop-blur-md text-white font-semibold bg-transparent">
                     See The Specs
                   </ButtonLink>
                 </div>
@@ -226,10 +226,10 @@ export default function HomePage() {
                    <span className="block mt-2 text-orange-200 font-bold">LGBTQ-owned businesses pay $1,122.</span>
                  </p>
                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                   <ButtonLink intent="primary" href="/pricing" className="bg-white text-slate-950 hover:bg-orange-50 font-bold shadow-[0_4px_20px_rgba(255,255,255,0.3)] hover:shadow-[0_6px_30px_rgba(255,255,255,0.4)] transition-all min-h-[44px]">
+                   <ButtonLink href="/pricing" className="bg-white text-slate-950 hover:bg-orange-50 font-bold shadow-[0_4px_20px_rgba(255,255,255,0.3)] hover:shadow-[0_6px_30px_rgba(255,255,255,0.4)] transition-all min-h-[44px] px-6 py-3 rounded-full">
                      View The Menu
                    </ButtonLink>
-                   <ButtonLink intent="secondary" href="/contact" className="bg-white/20 hover:bg-white/30 text-white font-bold border-2 border-white/40 hover:border-white/60 backdrop-blur-sm shadow-lg min-h-[44px]">
+                   <ButtonLink href="/contact" className="bg-white/20 hover:bg-white/30 text-white font-bold border-2 border-white/40 hover:border-white/60 backdrop-blur-sm shadow-lg min-h-[44px] px-6 py-3 rounded-full">
                      Book Grant Call
                    </ButtonLink>
                  </div>
