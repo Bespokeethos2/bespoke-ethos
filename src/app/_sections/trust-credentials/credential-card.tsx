@@ -24,7 +24,7 @@ export function CredentialCard({
       whileHover={{ y: -4, scale: 1.02 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
       className={cn(
-        "group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/60 bg-white/80 p-6 shadow-lg backdrop-blur-md transition-all hover:shadow-xl hover:border-orange-200/60",
+        "group relative flex h-full min-h-[400px] flex-col overflow-hidden rounded-2xl border border-slate-200/60 bg-white/80 p-8 shadow-[0_8px_32px_rgba(0,0,0,0.12)] backdrop-blur-md transition-all hover:shadow-[0_16px_48px_rgba(249,115,22,0.2)] hover:border-orange-200/60",
         className
       )}
     >
@@ -34,21 +34,21 @@ export function CredentialCard({
       {/* Content container */}
       <div className="relative z-10 flex flex-col h-full">
         {/* Title */}
-        <h3 className="text-xl font-bold text-slate-900 mb-3 font-heading">
+        <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4 font-heading">
           {title}
         </h3>
         
         {/* Description */}
-        <p className="text-sm text-slate-600 leading-relaxed mb-6 flex-grow">
+        <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-8 flex-grow">
           {description}
         </p>
         
         {/* Badge container with proper aspect ratio handling */}
-        <div className="relative mt-auto pt-4">
+        <div className="relative mt-auto pt-6">
           {/* Inner frame with subtle shadow */}
-          <div className="relative rounded-xl bg-linear-to-br from-slate-50 to-white p-4 border border-slate-100 shadow-inner flex items-center justify-center">
+          <div className="relative rounded-xl bg-linear-to-br from-slate-50 to-white p-6 border border-slate-100 shadow-inner flex items-center justify-center">
             {/* Badge image - constrained size */}
-            <div className="relative w-24 h-24 flex items-center justify-center">
+            <div className="relative w-28 h-28 flex items-center justify-center">
               <Image
                 src={imageSrc}
                 alt={imageAlt}
