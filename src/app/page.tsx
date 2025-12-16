@@ -226,10 +226,10 @@ export default function HomePage() {
                    <span className="block mt-3 text-orange-300 font-bold text-base sm:text-lg">LGBTQ-owned businesses pay $1,122.</span>
                  </p>
                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                   <ButtonLink intent="primary" href="/pricing" className="bg-white text-slate-950 hover:bg-orange-50 font-bold min-h-[44px] shadow-lg hover:shadow-xl transition-all">
+                   <ButtonLink href="/pricing" className="bg-white text-slate-950 hover:bg-orange-50 font-bold min-h-[44px] shadow-lg hover:shadow-xl transition-all">
                      View The Menu
                    </ButtonLink>
-                   <ButtonLink intent="secondary" href="/contact" className="min-h-[44px] border-2 border-white/40 text-white hover:bg-white/20 hover:border-white/60 font-bold transition-all">
+                   <ButtonLink href="/contact" className="min-h-[44px] border-2 border-white/40 text-white hover:bg-white/20 hover:border-white/60 font-bold transition-all">
                      Book Grant Call
                    </ButtonLink>
                  </div>

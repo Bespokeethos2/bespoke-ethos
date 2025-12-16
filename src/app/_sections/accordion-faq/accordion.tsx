@@ -36,7 +36,6 @@ function AccordionItem({
 }: FaqQuestion & { isActive: boolean }) {
   return (
     <AccordionPrimitive.Item 
-      key={_title} 
       className="flex flex-col border-2 border-white/20 rounded-xl bg-slate-800/60 backdrop-blur-sm px-5 sm:px-6 py-4 sm:py-5 hover:bg-slate-800/80 hover:border-orange-400/50 transition-all shadow-lg" 
       value={_title}
     >

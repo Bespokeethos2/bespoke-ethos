@@ -26,7 +26,7 @@ export function CredentialCard({
       whileHover={{ y: -8, scale: 1.02 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
       className={cn(
-        "group relative flex flex-col overflow-hidden rounded-2xl border border-white/20 bg-slate-800/60 backdrop-blur-xl w-full max-w-[400px] h-[400px] p-6 shadow-[0_8px_32px_rgba(0,0,0,0.4)] hover:shadow-[0_20px_60px_rgba(249,115,22,0.3)] transition-all duration-300",
+        "group relative flex flex-col overflow-hidden rounded-2xl border border-white/20 bg-slate-800/60 backdrop-blur-xl w-full max-w-[400px] aspect-square p-6 shadow-[0_8px_32px_rgba(0,0,0,0.4)] hover:shadow-[0_20px_60px_rgba(249,115,22,0.3)] transition-all duration-300 will-change-transform",
         className
       )}
     >
