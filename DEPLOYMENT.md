@@ -17,22 +17,17 @@ See **[PAGE_DEPLOYMENT_CHECKLIST.md](./PAGE_DEPLOYMENT_CHECKLIST.md)** for compl
 
 ### Quick Pre-Flight Checks
 
-1. **You are on the `main` branch**
-   ```bash
-   git branch  # Should show: * main
-   ```
-
-2. **All changes are committed**
+1. **All changes are committed**
    ```bash
    git status  # Should show: "nothing to commit, working tree clean"
    ```
 
-3. **Run deployment quality checks**
+2. **Run deployment quality checks**
    ```bash
    pnpm run deploy:check
    ```
 
-4. **Run full test suite**
+3. **Run full test suite**
    ```bash
    pnpm run preflight
    pnpm run typecheck
@@ -42,13 +37,13 @@ See **[PAGE_DEPLOYMENT_CHECKLIST.md](./PAGE_DEPLOYMENT_CHECKLIST.md)** for compl
    pnpm run audit:css
    ```
 
-5. **Environment variables are set in Vercel:**
+4. **Environment variables are set in Vercel:**
    - Core site + branding: `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_SITE_NAME`
    - Forms: `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET`, Airtable keys
    - CMS: `SANITY_PROJECT_ID`, `SANITY_DATASET`, `SANITY_API_VERSION`, optional `SANITY_API_TOKEN`
    - Search (optional but recommended): `OPENAI_API_KEY`, `PINECONE_API_KEY`, `PINECONE_INDEX_NAME`, `PINECONE_PROJECT_NAME`, `PINECONE_HOST`, `EMBEDDING_MODEL`
 
-6. **Page-specific requirements met** (if deploying new/updated pages):
+5. **Page-specific requirements met** (if deploying new/updated pages):
    - ✅ Mobile-first responsive design tested (320px to desktop)
    - ✅ Complete SEO setup (titles, meta descriptions, OG tags)
    - ✅ All images have comprehensive ALT tags
