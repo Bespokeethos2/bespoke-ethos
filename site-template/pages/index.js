@@ -1,3 +1,4 @@
+import React from 'react'
 import Head from "next/head"
 import stylesheet from 'styles/main.scss'
 
@@ -29,6 +30,18 @@ class IndexPage extends React.Component {
         if (this.timeoutId) {
             clearTimeout(this.timeoutId)
         }
+        if (this.openTimeoutId) {
+            clearTimeout(this.openTimeoutId)
+        }
+        if (this.openArticleTimeoutId) {
+            clearTimeout(this.openArticleTimeoutId)
+        }
+        if (this.closeArticleTimeoutId) {
+            clearTimeout(this.closeArticleTimeoutId)
+        }
+        if (this.closeTimeoutId) {
+            clearTimeout(this.closeTimeoutId)
+        }
     }
 
     handleOpenArticle(article) {
@@ -37,13 +50,13 @@ class IndexPage extends React.Component {
             article
         })
 
-        setTimeout(() => {
+        this.openTimeoutId = setTimeout(() => {
             this.setState({
                 timeout: !this.state.timeout
             })
         }, 325)
 
-        setTimeout(() => {
+        this.openArticleTimeoutId = setTimeout(() => {
             this.setState({
                 articleTimeout: !this.state.articleTimeout
             })
@@ -55,13 +68,13 @@ class IndexPage extends React.Component {
             articleTimeout: !this.state.articleTimeout
         })
 
-        setTimeout(() => {
+        this.closeTimeoutId = setTimeout(() => {
             this.setState({
                 timeout: !this.state.timeout
             })
         }, 325)
 
-        setTimeout(() => {
+        this.closeArticleTimeoutId = setTimeout(() => {
             this.setState({
                 isArticleVisible: !this.state.isArticleVisible,
                 article: ""
