@@ -34,6 +34,39 @@ Thank you for your interest in contributing! This document outlines the process 
 - **Error Handling**: All API endpoints must have graceful error handling
 - **Tests**: Add tests for new API endpoints (`scripts/brutus-test-api.mjs` pattern)
 
+## Page Deployment Requirements
+
+**CRITICAL**: Every page that goes live must meet comprehensive quality standards.
+
+See **[PAGE_DEPLOYMENT_CHECKLIST.md](./PAGE_DEPLOYMENT_CHECKLIST.md)** for complete requirements including:
+
+- ✅ Mobile-first responsive design (320px to desktop)
+- ✅ Complete SEO setup (titles, meta, OG tags, alt text)
+- ✅ Mandatory FAQ sections (minimum 3 questions)
+- ✅ Schema markup (Organization, Breadcrumbs, FAQ, Article/Product)
+- ✅ WCAG 2.3 accessibility compliance
+- ✅ Lighthouse scores 90+ (Performance, Accessibility, Best Practices, SEO)
+- ✅ Zero security vulnerabilities
+- ✅ TypeScript/ESLint with zero errors/warnings
+- ✅ Full testing on mobile, tablet, and desktop
+
+**Before submitting any page for review**, run:
+
+```bash
+# Complete quality check
+pnpm run preflight
+pnpm run typecheck
+pnpm run lint
+pnpm build
+pnpm run smoke
+pnpm run audit:css
+
+# Deployment quality validation
+node scripts/deployment-quality-check.mjs
+```
+
+**"Good enough is not good enough. Perfect is the standard."**
+
 ## Pull Request Process
 
 1. **Branch naming**: `feature/description` or `fix/description`

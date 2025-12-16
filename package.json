@@ -22,6 +22,9 @@
     "browse:tasks": "node scripts/browse-task.mjs",
     "audit:css": "npx tsx scripts/brutus-axe-enforcer.ts",
     "deploy": "node scripts/brutus-deploy.mjs",
+    "deploy:check": "node scripts/deployment-quality-check.mjs",
+    "deploy:check:strict": "node scripts/deployment-quality-check.mjs --strict",
+    "predeploy": "pnpm run deploy:check",
     "generate:flowstack-images": "node scripts/generate-flowstack-images.mjs",
     "test:api": "node scripts/brutus-test-api.mjs"
   },
