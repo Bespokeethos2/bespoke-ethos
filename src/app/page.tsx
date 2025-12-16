@@ -49,7 +49,7 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(249,115,22,0.15)_0%,rgba(0,0,0,1)_80%)]" />
                 <Image
                   src="/assets/generated/hero-home.png"
-                  alt=""
+                  alt="AI automation workflows and intelligent systems background visualization"
                   fill
                   className="object-cover opacity-20 mix-blend-lighten"
                   priority
@@ -310,6 +310,9 @@ export default function HomePage() {
       <OrganizationJsonLd />
       <HomePageJsonLd />
       <WebSiteJsonLd />
+      <HomeFaqJsonLd />
+      <ServiceJsonLd />
+      <OfferJsonLd />
     </div>
   );
 }
@@ -370,16 +373,96 @@ function WebSiteJsonLd() {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }
 
-function SpeakableJsonLd() {
+function ServiceJsonLd() {
   const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
   const json = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    speakable: {
-      "@type": "SpeakableSpecification",
-      cssSelector: ["h1", "h2", ".home-section h2", "main > section:first-of-type p"],
+    "@type": "Service",
+    "@id": `${base}/#service`,
+    name: "AI Workflow Automation for Small Businesses",
+    description: "Fixed-price AI automation workflows including AI Strategy Sprints, intelligent email outreach, lead qualification, and workflow rescue services. Built with strict tolerances and human approval checkpoints for small business reliability.",
+    provider: {
+      "@id": `${base}/#organization`,
     },
-    url: base,
+    areaServed: "United States",
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "AI Automation Services",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "AI Strategy Sprint (Consensus Engine)",
+            description: "Multi-agent adversarial research sprint analyzing 1000+ sources to stress-test your strategy before you spend",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Personalized Outreach Automation",
+            description: "Email sequences that research prospects, draft notes in your voice, and wait for approval before sending",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Intelligent Lead Qualification",
+            description: "AI-powered lead screening that schedules only qualified prospects ready to buy",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Workflow Rescue",
+            description: "Fix broken Zapier/Make.com workflows and build robust automation connections",
+          },
+        },
+      ],
+    },
+  };
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
+}
+
+function OfferJsonLd() {
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "Offer",
+    "@id": `${base}/#offer`,
+    name: "Fixed-Price AI Automation Builds",
+    description: "Zero hourly billing. Fixed scope AI workflow automation starting at $1,497. LGBTQ-owned businesses receive a permanent 25% discount ($1,122).",
+    price: "1497",
+    priceCurrency: "USD",
+    priceSpecification: {
+      "@type": "PriceSpecification",
+      price: "1497",
+      priceCurrency: "USD",
+      valueAddedTaxIncluded: false,
+    },
+    seller: {
+      "@id": `${base}/#organization`,
+    },
+    availability: "https://schema.org/InStock",
+    validFrom: "2025-10-01",
+    itemOffered: {
+      "@type": "Service",
+      name: "AI Workflow Automation Build",
+      description: "Includes full scoping decision brief, build, deployment, documentation, and 90-day 'Break It, We Fix It' warranty. Founder-led with no junior associates.",
+    },
+    warranty: {
+      "@type": "WarrantyPromise",
+      durationOfWarranty: {
+        "@type": "QuantitativeValue",
+        value: 90,
+        unitCode: "DAY",
+      },
+      warrantyScope: "Break It, We Fix It - Full repair and maintenance warranty",
+    },
   };
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
