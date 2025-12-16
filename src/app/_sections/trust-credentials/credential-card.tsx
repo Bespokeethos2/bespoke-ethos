@@ -24,36 +24,36 @@ export function CredentialCard({
       whileHover={{ y: -6, scale: 1.02 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
       className={cn(
-        "group relative flex h-full min-h-[420px] flex-col overflow-visible rounded-2xl border border-white/10 bg-slate-900/60 backdrop-blur-xl p-8 shadow-[0_20px_60px_rgba(0,0,0,0.4)] transition-all hover:shadow-[0_24px_80px_rgba(249,115,22,0.35)] hover:border-orange-500/40 m-4",
+        "group relative flex h-full flex-col overflow-hidden rounded-2xl border-4 border-orange-200/60 bg-gradient-to-br from-amber-50 to-orange-50 p-8 shadow-2xl hover:shadow-[0_20px_50px_rgba(251,146,60,0.3)] hover:border-orange-400 transition-all",
         className
       )}
     >
       {/* Subtle gradient overlay on hover */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-500/5 via-transparent to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-orange-100/20 to-orange-100/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
       
       {/* Content container */}
       <div className="relative z-10 flex flex-col h-full">
         {/* Title */}
-        <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 font-heading text-glow-crimson">
+        <h3 className="text-xl font-black text-slate-950 mb-4 font-heading">
           {title}
         </h3>
         
         {/* Description */}
-        <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-8 flex-grow">
+        <p className="text-sm text-slate-900 leading-relaxed mb-8 flex-grow font-semibold">
           {description}
         </p>
         
         {/* Badge container with proper aspect ratio handling */}
-        <div className="relative mt-auto pt-6">
-          {/* Inner frame with glass effect and proper thumbnail styling */}
-          <div className="relative rounded-xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-md p-6 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] flex items-center justify-center">
-            {/* Badge image - better thumbnail size */}
+        <div className="relative mt-auto pt-6 border-t-2 border-orange-300/50">
+          {/* Inner frame with subtle shadow */}
+          <div className="relative rounded-xl bg-gradient-to-br from-white to-orange-50 p-6 border-2 border-orange-300/40 shadow-lg flex items-center justify-center">
+            {/* Badge image - larger size for better visibility */}
             <div className="relative w-32 h-32 flex items-center justify-center">
               <Image
                 src={imageSrc}
                 alt={imageAlt}
                 fill
-                className="object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_4px_12px_rgba(249,115,22,0.3)]"
+                className="object-contain transition-transform duration-300 group-hover:scale-110"
                 sizes="(max-width: 768px) 100vw, 128px"
                 loading="lazy"
               />
