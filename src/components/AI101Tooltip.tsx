@@ -142,7 +142,7 @@ export function AI101Tooltip({ term, children, inline = true }: AI101TooltipProp
 
       setPosition({ top, left });
     }
-  }, [isOpen, glossaryEntry]);
+  }, [isOpen]);
 
   // Keyboard support
   useEffect(() => {
@@ -157,7 +157,7 @@ export function AI101Tooltip({ term, children, inline = true }: AI101TooltipProp
 
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, glossaryEntry]);
+  }, [isOpen]);
 
   // Close on click outside
   useEffect(() => {
@@ -177,7 +177,7 @@ export function AI101Tooltip({ term, children, inline = true }: AI101TooltipProp
 
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [isOpen, glossaryEntry]);
+  }, [isOpen]);
 
   const handleMouseEnter = () => {
     clearTimeout(timeoutRef.current);
