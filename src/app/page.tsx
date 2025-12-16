@@ -217,19 +217,19 @@ export default function HomePage() {
               </div>
 
               <div className="flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-white/10 pt-6 sm:pt-8 lg:pt-0 lg:pl-10 xl:pl-12">
-                 <div className="text-xs sm:text-sm font-medium text-slate-500 uppercase tracking-widest mb-1.5 sm:mb-2">Builds Starting At</div>
-                 <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight mb-2 sm:mb-3 md:mb-4">
+                 <div className="text-xs sm:text-sm font-medium text-slate-400 uppercase tracking-widest mb-1.5 sm:mb-2">Builds Starting At</div>
+                 <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight mb-2 sm:mb-3 md:mb-4 drop-shadow-lg">
                    $1,497
                  </div>
-                 <p className="text-xs sm:text-sm md:text-base text-slate-300 mb-4 sm:mb-6 md:mb-8 max-w-md">
+                 <p className="text-xs sm:text-sm md:text-base text-slate-200 mb-4 sm:mb-6 md:mb-8 max-w-md">
                    Includes full scoping decision brief, build, deployment, and documentation. 
-                   <span className="block mt-2 text-orange-400 font-medium">LGBTQ-owned businesses pay $1,122.</span>
+                   <span className="block mt-2 text-orange-300 font-semibold">LGBTQ-owned businesses pay $1,122.</span>
                  </p>
                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                   <ButtonLink intent="primary" href="/pricing" className="bg-white text-slate-950 hover:bg-slate-200 min-h-[44px]">
+                   <ButtonLink intent="primary" href="/pricing" className="bg-white text-slate-950 hover:bg-slate-100 font-bold shadow-md hover:shadow-lg transition-shadow min-h-[44px]">
                      View The Menu
                    </ButtonLink>
-                   <ButtonLink intent="secondary" href="/contact" className="min-h-[44px]">
+                   <ButtonLink intent="secondary" href="/contact" className="bg-white/10 hover:bg-white/20 text-white font-semibold border-white/20 hover:border-white/30 backdrop-blur-sm min-h-[44px]">
                      Book Grant Call
                    </ButtonLink>
                  </div>
@@ -271,8 +271,8 @@ export default function HomePage() {
       <section className="relative z-10 py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6">
         <div className="container mx-auto max-w-3xl">
           <div className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16">
-            <span className="text-orange-500/50 font-mono text-xs tracking-widest mb-2 sm:mb-3 md:mb-4 block">01001000 01000101 01001100 01010000</span>
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white font-hero-accent text-glow-crimson">
+            <span className="text-orange-400 font-mono text-xs tracking-widest mb-2 sm:mb-3 md:mb-4 block opacity-80">01001000 01000101 01001100 01010000</span>
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white font-hero-accent text-glow-crimson drop-shadow-lg">
               Quick Answers. No Fluff.
             </h2>
           </div>
