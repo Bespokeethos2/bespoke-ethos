@@ -39,6 +39,9 @@ let criticalFailures = 0;
 let warnings = 0;
 let passed = 0;
 
+// Cache for package.json to avoid multiple reads
+let packageJsonCache = null;
+
 function log(message, color = colors.reset) {
   console.log(`${color}${message}${colors.reset}`);
 }
@@ -62,6 +65,32 @@ function section(title) {
   log(`\n${colors.cyan}${'='.repeat(50)}${colors.reset}`);
   log(`${title}`, colors.cyan);
   log(`${'='.repeat(50)}`, colors.cyan);
+}
+
+/**
+ * Safely read and parse JSON file with error handling
+ * @param {string} filePath - Path to JSON file
+ * @returns {Object|null} - Parsed JSON or null if error
+ */
+function safeReadJson(filePath) {
+  try {
+    const content = fs.readFileSync(filePath, 'utf8');
+    return JSON.parse(content);
+  } catch (error) {
+    return null;
+  }
+}
+
+/**
+ * Get cached package.json or read it once
+ * @returns {Object|null} - Parsed package.json or null if error
+ */
+function getPackageJson() {
+  if (packageJsonCache === null) {
+    const packageJsonPath = path.join(ROOT, 'package.json');
+    packageJsonCache = safeReadJson(packageJsonPath);
+  }
+  return packageJsonCache;
 }
 
 // ============================================================================
@@ -115,18 +144,22 @@ seoComponents.forEach((component) => {
 // Check if layout.tsx includes SEO components
 const layoutPath = path.join(ROOT, 'src/app/layout.tsx');
 if (fs.existsSync(layoutPath)) {
-  const layoutContent = fs.readFileSync(layoutPath, 'utf8');
-  
-  if (layoutContent.includes('OrganizationJsonLd') || layoutContent.includes('organization-jsonld')) {
-    pass('Layout includes Organization schema');
-  } else {
-    warn('Layout may be missing Organization schema');
-  }
-  
-  if (layoutContent.includes('viewport')) {
-    pass('Layout includes viewport meta tag');
-  } else {
-    fail('Layout missing viewport meta tag');
+  try {
+    const layoutContent = fs.readFileSync(layoutPath, 'utf8');
+    
+    if (layoutContent.includes('OrganizationJsonLd') || layoutContent.includes('organization-jsonld')) {
+      pass('Layout includes Organization schema');
+    } else {
+      warn('Layout may be missing Organization schema');
+    }
+    
+    if (layoutContent.includes('viewport')) {
+      pass('Layout includes viewport meta tag');
+    } else {
+      fail('Layout missing viewport meta tag');
+    }
+  } catch (error) {
+    warn(`Could not read layout.tsx: ${error.message}`);
   }
 }
 
@@ -153,14 +186,13 @@ if (fs.existsSync(auditScriptPath)) {
 }
 
 // Check package.json for audit:css script
-const packageJsonPath = path.join(ROOT, 'package.json');
-if (fs.existsSync(packageJsonPath)) {
-  const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
-  if (packageJson.scripts && packageJson.scripts['audit:css']) {
-    pass('Accessibility audit script configured in package.json');
-  } else {
-    warn('audit:css script not found in package.json');
-  }
+const packageJson = getPackageJson();
+if (packageJson && packageJson.scripts && packageJson.scripts['audit:css']) {
+  pass('Accessibility audit script configured in package.json');
+} else if (packageJson) {
+  warn('audit:css script not found in package.json');
+} else {
+  fail('package.json not found or invalid');
 }
 
 // ============================================================================
@@ -174,11 +206,13 @@ const tsconfigPath = path.join(ROOT, 'tsconfig.json');
 if (fs.existsSync(tsconfigPath)) {
   pass('TypeScript configuration present');
   
-  const tsconfig = JSON.parse(fs.readFileSync(tsconfigPath, 'utf8'));
-  if (tsconfig.compilerOptions && tsconfig.compilerOptions.strict) {
+  const tsconfig = safeReadJson(tsconfigPath);
+  if (tsconfig && tsconfig.compilerOptions && tsconfig.compilerOptions.strict) {
     pass('Strict TypeScript mode enabled');
-  } else {
+  } else if (tsconfig) {
     warn('Strict TypeScript mode not enabled (recommended)');
+  } else {
+    warn('Could not parse tsconfig.json');
   }
 } else {
   fail('TypeScript configuration missing');
@@ -204,9 +238,8 @@ if (!eslintFound) {
   fail('No ESLint configuration found');
 }
 
-// Check package.json scripts
-if (fs.existsSync(packageJsonPath)) {
-  const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
+// Check package.json scripts (reusing cached package.json)
+if (packageJson) {
   const scripts = packageJson.scripts || {};
   
   const requiredScripts = ['build', 'lint', 'typecheck', 'dev'];
@@ -287,12 +320,16 @@ for (const configPath of nextConfigPaths) {
     pass(`Next.js configuration found: ${configPath}`);
     nextConfigFound = true;
     
-    const configContent = fs.readFileSync(fullPath, 'utf8');
-    
-    if (configContent.includes('images')) {
-      pass('Image optimization configured');
-    } else {
-      warn('Image optimization may not be configured');
+    try {
+      const configContent = fs.readFileSync(fullPath, 'utf8');
+      
+      if (configContent.includes('images')) {
+        pass('Image optimization configured');
+      } else {
+        warn('Image optimization may not be configured');
+      }
+    } catch (error) {
+      warn(`Could not read ${configPath}: ${error.message}`);
     }
     
     break;
@@ -303,9 +340,8 @@ if (!nextConfigFound) {
   fail('No Next.js configuration found');
 }
 
-// Check for bundle analyzer
-if (fs.existsSync(packageJsonPath)) {
-  const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
+// Check for bundle analyzer (reusing cached package.json)
+if (packageJson) {
   const deps = {
     ...packageJson.dependencies,
     ...packageJson.devDependencies,
