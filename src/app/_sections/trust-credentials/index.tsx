@@ -6,18 +6,18 @@ import { CredentialCard } from "./credential-card";
 export function TrustCredentials() {
   return (
     <Section>
-      <div className="mx-auto max-w-6xl text-center px-4 sm:px-6">
+      <div className="mx-auto max-w-7xl text-center px-4 sm:px-6">
         <p className="text-accent-500 text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] sm:tracking-[0.3em]">
           Trusted & Certified
         </p>
-        <h2 className="mt-3 sm:mt-4 text-balance text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight text-slate-900">
+        <h2 className="mt-4 sm:mt-5 text-balance text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight text-slate-900">
           Real Credentials. Real Experience.
         </h2>
-        <p className="mx-auto mt-3 sm:mt-4 max-w-2xl text-base sm:text-lg text-slate-600">
+        <p className="mx-auto mt-4 sm:mt-5 max-w-2xl text-base sm:text-lg text-slate-600">
           We&rsquo;re not just another AI consultant. We&rsquo;re vetted, certified, and battle-tested.
         </p>
 
-        <div className="mt-8 sm:mt-10 md:mt-12 grid gap-4 sm:gap-6 md:grid-cols-3 items-stretch">
+        <div className="mt-10 sm:mt-12 md:mt-16 grid gap-8 sm:gap-10 md:grid-cols-3 items-stretch px-4 sm:px-6">
           {/* NGLCC Certified */}
           <CredentialCard
             title="NGLCC Certified"
@@ -45,7 +45,7 @@ export function TrustCredentials() {
 
         {/* 25% Discount Callout with LGBTQ+ button */}
         <div
-          className="mt-10 sm:mt-12 mx-auto max-w-4xl rounded-2xl border-2 border-accent-500/20 p-6 sm:p-8 text-center"
+          className="mt-12 sm:mt-16 mx-auto max-w-4xl rounded-2xl border-2 border-accent-500/20 p-8 sm:p-10 text-center"
           style={{ backgroundColor: "var(--cream-bg)" }}
         >
           <h3 className="text-xl sm:text-2xl font-semibold text-slate-900">
