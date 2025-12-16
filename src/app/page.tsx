@@ -58,7 +58,7 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(249,115,22,0.15)_0%,rgba(0,0,0,1)_80%)]" />
                 <Image
                   src="/assets/generated/hero-home.png"
-                  alt="AI automation workflows and intelligent systems background visualization"
+                  alt=""
                   fill
                   className="object-cover opacity-20 mix-blend-lighten"
                   priority
@@ -134,7 +134,7 @@ export default function HomePage() {
         <div className="container mx-auto max-w-4xl">
            <div className="relative">
              {/* Quote Decor */}
-             <div aria-hidden="true" className="absolute -top-6 sm:-top-8 md:-top-12 -left-3 sm:-left-4 md:-left-8 text-6xl sm:text-7xl md:text-9xl text-white/5 font-serif select-none pointer-events-none">"</div>
+             <div aria-hidden="true" className="absolute -top-6 sm:-top-8 md:-top-12 -left-3 sm:-left-4 md:-left-8 text-6xl sm:text-7xl md:text-9xl text-white/5 font-serif select-none">"</div>
              
              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold font-hero-accent text-white mb-4 sm:mb-6 md:mb-8 leading-tight text-center md:text-left">
                <span className="text-white text-glow-crimson">It's not about the model.</span>{" "}

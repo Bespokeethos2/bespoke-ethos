@@ -166,7 +166,7 @@ export function AutomationOpportunityScan() {
 
                 <p className="text-xs text-center text-slate-500">
                   This is an instant analysis tool powered by pattern matching. For a deep-dive strategy session, 
-                  book a consultation below.
+                  submit your scan to see booking options.
                 </p>
               </div>
             ) : (
