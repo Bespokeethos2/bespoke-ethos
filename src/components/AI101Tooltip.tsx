@@ -117,11 +117,6 @@ export function AI101Tooltip({ term, children, inline = true }: AI101TooltipProp
 
   const glossaryEntry = AI_GLOSSARY[term];
 
-  if (!glossaryEntry) {
-    console.warn(`AI101Tooltip: Unknown term "${term}"`);
-    return <>{children}</>;
-  }
-
   // Position calculation
   useEffect(() => {
     if (isOpen && triggerRef.current && tooltipRef.current) {
@@ -202,6 +197,12 @@ export function AI101Tooltip({ term, children, inline = true }: AI101TooltipProp
   };
 
   const tooltipId = `ai101-tooltip-${term}`;
+
+  // Early return after all hooks
+  if (!glossaryEntry) {
+    console.warn(`AI101Tooltip: Unknown term "${term}"`);
+    return <>{children}</>;
+  }
 
   return (
     <>

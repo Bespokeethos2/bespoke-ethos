@@ -83,6 +83,7 @@ export async function GET(request: NextRequest) {
 
     // Retrieve results
     const results = [];
+    // @ts-expect-error - SDK type mismatch with async iterator
     for await (const entry of anthropic.messages.batches.results(batchId)) {
       if (entry.result.type === 'succeeded') {
         results.push({
