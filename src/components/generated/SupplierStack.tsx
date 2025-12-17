@@ -31,9 +31,10 @@ const SupplierStack = () => {
   }, [isRunning, isGameOver]);
 
   const addBlock = () => {
+    const randomColor = blockColors[Math.floor(Math.random() * blockColors.length)];
     const newBlock = {
       id: blockCount,
-      color: blockColors[Math.floor(Math.random() * blockColors.length)],
+      color: randomColor || 'bg-gray-500', // Fallback color
       height: blockHeight,
       width: blockWidth,
       x: 0,

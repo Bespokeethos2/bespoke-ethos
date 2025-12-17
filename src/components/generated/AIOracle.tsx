@@ -51,17 +51,20 @@ const AIOracle = () => {
 
   const handleSubmit = () => {
     if (!predictionMade) {
-      const difference = Math.abs(sliderValue - events[currentEventIndex].correctValue);
+      const currentEvent = events[currentEventIndex];
+      if (!currentEvent) return;
+      
+      const difference = Math.abs(sliderValue - currentEvent.correctValue);
       const isCorrect = difference <= 15; // Adjust threshold as needed
 
       if (isCorrect) {
         setScore(prevScore => prevScore + 100);
         setResult('correct');
-        setFeedbackMessage(events[currentEventIndex].feedbackCorrect);
+        setFeedbackMessage(currentEvent.feedbackCorrect);
 
       } else {
         setResult('incorrect');
-        setFeedbackMessage(events[currentEventIndex].feedbackIncorrect);
+        setFeedbackMessage(currentEvent.feedbackIncorrect);
       }
       setPredictionMade(true);
     }
@@ -105,7 +108,7 @@ const AIOracle = () => {
 
       <div className="bg-slate-800 rounded-lg shadow-lg p-6 w-full max-w-md">
         <div className="mb-4">
-          <p className="text-lg text-gray-300 mb-2">{events[currentEventIndex].description}</p>
+          <p className="text-lg text-gray-300 mb-2">{events[currentEventIndex]?.description}</p>
         </div>
 
         <div className="flex items-center justify-between mb-4">

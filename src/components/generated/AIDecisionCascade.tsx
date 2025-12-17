@@ -77,10 +77,13 @@ const GameProvider: React.FC<GameProviderProps> = ({ children }) => {
 
   const startLevel = (level: number) => {
     const processIndex = (level - 1) % processes.length;
-    setInterventionPoints([processes[processIndex].intervention]);
-    setCurrentProcess(processes[processIndex].steps);
-    setSelectedIntervention(null);
-    setIsCorrect(null);
+    const process = processes[processIndex];
+    if (process) {
+      setInterventionPoints([process.intervention]);
+      setCurrentProcess(process.steps);
+      setSelectedIntervention(null);
+      setIsCorrect(null);
+    }
   }
 
   const addScore = (points: number) => {

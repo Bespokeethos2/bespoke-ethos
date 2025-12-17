@@ -118,8 +118,7 @@ const ClevelandComeback = () => {
                         className="border border-slate-700 rounded-md p-4 flex flex-col items-center"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        onClick={() => handleBrickAllocation(sector.name)}
-                        disabled={gameOver}
+                        onClick={() => !gameOver && handleBrickAllocation(sector.name)}
                         style={{cursor: gameOver ? 'not-allowed' : 'pointer'}}
                     >
                         <sector.icon className="w-8 h-8 mb-2" />

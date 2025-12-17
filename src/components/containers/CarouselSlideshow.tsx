@@ -94,6 +94,11 @@ export function CarouselSlideshow({
 
   const currentSlide = slides[currentIndex];
 
+  // Return null if slides array is empty or currentSlide is undefined
+  if (!currentSlide) {
+    return null;
+  }
+
   return (
     <div
       className={clsx(

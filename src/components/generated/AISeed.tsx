@@ -3,7 +3,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, RotateCcw, XCircle, CheckCircle, AlertTriangle } from 'lucide-react';
-import styled from 'styled-components';
 
 const AISeed = () => {
     const [code, setCode] = useState(50);
@@ -69,8 +68,11 @@ const AISeed = () => {
                 'Developed a new algorithm for medical diagnosis.',
             ];
             const randomIndex = Math.floor(Math.random() * outputs.length);
-            setOutput(outputs[randomIndex]);
-            setMessage(outputs[randomIndex]);
+            const selectedOutput = outputs[randomIndex];
+            if (selectedOutput) {
+                setOutput(selectedOutput);
+                setMessage(selectedOutput);
+            }
             setHarvestCount(harvestCount + 1);
             setCode(50);
             setData(50);
