@@ -59,7 +59,7 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(249,115,22,0.15)_0%,rgba(0,0,0,1)_80%)]" />
                 <Image
                   src="/assets/generated/hero-home.png"
-                  alt=""
+                  alt="Abstract warm orange geometric pattern background for Bespoke Ethos hero section"
                   fill
                   className="object-cover opacity-20 mix-blend-lighten"
                   priority

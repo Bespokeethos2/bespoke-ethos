@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Intelligence Platform | Enterprise AI API | Bespoke Ethos',
   description:
     'Production-grade AI infrastructure. Unify GPT-4o, Gemini Vision, and open-source models with automatic failover, transparent billing, and edge performance. Deploy in 5 minutes.',
+  alternates: { canonical: '/intelligence' },
   openGraph: {
     title: 'Intelligence Platform | Enterprise AI API',
     description:
@@ -15,9 +16,57 @@ export const metadata: Metadata = {
   },
 };
 
+function IntelligenceJsonLd() {
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
+  const breadcrumbJson = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": base
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Intelligence Platform",
+        "item": `${base}/intelligence`
+      }
+    ]
+  };
+  
+  const productJson = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Bespoke Ethos Intelligence Platform",
+    "description": "Production-grade AI infrastructure. Unify GPT-4o, Gemini Vision, and open-source models with automatic failover, transparent billing, and edge performance.",
+    "brand": {
+      "@type": "Brand",
+      "name": "Bespoke Ethos"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "99",
+      "highPrice": "999",
+      "offerCount": "3"
+    }
+  };
+  
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJson) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJson) }} />
+    </>
+  );
+}
+
 export default function IntelligencePage() {
   return (
     <>
+      <IntelligenceJsonLd />
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-linear-to-br from-slate-900 via-purple-950 to-slate-900 py-20">
         <div className="absolute inset-0 pointer-events-none">

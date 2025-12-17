@@ -124,7 +124,7 @@ export default function SolutionsPage() {
                     <div className="w-12 h-12 rounded-lg bg-slate-900/50 border border-white/10 flex items-center justify-center overflow-hidden p-2">
                        <Image 
                          src={s.logo} 
-                         alt="" 
+                         alt={`${s.title} logo icon`}
                          width={48} 
                          height={48} 
                          className="object-contain w-full h-full opacity-80 group-hover:opacity-100 transition-opacity"
