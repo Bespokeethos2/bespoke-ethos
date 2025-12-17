@@ -5,7 +5,7 @@ export default function AI101TrainingDataPopup({ onClose }: { onClose: () => voi
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
       <div className="bg-white dark:bg-dark-surface-secondary rounded-xl shadow-2xl max-w-md w-full p-6 relative">
         <button
-          className="absolute top-3 right-3 text-lg text-gray-500 hover:text-navy-primary"
+          className="absolute top-3 right-3 text-lg text-slate-400 hover:text-orange-500 min-w-[44px] min-h-[44px] flex items-center justify-center"
           onClick={onClose}
           aria-label="Close"
         >

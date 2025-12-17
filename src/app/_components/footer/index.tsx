@@ -134,7 +134,7 @@ function FooterLayout({
             <ul className="space-y-3">
               {navItems.slice(0, 5).map(({ title, url }) => (
                 <li key={title}>
-                  <Link href={url} className="text-sm text-slate-900 hover:text-orange-600 hover:underline transition-colors font-bold">
+                  <Link href={url} className="text-sm text-slate-900 hover:text-orange-600 hover:underline transition-colors font-bold inline-block py-1">
                     {title}
                   </Link>
                 </li>
@@ -148,7 +148,7 @@ function FooterLayout({
             <ul className="space-y-3">
                {navItems.slice(5).map(({ title, url }) => (
                 <li key={title}>
-                  <Link href={url} className="text-sm text-slate-900 hover:text-orange-600 hover:underline transition-colors font-bold">
+                  <Link href={url} className="text-sm text-slate-900 hover:text-orange-600 hover:underline transition-colors font-bold inline-block py-1">
                     {title}
                   </Link>
                 </li>
@@ -160,9 +160,9 @@ function FooterLayout({
            <div>
             <h3 className="text-sm font-black text-slate-950 mb-4 uppercase tracking-wide">Solutions</h3>
             <ul className="space-y-3">
-                <li><Link href="/products/cadence" className="text-sm text-slate-900 hover:text-orange-600 hover:underline font-bold">Cadence AI Concierge</Link></li>
-                <li><Link href="/solutions/consensus-engine" className="text-sm text-slate-900 hover:text-orange-600 hover:underline font-bold">Consensus Engine</Link></li>
-                <li><Link href="/solutions/redbridging" className="text-sm text-slate-900 hover:text-orange-600 hover:underline font-bold">Automation Rescue</Link></li>
+                <li><Link href="/products/cadence" className="text-sm text-slate-900 hover:text-orange-600 hover:underline font-bold inline-block py-1">Cadence AI Concierge</Link></li>
+                <li><Link href="/solutions/consensus-engine" className="text-sm text-slate-900 hover:text-orange-600 hover:underline font-bold inline-block py-1">Consensus Engine</Link></li>
+                <li><Link href="/solutions/redbridging" className="text-sm text-slate-900 hover:text-orange-600 hover:underline font-bold inline-block py-1">Automation Rescue</Link></li>
             </ul>
           </div>
         </div>

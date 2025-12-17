@@ -15,7 +15,7 @@ export function LabeledInput({
       <input
         className={clsx(
           className,
-          "rounded-md border border-border bg-surface-secondary py-2 pl-3 pr-3.5 text-sm placeholder:text-sm placeholder:text-text-tertiary/50 dark:border-dark-border dark:bg-dark-surface-tertiary dark:placeholder:text-dark-text-tertiary/50",
+          "rounded-md border border-border bg-surface-secondary py-2 pl-3 pr-3.5 min-h-[44px] text-base placeholder:text-sm placeholder:text-text-tertiary/50 dark:border-dark-border dark:bg-dark-surface-tertiary dark:placeholder:text-dark-text-tertiary/50",
         )}
         id={id}
         {...props}
@@ -40,7 +40,7 @@ export const LabeledTextarea = ({
         ref={ref}
         className={clsx(
           className,
-          "rounded-md border border-border bg-surface-secondary py-2 pl-3 pr-3.5 text-sm [form-sizing:content] placeholder:text-sm placeholder:text-text-tertiary dark:border-dark-border dark:bg-dark-surface-tertiary dark:placeholder:text-dark-text-tertiary",
+          "rounded-md border border-border bg-surface-secondary py-2 pl-3 pr-3.5 min-h-[44px] text-base [form-sizing:content] placeholder:text-sm placeholder:text-text-tertiary dark:border-dark-border dark:bg-dark-surface-tertiary dark:placeholder:text-dark-text-tertiary",
         )}
         id={id}
         {...props}

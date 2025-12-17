@@ -73,7 +73,7 @@ function ContactForm() {
           href="https://form.jotform.com/253342264894160"
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center justify-center rounded-full bg-accent-600 px-6 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-accent-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2"
+          className="inline-flex items-center justify-center rounded-full bg-accent-600 px-6 min-h-[44px] text-sm font-semibold text-white shadow-sm hover:bg-accent-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2"
         >
           Make a schedule on Jotform
         </Link>

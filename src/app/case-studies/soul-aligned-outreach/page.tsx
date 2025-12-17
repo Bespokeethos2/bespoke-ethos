@@ -66,10 +66,10 @@ export default function SoulAlignedOutreachCaseStudy() {
 
           {/* Bento Grid Stats */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div className="md:col-span-2 rounded-2xl border border-border bg-surface-secondary/50 p-8 dark:border-dark-border dark:bg-dark-surface-secondary/50 flex flex-col justify-between group hover:border-blue-500/30 transition-colors">
+            <div className="md:col-span-2 rounded-2xl border border-border bg-surface-secondary/50 p-8 dark:border-dark-border dark:bg-dark-surface-secondary/50 flex flex-col justify-between group hover:border-orange-500/30 transition-colors">
                <div>
                   <p className="text-sm font-medium text-text-tertiary uppercase tracking-wider">Engagement Rate</p>
-                  <p className="mt-2 text-5xl font-bold text-text-primary dark:text-dark-text-primary group-hover:text-blue-600 transition-colors">400%</p>
+                  <p className="mt-2 text-5xl font-bold text-text-primary dark:text-dark-text-primary group-hover:text-orange-500 transition-colors">400%</p>
                </div>
                <p className="text-sm text-text-secondary mt-4">Increase in positive response rate compared to industry standard.</p>
             </div>
@@ -121,7 +121,7 @@ export default function SoulAlignedOutreachCaseStudy() {
                           "Voice Synthesis: Final draft rewritten for 'Upton's Voice'."
                         ].map((item, i) => (
                           <li key={i} className="flex items-start gap-4 text-slate-300">
-                             <div className="flex-shrink-0 w-6 h-6 rounded-full bg-slate-500/20 border border-blue-500/50 flex items-center justify-center text-xs text-blue-400 font-mono">{i + 1}</div>
+                             <div className="flex-shrink-0 w-6 h-6 rounded-full bg-slate-500/20 border border-orange-500/50 flex items-center justify-center text-xs text-orange-400 font-mono">{i + 1}</div>
                              <span>{item}</span>
                           </li>
                         ))}

@@ -24,8 +24,8 @@ export const $button = cva(
         true: "px-0 py-0 bg-transparent border-none hover:bg-transparent hover:border-none dark:hover:bg-transparent dark:hover:border-none dark:bg-transparent dark:border-none",
       },
       size: {
-        md: "inline-flex items-center justify-center px-3.5 text-sm h-8 md:px-5",
-        lg: "inline-flex items-center justify-center h-9 px-5 text-sm md:text-base md:h-10",
+        md: "inline-flex items-center justify-center px-3.5 text-sm min-h-[44px] md:px-5",
+        lg: "inline-flex items-center justify-center min-h-[44px] px-5 text-sm md:text-base md:min-h-[48px]",
       },
     },
   },

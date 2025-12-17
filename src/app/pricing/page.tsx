@@ -92,7 +92,7 @@ export default function PricingPage() {
              {/* 3. CUSTOM WORKFLOWS */}
              <PremiumContainer variant="obsidian" className="p-10 md:p-12 flex flex-col h-full">
                <div className="mb-8">
-                  <span className="text-sm font-bold text-sky-400 uppercase tracking-widest mb-3 block">Infrastructure</span>
+                  <span className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-3 block">Infrastructure</span>
                   <Heading align="left"><h2 className="text-4xl font-hero-accent text-white mb-3">Custom Workflows</h2></Heading>
                   <p className="text-slate-400 text-base">Automation Skyway.</p>
                </div>
@@ -101,7 +101,7 @@ export default function PricingPage() {
                <ul className="space-y-4 mb-10 flex-grow">
                  {["End-to-end process automation", "Human-in-the-loop approvals", "Error handling & logging", "Full documentation handover"].map((item, i) => (
                    <li key={i} className="flex gap-4 text-slate-300 text-base items-start">
-                     <span className="text-sky-500 font-bold text-lg flex-shrink-0 mt-0.5">✓</span> <span>{item}</span>
+                     <span className="text-slate-500 font-bold text-lg flex-shrink-0 mt-0.5">✓</span> <span>{item}</span>
                    </li>
                  ))}
                </ul>

@@ -15,7 +15,7 @@ export function Select({
     <div className="relative flex flex-col">
       <select
         className={clsx(
-          "appearance-none rounded-md border border-border bg-surface-secondary py-2 pl-3 pr-3.5 text-sm placeholder:text-sm placeholder:text-text-tertiary/50 dark:border-dark-border dark:bg-dark-surface-tertiary dark:placeholder:text-dark-text-tertiary/50",
+          "appearance-none rounded-md border border-border bg-surface-secondary py-2 pl-3 pr-3.5 min-h-[44px] text-base placeholder:text-sm placeholder:text-text-tertiary/50 dark:border-dark-border dark:bg-dark-surface-tertiary dark:placeholder:text-dark-text-tertiary/50",
           value === "" && "text-text-tertiary/50 dark:text-dark-text-tertiary/50",
           className,
         )}

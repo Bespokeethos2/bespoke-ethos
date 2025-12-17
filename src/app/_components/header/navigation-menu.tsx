@@ -69,7 +69,7 @@ function NavigationMenuLink({
     <NavigationMenuLinkPrimitive
       asChild
       className={clsx(
-        "hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary inline-flex h-6 shrink-0 items-center justify-center gap-1 rounded-full px-4 pb-px tracking-tight lg:h-7 transition-colors duration-200",
+        "hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary inline-flex min-h-[44px] shrink-0 items-center justify-center gap-1 rounded-full px-4 pb-px tracking-tight transition-colors duration-200",
         className,
       )}
       {...props}
@@ -287,7 +287,7 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
                       ) : (
                         <Link
                           key={link._id}
-                          className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-base font-medium hover:bg-surface-secondary dark:hover:bg-dark-surface-secondary"
+                          className="flex items-center gap-2 rounded-lg px-3 py-2.5 min-h-[44px] text-base font-medium hover:bg-surface-secondary dark:hover:bg-dark-surface-secondary"
                           href={link.href ?? "#"}
                           onClick={handleOff}
                         >
@@ -367,7 +367,7 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
         aria-label="Toggle menu"
         aria-expanded={ariaExpanded(isOn)}
         aria-controls="mobile-navigation-panel"
-        className="border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary col-start-3 flex items-center justify-center gap-2 justify-self-end rounded-sm border p-2 xl:hidden xl:h-7"
+        className="border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary col-start-3 flex items-center justify-center gap-2 justify-self-end rounded-sm border p-2 min-w-[44px] min-h-[44px] xl:hidden"
         onClick={handleToggle}
       >
         <HamburgerMenuIcon className="size-4" />
