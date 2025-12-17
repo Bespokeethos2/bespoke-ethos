@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, RotateCcw, XCircle, CheckCircle, AlertTriangle } from 'lucide-react';
 
@@ -13,6 +13,15 @@ const AISeed = () => {
     const [message, setMessage] = useState<string>('Nurture the AI Seed with Code, Data, and Compute.');
     const [isHarvestable, setIsHarvestable] = useState(false);
     const [harvestCount, setHarvestCount] = useState(0);
+
+    // Generate stable random positions for particles
+    const particlePositions = useMemo(() => {
+        return Array.from({ length: 100 }, () => ({
+            top: Math.random() * 100,
+            left: Math.random() * 100,
+            delay: Math.random()
+        }));
+    }, []);
 
     useEffect(() => {
         const health = code + data + compute;
@@ -84,19 +93,23 @@ const AISeed = () => {
 
     const renderParticles = () => {
         const particles = [];
-        for (let i = 0; i < seedHealth; i++) {
-            particles.push(
-                <motion.div
-                    key={i}
-                    className="absolute w-1 h-1 rounded-full bg-teal-400"
-                    style={{
-                        top: `${Math.random() * 100}%`,
-                        left: `${Math.random() * 100}%`,
-                    }}
-                    animate={{ opacity: [0.2, 0.8, 0.2] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: Math.random() }}
-                />
-            );
+        const count = Math.min(Math.floor(seedHealth), particlePositions.length);
+        for (let i = 0; i < count; i++) {
+            const pos = particlePositions[i];
+            if (pos) {
+                particles.push(
+                    <motion.div
+                        key={i}
+                        className="absolute w-1 h-1 rounded-full bg-teal-400"
+                        style={{
+                            top: `${pos.top}%`,
+                            left: `${pos.left}%`,
+                        }}
+                        animate={{ opacity: [0.2, 0.8, 0.2] }}
+                        transition={{ duration: 2, repeat: Infinity, delay: pos.delay }}
+                    />
+                );
+            }
         }
         return particles;
     };

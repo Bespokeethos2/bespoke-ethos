@@ -26,7 +26,7 @@ async function verifyBilling() {
     console.log('✅ Billing/Credits appear to be active.');
   } catch (error) {
     console.error('❌ API Request Failed:', error);
-    if (error.message.includes('quota') || error.message.includes('billing')) {
+    if (error instanceof Error && (error.message.includes('quota') || error.message.includes('billing'))) {
       console.error('⚠️  This error indicates a billing or quota issue.');
     }
   }

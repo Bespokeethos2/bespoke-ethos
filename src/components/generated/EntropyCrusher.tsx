@@ -1,7 +1,7 @@
 
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 
 // Define the TaskParticle type
@@ -15,7 +15,9 @@ type TaskParticle = {
 const EntropyCrusher = () => {
   const [isOptimized, setIsOptimized] = useState(false);
   const [particles, setParticles] = useState<TaskParticle[]>([]);
-  const [chaosReduction, setChaosReduction] = useState(0);
+
+  // Derive chaos reduction from isOptimized state
+  const chaosReduction = useMemo(() => isOptimized ? 98 : 0, [isOptimized]);
 
   useEffect(() => {
     // Generate random particles on component mount
@@ -27,15 +29,6 @@ const EntropyCrusher = () => {
     });
     setParticles(initialParticles);
   }, []);
-
-  useEffect(() => {
-    // Simulate chaos reduction when optimized
-    if (isOptimized) {
-      setChaosReduction(98); // Simulated reduction percentage
-    } else {
-      setChaosReduction(0);
-    }
-  }, [isOptimized]);
 
   const handleMagnetDrop = () => {
     // Trigger optimization when magnet is "dropped"
