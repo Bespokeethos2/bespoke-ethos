@@ -1,20 +1,64 @@
 
 'use client';
 
-import { useChat } from 'ai/react';
-import { useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, FormEvent } from 'react';
 import { Send, X, MessageCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { motion, AnimatePresence } from 'framer-motion';
 
+interface Message {
+  id: string;
+  role: 'user' | 'assistant';
+  content: string;
+}
+
 export function GeminiChatbot() {
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
-    api: '/api/chat/google',
-  });
-  
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [input, setInput] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInput(e.target.value);
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    if (!input.trim() || isLoading) return;
+
+    const userMessage: Message = {
+      id: Date.now().toString(),
+      role: 'user',
+      content: input,
+    };
+
+    setMessages((prev) => [...prev, userMessage]);
+    setInput('');
+    setIsLoading(true);
+
+    try {
+      const response = await fetch('/api/chat/google', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: [...messages, userMessage] }),
+      });
+
+      if (!response.ok) throw new Error('Failed to fetch');
+
+      const data = await response.json();
+      const assistantMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        role: 'assistant',
+        content: data.message || 'Sorry, I could not generate a response.',
+      };
+
+      setMessages((prev) => [...prev, assistantMessage]);
+    } catch (error) {
+      console.error('Error:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -31,12 +75,12 @@ export function GeminiChatbot() {
         animate={{ scale: 1 }}
       >
         {!isOpen && (
-            <Button 
+            <button 
                 onClick={() => setIsOpen(true)}
-                className="h-14 w-14 rounded-full bg-teal-500 hover:bg-teal-400 shadow-lg shadow-teal-500/20"
+                className="h-14 w-14 rounded-full bg-teal-500 hover:bg-teal-400 shadow-lg shadow-teal-500/20 flex items-center justify-center"
             >
                 <MessageCircle className="h-6 w-6 text-slate-900" />
-            </Button>
+            </button>
         )}
       </motion.div>
 
@@ -55,9 +99,9 @@ export function GeminiChatbot() {
                         <div className="h-2 w-2 rounded-full bg-teal-500 animate-pulse" />
                         <span className="font-bold text-slate-100">Bespoke Assistant</span>
                     </div>
-                    <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
+                    <button onClick={() => setIsOpen(false)} className="p-2 hover:bg-slate-700 rounded-md">
                         <X className="h-5 w-5 text-slate-400" />
-                    </Button>
+                    </button>
                 </div>
 
                 {/* Messages */}
@@ -91,15 +135,15 @@ export function GeminiChatbot() {
 
                 {/* Input */}
                 <form onSubmit={handleSubmit} className="p-4 bg-slate-800 border-t border-slate-700 flex gap-2">
-                    <Input 
+                    <input 
                         value={input} 
                         onChange={handleInputChange} 
                         placeholder="Ask about AI..."
-                        className="flex-1 bg-slate-900 border-slate-700 text-slate-100 placeholder:text-slate-500 focus-visible:ring-teal-500"
+                        className="flex-1 bg-slate-900 border border-slate-700 text-slate-100 placeholder:text-slate-500 focus:ring-2 focus:ring-teal-500 rounded-md px-3 py-2"
                     />
-                    <Button type="submit" size="icon" className="bg-teal-500 hover:bg-teal-400 text-slate-900">
+                    <button type="submit" className="bg-teal-500 hover:bg-teal-400 text-slate-900 p-2 rounded-md">
                         <Send className="h-4 w-4" />
-                    </Button>
+                    </button>
                 </form>
             </motion.div>
         )}

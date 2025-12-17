@@ -20,6 +20,20 @@ const SupplierStack = () => {
   const blockWidth = 60;
   const blockHeight = 20;
 
+  const addBlock = React.useCallback(() => {
+    const randomColor = blockColors[Math.floor(Math.random() * blockColors.length)];
+    const newBlock = {
+      id: blockCount,
+      color: randomColor || 'bg-gray-500', // Fallback color
+      height: blockHeight,
+      width: blockWidth,
+      x: 0,
+      y: -blockHeight,
+    };
+    setBlocks((prevBlocks) => [...prevBlocks, newBlock]);
+    setBlockCount((prevCount) => prevCount + 1);
+  }, [blockCount, blockColors, blockHeight, blockWidth]);
+
   useEffect(() => {
     if (isRunning && !isGameOver) {
       const intervalId = setInterval(() => {
@@ -28,20 +42,7 @@ const SupplierStack = () => {
 
       return () => clearInterval(intervalId);
     }
-  }, [isRunning, isGameOver]);
-
-  const addBlock = () => {
-    const newBlock = {
-      id: blockCount,
-      color: blockColors[Math.floor(Math.random() * blockColors.length)],
-      height: blockHeight,
-      width: blockWidth,
-      x: 0,
-      y: -blockHeight,
-    };
-    setBlocks((prevBlocks) => [...prevBlocks, newBlock]);
-    setBlockCount((prevCount) => prevCount + 1);
-  };
+  }, [isRunning, isGameOver, addBlock]);
 
   useEffect(() => {
     if (blocks.length > 0) {

@@ -22,11 +22,16 @@ const TheAlgorithmicDilemma = () => {
     const newSocietalImpact = accuracy * 0.2 + privacy * 0.5 - efficiency * 0.1 + Math.random()*5;
     const newEthicalScore = privacy * 0.6 + societalImpact * 0.3 - accuracy * 0.2 + Math.random()*5;
 
-    setProfit(Math.max(0, Math.min(100, newProfit)));
-    setSocietalImpact(Math.max(0, Math.min(100, newSocietalImpact)));
-    setEthicalScore(Math.max(0, Math.min(100, newEthicalScore)));
+    const clampedProfit = Math.max(0, Math.min(100, newProfit));
+    const clampedSocietalImpact = Math.max(0, Math.min(100, newSocietalImpact));
+    const clampedEthicalScore = Math.max(0, Math.min(100, newEthicalScore));
 
-    if (ethicalScore < 10 && profit > 80) {
+    setProfit(clampedProfit);
+    setSocietalImpact(clampedSocietalImpact);
+    setEthicalScore(clampedEthicalScore);
+
+    // Check for moral bankruptcy after state updates
+    if (clampedEthicalScore < 10 && clampedProfit > 80) {
       setMoralBankruptcy(true);
       setIsRunning(false);
       setGameOver(true);
@@ -40,11 +45,16 @@ const TheAlgorithmicDilemma = () => {
         calculateMetrics();
       }, 1000);
       return () => clearInterval(timer);
-    } else if (timeRemaining === 0) {
+    }
+  }, [isRunning, timeRemaining, calculateMetrics]);
+
+  // Separate effect to handle game over when time runs out
+  useEffect(() => {
+    if (timeRemaining === 0 && isRunning) {
       setIsRunning(false);
       setGameOver(true);
     }
-  }, [isRunning, timeRemaining, calculateMetrics]);
+  }, [timeRemaining, isRunning]);
 
   const handleSliderChange = (setter: (value: number) => void) => (event: React.ChangeEvent<HTMLInputElement>) => {
     setter(parseInt(event.target.value, 10));

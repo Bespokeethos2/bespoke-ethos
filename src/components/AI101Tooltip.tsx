@@ -113,14 +113,9 @@ export function AI101Tooltip({ term, children, inline = true }: AI101TooltipProp
   const [position, setPosition] = useState({ top: 0, left: 0 });
   const triggerRef = useRef<HTMLSpanElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
-  const timeoutRef = useRef<NodeJS.Timeout>();
+  const timeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
   const glossaryEntry = AI_GLOSSARY[term];
-
-  if (!glossaryEntry) {
-    console.warn(`AI101Tooltip: Unknown term "${term}"`);
-    return <>{children}</>;
-  }
 
   // Position calculation
   useEffect(() => {
@@ -202,6 +197,12 @@ export function AI101Tooltip({ term, children, inline = true }: AI101TooltipProp
   };
 
   const tooltipId = `ai101-tooltip-${term}`;
+
+  // Early return after all hooks
+  if (!glossaryEntry) {
+    console.warn(`AI101Tooltip: Unknown term "${term}"`);
+    return <>{children}</>;
+  }
 
   return (
     <>

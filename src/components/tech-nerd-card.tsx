@@ -2,15 +2,18 @@ import Image from "next/image";
 import Link from "next/link";
 
 type TechNerdCardProps = {
-  product: "cadence" | "consensus";
+  product: "cadence" | "consensus" | "skyway";
 };
 
 export function TechNerdCard({ product }: TechNerdCardProps) {
   const isCadence = product === "cadence";
+  const isSkyway = product === "skyway";
 
   const href =
     isCadence
       ? "/contact?service=llm-setups&topic=cadence-technical-brief"
+      : isSkyway
+      ? "/contact?service=llm-setups&topic=automation-skyway-technical-brief"
       : "/contact?service=llm-setups&topic=consensus-engine-technical-brief";
 
   return (
@@ -30,10 +33,12 @@ export function TechNerdCard({ product }: TechNerdCardProps) {
         <p className="text-xs text-text-secondary dark:text-dark-text-secondary sm:text-sm">
           {isCadence
             ? "Curious how Cadence actually works behind the scenes—from API calls to safety rails and handoffs?"
+            : isSkyway
+            ? "Curious how Automation Skyway orchestrates complex workflows across systems?"
             : "Curious how Consensus Engine turns one big question into a calm, cited brief without being a pile of prompts?"}
         </p>
         <Link href={href} className="text-xs font-semibold text-accent-600 hover:underline sm:text-sm">
-          Ask for the {isCadence ? "Cadence" : "Consensus Engine"} technical brief
+          Ask for the {isCadence ? "Cadence" : isSkyway ? "Automation Skyway" : "Consensus Engine"} technical brief
         </Link>
       </div>
       <div className="pt-1 sm:pt-0">

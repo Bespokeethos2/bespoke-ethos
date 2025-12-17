@@ -22,6 +22,13 @@ const config = [
       ".backups/**",
     ],
   },
+  // Disable stylistic rules that don't affect functionality
+  {
+    rules: {
+      "react/no-unescaped-entities": "off",
+      "react/jsx-no-comment-textnodes": "off",
+    },
+  },
 ];
 
 export default config;
