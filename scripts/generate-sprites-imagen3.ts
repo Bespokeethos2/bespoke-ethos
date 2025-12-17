@@ -1,4 +1,4 @@
-import { ImageGenerationModel, VertexAI } from "@google-cloud/vertex-ai";
+import { ImageGenerationModel, VertexAI } from "@google-cloud/vertexai";
 import * as fs from "fs";
 import * as path from "path";
 

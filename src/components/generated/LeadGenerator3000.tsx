@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, RotateCcw, Users, Network, Lightning, TrendingUp } from 'lucide-react';
+import { Play, RotateCcw, Users, Network, Zap, TrendingUp } from 'lucide-react';
 
 const LeadGenerator3000 = () => {
   const [leads, setLeads] = useState(0);
@@ -16,7 +16,7 @@ const LeadGenerator3000 = () => {
   const [upgradeCostMultiplier, setUpgradeCostMultiplier] = useState(1.15);
 
   const [availableUpgrades, setAvailableUpgrades] = useState([
-    { id: 'fasterClicks', name: 'Faster Clicks', cost: 50, description: 'Increase leads per click.', purchased: false, icon: Lightning },
+    { id: 'fasterClicks', name: 'Faster Clicks', cost: 50, description: 'Increase leads per click.', purchased: false, icon: Zap },
     { id: 'autoFollowUp', name: 'Automated Follow-up', cost: 200, description: 'Generate leads automatically.', purchased: false, icon: RotateCcw },
     { id: 'socialMedia', name: 'Social Media Integration', cost: 500, description: 'Boost leads through social media.', purchased: false, icon: Network },
     { id: 'teamExpansion', name: 'Team Expansion', cost: 1000, description: 'Hire more agents.', purchased: false, icon: Users },

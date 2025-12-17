@@ -96,17 +96,8 @@ const config: Config = {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
         },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-          // ... preserve existing accent object below if needed, but 'accent' key collision?
-          // The existing 'accent' object uses RGB vars. 
-          // I will use 'accent-color' or just let the existing accent object stand if it works.
-          // Re-reading: 'accent' is already defined as an object on line 18.
-          // I should NOT overwrite it with a string/simple object unless I merge.
-          // The existing accent object is robust 50-950.
-          // I will only add the missing ones: border, input, ring, background, foreground.
-        },
+        // Note: Shadcn 'accent' with DEFAULT/foreground is merged into the accent scale above.
+        // Use accent-500 for DEFAULT behavior. Foreground handled by text-on-accent.
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
