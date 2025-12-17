@@ -61,7 +61,6 @@ const nextConfig = {
     },
   },
   // TEMPORARY: Disable minification to bypass Webpack/Terser crash
-  swcMinify: false,
   webpack: (config, { dev }) => {
     if (!dev) {
       config.optimization.minimize = false;
