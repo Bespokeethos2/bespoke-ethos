@@ -50,7 +50,7 @@ export default function HomePage() {
       {/* 1. HERO: The Console */}
       <section className="relative z-10 pt-28 pb-24 sm:pt-32 sm:pb-28 md:pt-44 md:pb-36 px-4 sm:px-6">
         <div className="container mx-auto max-w-7xl">
-          <PremiumContainer variant="glass" className="p-8 md:p-10 lg:p-12 border-orange-500/20 shadow-2xl shadow-orange-900/10">
+          <PremiumContainer variant="glass" className="p-8 md:p-10 lg:p-12 bg-slate-900/60 backdrop-blur-xl border border-white/20 shadow-2xl shadow-orange-900/10">
             <div className="relative overflow-hidden rounded-xl bg-slate-950/90 aspect-[16/9] md:aspect-[21/9] flex items-center justify-center">
               
               {/* Background Abstract Visuals (Warm Orange) */}
@@ -158,8 +158,8 @@ export default function HomePage() {
                    The Anti-Consulting Offer
                  </div>
                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-hero-accent leading-tight">
-                   <span className="text-white text-glow-crimson drop-shadow-lg">Stop paying for</span>{" "}
-                   <span className="line-through decoration-orange-400/60 decoration-2 text-slate-400">slide decks.</span>
+                   <span className="text-white text-glow-crimson drop-shadow-lg">Fixed price.</span>{" "}
+                   <span className="text-white text-glow-crimson drop-shadow-lg">No surprises.</span>
                  </h2>
                  <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-100 leading-relaxed">
                    Enterprise firms charge $300/hr to &quot;delve&quot; into your problems. 

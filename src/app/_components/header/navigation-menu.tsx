@@ -34,7 +34,7 @@ export function NavigationMenuHeader({
   return (
     <nav aria-label="Primary" role="navigation">
       <NavigationMenu
-        className={clsx("relative z-1 flex-col justify-center xl:flex", className)}
+        className={clsx("relative z-1 hidden flex-col justify-center xl:flex", className)}
         delayDuration={50}
       >
         <NavigationMenuList className="flex flex-1 gap-0.5 px-4">
