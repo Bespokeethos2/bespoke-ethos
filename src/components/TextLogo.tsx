@@ -5,10 +5,13 @@ interface TextLogoProps {
   variant?: "header" | "mobile";
 }
 
+const LOGO_SIZE_CLASSES = {
+  mobile: "text-xl sm:text-2xl",
+  header: "text-2xl sm:text-3xl md:text-4xl",
+} as const;
+
 export const TextLogo: React.FC<TextLogoProps> = ({ className = "", variant = "header" }) => {
-  const sizeClasses = variant === "mobile" 
-    ? "text-xl sm:text-2xl" 
-    : "text-2xl sm:text-3xl md:text-4xl";
+  const sizeClasses = LOGO_SIZE_CLASSES[variant];
   
   return (
     <span className={`font-black tracking-tight ${sizeClasses} ${className}`}>

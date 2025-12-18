@@ -210,7 +210,7 @@ export function DesktopMenu({ navbar, rightCtas }: HeaderData) {
       <div className="hidden items-center gap-2 justify-self-end xl:flex">
         {ctaItems.map((cta) => {
           return (
-            <ButtonLink key={cta._id} className="px-3.5! min-h-[44px]" href={cta.href} intent={cta.type}>
+            <ButtonLink key={cta._id} className="min-h-[44px]" href={cta.href} intent={cta.type}>
               {cta.label}
             </ButtonLink>
           );
