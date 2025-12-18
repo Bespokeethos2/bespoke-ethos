@@ -12,10 +12,10 @@ import { z } from 'zod';
 // 1. VISION & MULTIMODAL (Vertex AI / Gemini)
 // The "Eyes" of the Intelligence System. Best for analyzing images, screenshots, and visual data.
 const google = createGoogleGenerativeAI({
-  apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY,
+  apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY || process.env.GOOGLE_GEMINI_API,
 });
 
-export const visionModel = google('models/gemini-1.5-pro-latest');
+export const visionModel = google('models/gemini-2.0-flash');
 
 // 2. CODING & REASONING (OpenAI / GPT-4o)
 // The "Hands" of the Intelligence System. Best for complex code generation and architectural logic.
