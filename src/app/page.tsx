@@ -49,9 +49,9 @@ export default function HomePage() {
     <div aria-label="Bespoke Ethos homepage" className="min-h-screen relative overflow-hidden bg-background selection:bg-orange-500/30">
       
       {/* 1. HERO: The Console */}
-      <section className="relative z-10 pt-24 pb-20 sm:pt-28 sm:pb-24 md:pt-40 md:pb-32 px-4 sm:px-6">
+      <section className="relative z-10 pt-28 pb-24 sm:pt-32 sm:pb-28 md:pt-44 md:pb-36 px-4 sm:px-6">
         <div className="container mx-auto max-w-7xl">
-          <PremiumContainer variant="glass" className="p-6 md:p-8 lg:p-10 border-orange-500/20 shadow-2xl shadow-orange-900/10">
+          <PremiumContainer variant="glass" className="p-8 md:p-10 lg:p-12 border-orange-500/20 shadow-2xl shadow-orange-900/10">
             <div className="relative overflow-hidden rounded-xl bg-slate-950/90 aspect-[16/9] md:aspect-[21/9] flex items-center justify-center">
               
               {/* Background Abstract Visuals (Warm Orange) */}
@@ -131,7 +131,7 @@ export default function HomePage() {
       </section>
 
       {/* 2. THE CHASM: Authentic Voice */}
-      <section className="relative z-10 py-20 sm:py-24 md:py-28 lg:py-32 px-4 sm:px-6">
+      <section className="relative z-10 py-24 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6">
         <div className="container mx-auto max-w-4xl">
            <div className="relative">
              {/* Quote Decor */}
@@ -159,15 +159,15 @@ export default function HomePage() {
       </section>
 
       {/* 3. SOCIAL PROOF */}
-      <section className="relative z-10 py-12 sm:py-14 md:py-18 border-y border-white/5 bg-slate-950/50 backdrop-blur-sm px-4 sm:px-6">
-        <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-slate-500 mb-8 sm:mb-10 md:mb-12">Trusted Operating Systems</p>
+      <section className="relative z-10 py-16 sm:py-20 md:py-24 border-y border-white/5 bg-slate-950/50 backdrop-blur-sm px-4 sm:px-6">
+        <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-slate-500 mb-10 sm:mb-12 md:mb-16">Trusted Operating Systems</p>
         <TestimonialMarquee />
       </section>
 
       {/* 4. CAPABILITIES: Bento */}
-      <section className="relative z-10 py-20 sm:py-24 md:py-32 lg:py-36 bg-slate-950 px-4 sm:px-6">
+      <section className="relative z-10 py-24 sm:py-28 md:py-36 lg:py-44 bg-slate-950 px-4 sm:px-6">
         <div className="container mx-auto max-w-7xl">
-          <div className="mb-12 sm:mb-14 md:mb-18 md:flex md:items-end md:justify-between md:gap-8">
+          <div className="mb-16 sm:mb-20 md:mb-24 md:flex md:items-end md:justify-between md:gap-8">
             <div className="max-w-2xl">
               <span className="text-orange-500 font-mono text-xs sm:text-sm tracking-tight mb-2 sm:mb-3 md:mb-4 block">{`// SYSTEM CAPABILITIES`}</span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none">
@@ -183,9 +183,9 @@ export default function HomePage() {
       </section>
 
       {/* 5. PRICING: Fixed Price */}
-      <section className="relative z-10 py-20 sm:py-24 md:py-28 lg:py-32 px-4 sm:px-6">
+      <section className="relative z-10 py-24 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6">
         <div className="container mx-auto max-w-6xl">
-          <PremiumContainer variant="obsidian" className="p-6 sm:p-8 md:p-10 lg:p-12 xl:p-16 relative overflow-hidden group">
+          <PremiumContainer variant="obsidian" className="p-8 sm:p-10 md:p-12 lg:p-16 xl:p-20 relative overflow-hidden group">
             {/* Background Glow - Enhanced */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/10 blur-[120px] rounded-full group-hover:bg-orange-500/15 transition-colors duration-700" />
 
@@ -244,9 +244,9 @@ export default function HomePage() {
       <AutomationOpportunityScan />
 
       {/* 6. AI STRATEGY SPRINTS (Formerly Consensus Engine) */}
-      <section className="relative z-10 py-16 sm:py-20 md:py-24 lg:py-28 bg-slate-950 px-4 sm:px-6">
+      <section className="relative z-10 py-20 sm:py-24 md:py-28 lg:py-36 bg-slate-950 px-4 sm:px-6">
         <div className="container mx-auto max-w-6xl">
-           <PremiumContainer variant="glass" className="p-6 sm:p-8 md:p-10 lg:p-12 xl:p-16 text-center border-white/5 bg-slate-900/40">
+           <PremiumContainer variant="glass" className="p-8 sm:p-10 md:p-12 lg:p-16 xl:p-20 text-center border-white/5 bg-slate-900/40">
              <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4 md:space-y-6">
                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold font-hero-accent text-white text-glow-crimson">
                  AI Strategy Sprints™
@@ -269,9 +269,9 @@ export default function HomePage() {
       <TrustCredentials />
 
       {/* 8. FAQ */}
-      <section className="relative z-10 py-20 sm:py-24 md:py-28 lg:py-32 px-4 sm:px-6">
+      <section className="relative z-10 py-24 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6">
         <div className="container mx-auto max-w-3xl">
-          <div className="text-center mb-10 sm:mb-12 md:mb-14 lg:mb-18">
+          <div className="text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24">
             <span className="text-orange-400 font-mono text-xs tracking-widest mb-2 sm:mb-3 md:mb-4 block font-bold">01001000 01000101 01001100 01010000</span>
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white font-hero-accent text-glow-crimson drop-shadow-[0_0_20px_rgba(239,68,68,0.5)]">
               Quick Answers. No Fluff.
@@ -287,9 +287,9 @@ export default function HomePage() {
       </section>
 
       {/* 9. SAFETY NET */}
-      <section className="relative z-10 py-20 sm:py-24 md:py-28 lg:py-32 bg-gradient-to-t from-orange-950/20 to-slate-950 px-4 sm:px-6">
+      <section className="relative z-10 py-24 sm:py-28 md:py-32 lg:py-40 bg-gradient-to-t from-orange-950/20 to-slate-950 px-4 sm:px-6">
         <div className="container relative z-10 mx-auto max-w-5xl">
-          <div className="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-10 sm:gap-12 md:gap-16 lg:gap-20 items-center">
             <div className="space-y-3 sm:space-y-4 md:space-y-6">
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white font-hero-accent leading-tight text-glow-crimson">
                 We lift as we climb.

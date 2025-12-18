@@ -11,7 +11,7 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
   return (
     <div
       className={clsx(
-        "relative mx-auto my-8 sm:my-12 md:my-16 lg:my-20 max-w-5xl overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-950 to-black shadow-2xl border border-white/10",
+        "relative mx-auto my-10 sm:my-14 md:my-20 lg:my-24 max-w-5xl overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-950 to-black shadow-2xl border border-white/10",
         className,
       )}
     >
@@ -23,22 +23,22 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
       </div>
 
       {/* Header */}
-      <div className="p-6 sm:p-8 md:p-12 lg:p-14">
-        <div className="mb-6 sm:mb-8 grid w-full items-center gap-6 text-center md:grid-cols-[auto,1fr]">
+      <div className="p-8 sm:p-10 md:p-14 lg:p-16">
+        <div className="mb-8 sm:mb-10 grid w-full items-center gap-8 text-center md:grid-cols-[auto,1fr]">
           {/* 4-agent grid image (kept as a card, not a hero) */}
-          <div className="mx-auto rounded-3xl border border-orange-500/20 bg-slate-900/60 p-3 shadow-[0_8px_32px_rgba(249,115,22,0.3)] backdrop-blur-xl">
+          <div className="mx-auto rounded-3xl border border-orange-500/20 bg-slate-900/60 p-6 shadow-[0_12px_48px_rgba(249,115,22,0.4)] backdrop-blur-xl">
             <Image
               src="/assets/consensus-infographic.png"
               alt="Consensus Engine infographic showing four specialized AI research agents"
               width={300}
               height={300}
-              className="h-[160px] sm:h-[200px] w-auto object-contain"
+              className="h-[180px] sm:h-[220px] w-auto object-contain"
               sizes="(max-width: 640px) 90vw, 300px"
               loading="lazy"
             />
           </div>
 
-          <div className="flex flex-col items-center gap-3 sm:gap-4 md:justify-center">
+          <div className="flex flex-col items-center gap-4 sm:gap-5 md:justify-center">
             <div className="max-w-xl text-center">
               <h2
                 id="consensus-engine-heading"
@@ -46,12 +46,15 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
               >
                 Consensus Engine — Your AI Strategy Sprint
               </h2>
-              <p className="mt-1 text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] sm:tracking-[0.22em] text-orange-400">
+              <p className="mt-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] sm:tracking-[0.22em] text-orange-400">
                 Exclusive to Bespoke Ethos clients
               </p>
-              <p className="mt-2 sm:mt-3 text-sm sm:text-base text-slate-200">
+              <p className="mt-3 sm:mt-4 text-sm sm:text-base text-slate-200 leading-relaxed">
                 Meet the four fine-tuned researchers that cross-verify 1,000+ sources before you ever see a
                 recommendation.
+              </p>
+              <p className="mt-2 text-xs sm:text-sm text-slate-400 italic">
+                Multi-agent research delivers strategic clarity for critical decisions
               </p>
             </div>
             <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
@@ -69,7 +72,7 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
         </div>
 
         {/* Simplified Value Prop */}
-        <div className="mb-6 sm:mb-8 rounded-xl border border-orange-500/30 bg-slate-900/60 p-4 sm:p-6 shadow-[0_20px_60px_rgba(249,115,22,0.35)] backdrop-blur-md">
+        <div className="mb-8 sm:mb-10 rounded-xl border border-orange-500/30 bg-slate-900/60 p-6 sm:p-8 shadow-[0_20px_60px_rgba(249,115,22,0.35)] backdrop-blur-md">
           <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-3 text-glow-crimson">
             Got a big question? Get real answers.
           </p>
@@ -91,7 +94,7 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
         </div>
 
         {/* Simple 3-Step Process */}
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-10">
           {[
             { 
               icon: <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>,
@@ -111,7 +114,7 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
           ].map((step, index) => (
             <motion.div
               key={index}
-              className="relative text-center rounded-2xl border border-orange-500/20 bg-slate-800/60 p-6 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-md group"
+              className="relative text-center rounded-2xl border border-orange-500/20 bg-slate-800/60 p-8 shadow-[0_12px_40px_rgba(0,0,0,0.5)] backdrop-blur-md group"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
@@ -167,7 +170,7 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
         <button
           type="button"
           onClick={() => setIsExpanded((prev) => !prev)}
-          className="text-orange-400 font-semibold hover:text-orange-300 hover:underline mb-6 flex items-center gap-2 mx-auto transition-colors"
+          className="text-orange-400 font-semibold hover:text-orange-300 hover:underline mb-8 flex items-center gap-2 mx-auto transition-colors"
           aria-expanded={isExpanded ? "true" : "false"}
           aria-controls="consensus-agents-panel"
         >
@@ -177,7 +180,7 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
         {isExpanded && (
           <div
             id="consensus-agents-panel"
-            className="bg-slate-900/60 border border-orange-500/20 rounded-lg p-6 mb-8 backdrop-blur-md"
+            className="bg-slate-900/60 border border-orange-500/20 rounded-lg p-8 mb-10 backdrop-blur-md"
             role="region"
             aria-label="Details about the four Consensus Engine research agents"
           >
@@ -203,7 +206,7 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
         )}
 
         {/* Offer Callout */}
-        <div className="text-center mb-6 sm:mb-8 p-6 sm:p-8 bg-gradient-to-r from-orange-950/50 to-red-950/50 rounded-xl border-2 border-orange-500/40 backdrop-blur-sm shadow-[0_0_40px_rgba(249,115,22,0.3)]">
+        <div className="text-center mb-8 sm:mb-10 p-8 sm:p-10 bg-gradient-to-r from-orange-950/50 to-red-950/50 rounded-xl border-2 border-orange-500/40 backdrop-blur-sm shadow-[0_0_40px_rgba(249,115,22,0.3)]">
           <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-3 text-glow-crimson">
             Free With Your Consultation
           </p>
