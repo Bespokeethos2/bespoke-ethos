@@ -89,35 +89,38 @@ export function AutomationOpportunityScan() {
   };
 
   return (
-    <section className="relative z-10 py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+    <section className="relative z-10 py-20 sm:py-24 md:py-28 lg:py-36 px-4 sm:px-6 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
       <div className="container mx-auto max-w-6xl">
         <PremiumContainer 
           variant="glass" 
-          className="p-6 sm:p-8 md:p-12 lg:p-16 border-orange-500/30 relative overflow-hidden"
+          className="p-8 sm:p-10 md:p-14 lg:p-20 border-orange-500/30 relative overflow-hidden"
         >
           {/* Background Glow */}
           <div className="absolute -top-32 -right-32 w-96 h-96 bg-orange-500/10 blur-[120px] rounded-full" />
           
           <div className="relative z-10">
             {/* Header */}
-            <div className="text-center mb-8 sm:mb-12">
+            <div className="text-center mb-10 sm:mb-14 md:mb-16">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-orange-500/30 bg-orange-950/50 mb-4">
                 <Sparkles className="w-4 h-4 text-orange-400" />
                 <span className="text-xs font-bold text-orange-300 uppercase tracking-wider">
                   Free Instant Analysis
                 </span>
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 font-hero-accent">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 font-hero-accent">
                 AI Automation Opportunity Scan
               </h2>
-              <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
                 Tell us your biggest pain point. Get an instant automation blueprint—no email required.
+              </p>
+              <p className="mt-3 text-sm text-slate-400 max-w-xl mx-auto">
+                Quick analysis tool to identify automation potential
               </p>
             </div>
 
             {!scanResult ? (
               /* Input Form */
-              <div className="space-y-6 max-w-2xl mx-auto">
+              <div className="space-y-8 max-w-2xl mx-auto">
                 <div>
                   <label htmlFor="business-type" className="block text-sm font-medium text-slate-300 mb-2">
                     What type of business do you run?
@@ -171,9 +174,9 @@ export function AutomationOpportunityScan() {
               </div>
             ) : (
               /* Results Display */
-              <div className="space-y-8 max-w-3xl mx-auto">
+              <div className="space-y-10 max-w-3xl mx-auto">
                 {/* Workflow Blueprint */}
-                <div className="p-6 bg-slate-800/50 border border-orange-500/30 rounded-xl">
+                <div className="p-8 bg-slate-800/50 border border-orange-500/30 rounded-xl shadow-lg">
                   <div className="flex items-start gap-3 mb-4">
                     <div className="p-2 bg-orange-500/20 rounded-lg">
                       <Sparkles className="w-5 h-5 text-orange-400" />
@@ -192,7 +195,7 @@ export function AutomationOpportunityScan() {
                 </div>
 
                 {/* Controls & Guardrails */}
-                <div className="p-6 bg-slate-800/50 border border-slate-700 rounded-xl">
+                <div className="p-8 bg-slate-800/50 border border-slate-700 rounded-xl shadow-lg">
                   <div className="flex items-start gap-3 mb-4">
                     <div className="p-2 bg-blue-500/20 rounded-lg">
                       <Shield className="w-5 h-5 text-blue-400" />
@@ -218,7 +221,7 @@ export function AutomationOpportunityScan() {
                 </div>
 
                 {/* Recommendation */}
-                <div className="p-6 bg-orange-950/30 border border-orange-500/30 rounded-xl">
+                <div className="p-8 bg-orange-950/30 border border-orange-500/30 rounded-xl shadow-lg">
                   <p className="text-sm font-bold text-orange-400 uppercase tracking-wider mb-2">
                     Our Take
                   </p>
@@ -228,7 +231,7 @@ export function AutomationOpportunityScan() {
                 </div>
 
                 {/* CTAs */}
-                <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <div className="flex flex-col sm:flex-row gap-5 pt-6">
                   <ButtonLink 
                     intent="primary" 
                     href="/book"
