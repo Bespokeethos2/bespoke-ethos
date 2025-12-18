@@ -80,7 +80,7 @@ export function GeminiChatbot() {
                                     : 'bg-slate-800 text-slate-200 rounded-bl-none border border-slate-700'
                             }`}>
                                 {m.parts.map((part, idx) => (
-                                    part.type === 'text' ? <span key={idx}>{part.text}</span> : null
+                                    part.type === 'text' ? <span key={`${m.id}-part-${idx}`}>{part.text}</span> : null
                                 ))}
                             </div>
                         </div>
