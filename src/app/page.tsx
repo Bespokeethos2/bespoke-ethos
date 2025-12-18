@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { ButtonLink } from "@/common/button";
 import { PremiumContainer } from "@/components/ui/premium-container";
 import { TestimonialMarquee } from "@/components/ui/testimonial-marquee";
@@ -68,62 +67,26 @@ export default function HomePage() {
 
               {/* Hero Content Layer */}
               <div className="relative z-20 text-center max-w-5xl px-4 sm:px-6 md:px-8 animate-fadeIn">
-                <div className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-orange-500/50 bg-orange-950/90 backdrop-blur-md mb-4 sm:mb-6 md:mb-8">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
-                  </span>
-                  <span className="text-xs font-bold text-orange-100 tracking-widest uppercase font-mono">Operations Normal</span>
-                </div>
                 
-                <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight mb-4 sm:mb-6 md:mb-8 leading-[0.95] sm:leading-[0.9]">
-                  <span className="text-white text-glow-crimson">WE BUILD</span>{" "}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-br from-orange-200 via-orange-400 to-orange-500 text-cinematic">
-                    INTELLIGENT WORKFLOWS
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6 sm:mb-8 leading-tight">
+                  <span className="text-white">We Take the Busywork.</span>{" "}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-br from-orange-200 via-orange-400 to-orange-500">
+                    You Keep Control.
                   </span>
                 </h1>
                 
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-light mb-6 sm:mb-8 md:mb-10">
-                  You don&apos;t need another &quot;AI Chatbot.&quot; You need a <strong className="text-orange-200 font-medium">machine shop</strong>. 
-                  We build resilient, fixed-price automation workflows with tight tolerances.
+                <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-light mb-8 sm:mb-10">
+                  Fixed-price AI automation with human approval checkpoints. No black boxes, no billing surprises.
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 md:gap-6 justify-center items-center">
-                  <ButtonLink href="/contact" className="w-full sm:w-auto min-h-[48px] h-12 sm:h-14 px-8 sm:px-10 md:px-12 text-base sm:text-lg md:text-xl rounded-full shadow-[0_0_25px_rgba(249,115,22,0.3)] hover:shadow-[0_0_40px_rgba(249,115,22,0.5)] transition-all bg-orange-600 hover:bg-orange-500 border-none text-white font-bold tracking-wide">
-                    Start Your Build
-                  </ButtonLink>
-                  <ButtonLink href="/solutions" className="w-full sm:w-auto min-h-[48px] h-12 sm:h-14 px-8 sm:px-10 md:px-12 text-base sm:text-lg md:text-xl rounded-full border border-white/30 hover:bg-white/10 backdrop-blur-md text-white font-semibold bg-transparent">
-                    See The Specs
+                <div className="flex justify-center">
+                  <ButtonLink 
+                    href="/book" 
+                    className="w-full sm:w-auto min-h-[48px] px-10 sm:px-12 md:px-14 py-4 text-lg sm:text-xl rounded-full shadow-[0_0_25px_rgba(249,115,22,0.5)] hover:shadow-[0_0_40px_rgba(249,115,22,0.7)] transition-all bg-orange-500 hover:bg-orange-400 text-white font-bold"
+                  >
+                    Book a Consult
                   </ButtonLink>
                 </div>
-
-                {/* Template-style Line Menu */}
-                <nav className="mt-10 sm:mt-12 md:mt-16 relative">
-                  {/* Vertical connecting line */}
-                  <div className="absolute left-1/2 -top-10 sm:-top-12 md:-top-16 w-px h-10 sm:h-12 md:h-16 bg-gradient-to-b from-transparent via-white/30 to-white/50" />
-                  <ul className="flex flex-wrap justify-center items-center border border-white/30 rounded-md backdrop-blur-sm bg-white/5 shadow-lg">
-                    <li className="border-r border-white/30 last:border-r-0">
-                      <Link href="/solutions" className="block px-5 sm:px-6 md:px-8 py-3.5 text-xs uppercase tracking-[0.2em] text-white hover:text-white hover:bg-white/10 transition-all min-h-[48px] flex items-center font-medium">
-                        Solutions
-                      </Link>
-                    </li>
-                    <li className="border-r border-white/30 last:border-r-0">
-                      <Link href="/case-studies" className="block px-5 sm:px-6 md:px-8 py-3.5 text-xs uppercase tracking-[0.2em] text-white hover:text-white hover:bg-white/10 transition-all min-h-[48px] flex items-center font-medium">
-                        Case Studies
-                      </Link>
-                    </li>
-                    <li className="border-r border-white/30 last:border-r-0">
-                      <Link href="/about" className="block px-5 sm:px-6 md:px-8 py-3.5 text-xs uppercase tracking-[0.2em] text-white hover:text-white hover:bg-white/10 transition-all min-h-[48px] flex items-center font-medium">
-                        About
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/contact" className="block px-5 sm:px-6 md:px-8 py-3.5 text-xs uppercase tracking-[0.2em] text-orange-400 hover:text-orange-300 hover:bg-white/10 transition-all font-bold min-h-[48px] flex items-center">
-                        Get Started
-                      </Link>
-                    </li>
-                  </ul>
-                </nav>
               </div>
             </div>
           </PremiumContainer>
