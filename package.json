@@ -26,7 +26,8 @@
     "deploy:check:strict": "node scripts/deployment-quality-check.mjs --strict",
     "predeploy": "pnpm run deploy:check",
     "generate:flowstack-images": "node scripts/generate-flowstack-images.mjs",
-    "test:api": "node scripts/brutus-test-api.mjs"
+    "test:api": "node scripts/brutus-test-api.mjs",
+    "verify:env": "node scripts/verify-env-vars.mjs"
   },
   "dependencies": {
     "@ai-sdk/google": "^2.0.44",
