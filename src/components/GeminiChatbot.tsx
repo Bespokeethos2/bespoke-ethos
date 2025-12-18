@@ -1,19 +1,22 @@
 
 'use client';
 
-import { useChat } from 'ai/react';
-import { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
+import { useChat } from '@ai-sdk/react';
+import { DefaultChatTransport } from 'ai';
 import { Send, X, MessageCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { Button } from '@/common/button';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export function GeminiChatbot() {
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
-    api: '/api/chat/google',
+  const { messages, sendMessage, status } = useChat({
+    transport: new DefaultChatTransport({
+      api: '/api/chat/google',
+    }),
   });
   
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [input, setInput] = useState('');
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -55,7 +58,7 @@ export function GeminiChatbot() {
                         <div className="h-2 w-2 rounded-full bg-teal-500 animate-pulse" />
                         <span className="font-bold text-slate-100">Bespoke Assistant</span>
                     </div>
-                    <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
+                    <Button unstyled onClick={() => setIsOpen(false)}>
                         <X className="h-5 w-5 text-slate-400" />
                     </Button>
                 </div>
@@ -69,18 +72,20 @@ export function GeminiChatbot() {
                         </div>
                     )}
                     
-                    {messages.map(m => (
+                    {messages.map((m) => (
                         <div key={m.id} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                             <div className={`max-w-[80%] rounded-2xl px-4 py-2 text-sm ${
                                 m.role === 'user' 
                                     ? 'bg-teal-500 text-slate-900 rounded-br-none' 
                                     : 'bg-slate-800 text-slate-200 rounded-bl-none border border-slate-700'
                             }`}>
-                                {m.content}
+                                {m.parts.map((part, idx) => (
+                                    part.type === 'text' ? <span key={`${m.id}-part-${idx}`}>{part.text}</span> : null
+                                ))}
                             </div>
                         </div>
                     ))}
-                    {isLoading && (
+                    {status === 'streaming' && (
                         <div className="flex justify-start">
                             <div className="bg-slate-800 rounded-2xl px-4 py-2 border border-slate-700">
                                 <span className="animate-pulse">...</span>
@@ -90,14 +95,28 @@ export function GeminiChatbot() {
                 </div>
 
                 {/* Input */}
-                <form onSubmit={handleSubmit} className="p-4 bg-slate-800 border-t border-slate-700 flex gap-2">
-                    <Input 
+                <form 
+                    onSubmit={(e) => {
+                        e.preventDefault();
+                        if (input.trim() && status === 'ready') {
+                            sendMessage({ text: input });
+                            setInput('');
+                        }
+                    }} 
+                    className="p-4 bg-slate-800 border-t border-slate-700 flex gap-2"
+                >
+                    <input 
                         value={input} 
-                        onChange={handleInputChange} 
+                        onChange={(e) => setInput(e.target.value)} 
                         placeholder="Ask about AI..."
-                        className="flex-1 bg-slate-900 border-slate-700 text-slate-100 placeholder:text-slate-500 focus-visible:ring-teal-500"
+                        disabled={status !== 'ready'}
+                        className="flex-1 bg-slate-900 border border-slate-700 text-slate-100 placeholder:text-slate-500 focus-visible:ring-teal-500 rounded-lg px-4 py-2 disabled:opacity-50"
                     />
-                    <Button type="submit" size="icon" className="bg-teal-500 hover:bg-teal-400 text-slate-900">
+                    <Button 
+                        type="submit" 
+                        disabled={status !== 'ready'} 
+                        className="bg-teal-500 hover:bg-teal-400 text-slate-900 px-3 disabled:opacity-50"
+                    >
                         <Send className="h-4 w-4" />
                     </Button>
                 </form>
@@ -107,5 +126,3 @@ export function GeminiChatbot() {
     </>
   );
 }
-
-import React from 'react';
