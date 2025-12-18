@@ -14,6 +14,8 @@ if (nodeMajor < 20) warn(`Node ${process.versions.node} < 20.x. OK locally; prod
 log(`Node OK: ${process.versions.node}`);
 
 // 2) Vercel project link
+// Skip in CI environments since .vercel/project.json is created by `vercel link` locally
+const isCI = process.env.CI === 'true' || process.env.GITHUB_ACTIONS === 'true';
 let projectId;
 try {
   const raw = fs.readFileSync('.vercel/project.json', 'utf8');
@@ -23,7 +25,11 @@ try {
   if (projectId !== 'prj_8cbai6JzE169NUytyFtCpSohZVka') fail(`Wrong projectId ${projectId}`);
   log(`Vercel project OK: ${projectId}`);
 } catch (e) {
-  fail(`Cannot read .vercel/project.json: ${e.message}`);
+  if (isCI) {
+    warn(`Skipping .vercel/project.json check in CI (file created by 'vercel link' locally): ${e.message}`);
+  } else {
+    fail(`Cannot read .vercel/project.json: ${e.message}`);
+  }
 }
 
 // 3) Canonical URL env
