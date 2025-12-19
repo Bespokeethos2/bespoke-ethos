@@ -48,91 +48,91 @@ export default function PricingPage() {
               </p>
            </div>
 
-           {/* Offering Grid */}
-           <div className="grid lg:grid-cols-2 gap-8">
+           {/* Offering Grid - improved spacing and readability */}
+           <div className="grid lg:grid-cols-2 gap-10 lg:gap-12">
              
              {/* 1. AI RECEPTIONIST */}
-             <PremiumContainer variant="glass" className="p-8 md:p-10 flex flex-col h-full border-orange-500/30 bg-orange-900/10">
-               <div className="mb-6">
-                  <span className="text-xs font-bold text-orange-400 uppercase tracking-widest">Most Popular</span>
-                  <Heading align="left"><h2 className="text-3xl font-hero-accent text-white mt-2">AI Receptionist</h2></Heading>
-                  <p className="text-slate-400 mt-2 text-sm">Powered by Cadence.</p>
+             <PremiumContainer variant="glass" className="p-10 md:p-12 flex flex-col h-full border-orange-500/30 bg-orange-900/10">
+               <div className="mb-8">
+                  <span className="text-sm font-bold text-orange-400 uppercase tracking-widest mb-3 block">Most Popular</span>
+                  <Heading align="left"><h2 className="text-4xl font-hero-accent text-white mb-3">AI Receptionist</h2></Heading>
+                  <p className="text-slate-400 text-base">Powered by Cadence.</p>
                </div>
-               <div className="text-4xl font-black text-white mb-6">$1,497 <span className="text-lg font-normal text-slate-500">setup</span></div>
+               <div className="text-5xl font-black text-white mb-8">$1,497 <span className="text-xl font-normal text-slate-500">setup</span></div>
                
-               <ul className="space-y-3 mb-8 flex-grow">
+               <ul className="space-y-4 mb-10 flex-grow">
                  {["Routes calls & schedules meetings", "Trained on your specific knowledge", "Escalates to human for unknowns", "Monthly optimization included"].map((item, i) => (
-                   <li key={i} className="flex gap-3 text-slate-300 text-sm">
-                     <span className="text-orange-500 font-bold">✓</span> {item}
+                   <li key={i} className="flex gap-4 text-slate-300 text-base items-start">
+                     <span className="text-orange-500 font-bold text-lg flex-shrink-0 mt-0.5">✓</span> <span>{item}</span>
                    </li>
                  ))}
                </ul>
-               <ButtonLink intent="primary" href="/products/cadence" className="w-full justify-center">Start Build</ButtonLink>
+               <ButtonLink intent="primary" href="/products/cadence" className="w-full justify-center min-h-[52px] text-base font-bold">Start Build</ButtonLink>
              </PremiumContainer>
 
              {/* 2. STRATEGY SPRINTS */}
-             <PremiumContainer variant="obsidian" className="p-8 md:p-10 flex flex-col h-full">
-               <div className="mb-6">
-                  <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Decision Support</span>
-                  <Heading align="left"><h2 className="text-3xl font-hero-accent text-white mt-2">AI Strategy Sprint</h2></Heading>
-                  <p className="text-slate-400 mt-2 text-sm">Powered by Consensus Engine.</p>
+             <PremiumContainer variant="obsidian" className="p-10 md:p-12 flex flex-col h-full">
+               <div className="mb-8">
+                  <span className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-3 block">Decision Support</span>
+                  <Heading align="left"><h2 className="text-4xl font-hero-accent text-white mb-3">AI Strategy Sprint</h2></Heading>
+                  <p className="text-slate-400 text-base">Powered by Consensus Engine.</p>
                </div>
-               <div className="text-4xl font-black text-white mb-6">$1,497 <span className="text-lg font-normal text-slate-500">/ sprint</span></div>
+               <div className="text-5xl font-black text-white mb-8">$1,497 <span className="text-xl font-normal text-slate-500">/ sprint</span></div>
                
-               <ul className="space-y-3 mb-8 flex-grow">
+               <ul className="space-y-4 mb-10 flex-grow">
                  {["5-Day turn around", "Multi-agent adversarial research", "Cited Decision Brief delivered", "Tradeoff analysis included"].map((item, i) => (
-                   <li key={i} className="flex gap-3 text-slate-300 text-sm">
-                     <span className="text-white/20 font-bold">✓</span> {item}
+                   <li key={i} className="flex gap-4 text-slate-300 text-base items-start">
+                     <span className="text-slate-500 font-bold text-lg flex-shrink-0 mt-0.5">✓</span> <span>{item}</span>
                    </li>
                  ))}
                </ul>
-               <ButtonLink intent="secondary" href="/solutions/consensus-engine" className="w-full justify-center">Book Sprint</ButtonLink>
+               <ButtonLink intent="secondary" href="/solutions/consensus-engine" className="w-full justify-center min-h-[52px] text-base font-semibold border-white/30 hover:bg-white/10">Book Sprint</ButtonLink>
              </PremiumContainer>
 
              {/* 3. CUSTOM WORKFLOWS */}
-             <PremiumContainer variant="obsidian" className="p-8 md:p-10 flex flex-col h-full">
-               <div className="mb-6">
-                  <span className="text-xs font-bold text-sky-400 uppercase tracking-widest">Infrastructure</span>
-                  <Heading align="left"><h2 className="text-3xl font-hero-accent text-white mt-2">Custom Workflows</h2></Heading>
-                  <p className="text-slate-400 mt-2 text-sm">Automation Skyway.</p>
+             <PremiumContainer variant="obsidian" className="p-10 md:p-12 flex flex-col h-full">
+               <div className="mb-8">
+                  <span className="text-sm font-bold text-sky-400 uppercase tracking-widest mb-3 block">Infrastructure</span>
+                  <Heading align="left"><h2 className="text-4xl font-hero-accent text-white mb-3">Custom Workflows</h2></Heading>
+                  <p className="text-slate-400 text-base">Automation Skyway.</p>
                </div>
-               <div className="text-4xl font-black text-white mb-6">Custom <span className="text-lg font-normal text-slate-500">scope</span></div>
+               <div className="text-5xl font-black text-white mb-8">Custom <span className="text-xl font-normal text-slate-500">scope</span></div>
                
-               <ul className="space-y-3 mb-8 flex-grow">
+               <ul className="space-y-4 mb-10 flex-grow">
                  {["End-to-end process automation", "Human-in-the-loop approvals", "Error handling & logging", "Full documentation handover"].map((item, i) => (
-                   <li key={i} className="flex gap-3 text-slate-300 text-sm">
-                     <span className="text-sky-500 font-bold">✓</span> {item}
+                   <li key={i} className="flex gap-4 text-slate-300 text-base items-start">
+                     <span className="text-sky-500 font-bold text-lg flex-shrink-0 mt-0.5">✓</span> <span>{item}</span>
                    </li>
                  ))}
                </ul>
-               <ButtonLink intent="secondary" href="/solutions/automation-skyway" className="w-full justify-center">Scope Project</ButtonLink>
+               <ButtonLink intent="secondary" href="/solutions/automation-skyway" className="w-full justify-center min-h-[52px] text-base font-semibold border-white/30 hover:bg-white/10">Scope Project</ButtonLink>
              </PremiumContainer>
 
              {/* 4. EMERGENCY RESCUE */}
-             <PremiumContainer variant="neon" className="p-8 md:p-10 flex flex-col h-full border-red-500/20">
-               <div className="mb-6">
-                  <span className="text-xs font-bold text-red-500 uppercase tracking-widest">Critial Care</span>
-                  <Heading align="left"><h2 className="text-3xl font-hero-accent text-white mt-2">Automation Rescue</h2></Heading>
-                  <p className="text-slate-400 mt-2 text-sm">Redbridging Service.</p>
+             <PremiumContainer variant="neon" className="p-10 md:p-12 flex flex-col h-full border-red-500/30 bg-red-900/5">
+               <div className="mb-8">
+                  <span className="text-sm font-bold text-red-400 uppercase tracking-widest mb-3 block">Critical Care</span>
+                  <Heading align="left"><h2 className="text-4xl font-hero-accent text-white mb-3">Automation Rescue</h2></Heading>
+                  <p className="text-slate-400 text-base">Redbridging Service.</p>
                </div>
-               <div className="text-4xl font-black text-white mb-6">$497 <span className="text-lg font-normal text-slate-500">/ triage</span></div>
+               <div className="text-5xl font-black text-white mb-8">$497 <span className="text-xl font-normal text-slate-500">/ triage</span></div>
                
-               <ul className="space-y-3 mb-8 flex-grow">
+               <ul className="space-y-4 mb-10 flex-grow">
                  {["Fix broken Zapier/Make flows", "Add monitoring alerts", "Document spaghetti code", "Emergency response"].map((item, i) => (
-                   <li key={i} className="flex gap-3 text-slate-300 text-sm">
-                     <span className="text-red-500 font-bold">✓</span> {item}
+                   <li key={i} className="flex gap-4 text-slate-300 text-base items-start">
+                     <span className="text-red-400 font-bold text-lg flex-shrink-0 mt-0.5">✓</span> <span>{item}</span>
                    </li>
                  ))}
                </ul>
-               <ButtonLink intent="secondary" href="/solutions/redbridging" className="w-full justify-center bg-red-950/30 border-red-500/30 text-red-200 hover:bg-red-900/50">Book Triage</ButtonLink>
+               <ButtonLink intent="secondary" href="/solutions/redbridging" className="w-full justify-center min-h-[52px] text-base font-semibold bg-red-950/30 border-red-500/30 text-red-200 hover:bg-red-900/50">Book Triage</ButtonLink>
              </PremiumContainer>
 
            </div>
 
-           {/* Discounts */}
-           <div className="text-center pt-16 border-t border-white/5">
-             <h3 className="text-white font-bold mb-2">We lift as we climb.</h3>
-             <p className="text-slate-400 text-sm">LGBTQ-owned businesses receive a permanent <span className="text-orange-400">25% discount</span> on all services.</p>
+           {/* Discounts - improved visibility */}
+           <div className="text-center pt-20 border-t border-white/10 mt-8">
+             <h3 className="text-white text-2xl font-bold mb-4">We lift as we climb.</h3>
+             <p className="text-slate-300 text-lg leading-relaxed">LGBTQ-owned businesses receive a permanent <span className="text-orange-400 font-bold">25% discount</span> on all services.</p>
            </div>
 
         </div>

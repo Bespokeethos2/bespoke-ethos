@@ -107,6 +107,10 @@ export const generateMetadata = async (): Promise<Metadata> => {
     alternates: {
       canonical: DEFAULT_SITE_URL,
     },
+    // Note: canonical should be set per-page, not globally
+    // alternates: {
+    //   canonical: DEFAULT_SITE_URL,
+    // },
     openGraph: {
       type: "website",
       title: FALLBACK_METADATA.defaultTitle,

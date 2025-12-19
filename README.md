@@ -152,7 +152,11 @@ We welcome contributions from the community!
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
+**📋 Page Deployment Requirements**: Every page must meet comprehensive quality standards before deployment. See:
+- **[PAGE_DEPLOYMENT_CHECKLIST.md](./PAGE_DEPLOYMENT_CHECKLIST.md)** - Complete requirements
+- **[Quick Reference](./.github/DEPLOYMENT_REQUIREMENTS_QUICKREF.md)** - Essential checklist
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for full guidelines.
 
 ---
 
