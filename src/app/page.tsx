@@ -48,6 +48,9 @@ export default function HomePage() {
     <div aria-label="Bespoke Ethos homepage" className="min-h-screen relative overflow-hidden bg-background selection:bg-orange-500/30">
       
       {/* 1. HERO: The Console */}
+      <section className="relative z-10 pt-28 pb-20 md:pt-36 md:pb-28">
+        <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+          <PremiumContainer variant="glass" className="p-1 md:p-2 border-orange-500/20 shadow-2xl shadow-orange-900/20">
       <section className="relative z-10 pt-28 pb-24 sm:pt-32 sm:pb-28 md:pt-44 md:pb-36 px-4 sm:px-6">
         <div className="container mx-auto max-w-7xl">
           <PremiumContainer variant="glass" className="p-8 md:p-10 lg:p-12 bg-slate-900/60 backdrop-blur-xl border border-white/20 shadow-2xl shadow-orange-900/10">
@@ -58,7 +61,7 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(249,115,22,0.15)_0%,rgba(0,0,0,1)_80%)]" />
                 <Image
                   src="/assets/generated/hero-home.png"
-                  alt=""
+                  alt="AI automation workflows and intelligent systems background visualization"
                   fill
                   className="object-cover opacity-20 mix-blend-lighten"
                   priority
@@ -94,6 +97,8 @@ export default function HomePage() {
       </section>
 
       {/* 2. THE CHASM: Authentic Voice */}
+      <section className="relative z-10 py-24 md:py-32">
+        <div className="container mx-auto px-4 md:px-6 max-w-4xl">
       <section className="relative z-10 py-24 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6">
         <div className="container mx-auto max-w-4xl">
            <div className="relative">
@@ -122,12 +127,17 @@ export default function HomePage() {
       </section>
 
       {/* 3. SOCIAL PROOF */}
+      <div className="relative z-10 py-20 md:py-24 border-y border-white/5 bg-slate-950/50 backdrop-blur-sm">
+        <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-slate-600 mb-12">Trusted Operating Systems</p>
       <section className="relative z-10 py-16 sm:py-20 md:py-24 border-y border-white/5 bg-slate-950/50 backdrop-blur-sm px-4 sm:px-6">
         <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-slate-500 mb-10 sm:mb-12 md:mb-16">Trusted Operating Systems</p>
         <TestimonialMarquee />
       </section>
 
       {/* 4. CAPABILITIES: Bento */}
+      <section className="relative z-10 py-32 md:py-40 bg-slate-950">
+        <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+          <div className="mb-16 md:flex md:items-end md:justify-between">
       <section className="relative z-10 py-24 sm:py-28 md:py-36 lg:py-44 bg-slate-950 px-4 sm:px-6">
         <div className="container mx-auto max-w-7xl">
           <div className="mb-16 sm:mb-20 md:mb-24 md:flex md:items-end md:justify-between md:gap-8">
@@ -146,6 +156,11 @@ export default function HomePage() {
       </section>
 
       {/* 5. PRICING: Fixed Price */}
+      <section className="relative z-10 py-28 md:py-36">
+        <div className="container mx-auto px-4 md:px-6 max-w-6xl">
+          <PremiumContainer variant="obsidian" className="p-10 md:p-14 lg:p-20 relative overflow-hidden group">
+            {/* Background Glow */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/5 blur-[120px] rounded-full group-hover:bg-orange-500/10 transition-colors duration-700" />
       <section className="relative z-10 py-24 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6">
         <div className="container mx-auto max-w-6xl">
           <PremiumContainer variant="obsidian" className="p-8 sm:p-10 md:p-12 lg:p-16 xl:p-20 relative overflow-hidden group">
@@ -207,6 +222,11 @@ export default function HomePage() {
       <AutomationOpportunityScan />
 
       {/* 6. AI STRATEGY SPRINTS (Formerly Consensus Engine) */}
+      <section className="relative z-10 py-28 md:py-36 bg-slate-950">
+        <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+           <PremiumContainer variant="glass" className="p-10 md:p-16 text-center border-white/5 bg-slate-900/40">
+             <div className="max-w-3xl mx-auto space-y-6">
+               <h2 className="text-3xl md:text-5xl font-bold font-hero-accent text-white text-glow-crimson">
       <section className="relative z-10 py-20 sm:py-24 md:py-28 lg:py-36 bg-slate-950 px-4 sm:px-6">
         <div className="container mx-auto max-w-6xl">
            <PremiumContainer variant="glass" className="p-8 sm:p-10 md:p-12 lg:p-16 xl:p-20 text-center border-white/5 bg-slate-900/40">
@@ -232,6 +252,11 @@ export default function HomePage() {
       <TrustCredentials />
 
       {/* 8. FAQ */}
+      <section className="relative z-10 py-28 md:py-36">
+        <div className="container mx-auto px-4 md:px-6 max-w-3xl">
+          <div className="text-center mb-16">
+            <span className="text-orange-500/50 font-mono text-xs tracking-widest mb-4 block">01001000 01000101 01001100 01010000</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-white font-hero-accent text-glow-crimson">
       <section className="relative z-10 py-24 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6">
         <div className="container mx-auto max-w-3xl">
           <div className="text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24">
@@ -250,6 +275,11 @@ export default function HomePage() {
       </section>
 
       {/* 9. SAFETY NET */}
+      <section className="relative z-10 py-28 md:py-36 bg-gradient-to-t from-orange-950/20 to-slate-950">
+        <div className="container relative z-10 mx-auto px-4 md:px-6 max-w-5xl">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-white font-hero-accent leading-tight text-glow-crimson">
       <section className="relative z-10 py-24 sm:py-28 md:py-32 lg:py-40 bg-gradient-to-t from-orange-950/20 to-slate-950 px-4 sm:px-6">
         <div className="container relative z-10 mx-auto max-w-5xl">
           <div className="grid md:grid-cols-2 gap-10 sm:gap-12 md:gap-16 lg:gap-20 items-center">
@@ -451,12 +481,92 @@ function SpeakableJsonLd() {
   const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
   const json = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    speakable: {
-      "@type": "SpeakableSpecification",
-      cssSelector: ["h1", "h2", ".home-section h2", "main > section:first-of-type p"],
+    "@type": "Service",
+    "@id": `${base}/#service`,
+    name: "AI Workflow Automation for Small Businesses",
+    description: "Fixed-price AI automation workflows including AI Strategy Sprints, intelligent email outreach, lead qualification, and workflow rescue services. Built with strict tolerances and human approval checkpoints for small business reliability.",
+    provider: {
+      "@id": `${base}/#organization`,
     },
-    url: base,
+    areaServed: "United States",
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "AI Automation Services",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "AI Strategy Sprint (Consensus Engine)",
+            description: "Multi-agent adversarial research sprint analyzing 1000+ sources to stress-test your strategy before you spend",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Personalized Outreach Automation",
+            description: "Email sequences that research prospects, draft notes in your voice, and wait for approval before sending",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Intelligent Lead Qualification",
+            description: "AI-powered lead screening that schedules only qualified prospects ready to buy",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Workflow Rescue",
+            description: "Fix broken Zapier/Make.com workflows and build robust automation connections",
+          },
+        },
+      ],
+    },
+  };
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
+}
+
+function OfferJsonLd() {
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "Offer",
+    "@id": `${base}/#offer`,
+    name: "Fixed-Price AI Automation Builds",
+    description: "Zero hourly billing. Fixed scope AI workflow automation starting at $1,497. LGBTQ-owned businesses receive a permanent 25% discount ($1,122).",
+    price: "1497",
+    priceCurrency: "USD",
+    priceSpecification: {
+      "@type": "PriceSpecification",
+      price: "1497",
+      priceCurrency: "USD",
+      valueAddedTaxIncluded: false,
+    },
+    seller: {
+      "@id": `${base}/#organization`,
+    },
+    availability: "https://schema.org/InStock",
+    validFrom: "2024-10-01",
+    itemOffered: {
+      "@type": "Service",
+      name: "AI Workflow Automation Build",
+      description: "Includes full scoping decision brief, build, deployment, documentation, and 90-day 'Break It, We Fix It' warranty. Founder-led with no junior associates.",
+    },
+    warranty: {
+      "@type": "WarrantyPromise",
+      durationOfWarranty: {
+        "@type": "QuantitativeValue",
+        value: 90,
+        unitCode: "DAY",
+      },
+      warrantyScope: "Break It, We Fix It - Full repair and maintenance warranty",
+    },
   };
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;

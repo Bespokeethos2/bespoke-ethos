@@ -104,6 +104,9 @@ export const generateMetadata = async (): Promise<Metadata> => {
       { url: FALLBACK_METADATA.appleTouchIcon, rel: "apple-touch-icon" },
     ],
     manifest: FALLBACK_METADATA.manifest,
+    alternates: {
+      canonical: DEFAULT_SITE_URL,
+    },
     // Note: canonical should be set per-page, not globally
     // alternates: {
     //   canonical: DEFAULT_SITE_URL,

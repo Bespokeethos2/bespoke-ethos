@@ -2,6 +2,27 @@ import Image from "next/image";
 
 export function FounderStory() {
   return (
+    <section className="bg-surface-secondary dark:bg-dark-surface-secondary py-20 md:py-28">
+      <div className="mx-auto max-w-4xl px-6 md:px-8 founder-story-wrap">
+        <div className="founder-story-portrait relative overflow-hidden rounded-2xl shadow-[0_12px_48px_0_rgba(0,0,0,0.3)] be-image-frame mb-8">
+          <Image
+            src="/founder-upton-rand.jpg"
+            alt="Upton Rand, Founder and CEO of Bespoke Ethos - NGLCC-certified AI automation consultant with 5+ years of frontier model training experience"
+            fill
+            className="object-cover"
+            loading="lazy"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
+          />
+        </div>
+
+        <div className="space-y-6">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-text-tertiary dark:text-dark-text-tertiary">
+              Meet the Founder
+            </p>
+            <h2 className="mt-3 text-balance text-3xl font-semibold leading-tight text-text-primary dark:text-dark-text-primary sm:text-4xl">
+              My First Business Almost Broke Me. AI Saved It.
+            </h2>
     <section className="bg-surface-secondary dark:bg-dark-surface-secondary py-16 md:py-20 px-4 sm:px-6">
       <div className="mx-auto max-w-5xl">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">

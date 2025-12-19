@@ -5,6 +5,9 @@ import { CredentialCard } from "./credential-card";
 
 export function TrustCredentials() {
   return (
+    <Section className="py-20 md:py-28">
+      <div className="mx-auto max-w-6xl text-center px-4 md:px-6">
+        <p className="text-accent-500 text-sm font-semibold uppercase tracking-[0.3em]">
     <Section>
       <div className="mx-auto max-w-7xl text-center px-4 sm:px-6">
         <p className="text-orange-500 text-xs sm:text-sm font-black uppercase tracking-[0.25em] sm:tracking-[0.3em] mb-3">
@@ -17,6 +20,7 @@ export function TrustCredentials() {
           We&rsquo;re not just another AI consultant. We&rsquo;re vetted, certified, and battle-tested.
         </p>
 
+        <div className="mt-16 grid gap-8 md:grid-cols-3 items-stretch">
         {/* Add extra padding around cards for shadow visibility */}
         <div className="mt-12 sm:mt-14 md:mt-16 grid gap-8 md:gap-10 lg:gap-12 md:grid-cols-3 items-stretch px-4">
           {/* NGLCC Certified */}
@@ -46,6 +50,8 @@ export function TrustCredentials() {
 
         {/* 25% Discount Callout with LGBTQ+ button */}
         <div
+          className="mt-16 mx-auto max-w-4xl rounded-2xl border-2 border-accent-500/20 p-10 text-center shadow-[0_8px_40px_rgba(0,0,0,0.08)]"
+          style={{ backgroundColor: "var(--cream-bg)" }}
           className="mt-16 sm:mt-20 mx-auto max-w-4xl rounded-2xl border-4 border-orange-500/50 p-8 sm:p-10 text-center bg-gradient-to-br from-orange-100 to-amber-100 shadow-2xl"
         >
           <h3 className="text-xl sm:text-2xl font-black text-slate-950">
