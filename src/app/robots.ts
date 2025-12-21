@@ -12,10 +12,7 @@ export default function robots(): MetadataRoute.Robots {
           "/api/*",
           "/chat",
           "/chat/*",
-          "/api/brutus",
-          "/api/brutus/*",
-          "/api/brutus/fs",
-          "/api/brutus/fs/*",
+
         ],
       },
     ],

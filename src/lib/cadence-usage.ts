@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 /**
- * BRUTUS API USAGE TRACKER
+ * CADENCE API USAGE TRACKER
  * Tracks API calls for billing purposes
  */
 
@@ -31,7 +31,7 @@ export async function logApiUsage(
   };
 
   // Log to console (Vercel logs)
-  console.log('[BRUTUS USAGE]', JSON.stringify(log));
+  console.log('[CADENCE USAGE]', JSON.stringify(log));
 
   // TODO: Send to analytics service (PostHog, Mixpanel, etc.)
   // await fetch('https://analytics.example.com/track', {

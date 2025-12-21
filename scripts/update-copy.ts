@@ -9,7 +9,7 @@ const google = createGoogleGenerativeAI({
   apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY,
 });
 
-const model = google('models/gemini-2.5-pro');
+const model = google('models/gemini-1.5-pro');
 
 // Load Context
 const positioningDoc = fs.readFileSync('c:\\Vercel\\Deep-Context\\BespokeEthos_Positioning_Index.md', 'utf-8');

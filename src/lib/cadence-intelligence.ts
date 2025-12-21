@@ -1,5 +1,4 @@
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
-import { createOpenAI } from '@ai-sdk/openai';
 import { generateText, streamText } from 'ai';
 import { z } from 'zod';
 
@@ -10,20 +9,17 @@ import { z } from 'zod';
 // -----------------------------------------------------------------------------
 
 // 1. VISION & MULTIMODAL (Vertex AI / Gemini)
-// The "Eyes" of Brutus. Best for analyzing images, screenshots, and visual data.
+// The "Eyes" of Cadence. Best for analyzing images, screenshots, and visual data.
 const google = createGoogleGenerativeAI({
   apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY || process.env.GOOGLE_GEMINI_API,
 });
 
-export const visionModel = google('models/gemini-2.0-flash');
+export const visionModel = google('models/gemini-2.5-flash');
 
-// 2. CODING & REASONING (OpenAI / GPT-4o)
-// The "Hands" of Brutus. Best for complex code generation and architectural logic.
-const openai = createOpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-
-export const codingModel = openai('gpt-4o');
+// 2. CODING & REASONING (Vertex AI / Gemini)
+// The "Hands" of Cadence. Best for complex code generation and architectural logic.
+// Migrated from OpenAI to Google Vertex AI.
+export const codingModel = google('models/gemini-1.5-pro');
 
 // 3. OPEN SOURCE / LOCAL (Ollama / Llama 3)
 // The "Soul" of the Open Web. Private, uncensored, and locally controllable.
@@ -69,7 +65,7 @@ export async function analyzeImage(imageBase64: string, prompt: string) {
 export async function generateCode(requirement: string) {
   const { text } = await generateText({
     model: codingModel,
-    system: 'You are Brutus, a senior full-stack engineer. Write clean, production-ready Next.js code.',
+    system: 'You are Cadence, a senior full-stack engineer. Write clean, production-ready Next.js code.',
     prompt: requirement,
   });
   return text;
