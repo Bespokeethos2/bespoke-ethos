@@ -21,7 +21,46 @@ import { OrganizationJsonLd } from '@/app/_components/seo/organization-jsonld';
    Naming: Explanatory (SEO) over Proprietary.
    ============================================================================= */
 
+// Homepage-specific metadata
+export const metadata = {
+  alternates: {
+    canonical: 'https://www.bespokeethos.com',
+  },
+};
 
+const homeFaqItems = [
+  {
+    question: "Who is this actually for?",
+    answer: "Small business founders and lean teams. If you're drowning in busywork, or if you tried building an AI agent and it just hallucinated at you, this is for you. We build the guardrails so you can actually use the tech.",
+  },
+  {
+    question: "Why fixed price? Everyone else charges hourly.",
+    answer: "Because hourly billing rewards consultants for being slow. I sell finished products. You buy a outcome—a working AI receptionist, a research sprint, or a fixed automation—not a timesheet.",
+  },
+  {
+    question: "Is this just ChatGPT wrappers?",
+    answer: "No. We build distinct intelligent workflows—systems that hold your specific context and follow strict rules. We use professional-grade orchestration (vector databases, RAG, multi-agent swarms) to ensure the AI follows your process, not its own whims.",
+  },
+];
+
+export default function HomePage() {
+  return (
+    <div aria-label="Bespoke Ethos homepage" className="min-h-screen relative overflow-hidden bg-background selection:bg-orange-500/30">
+      
+      {/* 1. HERO: The Console */}
+            <div className="relative overflow-hidden rounded-xl bg-slate-950/90 aspect-[16/9] md:aspect-[21/9] flex items-center justify-center">
+              
+              {/* Background Abstract Visuals (Warm Orange) */}
+              <div className="absolute inset-0 z-0">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(249,115,22,0.15)_0%,rgba(0,0,0,1)_80%)]" />
+                <Image
+                  src="/assets/generated/hero-home.png"
+                  alt="AI automation workflows and intelligent systems background visualization"
+                  fill
+                  className="object-cover opacity-20 mix-blend-lighten"
+                  priority
+                />
+              </div>
 
               {/* Hero Content Layer */}
               <div className="relative z-20 text-center max-w-5xl px-4 sm:px-6 md:px-8 animate-fadeIn">
@@ -297,7 +336,24 @@ function HomePageJsonLd() {
     },
   } as const;
 
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
+}
 
+function HomeFaqJsonLd() {
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: homeFaqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+    mainEntityOfPage: `${base}/`,
+  } as const;
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }
