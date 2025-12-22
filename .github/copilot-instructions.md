@@ -1,12 +1,12 @@
 # GITHUB COPILOT INSTRUCTIONS
-## Repository: Bespokeethos/bespoke-ethos
+## Repository: Bespokeethos2/bespoke-ethos
 
 ---
 
 ## 🚨 CRITICAL BOUNDARIES
 
 ### THIS REPO (Vercel)
-- **Repo:** `Bespokeethos/bespoke-ethos`
+- **Repo:** `Bespokeethos2/bespoke-ethos`
 - **Local:** `C:\vercel`
 - **Deploy:** Vercel (B2B consulting site)
 - **Package Manager:** pnpm
