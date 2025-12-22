@@ -180,7 +180,7 @@ export function VoiceChatbot({
       
       audio.play();
     } catch (err) {
-      console.log('[CADENCE USAGE]', JSON.stringify(log));
+      console.error('[CADENCE TTS] Error:', err);
       fallbackSpeak(text);
     }
   }, [isMuted]);
