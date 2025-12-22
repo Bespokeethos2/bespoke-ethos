@@ -47,54 +47,68 @@ export default function HomePage() {
   return (
     <div aria-label="Bespoke Ethos homepage" className="min-h-screen relative overflow-hidden bg-background selection:bg-orange-500/30">
       
-      {/* 1. HERO: The Console */}
-      <section className="relative z-10 pt-28 pb-24 sm:pt-32 sm:pb-28 md:pt-44 md:pb-36 px-4 sm:px-6">
-        <div className="container mx-auto max-w-7xl">
-          <PremiumContainer variant="glass" className="p-8 md:p-10 lg:p-12 border-orange-500/20 shadow-2xl shadow-orange-900/10">
-            <div className="relative overflow-hidden rounded-xl bg-slate-950/90 aspect-[16/9] md:aspect-[21/9] flex items-center justify-center">
-              
-              {/* Background Abstract Visuals (Warm Orange) */}
-              <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(249,115,22,0.15)_0%,rgba(0,0,0,1)_80%)]" />
-                <Image
-                  src="/assets/generated/hero-home.png"
-                  alt=""
-                  fill
-                  className="object-cover opacity-20 mix-blend-lighten"
-                  priority
-                />
-              </div>
+      {/* 1. HERO: Full-width like Figma */}
+      <section className="relative z-10 min-h-[80vh] flex items-center isolate">
+        {/* Background - clean dark with subtle orange glow and stars */}
+        <div className="absolute inset-0 z-0 bg-slate-950">
+          {/* Subtle orange radial glow */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(249,115,22,0.12)_0%,transparent_50%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(249,115,22,0.08)_0%,transparent_40%)]" />
+          {/* Star field effect using CSS */}
+          <div 
+            className="absolute inset-0 opacity-60"
+            style={{
+              backgroundImage: `
+                radial-gradient(1px 1px at 20px 30px, white, transparent),
+                radial-gradient(1px 1px at 40px 70px, rgba(255,255,255,0.8), transparent),
+                radial-gradient(1px 1px at 50px 160px, rgba(255,255,255,0.6), transparent),
+                radial-gradient(1px 1px at 90px 40px, white, transparent),
+                radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.7), transparent),
+                radial-gradient(1px 1px at 160px 120px, white, transparent),
+                radial-gradient(1px 1px at 200px 50px, rgba(255,255,255,0.5), transparent),
+                radial-gradient(1px 1px at 220px 150px, white, transparent),
+                radial-gradient(1px 1px at 260px 90px, rgba(255,255,255,0.8), transparent),
+                radial-gradient(1px 1px at 300px 180px, white, transparent),
+                radial-gradient(1px 1px at 340px 60px, rgba(255,255,255,0.6), transparent),
+                radial-gradient(1px 1px at 380px 130px, white, transparent),
+                radial-gradient(1px 1px at 420px 200px, rgba(255,255,255,0.7), transparent),
+                radial-gradient(1px 1px at 460px 40px, white, transparent),
+                radial-gradient(1px 1px at 500px 100px, rgba(255,255,255,0.5), transparent)
+              `,
+              backgroundSize: '550px 250px',
+            }}
+          />
+        </div>
 
-              {/* Hero Content Layer */}
-              <div className="relative z-20 text-left max-w-5xl px-4 sm:px-6 md:px-8 animate-fadeIn">
-                
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight mb-8 sm:mb-10 leading-[1.1]">
-                  <span className="text-white">Welcome to AI</span><br />
-                  <span className="text-orange-500">
-                    that feels like home.
-                  </span>
-                </h1>
-                
-                <div className="space-y-6 max-w-2xl mb-10">
-                  <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed">
-                    When my brother Alex called asking for AI help—despite being terrified of the stuff—we sat down for 4 hours. Learning what made him laugh in class. What kept him engaged. What put him to sleep.
-                  </p>
-                  <p className="text-base sm:text-lg md:text-xl text-slate-400 leading-relaxed">
-                    Then we built <span className="text-orange-500 font-medium">Molly</span>—his stats tutor. Not generic AI. Not a chatbot. She just feels like Molly. He walked into finals and got a <span className="text-orange-500 font-medium">B+</span>. That&apos;s what custom intelligence looks like.
-                  </p>
-                </div>
-
-                <div className="flex justify-start">
-                  <ButtonLink 
-                    href="/book" 
-                    className="min-h-[48px] px-8 sm:px-10 py-4 text-sm sm:text-base uppercase tracking-widest rounded-lg shadow-[0_0_25px_rgba(249,115,22,0.5)] hover:shadow-[0_0_40px_rgba(249,115,22,0.7)] transition-all bg-orange-500 hover:bg-orange-400 text-white font-bold"
-                  >
-                    Enter the Studio
-                  </ButtonLink>
-                </div>
-              </div>
+        {/* Hero Content - constrained width for readability */}
+        <div className="relative z-20 w-full px-4 sm:px-6 md:px-8 lg:px-12 py-24 sm:py-32 md:py-40">
+          <div className="max-w-5xl animate-fadeIn">
+            
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight mb-8 sm:mb-10 leading-[1.1]">
+              <span className="text-white">Welcome to AI</span><br />
+              <span className="text-orange-500">
+                that feels like home.
+              </span>
+            </h1>
+            
+            <div className="space-y-6 max-w-2xl mb-10">
+              <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed">
+                When my brother Alex called asking for AI help—despite being terrified of the stuff—we sat down for 4 hours. Learning what made him laugh in class. What kept him engaged. What put him to sleep.
+              </p>
+              <p className="text-base sm:text-lg md:text-xl text-slate-400 leading-relaxed">
+                Then we built <span className="text-orange-500 font-medium">Molly</span>—his stats tutor. Not generic AI. Not a chatbot. She just feels like Molly. He walked into finals and got a <span className="text-orange-500 font-medium">B+</span>. That&apos;s what custom intelligence looks like.
+              </p>
             </div>
-          </PremiumContainer>
+
+            <div className="flex justify-start">
+              <ButtonLink 
+                href="/book" 
+                className="min-h-[48px] px-8 sm:px-10 py-4 text-sm sm:text-base uppercase tracking-widest rounded-lg shadow-[0_0_25px_rgba(249,115,22,0.5)] hover:shadow-[0_0_40px_rgba(249,115,22,0.7)] transition-all bg-orange-500 hover:bg-orange-400 text-white font-bold"
+              >
+                Enter the Studio
+              </ButtonLink>
+            </div>
+          </div>
         </div>
       </section>
 
