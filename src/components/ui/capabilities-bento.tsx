@@ -51,10 +51,6 @@ const BentoItem = ({ title, description, icon, className, imageSrc, imageAlt }: 
 export function CapabilitiesBento() {
   return (
     <section className="container mx-auto px-4 sm:px-6 max-w-7xl">
-      <div className="mb-16 text-center max-w-3xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold font-hero-accent text-slate-900 mb-4">
-          The work that keeps you up at night. <br /> Handled.
-    <>
       <div className="mb-12 sm:mb-16 text-center max-w-3xl mx-auto">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-hero-accent text-slate-900 mb-4 sm:mb-5">
           The work that keeps you up at night. <br className="hidden sm:block" /> Handled.
@@ -64,7 +60,6 @@ export function CapabilitiesBento() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 auto-rows-[minmax(220px,auto)]">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-9 md:gap-10 auto-rows-[minmax(240px,auto)]">
         {/* Large Item 1 */}
         <BentoItem
