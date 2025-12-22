@@ -6,7 +6,7 @@ import { ButtonLink } from "@/common/button";
 
 export function ConversionOptimizedHero() {
   return (
-    <section className="relative w-full overflow-hidden bg-white py-16 sm:py-24 lg:py-32">
+    <section className="relative w-full overflow-hidden bg-white dark:bg-slate-900 py-16 sm:py-24 lg:py-32">
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-8 items-center">

@@ -10,7 +10,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
   const initialFeatureFlags = getServerFeatureFlags();
 
   return (
-    <ThemeProvider enableSystem={false} attribute="class" defaultTheme="light" forcedTheme="light">
+    <ThemeProvider enableSystem={false} attribute="class" defaultTheme="dark" forcedTheme="dark">
       <ThemeAccentProvider />
       <FeatureFlagProvider initialFlags={initialFeatureFlags}>
         <TokenUsageProvider>
