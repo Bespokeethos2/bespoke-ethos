@@ -11,7 +11,6 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
   return (
     <div
       className={clsx(
-        "relative mx-auto max-w-5xl overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-950 to-black shadow-[0_12px_48px_0_rgba(0,0,0,0.5)] border border-white/10",
         "relative mx-auto my-10 sm:my-14 md:my-20 lg:my-24 max-w-5xl overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-950 to-black shadow-2xl border border-white/10",
         className,
       )}
@@ -24,13 +23,6 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
       </div>
 
       {/* Header */}
-      <div className="p-10 md:p-14 lg:p-16">
-        <div className="mb-10 grid w-full items-center gap-8 text-center md:grid-cols-[auto,1fr]">
-          {/* 4-agent grid image (kept as a card, not a hero) */}
-          <div className="mx-auto rounded-3xl border border-orange-500/20 bg-slate-900/60 p-4 shadow-[0_12px_40px_rgba(249,115,22,0.4)] backdrop-blur-xl">
-            <Image
-              src="/assets/consensus-infographic.png"
-              alt="Consensus Engine AI Strategy Sprint: Four specialized research agents (copy, finance, legal, and future modeling) analyzing 1000+ sources to deliver one actionable business brief"
       <div className="p-8 sm:p-10 md:p-14 lg:p-16">
         <div className="mb-8 sm:mb-10 grid w-full items-center gap-8 text-center md:grid-cols-[auto,1fr]">
           {/* 4-agent grid image (kept as a card, not a hero) */}
@@ -80,13 +72,11 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
         </div>
 
         {/* Simplified Value Prop */}
-        <div className="mb-10 rounded-xl border border-orange-500/30 bg-slate-900/60 p-8 shadow-[0_20px_60px_rgba(249,115,22,0.35)] backdrop-blur-md">
-          <p className="text-3xl md:text-4xl font-bold text-white mb-3 text-glow-crimson">
         <div className="mb-8 sm:mb-10 rounded-xl border border-orange-500/30 bg-slate-900/60 p-6 sm:p-8 shadow-[0_20px_60px_rgba(249,115,22,0.35)] backdrop-blur-md">
           <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-3 text-glow-crimson">
             Got a big question? Get real answers.
           </p>
-            <p className="text-base sm:text-lg md:text-xl text-slate-200 mb-3 sm:mb-4 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-slate-200 mb-3 sm:mb-4 leading-relaxed">
               Our proprietary research sprint analyzes <strong className="text-orange-400">1000+ sources</strong> at superhuman speed—SEC filings,
               patents, journals, tax regulations, and more—then delivers one actionable brief with citations.
             </p>
@@ -104,7 +94,6 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
         </div>
 
         {/* Simple 3-Step Process */}
-        <div className="grid md:grid-cols-3 gap-8 mb-10">
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-10">
           {[
             { 
@@ -125,7 +114,6 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
           ].map((step, index) => (
             <motion.div
               key={index}
-              className="relative text-center rounded-2xl border border-orange-500/20 bg-slate-800/60 p-8 shadow-[0_12px_40px_rgba(0,0,0,0.4)] backdrop-blur-md group"
               className="relative text-center rounded-2xl border border-orange-500/20 bg-slate-800/60 p-8 shadow-[0_12px_40px_rgba(0,0,0,0.5)] backdrop-blur-md group"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
@@ -218,8 +206,6 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
         )}
 
         {/* Offer Callout */}
-        <div className="text-center mb-10 p-10 bg-gradient-to-r from-orange-950/50 to-red-950/50 rounded-xl border-2 border-orange-500/40 backdrop-blur-sm shadow-[0_8px_48px_rgba(249,115,22,0.35)]">
-          <p className="text-3xl md:text-4xl font-bold text-white mb-3 text-glow-crimson">
         <div className="text-center mb-8 sm:mb-10 p-8 sm:p-10 bg-gradient-to-r from-orange-950/50 to-red-950/50 rounded-xl border-2 border-orange-500/40 backdrop-blur-sm shadow-[0_0_40px_rgba(249,115,22,0.3)]">
           <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-3 text-glow-crimson">
             Free With Your Consultation
