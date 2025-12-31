@@ -1,15 +1,41 @@
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { ButtonLink } from "@/common/button";
 import { PremiumContainer } from "@/components/ui/premium-container";
-import { TestimonialMarquee } from "@/components/ui/testimonial-marquee";
-import { CapabilitiesBento } from "@/components/ui/capabilities-bento";
-import { Accordion } from "@/app/_sections/accordion-faq/accordion";
-import { FounderStory } from "./_sections/founder-story";
-import { TrustCredentials } from "./_sections/trust-credentials";
-import { LGBTQDiscountModalTrigger } from "./_components/lgbtq-discount-modal-trigger";
-import { ConsensusEngineCard } from "@/components/ConsensusEngineCard";
-import { AutomationOpportunityScan } from "@/components/AutomationOpportunityScan";
 import { AI101Modal } from "@/components/ai-explainer/AI101Modal";
+
+// Dynamic imports for below-the-fold components to improve initial page load
+const TestimonialMarquee = dynamic(() => import("@/components/ui/testimonial-marquee").then(mod => ({ default: mod.TestimonialMarquee })), {
+  loading: () => <div className="h-32 animate-pulse bg-slate-100" />,
+});
+
+const CapabilitiesBento = dynamic(() => import("@/components/ui/capabilities-bento").then(mod => ({ default: mod.CapabilitiesBento })), {
+  loading: () => <div className="h-96 animate-pulse bg-slate-100" />,
+});
+
+const Accordion = dynamic(() => import("@/app/_sections/accordion-faq/accordion").then(mod => ({ default: mod.Accordion })), {
+  loading: () => <div className="h-64 animate-pulse bg-slate-100" />,
+});
+
+const FounderStory = dynamic(() => import("./_sections/founder-story").then(mod => ({ default: mod.FounderStory })), {
+  loading: () => <div className="h-96 animate-pulse bg-slate-100" />,
+});
+
+const TrustCredentials = dynamic(() => import("./_sections/trust-credentials").then(mod => ({ default: mod.TrustCredentials })), {
+  loading: () => <div className="h-96 animate-pulse bg-slate-100" />,
+});
+
+const LGBTQDiscountModalTrigger = dynamic(() => import("./_components/lgbtq-discount-modal-trigger").then(mod => ({ default: mod.LGBTQDiscountModalTrigger })), {
+  loading: () => <div className="h-10 w-40 animate-pulse bg-slate-200 rounded" />,
+});
+
+const ConsensusEngineCard = dynamic(() => import("@/components/ConsensusEngineCard").then(mod => ({ default: mod.ConsensusEngineCard })), {
+  loading: () => <div className="h-64 animate-pulse bg-slate-100 rounded-lg" />,
+});
+
+const AutomationOpportunityScan = dynamic(() => import("@/components/AutomationOpportunityScan").then(mod => ({ default: mod.AutomationOpportunityScan })), {
+  loading: () => <div className="h-96 animate-pulse bg-slate-100" />,
+});
 
 // SEO & JSON-LD
 import { OrganizationJsonLd } from '@/app/_components/seo/organization-jsonld';
