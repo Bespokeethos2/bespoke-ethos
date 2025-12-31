@@ -45,67 +45,45 @@ const homeFaqItems = [
 
 export default function HomePage() {
   return (
-    <div aria-label="Bespoke Ethos homepage" className="min-h-screen relative overflow-hidden bg-background selection:bg-orange-500/30">
+    <div aria-label="Bespoke Ethos homepage" className="min-h-screen relative overflow-hidden bg-white selection:bg-orange-500/30">
       
-      {/* 1. HERO: Full-width like Figma */}
-      <section className="relative z-10 min-h-[80vh] flex items-center isolate">
-        {/* Background - clean dark with subtle orange glow and stars */}
-        <div className="absolute inset-0 z-0 bg-slate-950">
-          {/* Subtle orange radial glow */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(249,115,22,0.12)_0%,transparent_50%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(249,115,22,0.08)_0%,transparent_40%)]" />
-          {/* Star field effect using CSS */}
-          <div 
-            className="absolute inset-0 opacity-60"
-            style={{
-              backgroundImage: `
-                radial-gradient(1px 1px at 20px 30px, white, transparent),
-                radial-gradient(1px 1px at 40px 70px, rgba(255,255,255,0.8), transparent),
-                radial-gradient(1px 1px at 50px 160px, rgba(255,255,255,0.6), transparent),
-                radial-gradient(1px 1px at 90px 40px, white, transparent),
-                radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.7), transparent),
-                radial-gradient(1px 1px at 160px 120px, white, transparent),
-                radial-gradient(1px 1px at 200px 50px, rgba(255,255,255,0.5), transparent),
-                radial-gradient(1px 1px at 220px 150px, white, transparent),
-                radial-gradient(1px 1px at 260px 90px, rgba(255,255,255,0.8), transparent),
-                radial-gradient(1px 1px at 300px 180px, white, transparent),
-                radial-gradient(1px 1px at 340px 60px, rgba(255,255,255,0.6), transparent),
-                radial-gradient(1px 1px at 380px 130px, white, transparent),
-                radial-gradient(1px 1px at 420px 200px, rgba(255,255,255,0.7), transparent),
-                radial-gradient(1px 1px at 460px 40px, white, transparent),
-                radial-gradient(1px 1px at 500px 100px, rgba(255,255,255,0.5), transparent)
-              `,
-              backgroundSize: '550px 250px',
-            }}
-          />
+      {/* 1. HERO: Full-width with white background */}
+      <section className="relative z-10 min-h-[80vh] flex items-center isolate bg-white">
+        {/* Subtle background accents */}
+        <div className="absolute inset-0 z-0 bg-white">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(253,243,232,0.4)_0%,transparent_50%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(249,115,22,0.08)_0%,transparent_50%)]" />
         </div>
 
         {/* Hero Content - constrained width for readability */}
         <div className="relative z-20 w-full px-4 sm:px-6 md:px-8 lg:px-12 py-24 sm:py-32 md:py-40">
           <div className="max-w-5xl animate-fadeIn">
             
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight mb-8 sm:mb-10 leading-[1.1]">
-              <span className="text-white">Welcome to AI</span><br />
-              <span className="text-orange-500">
-                that feels like home.
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 sm:mb-10 leading-[1.1]">
+              <span className="text-slate-900">We cut busywork.</span><br />
+              <span className="text-slate-900">
+                You keep control.
               </span>
             </h1>
             
             <div className="space-y-6 max-w-2xl mb-10">
-              <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed">
-                When my brother Alex called asking for AI help—despite being terrified of the stuff—we sat down for 4 hours. Learning what made him laugh in class. What kept him engaged. What put him to sleep.
-              </p>
-              <p className="text-base sm:text-lg md:text-xl text-slate-400 leading-relaxed">
-                Then we built <span className="text-orange-500 font-medium">Molly</span>—his stats tutor. Not generic AI. Not a chatbot. She just feels like Molly. He walked into finals and got a <span className="text-orange-500 font-medium">B+</span>. That&apos;s what custom intelligence looks like.
+              <p className="text-base sm:text-lg md:text-xl text-slate-700 leading-relaxed">
+                Auditable AI workflows, on-brand chatbots, and decision clarity—built for small business. Keep human approvals, regain your time, and stay in charge.
               </p>
             </div>
 
-            <div className="flex justify-start">
+            <div className="flex flex-wrap gap-3 justify-start">
               <ButtonLink 
-                href="/book" 
-                className="min-h-[48px] px-8 sm:px-10 py-4 text-sm sm:text-base uppercase tracking-widest rounded-lg shadow-[0_0_25px_rgba(249,115,22,0.5)] hover:shadow-[0_0_40px_rgba(249,115,22,0.7)] transition-all bg-orange-500 hover:bg-orange-400 text-white font-bold"
+                href="/contact" 
+                className="inline-flex items-center justify-center min-h-[48px] px-8 py-3 text-sm sm:text-base font-semibold rounded-md bg-orange-500 hover:bg-orange-600 text-white transition-colors shadow-md"
               >
-                Enter the Studio
+                Get Free Assessment
+              </ButtonLink>
+              <ButtonLink 
+                href="/solutions/consensus-engine" 
+                className="inline-flex items-center justify-center min-h-[48px] px-8 py-3 text-sm sm:text-base font-semibold rounded-md bg-orange-500 hover:bg-orange-600 text-white transition-colors shadow-md"
+              >
+                Get Free Consensus Engine Answer
               </ButtonLink>
             </div>
           </div>
@@ -113,21 +91,21 @@ export default function HomePage() {
       </section>
 
       {/* 2. THE CHASM: Authentic Voice */}
-      <section className="relative z-10 py-24 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6">
+      <section className="relative z-10 py-24 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6 bg-slate-50">
         <div className="container mx-auto max-w-4xl">
            <div className="relative">
              {/* Quote Decor */}
-             <div aria-hidden="true" className="absolute -top-6 sm:-top-8 md:-top-12 -left-3 sm:-left-4 md:-left-8 text-6xl sm:text-7xl md:text-9xl text-white/5 font-serif select-none">&quot;</div>
+             <div aria-hidden="true" className="absolute -top-6 sm:-top-8 md:-top-12 -left-3 sm:-left-4 md:-left-8 text-6xl sm:text-7xl md:text-9xl text-slate-900/5 font-serif select-none">&quot;</div>
              
-             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold font-hero-accent text-white mb-4 sm:mb-6 md:mb-8 leading-tight text-center md:text-left">
-               <span className="text-white text-glow-crimson">It&apos;s not about the model.</span>{" "}
-               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-amber-200 text-glow-ambient">It&apos;s about the tolerance.</span>
+             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold font-hero-accent text-slate-900 mb-4 sm:mb-6 md:mb-8 leading-tight text-center md:text-left">
+               <span className="text-slate-900">It&apos;s not about the model.</span>{" "}
+               <span className="text-orange-600">It&apos;s about the tolerance.</span>
              </h2>
 
-             <div className="space-y-3 sm:space-y-4 md:space-y-6 text-sm sm:text-base md:text-lg lg:text-xl text-slate-200 leading-relaxed font-light">
+             <div className="space-y-3 sm:space-y-4 md:space-y-6 text-sm sm:text-base md:text-lg lg:text-xl text-slate-700 leading-relaxed font-light">
                <p>
-                 I&apos;m <span className="text-white font-medium">Upton Rand</span>. I spent 5 years training these models back when they were just research papers. 
-                 Here is the honest truth: <strong className="text-white">AI is messy.</strong> It hallucinates. It drifts. It forgets.
+                 I&apos;m <span className="text-slate-900 font-medium">Upton Rand</span>. I spent 5 years training these models back when they were just research papers. 
+                 Here is the honest truth: <strong className="text-slate-900">AI is messy.</strong> It hallucinates. It drifts. It forgets.
                </p>
                <p>
                  Most consultants try to sell you a &quot;magic button.&quot; I sell you a <strong>machine shop</strong>. 
@@ -141,22 +119,22 @@ export default function HomePage() {
       </section>
 
       {/* 3. SOCIAL PROOF */}
-      <section className="relative z-10 py-16 sm:py-20 md:py-24 border-y border-white/5 bg-slate-950/50 backdrop-blur-sm px-4 sm:px-6">
-        <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-slate-500 mb-10 sm:mb-12 md:mb-16">Trusted Operating Systems</p>
+      <section className="relative z-10 py-16 sm:py-20 md:py-24 border-y border-slate-200 bg-white px-4 sm:px-6">
+        <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-slate-600 mb-10 sm:mb-12 md:mb-16">Trusted Operating Systems</p>
         <TestimonialMarquee />
       </section>
 
       {/* 4. CAPABILITIES: Bento */}
-      <section className="relative z-10 py-24 sm:py-28 md:py-36 lg:py-44 bg-slate-950 px-4 sm:px-6">
+      <section className="relative z-10 py-24 sm:py-28 md:py-36 lg:py-44 bg-slate-50 px-4 sm:px-6">
         <div className="container mx-auto max-w-7xl">
           <div className="mb-16 sm:mb-20 md:mb-24 md:flex md:items-end md:justify-between md:gap-8">
             <div className="max-w-2xl">
               <span className="text-orange-500 font-mono text-xs sm:text-sm tracking-tight mb-2 sm:mb-3 md:mb-4 block">{`// SYSTEM CAPABILITIES`}</span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none">
-                <span className="text-white text-glow-crimson">BUILT TO</span> <span className="text-slate-800 text-stroke-thin">LAST.</span>
+                <span className="text-slate-900">BUILT TO</span> <span className="text-slate-400">LAST.</span>
               </h2>
             </div>
-            <p className="mt-4 md:mt-0 text-slate-300 max-w-md text-xs sm:text-sm md:text-base border-l-2 border-orange-500/30 pl-3 sm:pl-4 md:pl-6 py-2">
+            <p className="mt-4 md:mt-0 text-slate-700 max-w-md text-xs sm:text-sm md:text-base border-l-2 border-orange-500/30 pl-3 sm:pl-4 md:pl-6 py-2">
               We don&apos;t ship &quot;demos.&quot; We deploy production-grade infrastructure that runs your business while you sleep.
             </p>
           </div>
@@ -165,7 +143,7 @@ export default function HomePage() {
       </section>
 
       {/* 5. PRICING: Fixed Price */}
-      <section className="relative z-10 py-24 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6">
+      <section className="relative z-10 py-24 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6 bg-white">
         <div className="container mx-auto max-w-6xl">
           <PremiumContainer variant="obsidian" className="p-8 sm:p-10 md:p-12 lg:p-16 xl:p-20 relative overflow-hidden group">
             {/* Background Glow - Enhanced */}
@@ -173,16 +151,16 @@ export default function HomePage() {
 
             <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 relative z-10">
               <div className="space-y-4 sm:space-y-6 md:space-y-8">
-                 <div className="inline-block px-3 py-1.5 rounded bg-orange-500/20 border border-orange-500/40 text-orange-300 text-xs font-bold uppercase tracking-widest shadow-sm">
+                 <div className="inline-block px-3 py-1.5 rounded bg-orange-500/20 border border-orange-500/40 text-orange-700 text-xs font-bold uppercase tracking-widest shadow-sm">
                    The Anti-Consulting Offer
                  </div>
                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-hero-accent leading-tight">
-                   <span className="text-white text-glow-crimson drop-shadow-lg">Stop paying for</span>{" "}
-                   <span className="line-through decoration-orange-400/60 decoration-2 text-slate-400">slide decks.</span>
+                   <span className="text-slate-900 drop-shadow-lg">Stop paying for</span>{" "}
+                   <span className="line-through decoration-orange-400/60 decoration-2 text-slate-500">slide decks.</span>
                  </h2>
-                 <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-100 leading-relaxed">
+                 <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-700 leading-relaxed">
                    Enterprise firms charge $300/hr to &quot;delve&quot; into your problems. 
-                   We charge a <strong className="text-white font-bold">fixed price</strong> to ship a solution.
+                   We charge a <strong className="text-slate-900 font-bold">fixed price</strong> to ship a solution.
                  </p>
                  <ul className="space-y-2 sm:space-y-3 md:space-y-4 pt-2 sm:pt-4">
                    {[
@@ -191,7 +169,7 @@ export default function HomePage() {
                      "90-day 'Break It, We Fix It' warranty.",
                      "Founder-led. No junior associates."
                    ].map((item, i) => (
-                     <li key={i} className="flex items-center gap-3 text-sm sm:text-base text-slate-100 font-medium">
+                     <li key={i} className="flex items-center gap-3 text-sm sm:text-base text-slate-700 font-medium">
                        <span className="w-2 h-2 rounded-full bg-orange-500 shadow-[0_0_12px_rgba(249,115,22,1)] flex-shrink-0" />
                        {item}
                      </li>
@@ -199,20 +177,20 @@ export default function HomePage() {
                  </ul>
               </div>
 
-              <div className="flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-white/20 pt-6 sm:pt-8 lg:pt-0 lg:pl-10 xl:pl-12">
-                 <div className="text-xs sm:text-sm font-bold text-slate-300 uppercase tracking-widest mb-1.5 sm:mb-2">Builds Starting At</div>
-                 <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight mb-2 sm:mb-3 md:mb-4 drop-shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+              <div className="flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-slate-200 pt-6 sm:pt-8 lg:pt-0 lg:pl-10 xl:pl-12">
+                 <div className="text-xs sm:text-sm font-bold text-slate-600 uppercase tracking-widest mb-1.5 sm:mb-2">Builds Starting At</div>
+                 <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 tracking-tight mb-2 sm:mb-3 md:mb-4">
                    $1,497
                  </div>
-                 <p className="text-xs sm:text-sm md:text-base text-slate-100 mb-4 sm:mb-6 md:mb-8 max-w-md">
+                 <p className="text-xs sm:text-sm md:text-base text-slate-700 mb-4 sm:mb-6 md:mb-8 max-w-md">
                    Includes full scoping decision brief, build, deployment, and documentation. 
-                   <span className="block mt-2 text-orange-200 font-bold">LGBTQ-owned businesses pay $1,122.</span>
+                   <span className="block mt-2 text-orange-600 font-bold">LGBTQ-owned businesses pay $1,122.</span>
                  </p>
                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                   <ButtonLink href="/pricing" className="bg-white text-slate-950 hover:bg-orange-50 font-bold shadow-[0_4px_20px_rgba(255,255,255,0.3)] hover:shadow-[0_6px_30px_rgba(255,255,255,0.4)] transition-all min-h-[44px] px-6 py-3 rounded-full">
+                   <ButtonLink href="/pricing" className="bg-orange-500 text-white hover:bg-orange-600 font-bold shadow-md hover:shadow-lg transition-all min-h-[44px] px-6 py-3 rounded-full">
                      View The Menu
                    </ButtonLink>
-                   <ButtonLink href="/contact" className="bg-white/20 hover:bg-white/30 text-white font-bold border-2 border-white/40 hover:border-white/60 backdrop-blur-sm shadow-lg min-h-[44px] px-6 py-3 rounded-full">
+                   <ButtonLink href="/contact" className="bg-white hover:bg-slate-50 text-slate-900 font-bold border-2 border-slate-300 hover:border-slate-400 shadow-md min-h-[44px] px-6 py-3 rounded-full">
                      Book Grant Call
                    </ButtonLink>
                  </div>
@@ -226,15 +204,15 @@ export default function HomePage() {
       <AutomationOpportunityScan />
 
       {/* 6. AI STRATEGY SPRINTS (Formerly Consensus Engine) */}
-      <section className="relative z-10 py-20 sm:py-24 md:py-28 lg:py-36 bg-slate-950 px-4 sm:px-6">
+      <section className="relative z-10 py-20 sm:py-24 md:py-28 lg:py-36 bg-slate-50 px-4 sm:px-6">
         <div className="container mx-auto max-w-6xl">
-           <PremiumContainer variant="glass" className="p-8 sm:p-10 md:p-12 lg:p-16 xl:p-20 text-center border-white/5 bg-slate-900/40">
+           <PremiumContainer variant="glass" className="p-8 sm:p-10 md:p-12 lg:p-16 xl:p-20 text-center border-slate-200 bg-white/40">
              <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4 md:space-y-6">
-               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold font-hero-accent text-white text-glow-crimson">
+               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold font-hero-accent text-slate-900">
                  AI Strategy Sprints™
                </h2>
-               <div className="text-orange-500 font-mono text-xs sm:text-sm tracking-wide uppercase mb-1 sm:mb-2 md:mb-4">Powered by Consensus Engine</div>
-               <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-200 leading-relaxed font-light">
+               <div className="text-orange-600 font-mono text-xs sm:text-sm tracking-wide uppercase mb-1 sm:mb-2 md:mb-4">Powered by Consensus Engine</div>
+               <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-700 leading-relaxed font-light">
                  Don&apos;t guess. We run multi-agent adversarial research sprints to stress-test your strategy before you spend a dime. 
                  It&apos;s like having a boardroom of experts in a box.
                </p>
@@ -251,11 +229,11 @@ export default function HomePage() {
       <TrustCredentials />
 
       {/* 8. FAQ */}
-      <section className="relative z-10 py-24 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6">
+      <section className="relative z-10 py-24 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6 bg-white">
         <div className="container mx-auto max-w-3xl">
           <div className="text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24">
-            <span className="text-orange-400 font-mono text-xs tracking-widest mb-2 sm:mb-3 md:mb-4 block font-bold">01001000 01000101 01001100 01010000</span>
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white font-hero-accent text-glow-crimson drop-shadow-[0_0_20px_rgba(239,68,68,0.5)]">
+            <span className="text-orange-500 font-mono text-xs tracking-widest mb-2 sm:mb-3 md:mb-4 block font-bold">01001000 01000101 01001100 01010000</span>
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-slate-900 font-hero-accent">
               Quick Answers. No Fluff.
             </h2>
           </div>
@@ -269,17 +247,17 @@ export default function HomePage() {
       </section>
 
       {/* 9. SAFETY NET */}
-      <section className="relative z-10 py-24 sm:py-28 md:py-32 lg:py-40 bg-gradient-to-t from-orange-950/20 to-slate-950 px-4 sm:px-6">
+      <section className="relative z-10 py-24 sm:py-28 md:py-32 lg:py-40 bg-gradient-to-b from-orange-50 to-white px-4 sm:px-6">
         <div className="container relative z-10 mx-auto max-w-5xl">
           <div className="grid md:grid-cols-2 gap-10 sm:gap-12 md:gap-16 lg:gap-20 items-center">
             <div className="space-y-3 sm:space-y-4 md:space-y-6">
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white font-hero-accent leading-tight text-glow-crimson">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 font-hero-accent leading-tight">
                 We lift as we climb.
               </h2>
               <div className="h-1 w-16 sm:w-20 md:w-24 bg-orange-500 rounded-full" />
-              <p className="text-sm sm:text-base md:text-lg text-slate-200 leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg text-slate-700 leading-relaxed">
                 As an NGLCC-certified business, we know the hustle. We reserve grant slots and offer a 
-                permanent <span className="text-orange-400 font-semibold">25% discount</span> for LGBTQ-owned businesses.
+                permanent <span className="text-orange-600 font-semibold">25% discount</span> for LGBTQ-owned businesses.
               </p>
               <div className="pt-2 sm:pt-3 md:pt-4">
                 <LGBTQDiscountModalTrigger />
@@ -287,14 +265,14 @@ export default function HomePage() {
             </div>
             
             {/* Visual: The Abstract 'Lift' */}
-            <div className="relative aspect-square md:aspect-auto md:h-80 rounded-2xl overflow-hidden border border-white/10 bg-slate-900/50 shadow-2xl flex items-center justify-center p-5 sm:p-6 md:p-8 text-center group">
-               <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/10 via-transparent to-indigo-500/10 opacity-50 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="relative aspect-square md:aspect-auto md:h-80 rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-2xl flex items-center justify-center p-5 sm:p-6 md:p-8 text-center group">
+               <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/10 via-transparent to-orange-500/5 opacity-50 group-hover:opacity-100 transition-opacity duration-700" />
                
                <blockquote className="relative z-10">
-                 <p className="text-sm sm:text-base md:text-lg text-slate-200 italic font-light mb-2 sm:mb-3 md:mb-4">
+                 <p className="text-sm sm:text-base md:text-lg text-slate-700 italic font-light mb-2 sm:mb-3 md:mb-4">
                    &quot;Upton helped us automate our entire intake process. We got our weekends back.&quot;
                  </p>
-                 <footer className="text-xs font-bold text-orange-400 uppercase tracking-widest">
+                 <footer className="text-xs font-bold text-orange-600 uppercase tracking-widest">
                    — Sarah & Jen, Cleveland
                  </footer>
                </blockquote>
