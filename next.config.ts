@@ -62,6 +62,14 @@ const nextConfig = {
   },
   images: {
     remotePatterns: [{ hostname: "cdn.sanity.io" }],
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 31536000,
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+  },
+  experimental: {
+    // Remove unnecessary polyfills for modern browsers
+    legacyBrowsers: false,
   },
   async headers() {
     const headerConfigs: { source: string; headers: { key: string; value: string }[] }[] = [];
