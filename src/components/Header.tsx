@@ -12,7 +12,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="border-b-4 border-black bg-white dark:bg-slate-900 sticky top-0 z-50 shadow-md">
+    <header className="border-b-4 border-black bg-white sticky top-0 z-50 shadow-md">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo/Title */}
         <div className="font-black text-xl md:text-2xl uppercase tracking-tighter">
@@ -70,7 +70,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden border-t-4 border-black bg-white dark:bg-slate-900">
+        <div className="md:hidden border-t-4 border-black bg-white">
           <nav className="flex flex-col items-center gap-4 px-4 py-6">
             {navLinks.map((link) => {
               const isHash = link.href.startsWith("#");

@@ -9,7 +9,7 @@ const google = createGoogleGenerativeAI({
   apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY,
 });
 
-const model = google('models/gemini-1.5-pro'); // Nano Banana 3
+const model = google('models/gemini-2.5-pro'); // Nano Banana 3
 
 const TOPICS = [
     "The 35% Efficiency Gap: Why Cleveland SMBs Are Losing Money",

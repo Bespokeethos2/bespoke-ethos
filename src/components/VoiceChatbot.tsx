@@ -3,7 +3,7 @@
 /**
  * Voice-Enabled AI Chatbot Component
  * Uses Google Cloud Speech-to-Text and Text-to-Speech APIs
- * Integrates with Cadence Intelligence API
+ * Integrates with Brutus Intelligence API
  * 
  * @author BespokeEthos
  * @see https://cloud.google.com/speech-to-text
@@ -44,9 +44,9 @@ const VOICE_OPTIONS = {
 };
 
 export function VoiceChatbot({
-  apiEndpoint = '/api/chat/google',
-  welcomeMessage = "Hey! I'm Cadence, the BespokeEthos AI assistant. I can help you understand how AI automation can transform your business. What's on your mind?",
-  botName = 'Cadence',
+  apiEndpoint = '/api/brutus',
+  welcomeMessage = "Hey! I'm the BespokeEthos AI assistant. I can help you understand how AI automation can transform your business. What's on your mind?",
+  botName = 'Brutus',
   position = 'bottom-right',
 }: VoiceChatbotProps) {
   // State
@@ -180,7 +180,7 @@ export function VoiceChatbot({
       
       audio.play();
     } catch (err) {
-      console.error('[CADENCE TTS] Error:', err);
+      console.error('TTS error:', err);
       fallbackSpeak(text);
     }
   }, [isMuted]);
@@ -209,7 +209,7 @@ export function VoiceChatbot({
     setIsSpeaking(false);
   }, []);
 
-  // Send message to Cadence API
+  // Send message to Brutus API
   const handleSendMessage = useCallback(async (text: string) => {
     if (!text.trim()) return;
 
@@ -234,6 +234,14 @@ export function VoiceChatbot({
             role: m.role,
             content: m.content,
           })),
+          model: 'gpt-4.1',
+          temperature: 0.7,
+          context: `You are ${botName}, an AI assistant for BespokeEthos. 
+You help small business founders understand AI automation. 
+Be friendly, direct, and avoid corporate jargon.
+Remember: "I trained the models you're paying to use."
+Key products: Cadence™ ($997/mo), Flowstack™ ($1,497), Premium Chatbot ($949+$149/mo).
+NGLCC certified LGBTQ+ business with 25% discount for LGBTQ+ owners.`,
         }),
       });
 
@@ -241,36 +249,17 @@ export function VoiceChatbot({
         throw new Error('Failed to get response');
       }
 
-      const reader = response.body?.getReader();
-      const decoder = new TextDecoder();
-      let assistantContent = '';
+      const data = await response.json();
+      const assistantContent = data.message?.content || data.choices?.[0]?.message?.content || "I'm having trouble responding. Please try again.";
 
-      // Create placeholder message
       const assistantMessage: Message = {
         id: `assistant-${Date.now()}`,
         role: 'assistant',
-        content: '',
+        content: assistantContent,
         timestamp: new Date(),
       };
+
       setMessages((prev) => [...prev, assistantMessage]);
-
-      if (reader) {
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-          
-          const chunk = decoder.decode(value, { stream: true });
-          assistantContent += chunk;
-
-          setMessages((prev) => 
-            prev.map(msg => 
-              msg.id === assistantMessage.id 
-                ? { ...msg, content: assistantContent }
-                : msg
-            )
-          );
-        }
-      }
 
       // Speak the response
       if (!isMuted) {

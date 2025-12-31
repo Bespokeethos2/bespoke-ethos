@@ -1,8 +1,8 @@
+import Image from "next/image";
 import { ButtonLink } from "@/common/button";
 import { DesktopMenu, MobileMenu } from "./navigation-menu";
 import { HeaderAccent } from "./header-accent";
 import { TrustStrip } from "../trust-strip";
-import { TextLogo } from "@/components/TextLogo";
 
 export type HeaderNavLinkItem = {
   _id: string;
@@ -191,13 +191,29 @@ type HeaderShellProps = {
 
 function HeaderShell({ headerData, logo }: HeaderShellProps) {
   return (
-    <header className="sticky left-0 top-0 z-[100] flex w-full flex-col border-b border-white/10 backdrop-blur-md bg-slate-900/80">
-      <div className="relative flex h-16 sm:h-20 items-center overflow-visible">
+    <header className="sticky left-0 top-0 z-[100] flex w-full flex-col border-b border-border bg-surface-primary/98 backdrop-blur-md dark:border-dark-border dark:bg-dark-surface-primary/98">
+      <div className="relative flex h-16 sm:h-20 overflow-visible">
         <HeaderAccent className="absolute inset-0 -z-10" />
-        <div className="container relative z-10 mx-auto grid w-full grid-cols-header items-center px-4 sm:px-6 *:first:justify-self-start">
-          <ButtonLink unstyled className="flex items-center ring-offset-2 min-h-[44px]" href="/">
-            <TextLogo variant="header" className="hidden sm:block" />
-            <TextLogo variant="mobile" className="block sm:hidden" />
+        <div className="container relative z-10 mx-auto grid w-full grid-cols-header place-items-center items-center px-4 sm:px-6 *:first:justify-self-start">
+          <ButtonLink unstyled className="flex items-center ring-offset-2 header-logo-container" href="/">
+            <span className="block dark:hidden relative h-10 sm:h-12 md:h-16 w-[200px]">
+              <Image
+                src={logo.light.url}
+                alt={logo.light.alt ?? ""}
+                fill
+                className="logo-no-bg object-contain w-full h-full"
+                priority
+              />
+            </span>
+            <span className="hidden dark:block relative h-10 sm:h-12 md:h-16 w-[200px]">
+              <Image
+                src={logo.dark.url}
+                alt={logo.dark.alt ?? ""}
+                fill
+                className="logo-no-bg object-contain w-full h-full"
+                priority
+              />
+            </span>
           </ButtonLink>
           <DesktopMenu {...headerData} />
           <MobileMenu {...headerData} />

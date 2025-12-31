@@ -255,7 +255,15 @@ export const SEO_ROUTES: SeoRoute[] = [
     priority: 0.7,
     section: "enterprise",
   },
-
+  {
+    label: "Brutus API",
+    path: "/brutus",
+    description:
+      "Landing for the Brutus Intelligence Platform — AI gateway, failover, and transparency for API teams.",
+    changeFrequency: "monthly",
+    priority: 0.6,
+    section: "products",
+  },
   {
     label: "Consensus Calendar",
     path: "/calendar",
