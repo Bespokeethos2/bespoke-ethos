@@ -102,7 +102,14 @@
   "pnpm": {
     "overrides": {
       "baseline-browser-mapping": "2.8.32"
-    }
+    },
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "@swc/core",
+      "esbuild",
+      "sharp",
+      "unrs-resolver"
+    ]
   },
   "packageManager": "pnpm@10.18.2"
 }
