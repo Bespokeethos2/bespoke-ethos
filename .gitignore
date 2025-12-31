@@ -30,6 +30,10 @@ yarn-error.log*
 .env
 .env*.local
 
+# service account keys (security)
+service-account-key.json
+*-service-account-key.json
+
 # vercel
 .vercel
 

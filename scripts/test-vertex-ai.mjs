@@ -24,7 +24,7 @@ console.log('\n🚀 Sending test request to Gemini 2.5 Pro...\n');
 
 try {
     const genAI = new GoogleGenerativeAI(API_KEY);
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-2.5-pro' });
 
     const prompt = 'Say "Hello from Vertex AI!" and confirm you are running on Google Cloud.';
     

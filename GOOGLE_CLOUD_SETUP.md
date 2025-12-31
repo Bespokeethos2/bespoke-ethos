@@ -49,21 +49,19 @@ gcloud auth application-default login
 
 ### Required for Gemini/Vertex AI
 
-Add these to `c:\Vercel\.env.local` and in **Vercel Dashboard → Project Settings → Environment Variables**:
+Add these to `c:\Vercel\.env.local`:
 
 ```dotenv
-# Primary Gemini API Key (for AI SDK and @ai-sdk/google)
-GOOGLE_GENERATIVE_AI_API_KEY=your_api_key_here
-
-# Fallback API Key (used if GOOGLE_GENERATIVE_AI_API_KEY is not set)
+# Primary Gemini API Key (for AI SDK)
 GOOGLE_GEMINI_API=your_api_key_here
+
+# Alternative name (some SDKs use this)
+GOOGLE_GENERATIVE_AI_API_KEY=your_api_key_here
 
 # Project Configuration
 GOOGLE_CLOUD_PROJECT=bespokeethos-analytics-475007
 GOOGLE_CLOUD_REGION=us-central1
 ```
-
-> **Note**: The GeminiChatbot and intelligence modules use `GOOGLE_GENERATIVE_AI_API_KEY` as the primary key with automatic fallback to `GOOGLE_GEMINI_API`. For maximum compatibility, set both to the same value in Vercel.
 
 ### Optional - Service Account (for advanced features)
 ```dotenv

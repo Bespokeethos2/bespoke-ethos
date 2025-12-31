@@ -34,7 +34,7 @@ export function NavigationMenuHeader({
   return (
     <nav aria-label="Primary" role="navigation">
       <NavigationMenu
-        className={clsx("relative z-1 hidden flex-col justify-center xl:flex", className)}
+        className={clsx("relative z-1 flex-col justify-center xl:flex", className)}
         delayDuration={50}
       >
         <NavigationMenuList className="flex flex-1 gap-0.5 px-4">
@@ -210,7 +210,7 @@ export function DesktopMenu({ navbar, rightCtas }: HeaderData) {
       <div className="hidden items-center gap-2 justify-self-end xl:flex">
         {ctaItems.map((cta) => {
           return (
-            <ButtonLink key={cta._id} className="min-h-[44px]" href={cta.href} intent={cta.type}>
+            <ButtonLink key={cta._id} className="px-3.5!" href={cta.href} intent={cta.type}>
               {cta.label}
             </ButtonLink>
           );
@@ -367,10 +367,10 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
         aria-label="Toggle menu"
         aria-expanded={ariaExpanded(isOn)}
         aria-controls="mobile-navigation-panel"
-        className="col-start-3 flex items-center justify-center justify-self-end rounded-md border border-white/20 bg-slate-800/50 backdrop-blur-sm hover:bg-slate-700/50 transition-colors min-h-[44px] min-w-[44px] p-3 xl:hidden"
+        className="border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary col-start-3 flex items-center justify-center gap-2 justify-self-end rounded-sm border p-2 xl:hidden xl:h-7"
         onClick={handleToggle}
       >
-        <HamburgerMenuIcon className="size-5" />
+        <HamburgerMenuIcon className="size-4" />
       </button>
       {mounted && menuContent && createPortal(menuContent, document.body)}
     </>

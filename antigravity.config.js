@@ -20,23 +20,20 @@ const config = {
     // High-intelligence model (The "Brain") - "Nano Banana 3" 
     // UPGRADED to Gemini 2.5 Pro for best reasoning + higher rate limits
     // BEST FOR: Complex Layouts, Reasoning, Architecture
-    // High-intelligence model (The "Brain") - "Nano Banana 3" 
-    // UPGRADED to Gemini 1.5 Pro for best reasoning + higher rate limits
-    // BEST FOR: Complex Layouts, Reasoning, Architecture
-    main: "models/gemini-1.5-pro", 
+    main: "models/gemini-2.5-pro", 
     
     // High-speed/efficiency model (The "Nano Banana")
-    // UPGRADED to Gemini 1.5 Flash for faster responses + higher limits
+    // UPGRADED to Gemini 2.0 Flash for faster responses + higher limits
     // BEST FOR: Quick fixes, simple text, fast iterations
-    fast: "models/gemini-1.5-flash",
+    fast: "models/gemini-2.0-flash",
     
     // Aliases for specific tasks
-    complex_layout: "models/gemini-1.5-pro",
-    nano_banana_3: "models/gemini-1.5-pro",
+    complex_layout: "models/gemini-2.5-pro",
+    nano_banana_3: "models/gemini-2.5-pro",
     
-    // Fallbacks (if 1.5 has issues)
-    legacy_pro: "models/gemini-1.0-pro-vision",
-    legacy_flash: "models/gemini-1.0-flash"
+    // Fallbacks (if 2.x has issues)
+    legacy_pro: "models/gemini-1.5-pro",
+    legacy_flash: "models/gemini-1.5-flash"
   },
   billing: {
     status: "verified",
@@ -51,7 +48,7 @@ const config = {
     // Visual Generation & Editing
     nano_banana: { 
       enabled: true, 
-      model: "gemini-1.5-pro",
+      model: "gemini-2.5-pro",
       commands: ["/generate", "/edit", "/restore", "/icon", "/pattern", "/story", "/diagram"]
     },
     // Cloud Services

@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { DollarSign, Trees, Flame } from 'lucide-react';
+import { DollarSign, Tree, Flame } from 'lucide-react';
 
 const formatCurrency = (amount: number) => {
   return new Intl.NumberFormat('en-US', {
@@ -91,7 +91,7 @@ const MoneyFurnace = () => {
             transition={{ duration: 0.5 }}
           >
             <div className="text-green-400 text-5xl animate-bounce">
-              <Trees />
+              <Tree />
             </div>
             <motion.div className="absolute bottom-0 w-full text-center text-xs">
               Profit Tree
