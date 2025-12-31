@@ -7,7 +7,7 @@ export function TrustCredentials() {
   return (
     <Section>
       <div className="mx-auto max-w-7xl text-center px-4 sm:px-6">
-        <p className="text-orange-500 text-xs sm:text-sm font-black uppercase tracking-[0.25em] sm:tracking-[0.3em] mb-3">
+        <p className="text-orange-700 text-xs sm:text-sm font-black uppercase tracking-[0.25em] sm:tracking-[0.3em] mb-3">
           Trusted & Certified
         </p>
         <h2 className="mt-3 sm:mt-4 text-balance text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-slate-900">

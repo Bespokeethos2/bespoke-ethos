@@ -133,7 +133,7 @@ export default function AboutPage() {
                     "Human-in-the-Loop Pedigree (Appen)"
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-3 text-slate-300 text-sm">
-                      <span className="text-orange-500 font-bold">✓</span>
+                      <span className="text-orange-700 font-bold">✓</span>
                       {item}
                     </li>
                   ))}
@@ -141,7 +141,7 @@ export default function AboutPage() {
               </PremiumContainer>
 
               <PremiumContainer variant="obsidian" className="p-6 flex flex-col justify-center items-center text-center h-full">
-                <p className="text-slate-400 mb-6 font-light">
+                <p className="text-slate-600 mb-6 font-light">
                   "There has never been a better time to be a builder. Let's get to work."
                 </p>
                 <ButtonLink href="/contact" intent="primary" className="w-full justify-center">

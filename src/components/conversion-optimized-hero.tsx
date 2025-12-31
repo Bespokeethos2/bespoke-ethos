@@ -40,7 +40,7 @@ export function ConversionOptimizedHero() {
               </Link>
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-x-8 gap-y-4 border-t border-slate-100 pt-8 text-sm font-semibold text-slate-500">
+            <div className="mt-8 flex flex-wrap gap-x-8 gap-y-4 border-t border-slate-100 pt-8 text-sm font-semibold text-slate-600">
                 <span className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-slate-300"></span> NGLCC Certified
                 </span>
@@ -72,7 +72,7 @@ export function ConversionOptimizedHero() {
                              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
                           </div>
                           <div>
-                              <p className="text-xs font-medium text-slate-500">System Status</p>
+                              <p className="text-xs font-medium text-slate-600">System Status</p>
                               <p className="text-sm font-bold text-slate-900">Operational</p>
                           </div>
                       </div>
@@ -90,7 +90,7 @@ export function ConversionOptimizedHero() {
               <p className="text-sm italic text-slate-600">"Molly explains stats using my brewery floor. It's not generic—it's mine."</p>
               <div className="mt-auto pt-2">
                   <p className="font-bold text-slate-900 text-sm">Alex</p>
-                  <p className="text-xs text-slate-500">Brewer, Ore Dock Brewing</p>
+                  <p className="text-xs text-slate-600">Brewer, Ore Dock Brewing</p>
                   <Link href="/case-studies/alex" className="mt-1 block text-xs font-bold text-indigo-600 hover:underline">READ STORY →</Link>
               </div>
             </div>
@@ -99,7 +99,7 @@ export function ConversionOptimizedHero() {
               <p className="text-sm italic text-slate-600">"We finally agreed on our brand voice without another six-week debate."</p>
               <div className="mt-auto pt-2">
                  <p className="font-bold text-slate-900 text-sm">Monique Ellis</p>
-                 <p className="text-xs text-slate-500">Co-Founder, Lake Effect Co-op</p>
+                 <p className="text-xs text-slate-600">Co-Founder, Lake Effect Co-op</p>
               </div>
             </div>
 
@@ -107,7 +107,7 @@ export function ConversionOptimizedHero() {
               <p className="text-sm italic text-slate-600">"Revenue stopped bleeding—now we get alerts before clients feel pain."</p>
               <div className="mt-auto pt-2">
                 <p className="font-bold text-slate-900 text-sm">Derrick Patel</p>
-                <p className="text-xs text-slate-500">Founder, LedgerLight Accounting</p>
+                <p className="text-xs text-slate-600">Founder, LedgerLight Accounting</p>
               </div>
             </div>
 

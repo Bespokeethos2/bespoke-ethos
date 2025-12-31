@@ -99,7 +99,7 @@ export default function HomePage() {
              
              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold font-hero-accent text-slate-900 mb-4 sm:mb-6 md:mb-8 leading-tight text-center md:text-left">
                <span className="text-slate-900">It&apos;s not about the model.</span>{" "}
-               <span className="text-orange-600">It&apos;s about the tolerance.</span>
+               <span className="text-orange-700">It&apos;s about the tolerance.</span>
              </h2>
 
              <div className="space-y-3 sm:space-y-4 md:space-y-6 text-sm sm:text-base md:text-lg lg:text-xl text-slate-700 leading-relaxed font-light">
@@ -129,9 +129,9 @@ export default function HomePage() {
         <div className="container mx-auto max-w-7xl">
           <div className="mb-16 sm:mb-20 md:mb-24 md:flex md:items-end md:justify-between md:gap-8">
             <div className="max-w-2xl">
-              <span className="text-orange-500 font-mono text-xs sm:text-sm tracking-tight mb-2 sm:mb-3 md:mb-4 block">{`// SYSTEM CAPABILITIES`}</span>
+              <span className="text-orange-700 font-mono text-xs sm:text-sm tracking-tight mb-2 sm:mb-3 md:mb-4 block">{`// SYSTEM CAPABILITIES`}</span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none">
-                <span className="text-slate-900">BUILT TO</span> <span className="text-slate-400">LAST.</span>
+                <span className="text-slate-900">BUILT TO</span> <span className="text-slate-600">LAST.</span>
               </h2>
             </div>
             <p className="mt-4 md:mt-0 text-slate-700 max-w-md text-xs sm:text-sm md:text-base border-l-2 border-orange-500/30 pl-3 sm:pl-4 md:pl-6 py-2">
@@ -156,7 +156,7 @@ export default function HomePage() {
                  </div>
                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-hero-accent leading-tight">
                    <span className="text-slate-900 drop-shadow-lg">Stop paying for</span>{" "}
-                   <span className="line-through decoration-orange-400/60 decoration-2 text-slate-500">slide decks.</span>
+                   <span className="line-through decoration-orange-400/60 decoration-2 text-slate-600">slide decks.</span>
                  </h2>
                  <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-700 leading-relaxed">
                    Enterprise firms charge $300/hr to &quot;delve&quot; into your problems. 
@@ -184,7 +184,7 @@ export default function HomePage() {
                  </div>
                  <p className="text-xs sm:text-sm md:text-base text-slate-700 mb-4 sm:mb-6 md:mb-8 max-w-md">
                    Includes full scoping decision brief, build, deployment, and documentation. 
-                   <span className="block mt-2 text-orange-600 font-bold">LGBTQ-owned businesses pay $1,122.</span>
+                   <span className="block mt-2 text-orange-700 font-bold">LGBTQ-owned businesses pay $1,122.</span>
                  </p>
                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                    <ButtonLink href="/pricing" className="bg-orange-500 text-white hover:bg-orange-600 font-bold shadow-md hover:shadow-lg transition-all min-h-[44px] px-6 py-3 rounded-full">
@@ -211,7 +211,7 @@ export default function HomePage() {
                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold font-hero-accent text-slate-900">
                  AI Strategy Sprints™
                </h2>
-               <div className="text-orange-600 font-mono text-xs sm:text-sm tracking-wide uppercase mb-1 sm:mb-2 md:mb-4">Powered by Consensus Engine</div>
+               <div className="text-orange-700 font-mono text-xs sm:text-sm tracking-wide uppercase mb-1 sm:mb-2 md:mb-4">Powered by Consensus Engine</div>
                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-700 leading-relaxed font-light">
                  Don&apos;t guess. We run multi-agent adversarial research sprints to stress-test your strategy before you spend a dime. 
                  It&apos;s like having a boardroom of experts in a box.
@@ -232,7 +232,7 @@ export default function HomePage() {
       <section className="relative z-10 py-24 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6 bg-white">
         <div className="container mx-auto max-w-3xl">
           <div className="text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24">
-            <span className="text-orange-500 font-mono text-xs tracking-widest mb-2 sm:mb-3 md:mb-4 block font-bold">01001000 01000101 01001100 01010000</span>
+            <span className="text-orange-700 font-mono text-xs tracking-widest mb-2 sm:mb-3 md:mb-4 block font-bold">01001000 01000101 01001100 01010000</span>
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-slate-900 font-hero-accent">
               Quick Answers. No Fluff.
             </h2>
@@ -257,7 +257,7 @@ export default function HomePage() {
               <div className="h-1 w-16 sm:w-20 md:w-24 bg-orange-500 rounded-full" />
               <p className="text-sm sm:text-base md:text-lg text-slate-700 leading-relaxed">
                 As an NGLCC-certified business, we know the hustle. We reserve grant slots and offer a 
-                permanent <span className="text-orange-600 font-semibold">25% discount</span> for LGBTQ-owned businesses.
+                permanent <span className="text-orange-700 font-semibold">25% discount</span> for LGBTQ-owned businesses.
               </p>
               <div className="pt-2 sm:pt-3 md:pt-4">
                 <LGBTQDiscountModalTrigger />
@@ -272,7 +272,7 @@ export default function HomePage() {
                  <p className="text-sm sm:text-base md:text-lg text-slate-700 italic font-light mb-2 sm:mb-3 md:mb-4">
                    &quot;Upton helped us automate our entire intake process. We got our weekends back.&quot;
                  </p>
-                 <footer className="text-xs font-bold text-orange-600 uppercase tracking-widest">
+                 <footer className="text-xs font-bold text-orange-700 uppercase tracking-widest">
                    — Sarah & Jen, Cleveland
                  </footer>
                </blockquote>
