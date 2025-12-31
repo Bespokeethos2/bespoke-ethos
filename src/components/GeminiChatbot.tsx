@@ -107,5 +107,3 @@ export function GeminiChatbot() {
     </>
   );
 }
-
-import React from 'react';

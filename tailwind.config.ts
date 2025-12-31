@@ -99,13 +99,6 @@ const config: Config = {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
-          // ... preserve existing accent object below if needed, but 'accent' key collision?
-          // The existing 'accent' object uses RGB vars. 
-          // I will use 'accent-color' or just let the existing accent object stand if it works.
-          // Re-reading: 'accent' is already defined as an object on line 18.
-          // I should NOT overwrite it with a string/simple object unless I merge.
-          // The existing accent object is robust 50-950.
-          // I will only add the missing ones: border, input, ring, background, foreground.
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
