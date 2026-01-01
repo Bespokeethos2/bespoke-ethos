@@ -78,11 +78,11 @@ const nextConfig = {
     // Allow indexing if:
     // 1. VERCEL_ENV is "production", OR
     // 2. NODE_ENV is "production" AND we're not explicitly in preview/development
-    // 3. The site URL matches the production domain
+    // 3. The site URL exactly matches the production domain
     const isProduction = 
       process.env.VERCEL_ENV === "production" ||
       (process.env.NODE_ENV === "production" && process.env.VERCEL_ENV !== "preview") ||
-      process.env.NEXT_PUBLIC_SITE_URL?.includes("www.bespokeethos.com");
+      process.env.NEXT_PUBLIC_SITE_URL === "https://www.bespokeethos.com";
 
     // Noindex for /chat routes (AI chatbot - not for search engines)
     headerConfigs.push({

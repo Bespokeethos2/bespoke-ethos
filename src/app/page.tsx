@@ -49,9 +49,9 @@ import { OrganizationJsonLd } from '@/app/_components/seo/organization-jsonld';
 
 // Homepage-specific metadata
 export const metadata = {
-  title: "BespokeEthos AI Consulting - Ship Working Code, Not Slide Decks | Fixed-Price Cleveland AI Automation",
+  title: "Cleveland AI Consulting & Automation | Bespoke Ethos",
   description:
-    "We Take the Busywork—you Keep Control. Bespoke Ethos builds small-business AI automation in Cleveland, OH, including AI Strategy Sprint™, our flagship premium chatbot, plus a standing 25% discount on upfront project fees for LGBTQ-owned businesses. Email contact@bespokeethos.com or visit our FAQ and contact pages to get started.",
+    "Fixed-price AI automation for small business. Cleveland-based AI consulting including chatbots, workflow automation, and AI strategy. 25% discount for LGBTQ-owned businesses.",
   alternates: {
     canonical: 'https://www.bespokeethos.com',
   },
