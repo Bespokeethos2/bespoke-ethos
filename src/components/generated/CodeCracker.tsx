@@ -9,30 +9,21 @@ const CodeCracker = () => {
     const [score, setScore] = useState(0);
     const [time, setTime] = useState(30);
     const [gameStarted, setGameStarted] = useState(false);
-    const [gameOver, setGameOver] = useState(false);
     const [codeRevealed, setCodeRevealed] = useState<boolean[]>([false, false, false, false]);
-    const [showHint, setShowHint] = useState(false);
 
     const totalCodeSegments = 4;
 
     useEffect(() => {
-        let intervalId: NodeJS.Timeout;
-
-        if (gameStarted && time > 0) {
-            intervalId = setInterval(() => {
-                setTime(prevTime => prevTime - 1);
-            }, 1000);
-        } else if (time === 0) {
-            setGameOver(true);
-            setGameStarted(false);
-        }
+        if (!gameStarted || time <= 0) return;
+        const intervalId = setInterval(() => {
+            setTime(prevTime => (prevTime > 0 ? prevTime - 1 : 0));
+        }, 1000);
 
         return () => clearInterval(intervalId);
     }, [gameStarted, time]);
 
     const startGame = () => {
         setGameStarted(true);
-        setGameOver(false);
         setTime(30);
         setCodeRevealed([false, false, false, false]);
         setScore(0);
@@ -41,7 +32,6 @@ const CodeCracker = () => {
 
     const resetGame = () => {
         setGameStarted(false);
-        setGameOver(false);
         setTime(30);
         setCodeRevealed([false, false, false, false]);
         setScore(0);
@@ -49,7 +39,8 @@ const CodeCracker = () => {
     };
 
     const revealCode = (index: number) => {
-        if (!gameStarted || gameOver) return;
+        const isGameOver = gameStarted && time <= 0;
+        if (!gameStarted || isGameOver) return;
         const newCodeRevealed = [...codeRevealed];
         newCodeRevealed[index] = true;
         setCodeRevealed(newCodeRevealed);
@@ -63,6 +54,7 @@ const CodeCracker = () => {
     };
 
     const allCodeRevealed = codeRevealed.every(Boolean);
+    const isGameOver = gameStarted && time <= 0;
 
     const getCodeSnippet = (index: number) => {
         switch (index) {
@@ -88,7 +80,7 @@ const CodeCracker = () => {
             transition={{ duration: 0.5 }}
         >
             <h1 className="text-3xl font-bold mb-4">Code Cracker</h1>
-            <p className="mb-4">Crack the 'No-Code' Myth!</p>
+            <p className="mb-4">Crack the &apos;No-Code&apos; Myth!</p>
 
             <div className="flex space-x-4 mb-4">
                 <div>Level: {level}</div>
@@ -151,7 +143,7 @@ const CodeCracker = () => {
             </div>
 
             <div className="mt-4">
-                {!gameStarted && !gameOver && (
+                {!gameStarted && !isGameOver && (
                     <motion.button
                         className="bg-teal-700 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                         onClick={startGame}
@@ -163,14 +155,14 @@ const CodeCracker = () => {
                     </motion.button>
                 )}
 
-                {gameOver && (
+                {isGameOver && (
                     <div className="text-red-500 font-bold mb-2">
                         <AlertTriangle className="inline-block mr-2" size={16} />
                         Game Over!
                     </div>
                 )}
 
-                {(gameStarted || gameOver) && (
+                {(gameStarted || isGameOver) && (
                     <motion.button
                         className="bg-slate-700 hover:bg-slate-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                         onClick={resetGame}

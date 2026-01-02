@@ -12,13 +12,13 @@ import { OrganizationJsonLd } from '@/app/_components/seo/organization-jsonld';
 export const revalidate = 1800;
 
 export const metadata: Metadata = {
-  title: "Automation Skyway – Cloud Workflow Automation | Bespoke Ethos",
+  title: "Automation Skyway - Cloud Workflow Automation | Bespoke Ethos",
   description:
-    "Automation Skyway maps your real process, keeps approvals intact, and builds production-ready cloud automation in days. From lead routing to inventory updates—one painful task, solved.",
+    "Automation Skyway maps your real process, keeps approvals intact, and builds production-ready cloud automation in days. From lead routing to inventory updates - one painful task, solved.",
   keywords: ["workflow automation", "cloud automation", "business process automation", "Cleveland AI", "automation setup", "small business automation"],
   alternates: { canonical: "/solutions/automation-skyway" },
   openGraph: {
-    title: "Automation Skyway – Cloud Workflow Automation for Small Business",
+    title: "Automation Skyway - Cloud Workflow Automation for Small Business",
     description: "Production-ready automation in days with rollbacks, approvals, and audit trails. Your direct path to the cloud.",
     url: "https://www.bespokeethos.com/solutions/automation-skyway",
     images: [{
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@bespokeethos",
     creator: "@bespokeethos",
-    title: "Automation Skyway – Cloud Workflow Automation",
+    title: "Automation Skyway - Cloud Workflow Automation",
     description: "Production-ready automation in days with rollbacks and approvals. Built for small businesses.",
     images: ["https://www.bespokeethos.com/assets/generated/hero-automation-skyway-desktop.webp"],
   },
@@ -54,7 +54,7 @@ const FLOWSTACK_CALLOUTS = [
   },
   {
     title: "Live observability",
-    detail: "Runs stream into a simple operator dashboard—no guessing where a workflow stands.",
+    detail: "Runs stream into a simple operator dashboard - no guessing where a workflow stands.",
   },
 ] as const;
 
@@ -83,7 +83,7 @@ const automationSkywayFaqItems = [
   {
     _title: "What kinds of tasks are a good fit for Automation Skyway?",
     answer:
-      "Automation Skyway is designed for repeatable processes that steal hours from your week—things like lead intake and routing, follow-up reminders, reporting, or handoffs between tools. If it's structured and happens all the time, it's likely a good fit.",
+      "Automation Skyway is designed for repeatable processes that steal hours from your week - things like lead intake and routing, follow-up reminders, reporting, or handoffs between tools. If it's structured and happens all the time, it's likely a good fit.",
   },
   {
     _title: "How much of my time will the project require?",
@@ -137,12 +137,12 @@ export default function AutomationSkywayPage() {
                   <p>
                     When I was drowning in my publishing business, I didn&apos;t need a fancy AI platform. I needed someone
                     to automate the one task that was stealing hours from my week. So I built Automation Skyway for myself first. It&apos;s
-                    our proprietary cloud automation framework—your direct path from desk to cloud—designed to handle any business task, from lead routing to
+                    our proprietary cloud automation framework - your direct path from desk to cloud - designed to handle any business task, from lead routing to
                     inventory updates.
                   </p>
                   <p>
                     We map your real process, keep human approvals intact, and ship production-ready cloud automation in days. Every
-                    build ships with documentation, audit trails, and rollback—because I learned the hard way that automation
+                    build ships with documentation, audit trails, and rollback - because I learned the hard way that automation
                     without guardrails creates more problems than it solves.
                   </p>
                 </div>
@@ -185,10 +185,10 @@ export default function AutomationSkywayPage() {
                   Automation Skyway blueprint at a glance
                 </h2>
                 <p>
-                  The blueprint board is where we sit down with the founders and figure out what is taking up their time. Typically there are two or three tasks that monopolize most founders' time. Once we identify those, we can look into automating them.
+                  The blueprint board is where we sit down with the founders and figure out what is taking up their time. Typically there are two or three tasks that monopolize most founders&apos; time. Once we identify those, we can look into automating them.
                 </p>
                 <p>
-                  Then we look at potential automation paths—this could be one piece of software or a few chained together. What we're looking for are resilient automations for our clients, meaning automations that won't fail the second the wind blows. This often means building deeper integration tunnels, rather than relying on something simple and out of the box like Zapier.
+                  Then we look at potential automation paths - this could be one piece of software or a few chained together. What we&apos;re looking for are resilient automations for our clients, meaning automations that won&apos;t fail the second the wind blows. This often means building deeper integration tunnels, rather than relying on something simple and out of the box like Zapier.
                 </p>
                 <p>
                   Then we deploy the automation to the client and they begin testing. Ideally, it should be something that happens automatically. That is what we strive for in every single automation we ship.
@@ -219,7 +219,7 @@ export default function AutomationSkywayPage() {
                   />
                 </div>
                 <figcaption className="mt-3 text-xs uppercase tracking-[0.25em] text-text-tertiary dark:text-dark-text-tertiary">
-                  Builder view – every branch documents the owner, data source, and rollback pair.
+                  Builder view - every branch documents the owner, data source, and rollback pair.
                 </figcaption>
               </figure>
             </div>
@@ -336,3 +336,6 @@ function AutomationSkywaySpeakableJsonLd() {
     />
   );
 }
+
+
+

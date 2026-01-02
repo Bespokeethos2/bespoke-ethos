@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, RotateCcw, Lightbulb, Brain, CheckCircle, XCircle } from 'lucide-react';
+import { Play, RotateCcw, CheckCircle, XCircle } from 'lucide-react';
 
 const AIOracle = () => {
   const [sliderValue, setSliderValue] = useState(50);
@@ -44,6 +44,7 @@ const AIOracle = () => {
       feedbackIncorrect: 'Generative AI introduces unwarranted volatility to forecasting stock market behaviour.'
     },
   ];
+  const currentEvent = events[currentEventIndex];
 
   const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSliderValue(parseInt(event.target.value));
@@ -51,17 +52,17 @@ const AIOracle = () => {
 
   const handleSubmit = () => {
     if (!predictionMade) {
-      const difference = Math.abs(sliderValue - events[currentEventIndex].correctValue);
+      const difference = Math.abs(sliderValue - currentEvent.correctValue);
       const isCorrect = difference <= 15; // Adjust threshold as needed
 
       if (isCorrect) {
         setScore(prevScore => prevScore + 100);
         setResult('correct');
-        setFeedbackMessage(events[currentEventIndex].feedbackCorrect);
+        setFeedbackMessage(currentEvent.feedbackCorrect);
 
       } else {
         setResult('incorrect');
-        setFeedbackMessage(events[currentEventIndex].feedbackIncorrect);
+        setFeedbackMessage(currentEvent.feedbackIncorrect);
       }
       setPredictionMade(true);
     }
@@ -98,6 +99,10 @@ const AIOracle = () => {
     }
   }, [result]);
 
+  if (!currentEvent) {
+    return null;
+  }
+
 
   return (
     <div className="bg-slate-900 min-h-screen flex flex-col items-center justify-center p-4">
@@ -105,7 +110,7 @@ const AIOracle = () => {
 
       <div className="bg-slate-800 rounded-lg shadow-lg p-6 w-full max-w-md">
         <div className="mb-4">
-          <p className="text-lg text-gray-300 mb-2">{events[currentEventIndex].description}</p>
+          <p className="text-lg text-gray-300 mb-2">{currentEvent.description}</p>
         </div>
 
         <div className="flex items-center justify-between mb-4">

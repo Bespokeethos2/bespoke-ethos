@@ -27,19 +27,23 @@ const AutomationSabotage = () => {
     const [gameStarted, setGameStarted] = useState(false);
     const [foundDifferences, setFoundDifferences] = useState<number[]>([]);
     const [feedback, setFeedback] = useState<{ correct: boolean; message: string } | null>(null);
-    const [gameOver, setGameOver] = useState(false);
+    const allDifferencesFound = foundDifferences.length === differences.length;
+    const isGameOver = (gameStarted && timeLeft <= 0) || allDifferencesFound;
 
     useEffect(() => {
-        let intervalId: NodeJS.Timeout;
-
-        if (gameStarted && timeLeft > 0) {
-            intervalId = setInterval(() => {
-                setTimeLeft(timeLeft - 1);
-            }, 1000);
-        } else if (timeLeft === 0 && gameStarted) {
-            setGameOver(true);
-            setGameStarted(false);
+        if (!gameStarted || timeLeft <= 0) {
+            return;
         }
+
+        const intervalId = setInterval(() => {
+            setTimeLeft((prevTime) => {
+                if (prevTime <= 1) {
+                    setGameStarted(false);
+                    return 0;
+                }
+                return prevTime - 1;
+            });
+        }, 1000);
 
         return () => clearInterval(intervalId);
     }, [gameStarted, timeLeft]);
@@ -50,7 +54,6 @@ const AutomationSabotage = () => {
         setTimeLeft(initialTime);
         setFoundDifferences([]);
         setFeedback(null);
-        setGameOver(false);
     };
 
     const resetGame = () => {
@@ -59,13 +62,12 @@ const AutomationSabotage = () => {
         setTimeLeft(initialTime);
         setFoundDifferences([]);
         setFeedback(null);
-        setGameOver(false);
     };
 
     const handleClick = (id: number, e: React.MouseEvent) => {
         e.preventDefault();
 
-        if (!gameStarted || gameOver) return;
+        if (!gameStarted || isGameOver) return;
 
         if (foundDifferences.includes(id)) {
             return; // Already found
@@ -74,25 +76,20 @@ const AutomationSabotage = () => {
         const difference = differences.find((diff) => diff.id === id);
 
         if (difference) {
-            setScore(score + 1);
-            setFoundDifferences([...foundDifferences, id]);
+            setScore((prevScore) => prevScore + 1);
+            const nextFound = [...foundDifferences, id];
+            setFoundDifferences(nextFound);
             setFeedback({ correct: true, message: `Correct! ${difference.description}` });
             setTimeout(() => setFeedback(null), 2000);
+            if (nextFound.length === differences.length) {
+                setGameStarted(false);
+            }
         } else {
-            setScore(score - 1);
+            setScore((prevScore) => prevScore - 1);
             setFeedback({ correct: false, message: "Incorrect!" });
             setTimeout(() => setFeedback(null), 2000);
         }
     };
-
-    const allDifferencesFound = foundDifferences.length === differences.length;
-
-    useEffect(() => {
-        if (allDifferencesFound && gameStarted) {
-            setGameOver(true);
-            setGameStarted(false);
-        }
-    }, [allDifferencesFound, gameStarted]);
 
 
     return (
@@ -111,7 +108,9 @@ const AutomationSabotage = () => {
             </div>
 
             <div className="relative">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="/successful_automation.png" alt="Successful Automation" className="rounded-md shadow-md" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                     src="/failed_automation.png"
                     alt="Failed Automation"
@@ -160,7 +159,7 @@ const AutomationSabotage = () => {
                 )}
             </AnimatePresence>
 
-            {gameOver && (
+            {isGameOver && (
                 <div className="mt-8 p-4 bg-slate-800 rounded-md text-center">
                     {allDifferencesFound ? (
                         <>
@@ -169,7 +168,7 @@ const AutomationSabotage = () => {
                         </>
                     ) : (
                         <>
-                            <h2 className="text-2xl font-bold mb-2">Time's Up!</h2>
+                            <h2 className="text-2xl font-bold mb-2">Time&apos;s Up!</h2>
                             <p>Even with automation, overlooking details can lead to significant setbacks. Review the areas where automation faltered and consider improvements for future implementations.</p>
                         </>
                     )}
@@ -177,7 +176,7 @@ const AutomationSabotage = () => {
             )}
 
             <div className="mt-4 space-x-4">
-                {!gameStarted && !gameOver && (
+                {!gameStarted && !isGameOver && (
                     <motion.button
                         className="bg-teal-700 text-white px-4 py-2 rounded-md hover:bg-teal-600"
                         onClick={startGame}
@@ -190,7 +189,7 @@ const AutomationSabotage = () => {
                     </motion.button>
                 )}
 
-                {(gameStarted || gameOver) && (
+                {(gameStarted || isGameOver) && (
                     <motion.button
                         className="bg-slate-700 text-white px-4 py-2 rounded-md hover:bg-slate-600"
                         onClick={resetGame}

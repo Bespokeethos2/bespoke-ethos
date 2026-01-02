@@ -61,21 +61,25 @@ export function CarouselSlideshow({
 
   const goNext = useCallback(() => {
     setDirection(1);
-    setCurrentIndex((prev) => (prev + 1) % slides.length);
+    setCurrentIndex((prev) =>
+      slides.length === 0 ? 0 : (prev + 1) % slides.length
+    );
   }, [slides.length]);
 
   const goPrev = useCallback(() => {
     setDirection(-1);
-    setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
+    setCurrentIndex((prev) =>
+      slides.length === 0 ? 0 : (prev - 1 + slides.length) % slides.length
+    );
   }, [slides.length]);
 
   // Auto-play
   useEffect(() => {
-    if (!autoPlay || isPaused) return;
+    if (!autoPlay || isPaused || slides.length < 2) return;
 
     const interval = setInterval(goNext, autoPlayInterval);
     return () => clearInterval(interval);
-  }, [autoPlay, autoPlayInterval, goNext, isPaused]);
+  }, [autoPlay, autoPlayInterval, goNext, isPaused, slides.length]);
 
   const slideVariants = {
     enter: (direction: number) => ({
@@ -93,6 +97,9 @@ export function CarouselSlideshow({
   };
 
   const currentSlide = slides[currentIndex];
+  if (!currentSlide) {
+    return null;
+  }
 
   return (
     <div

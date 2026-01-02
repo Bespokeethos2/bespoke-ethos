@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Play, RotateCcw, Factory, Heart, Truck, AlertTriangle } from 'lucide-react';
 
 interface Sector {
@@ -17,12 +17,19 @@ const ClevelandComeback = () => {
         { name: 'Healthcare', health: 50, icon: Heart },
         { name: 'Logistics', health: 50, icon: Truck },
     ]);
-    const [score, setScore] = useState(0);
-    const [gameOver, setGameOver] = useState(false);
     const [message, setMessage] = useState('');
+    const score = sectors.reduce((acc, sector) => acc + sector.health, 0);
+    const allCollapsed = sectors.every((sector) => sector.health <= 0);
+    const allThriving = aiBricks === 0 && sectors.every((sector) => sector.health >= 75);
+    const isGameOver = allCollapsed || allThriving;
+    const statusMessage = allCollapsed
+        ? 'All sectors have collapsed! Game Over!'
+        : allThriving
+            ? 'All sectors are thriving! You win!'
+            : message;
 
-    const handleBrickAllocation = useCallback((sectorName: string) => {
-        if (aiBricks > 0 && !gameOver) {
+    const handleBrickAllocation = (sectorName: string) => {
+        if (aiBricks > 0 && !isGameOver) {
             setAiBricks((prevBricks) => prevBricks - 1);
 
             setSectors((prevSectors) =>
@@ -32,43 +39,23 @@ const ClevelandComeback = () => {
                         : sector
                 )
             );
-        } else if (gameOver) {
+        } else if (isGameOver) {
             setMessage('Game Over. Please restart.');
         }
-         else {
+        else {
             setMessage('Not enough AI Bricks!');
         }
-    }, [aiBricks, gameOver]);
-
-    const handleSectorNeglect = useCallback(() => {
-        setSectors((prevSectors) =>
-            prevSectors.map((sector) => ({ ...sector, health: Math.max(0, sector.health - 5) }))
-        );
-    }, []);
+    };
 
     useEffect(() => {
         const intervalId = setInterval(() => {
-            handleSectorNeglect();
+            setSectors((prevSectors) =>
+                prevSectors.map((sector) => ({ ...sector, health: Math.max(0, sector.health - 5) }))
+            );
         }, 3000);
 
         return () => clearInterval(intervalId);
-    }, [handleSectorNeglect]);
-
-    useEffect(() => {
-        const newScore = sectors.reduce((acc, sector) => acc + sector.health, 0);
-        setScore(newScore);
-
-        if (sectors.every((sector) => sector.health <= 0)) {
-            setGameOver(true);
-            setMessage('All sectors have collapsed! Game Over!');
-        }
-
-        if (aiBricks === 0 && sectors.every(sector => sector.health >= 75)) {
-             setGameOver(true);
-             setMessage('All sectors are thriving! You win!');
-        }
-
-    }, [sectors, aiBricks]);
+    }, []);
 
     const handleReset = () => {
         setAiBricks(10);
@@ -77,8 +64,6 @@ const ClevelandComeback = () => {
             { name: 'Healthcare', health: 50, icon: Heart },
             { name: 'Logistics', health: 50, icon: Truck },
         ]);
-        setScore(0);
-        setGameOver(false);
         setMessage('');
     };
 
@@ -99,7 +84,7 @@ const ClevelandComeback = () => {
                 Score: {score}
             </div>
 
-             {message && (
+             {statusMessage && (
                 <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -107,7 +92,7 @@ const ClevelandComeback = () => {
                 className="mb-4 p-2 bg-red-800 text-white rounded-md flex items-center"
               >
                 <AlertTriangle className="mr-2" />
-                {message}
+                {statusMessage}
               </motion.div>
             )}
 
@@ -119,8 +104,8 @@ const ClevelandComeback = () => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={() => handleBrickAllocation(sector.name)}
-                        disabled={gameOver}
-                        style={{cursor: gameOver ? 'not-allowed' : 'pointer'}}
+                        aria-disabled={isGameOver}
+                        style={{cursor: isGameOver ? 'not-allowed' : 'pointer'}}  
                     >
                         <sector.icon className="w-8 h-8 mb-2" />
                         <h2 className="text-xl">{sector.name}</h2>

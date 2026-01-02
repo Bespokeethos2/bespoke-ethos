@@ -1,4 +1,4 @@
-import { visionModel, codingModel, openModel } from '../src/lib/brutus-intelligence';
+import { visionModel, codingModel, openModel } from '../src/lib/cadence-intelligence';
 import { generateText } from 'ai';
 import { chromium } from '@playwright/test';
 

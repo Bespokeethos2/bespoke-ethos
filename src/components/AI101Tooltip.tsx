@@ -113,18 +113,22 @@ export function AI101Tooltip({ term, children, inline = true }: AI101TooltipProp
   const [position, setPosition] = useState({ top: 0, left: 0 });
   const triggerRef = useRef<HTMLSpanElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
-  const timeoutRef = useRef<NodeJS.Timeout>();
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const glossaryEntry = AI_GLOSSARY[term];
-
-  if (!glossaryEntry) {
-    console.warn(`AI101Tooltip: Unknown term "${term}"`);
-    return <>{children}</>;
-  }
+  const hasEntry = Boolean(glossaryEntry);
 
   // Position calculation
   useEffect(() => {
-    if (isOpen && triggerRef.current && tooltipRef.current) {
+    if (!isOpen || !triggerRef.current || !tooltipRef.current) {
+      return;
+    }
+
+    const frame = requestAnimationFrame(() => {
+      if (!triggerRef.current || !tooltipRef.current) {
+        return;
+      }
+
       const triggerRect = triggerRef.current.getBoundingClientRect();
       const tooltipRect = tooltipRef.current.getBoundingClientRect();
       const viewportWidth = window.innerWidth;
@@ -145,7 +149,9 @@ export function AI101Tooltip({ term, children, inline = true }: AI101TooltipProp
       }
 
       setPosition({ top, left });
-    }
+    });
+
+    return () => cancelAnimationFrame(frame);
   }, [isOpen]);
 
   // Keyboard support
@@ -180,12 +186,16 @@ export function AI101Tooltip({ term, children, inline = true }: AI101TooltipProp
   }, [isOpen]);
 
   const handleMouseEnter = () => {
-    clearTimeout(timeoutRef.current);
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
     timeoutRef.current = setTimeout(() => setIsOpen(true), 200);
   };
 
   const handleMouseLeave = () => {
-    clearTimeout(timeoutRef.current);
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
     timeoutRef.current = setTimeout(() => setIsOpen(false), 300);
   };
 
@@ -194,7 +204,9 @@ export function AI101Tooltip({ term, children, inline = true }: AI101TooltipProp
   };
 
   const handleTooltipMouseEnter = () => {
-    clearTimeout(timeoutRef.current);
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
   };
 
   const handleTooltipMouseLeave = () => {
@@ -202,6 +214,11 @@ export function AI101Tooltip({ term, children, inline = true }: AI101TooltipProp
   };
 
   const tooltipId = `ai101-tooltip-${term}`;
+
+  if (!hasEntry) {
+    console.warn(`AI101Tooltip: Unknown term "${term}"`);
+    return <>{children}</>;
+  }
 
   return (
     <>
@@ -320,7 +337,7 @@ export function AI101Glossary() {
         <h2 className="text-2xl font-bold text-white">AI 101 Glossary</h2>
       </div>
       <p className="text-white/60">
-        New to AI? No worries. Here are the terms you'll encounter, explained simply.
+        New to AI? No worries. Here are the terms you&apos;ll encounter, explained simply.
       </p>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {terms.map(([key, entry]) => (

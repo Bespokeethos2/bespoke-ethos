@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export function TemperatureGame() {
   const [temp, setTemp] = useState(0.2);
-  const [output, setOutput] = useState("The cat sat on the mat.");
   
   const generateText = (t: number) => {
     if (t < 0.3) return "The cat sat on the mat. The cat is nice. The mat is soft."; // Repetitive
@@ -12,10 +11,7 @@ export function TemperatureGame() {
     if (t < 0.9) return "The velvet rug purred at the sun, demanding lasagne from the sky."; // Mild Hallucination
     return "Rug sun purple cat dimension 404 meow glitch_matrix[0]."; // Chaos
   };
-
-  useEffect(() => {
-    setOutput(generateText(temp));
-  }, [temp]);
+  const output = generateText(temp);
 
   return (
     <div className="p-6 bg-slate-900 rounded-xl border border-slate-700 my-8 not-prose font-sans">
@@ -27,7 +23,7 @@ export function TemperatureGame() {
       </div>
       
       <p className="text-sm text-slate-400 mb-6">
-        "Temperature" controls randomness. Low is safe but boring. High is creative but risky.
+        &ldquo;Temperature&rdquo; controls randomness. Low is safe but boring. High is creative but risky.
       </p>
 
       {/* Visualizer Row */}
@@ -53,7 +49,7 @@ export function TemperatureGame() {
         {/* Output Text */}
         <div className="flex-1 p-4 bg-black/50 rounded-lg min-h-[100px] flex items-center">
            <p className={`font-mono text-sm transition-all duration-300 ${temp > 0.9 ? 'text-red-400 font-bold tracking-widest' : 'text-slate-300'}`}>
-             "{output}"
+             &ldquo;{output}&rdquo;
            </p>
         </div>
       </div>

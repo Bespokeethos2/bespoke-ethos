@@ -1,4 +1,4 @@
-import { chromium } from 'playwright';
+import { chromium } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import * as fs from 'fs';
 import * as path from 'path';

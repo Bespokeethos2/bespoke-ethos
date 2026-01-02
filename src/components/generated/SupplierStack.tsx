@@ -1,8 +1,12 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, RotateCcw, Info, X } from 'lucide-react';
+
+const BLOCK_COLORS = ['bg-red-500', 'bg-blue-500', 'bg-green-500', 'bg-yellow-500', 'bg-purple-500'];
+const BLOCK_WIDTH = 60;
+const BLOCK_HEIGHT = 20;
 
 const SupplierStack = () => {
   const [blocks, setBlocks] = useState<
@@ -11,14 +15,23 @@ const SupplierStack = () => {
   const [score, setScore] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
-  const [blockCount, setBlockCount] = useState(0);
   const [platformTilt, setPlatformTilt] = useState(0);
   const [showInfo, setShowInfo] = useState(false);
   const platformRef = useRef<HTMLDivElement>(null);
 
-  const blockColors = ['bg-red-500', 'bg-blue-500', 'bg-green-500', 'bg-yellow-500', 'bg-purple-500'];
-  const blockWidth = 60;
-  const blockHeight = 20;
+  const addBlock = useCallback(() => {
+    setBlocks((prevBlocks) => {
+      const newBlock = {
+        id: prevBlocks.length,
+        color: BLOCK_COLORS[Math.floor(Math.random() * BLOCK_COLORS.length)] ?? 'bg-slate-500',
+        height: BLOCK_HEIGHT,
+        width: BLOCK_WIDTH,
+        x: 0,
+        y: -BLOCK_HEIGHT,
+      };
+      return [...prevBlocks, newBlock];
+    });
+  }, []);
 
   useEffect(() => {
     if (isRunning && !isGameOver) {
@@ -28,20 +41,7 @@ const SupplierStack = () => {
 
       return () => clearInterval(intervalId);
     }
-  }, [isRunning, isGameOver]);
-
-  const addBlock = () => {
-    const newBlock = {
-      id: blockCount,
-      color: blockColors[Math.floor(Math.random() * blockColors.length)],
-      height: blockHeight,
-      width: blockWidth,
-      x: 0,
-      y: -blockHeight,
-    };
-    setBlocks((prevBlocks) => [...prevBlocks, newBlock]);
-    setBlockCount((prevCount) => prevCount + 1);
-  };
+  }, [isRunning, isGameOver, addBlock]);
 
   useEffect(() => {
     if (blocks.length > 0) {
@@ -54,15 +54,15 @@ const SupplierStack = () => {
               const platformRect = platformRef.current?.getBoundingClientRect();
               if (platformRect) {
                 const blockRect = {
-                  x: block.x + platformRect.width / 2 - blockWidth / 2,
+                  x: block.x + platformRect.width / 2 - BLOCK_WIDTH / 2,
                   y: newY,
-                  width: blockWidth,
-                  height: blockHeight
+                  width: BLOCK_WIDTH,
+                  height: BLOCK_HEIGHT
                 }
 
-                if (blockRect.y + blockHeight >= platformRect.top &&
+                if (blockRect.y + BLOCK_HEIGHT >= platformRect.top &&
                   blockRect.y <= platformRect.bottom &&
-                  blockRect.x + blockWidth >= platformRect.left &&
+                  blockRect.x + BLOCK_WIDTH >= platformRect.left &&
                   blockRect.x <= platformRect.right) {
                   return { ...block, y: 0 };
                 }
@@ -101,7 +101,6 @@ const SupplierStack = () => {
     setScore(0);
     setIsRunning(true);
     setIsGameOver(false);
-    setBlockCount(0);
   };
 
   const handleResetGame = () => {
@@ -109,7 +108,6 @@ const SupplierStack = () => {
     setScore(0);
     setIsRunning(false);
     setIsGameOver(false);
-    setBlockCount(0);
   };
 
   const platformVariants = {

@@ -1,7 +1,7 @@
 
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { DollarSign, Tree, Flame } from 'lucide-react';
 
@@ -17,19 +17,8 @@ const formatCurrency = (amount: number) => {
 const MoneyFurnace = () => {
   const [employees, setEmployees] = useState(5);
   const [hours, setHours] = useState(40);
-  const [annualSavings, setAnnualSavings] = useState(0);
-  const [isBurning, setIsBurning] = useState(true);
-
-  useEffect(() => {
-    const calculatedSavings = employees * hours * 50 * 52 * 0.3;
-    setAnnualSavings(calculatedSavings);
-
-    if (employees > 0 && hours > 0) {
-      setIsBurning(false);
-    } else {
-      setIsBurning(true);
-    }
-  }, [employees, hours]);
+  const annualSavings = employees * hours * 50 * 52 * 0.3;
+  const isBurning = employees <= 0 || hours <= 0;
 
   return (
     <motion.div

@@ -83,7 +83,8 @@ export async function GET(request: NextRequest) {
 
     // Retrieve results
     const results = [];
-    for await (const entry of anthropic.messages.batches.results(batchId)) {
+    const batchResults = await anthropic.messages.batches.results(batchId);
+    for await (const entry of batchResults) {
       if (entry.result.type === 'succeeded') {
         results.push({
           custom_id: entry.custom_id,
@@ -91,9 +92,13 @@ export async function GET(request: NextRequest) {
           usage: entry.result.message.usage,
         });
       } else {
+        const error =
+          "error" in entry.result
+            ? entry.result.error
+            : { message: entry.result.type };
         results.push({
           custom_id: entry.custom_id,
-          error: entry.result.error,
+          error,
         });
       }
     }

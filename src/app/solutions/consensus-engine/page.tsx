@@ -74,8 +74,8 @@ export default function ConsensusEnginePage() {
                    DECISION <br/> <span className="text-stroke-thin text-slate-800">CLARITY.</span>
                  </h1>
                  
-                 <p className="text-xl text-slate-300 font-light leading-relaxed">
-                   Powered by <strong>Consensus Engine</strong>. Don't bet the company on a gut check. We run 
+                  <p className="text-xl text-slate-300 font-light leading-relaxed">
+                    Powered by <strong>Consensus Engine</strong>. Don&apos;t bet the company on a gut check. We run
                    adversarial multi-agent research sprints to stress-test your big decisions.
                  </p>
 

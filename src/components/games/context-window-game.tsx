@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 
 export function ContextWindowGame() {
   const [contextSize, setContextSize] = useState(1);
@@ -30,7 +29,7 @@ export function ContextWindowGame() {
     <div className="p-6 bg-slate-900 rounded-xl border border-slate-700 my-8 not-prose">
       <h3 className="text-xl font-bold text-white mb-4 font-mono">Simulate: Context Window</h3>
       <p className="text-sm text-slate-400 mb-6">
-        Drag the slider to increase the AI's "Context Window" (memory span). 
+        Drag the slider to increase the AI&apos;s &ldquo;Context Window&rdquo; (memory span).
         Top-heavy models forget the start of the conversation.
       </p>
 

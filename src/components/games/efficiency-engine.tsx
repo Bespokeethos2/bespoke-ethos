@@ -128,10 +128,9 @@ export function EfficiencyEngine() {
                         onChange={(e) => setAutomationLevel(Number(e.target.value))}
                         className="w-full h-6 opacity-0 cursor-pointer absolute z-20"
                     />
-                     <motion.div 
+                     <motion.div
                         className="absolute h-6 w-6 bg-slate-200 rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.5)] border-2 border-blue-500 z-10 pointer-events-none"
                         style={{ left: `calc(${automationLevel}% - 12px)` }}
-                        axis="x"
                         animate={{ scale: 1 }}
                         whileTap={{ scale: 1.1 }}
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -185,7 +184,7 @@ export function EfficiencyEngine() {
                 Scenario: {efficiency > 80 
                     ? <span className="text-emerald-400">High Automation / Low Manual Drag</span> 
                     : waste > 60 
-                        ? <span className="text-rose-400">Wait, you're lighting money on fire.</span> 
+                        ? <span className="text-rose-400">Wait, you&apos;re lighting money on fire.</span>
                         : "Typical Small Business Plateau"}
              </p>
           </div>

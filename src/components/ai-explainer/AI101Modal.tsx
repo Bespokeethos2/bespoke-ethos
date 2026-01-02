@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import * as Dialog from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 
@@ -48,7 +49,7 @@ export function AI101Modal({ triggerText, explainerKey, className = "" }: AI101M
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>
         <button
-          className={`inline-flex items-center gap-1.5 text-orange-400 hover:text-orange-300 underline decoration-dotted underline-offset-4 transition-colors ${className}`}
+          className={`inline-flex items-center gap-1.5 text-orange-300 hover:text-orange-200 underline decoration-dotted underline-offset-4 transition-colors ${className}`}
           aria-label={`Learn more about ${content.term}`}
         >
           <span className="text-xs font-mono">?</span>
@@ -81,7 +82,7 @@ export function AI101Modal({ triggerText, explainerKey, className = "" }: AI101M
             </div>
             
             <div className="mt-6 p-4 bg-orange-950/30 border border-orange-500/20 rounded-lg">
-              <div className="text-xs font-bold text-orange-400 uppercase tracking-wider mb-2">
+              <div className="text-xs font-bold text-orange-300 uppercase tracking-wider mb-2">
                 Real-World Example
               </div>
               <p className="text-sm text-slate-300 leading-relaxed">
@@ -92,9 +93,9 @@ export function AI101Modal({ triggerText, explainerKey, className = "" }: AI101M
             <div className="mt-6 pt-4 border-t border-slate-700">
               <p className="text-xs text-slate-400">
                 Want to see how this applies to your business?{" "}
-                <a href="/contact" className="text-orange-400 hover:text-orange-300 underline">
+                <Link href="/contact" className="text-orange-300 hover:text-orange-200 underline">
                   Let&apos;s talk
-                </a>
+                </Link>
               </p>
             </div>
           </div>
