@@ -6,8 +6,8 @@ export function FounderStory() {
       <div className="mx-auto max-w-5xl">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
           {/* Image Column */}
-          <div className="founder-story-portrait relative overflow-hidden rounded-2xl shadow-2xl border-4 border-orange-500/20 bg-gradient-to-br from-slate-800/50 to-slate-900/80 p-3">
-            <div className="relative aspect-[3/4] rounded-xl overflow-hidden ring-2 ring-white/10">
+          <div className="founder-story-portrait relative overflow-hidden rounded-2xl shadow-2xl border-4 border-orange-500/20 bg-linear-to-br from-slate-800/50 to-slate-900/80 p-3">
+            <div className="relative aspect-3/4 rounded-xl overflow-hidden ring-2 ring-white/10">
               <Image
                 src="/founder-upton-rand.jpg"
                 alt="Upton Rand, Founder of Bespoke Ethos"

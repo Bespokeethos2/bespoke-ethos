@@ -46,7 +46,7 @@ export function TrustCredentials() {
 
         {/* 25% Discount Callout with LGBTQ+ button */}
         <div
-          className="mt-16 sm:mt-20 mx-auto max-w-4xl rounded-2xl border-4 border-orange-500/50 p-8 sm:p-10 text-center bg-gradient-to-br from-orange-100 to-amber-100 shadow-2xl"
+          className="mt-16 sm:mt-20 mx-auto max-w-4xl rounded-2xl border-4 border-orange-500/50 p-8 sm:p-10 text-center bg-linear-to-br from-orange-100 to-amber-100 shadow-2xl"
         >
           <h3 className="text-xl sm:text-2xl font-black text-slate-950">
             25% Off for LGBTQ+ Businesses

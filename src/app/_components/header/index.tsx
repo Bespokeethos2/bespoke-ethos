@@ -191,7 +191,7 @@ type HeaderShellProps = {
 
 function HeaderShell({ headerData, logo }: HeaderShellProps) {
   return (
-    <header className="sticky left-0 top-0 z-[100] flex w-full flex-col border-b border-border bg-surface-primary/98 backdrop-blur-md dark:border-dark-border dark:bg-dark-surface-primary/98">
+    <header className="sticky left-0 top-0 z-100 flex w-full flex-col border-b border-border bg-surface-primary/98 backdrop-blur-md dark:border-dark-border dark:bg-dark-surface-primary/98">
       <div className="relative flex h-16 sm:h-20 overflow-visible">
         <HeaderAccent className="absolute inset-0 -z-10" />
         <div className="container relative z-10 mx-auto grid w-full grid-cols-header place-items-center items-center px-4 sm:px-6 *:first:justify-self-start">

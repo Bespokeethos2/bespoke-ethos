@@ -90,7 +90,7 @@ export function AutomationOpportunityScan() {
   };
 
   return (
-    <section className="relative z-10 py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+    <section className="relative z-10 py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-linear-to-b from-slate-950 via-slate-900 to-slate-950">
       <div className="container mx-auto max-w-6xl">
         <PremiumContainer 
           variant="glass" 
@@ -150,7 +150,7 @@ export function AutomationOpportunityScan() {
                 <button
                   onClick={handleScan}
                   disabled={!businessType || !painPoint || isScanning}
-                  className="w-full min-h-[44px] py-4 px-6 bg-orange-600 hover:bg-orange-500 disabled:bg-slate-700 disabled:cursor-not-allowed text-white font-bold rounded-lg transition-all shadow-lg shadow-orange-900/30 hover:shadow-orange-900/50 disabled:shadow-none flex items-center justify-center gap-2"
+                  className="w-full min-h-11 py-4 px-6 bg-orange-600 hover:bg-orange-500 disabled:bg-slate-700 disabled:cursor-not-allowed text-white font-bold rounded-lg transition-all shadow-lg shadow-orange-900/30 hover:shadow-orange-900/50 disabled:shadow-none flex items-center justify-center gap-2"
                 >
                   {isScanning ? (
                     <>
@@ -181,7 +181,7 @@ export function AutomationOpportunityScan() {
                     </div>
                     <div>
                       <h3 className="text-lg font-bold text-white mb-1">Recommended Workflow</h3>
-                      <p className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300">
+                      <p className="text-2xl font-black text-transparent bg-clip-text bg-linear-to-r from-orange-400 to-amber-300">
                         {scanResult.workflow}
                       </p>
                     </div>
@@ -211,7 +211,7 @@ export function AutomationOpportunityScan() {
                   <ul className="space-y-3">
                     {scanResult.controls.map((control, idx) => (
                       <li key={idx} className="flex items-start gap-3">
-                        <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 flex-shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 shrink-0" />
                         <span className="text-slate-300">{control}</span>
                       </li>
                     ))}
@@ -233,14 +233,14 @@ export function AutomationOpportunityScan() {
                   <ButtonLink 
                     intent="primary" 
                     href="/book"
-                    className="flex-1 min-h-[44px] flex items-center justify-center gap-2"
+                    className="flex-1 min-h-11 flex items-center justify-center gap-2"
                   >
                     <span>Book Strategy Call</span>
                     <ArrowRight className="w-4 h-4" />
                   </ButtonLink>
                   <button
                     onClick={resetScan}
-                    className="flex-1 min-h-[44px] px-6 py-3 border border-slate-600 hover:border-slate-500 text-slate-300 hover:text-white rounded-lg transition-all"
+                    className="flex-1 min-h-11 px-6 py-3 border border-slate-600 hover:border-slate-500 text-slate-300 hover:text-white rounded-lg transition-all"
                   >
                     Scan Another Process
                   </button>

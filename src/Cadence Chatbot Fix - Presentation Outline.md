@@ -1,6 +1,7 @@
 # Cadence Chatbot Fix - Presentation Outline
 
 ## Slide 1: Title
+
 **Cadence Chatbot Crisis Analysis**  
 *Brutus Artifact Removal & Google Migration Plan*
 
@@ -10,11 +11,13 @@ December 20, 2025
 ---
 
 ## Slide 2: Executive Summary
-**The Problem in One Sentence**
+
+### The Problem in One Sentence
 
 The production chatbot is hardcoded to call a deprecated OpenAI system named "Brutus" instead of the intended Google Vertex AI system named "Cadence."
 
 **Impact:**
+
 - Chatbot non-functional on homepage
 - Wrong AI provider (OpenAI vs. Google)
 - Wrong branding (Brutus vs. Cadence)
@@ -25,7 +28,7 @@ The production chatbot is hardcoded to call a deprecated OpenAI system named "Br
 ## Slide 3: What Was Intended vs. What Was Built
 
 | Component | Intended (Cadence) | Actual (Brutus) |
-|-----------|-------------------|-----------------|
+| --------- | ----------------- | --------------- |
 | **Name** | Cadence | Brutus |
 | **AI Provider** | Google Vertex AI | OpenAI |
 | **Model** | Gemini 2.0 Flash | GPT-4.1 |
@@ -51,6 +54,7 @@ The production chatbot is hardcoded to call a deprecated OpenAI system named "Br
 ## Slide 5: The 15 Contaminated Files
 
 **Critical (Must Fix Immediately):**
+
 1. `src/components/VoiceChatbot.tsx` - Main chatbot component
 2. `src/app/api/brutus/route.ts` - OpenAI endpoint
 3. `src/lib/brutus-intelligence.ts` - Core AI logic
@@ -91,10 +95,10 @@ The production chatbot is hardcoded to call a deprecated OpenAI system named "Br
 
 ## Slide 7: Sprint-Based Fix Plan Overview
 
-**8 Sprints, 4-5 Hours Total**
+### 8 Sprints, 4-5 Hours Total
 
 | Sprint | Focus | Effort |
-|--------|-------|--------|
+| ------ | ----- | ------ |
 | **1** | Connect Google endpoint | 30 min |
 | **2** | Delete Brutus API routes | 15 min |
 | **3** | Remove Brutus page & SEO | 20 min |
@@ -113,6 +117,7 @@ The production chatbot is hardcoded to call a deprecated OpenAI system named "Br
 **File:** `src/components/VoiceChatbot.tsx`
 
 **Changes:**
+
 1. Line 47: `apiEndpoint = '/api/chat/google'` (was `/api/brutus`)
 2. Line 49: `botName = 'Cadence'` (was `'Brutus'`)
 3. Line 48: Update welcome message to say "I'm Cadence"
@@ -132,6 +137,7 @@ rm -rf src/app/api/brutus/
 ```
 
 **Files Deleted:**
+
 - `route.ts` (main OpenAI endpoint)
 - `openai/route.ts` (redundant)
 - `vision/route.ts` (deprecated)
@@ -144,6 +150,7 @@ rm -rf src/app/api/brutus/
 ## Slide 10: Sprint 3 - Remove Brutus Page & SEO
 
 **Actions:**
+
 1. Delete `src/app/brutus/page.tsx`
 2. Update `src/lib/seo/routes.ts` - remove Brutus routes
 3. Update `src/app/robots.ts` - remove Brutus references
@@ -155,10 +162,12 @@ rm -rf src/app/api/brutus/
 ## Slide 11: Sprint 4 - Rename Core Libraries
 
 **File Renames:**
+
 - `brutus-intelligence.ts` → `cadence-intelligence.ts`
 - `brutus-usage.ts` → `cadence-usage.ts`
 
 **Content Updates:**
+
 - Find/replace "brutus" → "cadence" (case-insensitive)
 - Replace OpenAI imports with Google Vertex AI
 - Update all downstream imports
@@ -170,11 +179,13 @@ rm -rf src/app/api/brutus/
 ## Slide 12: Sprint 5 - Rename Scripts
 
 **File Renames:**
+
 - `brutus-axe-enforcer.ts` → `cadence-axe-enforcer.ts`
 - `brutus-google-cloud-setup.ts` → `cadence-google-cloud-setup.ts`
 - `brutus-verify-identity.ts` → `cadence-verify-identity.ts`
 
 **Update `package.json`:**
+
 - Fix npm script references to renamed files
 
 **Special Note:** `cadence-google-cloud-setup.ts` likely contains correct Google setup logic—run it after rename
@@ -184,6 +195,7 @@ rm -rf src/app/api/brutus/
 ## Slide 13: Sprint 6 - Update UI Components
 
 **Files:**
+
 - `src/components/ConsensusEngineCard.tsx`
 - `src/components/consensus-researchers.tsx`
 
@@ -196,12 +208,14 @@ rm -rf src/app/api/brutus/
 ## Slide 14: Sprint 7 - Environment Variable Cleanup
 
 **Remove from `.env.local`:**
+
 - ❌ `OPENAI_API_KEY`
 - ❌ `AI_GATEWAY_URL`
 - ❌ `AI_GATEWAY_API_KEY`
 - ❌ `BRUTUS_SYSTEM_PROMPT`
 
 **Ensure Present:**
+
 - ✅ `GOOGLE_GENERATIVE_AI_API_KEY`
 - ✅ `GOOGLE_CLOUD_PROJECT`
 - ✅ `GOOGLE_APPLICATION_CREDENTIALS`
@@ -215,12 +229,14 @@ rm -rf src/app/api/brutus/
 ## Slide 15: Sprint 8 - Final Verification
 
 **Code Search:**
+
 ```bash
 grep -r -i "brutus" src/ scripts/
 # Should return 0 results
 ```
 
 **Functional Testing:**
+
 - ✅ Homepage loads without errors
 - ✅ Chatbot widget appears
 - ✅ Displays "Cadence" as bot name
@@ -237,6 +253,7 @@ grep -r -i "brutus" src/ scripts/
 **The Documentation Trap:**
 
 Agents were reading `MASTER_AUTHORITY_DIRECTORY.md` which contained:
+
 - "Brutus is the internal server-side AI orchestrator"
 - "Endpoint: `/api/brutus`"
 - "Model: `gpt-4.1` (default for Brutus intelligence layer)"
@@ -256,6 +273,7 @@ Agents were reading `MASTER_AUTHORITY_DIRECTORY.md` which contained:
 As long as this file describes Brutus as the canonical system, any agent reading it will continue building OpenAI-based solutions.
 
 **Required Updates:**
+
 1. Replace all "Brutus" references with "Cadence"
 2. Update API endpoint documentation to `/api/chat/google`
 3. Change model from `gpt-4.1` to `gemini-2.0-flash`
@@ -301,6 +319,7 @@ As long as this file describes Brutus as the canonical system, any agent reading
 **START HERE:** Sprint 1 (30 minutes, fixes immediate issue)
 
 **CONSTRAINTS:**
+
 - ❌ DO NOT use OpenAI APIs
 - ❌ DO NOT create new endpoints
 - ❌ DO NOT add new dependencies
@@ -333,16 +352,19 @@ As long as this file describes Brutus as the canonical system, any agent reading
 ## Slide 22: Questions?
 
 **Key Contacts:**
+
 - Technical Lead: [Name]
 - Project Manager: [Name]
 - Documentation Owner: [Name]
 
 **Resources:**
+
 - Full Report: `CADENCE_CHATBOT_FIX_REPORT.md`
 - Repository: `github.com/Bespokeethos2/bespoke-ethos`
 - Codebase: `/home/ubuntu/bespoke-ethos`
 
 **Next Steps:**
+
 1. Assign agent to execute Sprint 1
 2. Monitor progress through Sprint 8
 3. Update MASTER_AUTHORITY_DIRECTORY.md
@@ -351,4 +373,4 @@ As long as this file describes Brutus as the canonical system, any agent reading
 
 ---
 
-**End of Presentation**
+## End of Presentation

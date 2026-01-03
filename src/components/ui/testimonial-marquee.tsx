@@ -49,8 +49,8 @@ export function TestimonialMarquee() {
   return (
     <section id="testimonials" className="relative w-full overflow-hidden py-12 bg-transparent">
       {/* Fade Edges - matches parent white background */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-white to-transparent pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-white to-transparent pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-linear-to-r from-white to-transparent pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-linear-to-l from-white to-transparent pointer-events-none" />
 
       <div className="flex w-full">
         <div className="flex w-max animate-marquee gap-6 hover:[animation-play-state:paused]">

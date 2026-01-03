@@ -52,14 +52,14 @@ export default function AboutPage() {
 
           {/* SOTA Hero Section */}
           <PremiumContainer variant="obsidian" className="p-6 sm:p-8 md:p-12 overflow-hidden relative">
-             <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent pointer-events-none" />
+             <div className="absolute inset-0 bg-linear-to-br from-orange-500/5 to-transparent pointer-events-none" />
 
              <div className="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center relative z-10">
                {/* Image Side */}
                <div className="relative group">
                  <div className="absolute inset-0 bg-orange-500/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                  <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-                   <div className="absolute inset-0 bg-gradient-to-tr from-black/40 to-transparent z-10" />
+                   <div className="absolute inset-0 bg-linear-to-tr from-black/40 to-transparent z-10" />
                    <Image
                      src="/assets/upton-hero.jpg"
                      alt="Upton Rand - Founder of Bespoke Ethos"

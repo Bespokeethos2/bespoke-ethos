@@ -11,7 +11,7 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
   return (
     <div
       className={clsx(
-        "relative mx-auto my-8 sm:my-12 md:my-16 lg:my-20 max-w-5xl overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-950 to-black shadow-2xl border border-white/10",
+        "relative mx-auto my-8 sm:my-12 md:my-16 lg:my-20 max-w-5xl overflow-hidden rounded-2xl bg-linear-to-br from-slate-900 via-slate-950 to-black shadow-2xl border border-white/10",
         className,
       )}
     >
@@ -32,7 +32,7 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
               alt="Consensus Engine infographic showing four specialized AI research agents"
               width={300}
               height={300}
-              className="h-[160px] sm:h-[200px] w-auto object-contain"
+              className="h-40 sm:h-[200px] w-auto object-contain"
               sizes="(max-width: 640px) 90vw, 300px"
               loading="lazy"
             />
@@ -137,7 +137,7 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
               />
               <div className="relative z-10">
                 <motion.div
-                  className="w-20 h-20 rounded-full flex items-center justify-center text-slate-900 text-4xl font-bold mx-auto mb-4 bg-gradient-to-br from-orange-400 via-orange-500 to-amber-300 border border-orange-300/50 shadow-[0_0_20px_rgba(249,115,22,0.45)]"
+                  className="w-20 h-20 rounded-full flex items-center justify-center text-slate-900 text-4xl font-bold mx-auto mb-4 bg-linear-to-br from-orange-400 via-orange-500 to-amber-300 border border-orange-300/50 shadow-[0_0_20px_rgba(249,115,22,0.45)]"
                   whileHover={{ scale: 1.05 }}
                   animate={{
                     boxShadow: [
@@ -203,7 +203,7 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
         )}
 
         {/* Offer Callout */}
-        <div className="text-center mb-6 sm:mb-8 p-6 sm:p-8 bg-gradient-to-r from-orange-950/50 to-red-950/50 rounded-xl border-2 border-orange-500/40 backdrop-blur-sm shadow-[0_0_40px_rgba(249,115,22,0.3)]">
+        <div className="text-center mb-6 sm:mb-8 p-6 sm:p-8 bg-linear-to-r from-orange-950/50 to-red-950/50 rounded-xl border-2 border-orange-500/40 backdrop-blur-sm shadow-[0_0_40px_rgba(249,115,22,0.3)]">
           <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-3 text-glow-crimson">
             Free With Your Consultation
           </p>
@@ -227,7 +227,7 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
       </div>
 
       {/* Bottom accent */}
-      <div className="h-2 bg-gradient-to-r from-orange-400 via-red-500 to-pink-500" />
+      <div className="h-2 bg-linear-to-r from-orange-400 via-red-500 to-pink-500" />
     </div>
   );
 }

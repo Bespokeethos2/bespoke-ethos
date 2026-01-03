@@ -31,11 +31,11 @@ const BentoItem = ({ title, description, icon, className, imageSrc, imageAlt }: 
           loading="lazy"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/60 to-white/30" />
+        <div className="absolute inset-0 bg-linear-to-t from-white/90 via-white/60 to-white/30" />
       </div>
     )}
 
-    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-orange-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+    <div className="absolute inset-0 bg-linear-to-br from-transparent via-transparent to-orange-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
     
     <div className="relative z-20">
       <div className="mb-3 sm:mb-4 inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg bg-orange-50 text-orange-600 group-hover:bg-orange-100 group-hover:text-orange-700 transition-colors shadow-sm">
@@ -62,7 +62,7 @@ export function CapabilitiesBento() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7 md:gap-8 auto-rows-[minmax(220px,auto)]">
         {/* Large Item 1 */}
         <BentoItem
-          className="md:col-span-2 md:row-span-2 bg-gradient-to-br from-white to-orange-50/30"
+          className="md:col-span-2 md:row-span-2 bg-linear-to-br from-white to-orange-50/30"
           title="Personalized Outreach"
           description="Human-approved email sequences that research prospects and draft personalized notes."
           icon={<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>}
