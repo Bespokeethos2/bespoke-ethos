@@ -1,6 +1,6 @@
 # Cadence Chatbot Fix - Presentation Outline
 
-<!-- cspell:words Vercel -->
+<!-- cspell:ignore Vercel -->
 
 ## Slide 1: Title
 
