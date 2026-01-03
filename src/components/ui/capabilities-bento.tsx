@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { m, LazyMotion, domAnimation } from "framer-motion";
 
 interface BentoItemProps {
   title: string;
@@ -14,7 +14,7 @@ interface BentoItemProps {
 }
 
 const BentoItem = ({ title, description, icon, className, imageSrc, imageAlt }: BentoItemProps) => (
-  <motion.div
+  <m.div
     whileHover={{ scale: 1.02 }}
     className={cn(
       "group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/60 bg-white/60 p-6 sm:p-7 md:p-8 shadow-xl backdrop-blur-md transition-all hover:shadow-2xl hover:border-orange-200/60",
@@ -44,12 +44,12 @@ const BentoItem = ({ title, description, icon, className, imageSrc, imageAlt }: 
       <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2 font-heading">{title}</h3>
       <p className="text-sm text-slate-600 leading-relaxed">{description}</p>
     </div>
-  </motion.div>
+  </m.div>
 );
 
 export function CapabilitiesBento() {
   return (
-    <>
+    <LazyMotion features={domAnimation}>
       <div className="mb-10 sm:mb-12 text-center max-w-3xl mx-auto">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-hero-accent text-slate-900 mb-3 sm:mb-4">
           The work that keeps you up at night. <br className="hidden sm:block" /> Handled.
@@ -95,6 +95,6 @@ export function CapabilitiesBento() {
           icon={<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>}
         />
       </div>
-    </>
+    </LazyMotion>
   );
 }
