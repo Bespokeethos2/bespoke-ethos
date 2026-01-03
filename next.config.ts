@@ -58,7 +58,16 @@ const nextConfig = {
   // Performance optimizations
   experimental: {
     // Tree-shake unused exports from these packages
-    optimizePackageImports: ['framer-motion', '@radix-ui/react-dialog', '@radix-ui/react-navigation-menu'],
+    optimizePackageImports: [
+      'framer-motion',
+      '@radix-ui/react-dialog',
+      '@radix-ui/react-navigation-menu',
+      '@radix-ui/react-accordion',
+      '@radix-ui/react-popover',
+      '@radix-ui/react-tooltip',
+      '@tabler/icons-react',
+      'lucide-react',
+    ],
   },
 
   // Enable React compiler optimizations (reduces main thread work)
