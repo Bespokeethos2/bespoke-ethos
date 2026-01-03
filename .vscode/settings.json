@@ -10,5 +10,16 @@
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "cSpell.words": [
+    "catalant",
+    "chatbots",
+    "NGLCC",
+    "nglcc",
+    "redbridging",
+    "sublink",
+    "sublinks",
+    "Vercel",
+    "vercel"
+  ]
 }
