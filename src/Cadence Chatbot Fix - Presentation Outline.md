@@ -1,5 +1,7 @@
 # Cadence Chatbot Fix - Presentation Outline
 
+<!-- cspell:words Vercel -->
+
 ## Slide 1: Title
 
 **Cadence Chatbot Crisis Analysis**  

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Suspense } from "react";
-import { motion } from "framer-motion";
+import { m, LazyMotion, domAnimation } from "framer-motion";
 
 import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
 import { Section } from "@/common/layout";
@@ -36,7 +36,8 @@ const contactFaqItems = [
 
 function ContactForm() {
   return (
-    <motion.div
+    <LazyMotion features={domAnimation}>
+    <m.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -90,7 +91,8 @@ function ContactForm() {
           <Accordion items={contactFaqItems} />
         </div>
       </div>
-    </motion.div>
+    </m.div>
+    </LazyMotion>
   );
 }
 

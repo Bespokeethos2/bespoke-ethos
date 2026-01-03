@@ -3,12 +3,13 @@
 import Image from "next/image";
 import { useState } from "react";
 import clsx from "clsx";
-import { motion } from "framer-motion";
+import { m, LazyMotion, domAnimation } from "framer-motion";
 
 export function ConsensusEngineCard({ className }: { className?: string }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
+    <LazyMotion features={domAnimation}>
     <div
       className={clsx(
         "relative mx-auto my-8 sm:my-12 md:my-16 lg:my-20 max-w-5xl overflow-hidden rounded-2xl bg-linear-to-br from-slate-900 via-slate-950 to-black shadow-2xl border border-white/10",
@@ -109,57 +110,33 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
               desc: "Get one cited, actionable report. Make your call with confidence." 
             },
           ].map((step, index) => (
-            <motion.div
+            <m.div
               key={index}
               className="relative text-center rounded-2xl border border-orange-500/20 bg-slate-800/60 p-6 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-md group"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
               {/* Glow effect background */}
-              <motion.div
+              <m.div
                 className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 style={{
                   background: "radial-gradient(circle at center, rgba(249, 115, 22, 0.2) 0%, transparent 70%)",
                   filter: "blur(20px)",
                 }}
-                animate={{
-                  boxShadow: [
-                    "0 0 20px rgba(249, 115, 22, 0.3)",
-                    "0 0 40px rgba(249, 115, 22, 0.5)",
-                    "0 0 20px rgba(249, 115, 22, 0.3)",
-                  ],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
               />
               <div className="relative z-10">
-                <motion.div
+                <m.div
                   className="w-20 h-20 rounded-full flex items-center justify-center text-slate-900 text-4xl font-bold mx-auto mb-4 bg-linear-to-br from-orange-400 via-orange-500 to-amber-300 border border-orange-300/50 shadow-[0_0_20px_rgba(249,115,22,0.45)]"
                   whileHover={{ scale: 1.05 }}
-                  animate={{
-                    boxShadow: [
-                      "0 0 12px rgba(249, 115, 22, 0.4)",
-                      "0 0 26px rgba(249, 115, 22, 0.7)",
-                      "0 0 12px rgba(249, 115, 22, 0.4)",
-                    ],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
                 >
                   {step.icon}
-                </motion.div>
+                </m.div>
                 <h3 className="text-2xl font-bold mb-2 text-white text-glow-crimson">{step.title}</h3>
                 <p className="text-lg text-slate-300">
                   {step.desc}
                 </p>
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
 
@@ -229,5 +206,6 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
       {/* Bottom accent */}
       <div className="h-2 bg-linear-to-r from-orange-400 via-red-500 to-pink-500" />
     </div>
+    </LazyMotion>
   );
 }
