@@ -13,13 +13,7 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
 import { Mic, MicOff, Volume2, VolumeX, MessageCircle, X, Send, Loader2 } from 'lucide-react';
 
-// Web Speech API types
-declare global {
-  interface Window {
-    SpeechRecognition: typeof SpeechRecognition;
-    webkitSpeechRecognition: typeof SpeechRecognition;
-  }
-}
+// Web Speech API types are declared in src/types/speech-recognition.d.ts
 
 // Types
 interface Message {
@@ -65,6 +59,7 @@ export function VoiceChatbot({
   const recognitionRef = useRef<SpeechRecognition | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const handleSendMessageRef = useRef<(text: string) => void>(() => {});
 
   // Initialize welcome message
   useEffect(() => {
@@ -84,44 +79,6 @@ export function VoiceChatbot({
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
-
-  // Initialize Web Speech API for STT (fallback)
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-      if (SpeechRecognition) {
-        const recognition = new SpeechRecognition();
-        recognition.continuous = false;
-        recognition.interimResults = true;
-        recognition.lang = 'en-US';
-
-        recognition.onresult = (event) => {
-          const current = event.resultIndex;
-          const transcriptText = event.results[current][0].transcript;
-          setTranscript(transcriptText);
-          
-          if (event.results[current].isFinal) {
-            handleSendMessage(transcriptText);
-            setTranscript('');
-          }
-        };
-
-        recognition.onend = () => {
-          setIsListening(false);
-        };
-
-        recognition.onerror = (event) => {
-          console.error('Speech recognition error:', event.error);
-          setIsListening(false);
-          if (event.error === 'not-allowed') {
-            setError('Microphone access denied. Please enable microphone permissions.');
-          }
-        };
-
-        recognitionRef.current = recognition;
-      }
-    }
-  }, []);
 
   // Toggle listening
   const toggleListening = useCallback(() => {
@@ -271,7 +228,53 @@ NGLCC certified LGBTQ+ business with 25% discount for LGBTQ+ owners.`,
     } finally {
       setIsLoading(false);
     }
-  }, [apiEndpoint, messages, botName, isMuted, speakText]);
+  }, [apiEndpoint, messages, isMuted, speakText]);
+
+  useEffect(() => {
+    handleSendMessageRef.current = handleSendMessage;
+  }, [handleSendMessage]);
+
+  // Initialize Web Speech API for STT (fallback)
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (SpeechRecognition) {
+        const recognition = new SpeechRecognition();
+        recognition.continuous = false;
+        recognition.interimResults = true;
+        recognition.lang = 'en-US';
+
+        recognition.onresult = (event: SpeechRecognitionEvent) => {
+          const current = event.resultIndex;
+          const result = event.results[current];
+          const transcriptText = result?.[0]?.transcript ?? "";
+          if (!transcriptText) {
+            return;
+          }
+          setTranscript(transcriptText);
+
+          if (result?.isFinal) {
+            handleSendMessageRef.current(transcriptText);
+            setTranscript('');
+          }
+        };
+
+        recognition.onend = () => {
+          setIsListening(false);
+        };
+
+        recognition.onerror = (event: SpeechRecognitionErrorEvent) => {
+          console.error('Speech recognition error:', event.error);
+          setIsListening(false);
+          if (event.error === 'not-allowed') {
+            setError('Microphone access denied. Please enable microphone permissions.');
+          }
+        };
+
+        recognitionRef.current = recognition;
+      }
+    }
+  }, []);
 
   // Handle form submit
   const handleSubmit = (e: React.FormEvent) => {

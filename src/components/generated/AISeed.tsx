@@ -1,34 +1,24 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, RotateCcw, XCircle, CheckCircle, AlertTriangle } from 'lucide-react';
-import styled from 'styled-components';
 
 const AISeed = () => {
     const [code, setCode] = useState(50);
     const [data, setData] = useState(50);
     const [compute, setCompute] = useState(50);
-    const [seedHealth, setSeedHealth] = useState(50);
     const [output, setOutput] = useState<string | null>(null);
-    const [message, setMessage] = useState<string>('Nurture the AI Seed with Code, Data, and Compute.');
-    const [isHarvestable, setIsHarvestable] = useState(false);
     const [harvestCount, setHarvestCount] = useState(0);
-
-    useEffect(() => {
-        const health = code + data + compute;
-        setSeedHealth(health / 3);
-
-        if (seedHealth <= 0) {
-            setMessage('The AI Seed has withered. Not enough resources.');
-        } else if (seedHealth >= 90) {
-            setMessage('The AI Seed is thriving! Ready to Harvest!');
-            setIsHarvestable(true);
-        } else {
-            setMessage('Nurture the AI Seed with Code, Data, and Compute.');
-            setIsHarvestable(false);
-        }
-    }, [code, data, compute, seedHealth]);
+    const seedHealth = (code + data + compute) / 3;
+    const isWithered = seedHealth <= 0;
+    const isHarvestable = seedHealth >= 90;
+    const statusMessage = output
+        ?? (isWithered
+            ? 'The AI Seed has withered. Not enough resources.'
+            : isHarvestable
+                ? 'The AI Seed is thriving! Ready to Harvest!'
+                : 'Nurture the AI Seed with Code, Data, and Compute.');
 
     const feedCode = () => {
         setCode(Math.min(100, code + 10));
@@ -52,10 +42,7 @@ const AISeed = () => {
         setCode(50);
         setData(50);
         setCompute(50);
-        setSeedHealth(50);
         setOutput(null);
-        setMessage('Nurture the AI Seed with Code, Data, and Compute.');
-        setIsHarvestable(false);
         setHarvestCount(0);
     };
 
@@ -69,30 +56,41 @@ const AISeed = () => {
                 'Developed a new algorithm for medical diagnosis.',
             ];
             const randomIndex = Math.floor(Math.random() * outputs.length);
-            setOutput(outputs[randomIndex]);
-            setMessage(outputs[randomIndex]);
-            setHarvestCount(harvestCount + 1);
+            const nextOutput =
+                outputs[randomIndex] ??
+                outputs[0] ??
+                'Generated a practical AI insight.';
+            setOutput(nextOutput);
+            setHarvestCount((prevCount) => prevCount + 1);
             setCode(50);
             setData(50);
             setCompute(50);
-            setSeedHealth(50);
-            setIsHarvestable(false);
         }
-    }, [isHarvestable, harvestCount]);
+    }, [isHarvestable]);
+
+    const pseudoRandom = (seed: number) => {
+        const value = Math.sin(seed) * 10000;
+        return value - Math.floor(value);
+    };
 
     const renderParticles = () => {
         const particles = [];
-        for (let i = 0; i < seedHealth; i++) {
+        const particleCount = Math.max(0, Math.floor(seedHealth));
+        for (let i = 0; i < particleCount; i++) {
+            const baseSeed = i * 17 + seedHealth * 3 + harvestCount * 11;
+            const top = pseudoRandom(baseSeed) * 100;
+            const left = pseudoRandom(baseSeed + 1) * 100;
+            const delay = pseudoRandom(baseSeed + 2);
             particles.push(
                 <motion.div
                     key={i}
                     className="absolute w-1 h-1 rounded-full bg-teal-400"
                     style={{
-                        top: `${Math.random() * 100}%`,
-                        left: `${Math.random() * 100}%`,
+                        top: `${top}%`,
+                        left: `${left}%`,
                     }}
                     animate={{ opacity: [0.2, 0.8, 0.2] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: Math.random() }}
+                    transition={{ duration: 2, repeat: Infinity, delay }}
                 />
             );
         }
@@ -102,7 +100,7 @@ const AISeed = () => {
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-slate-900 text-teal-400 p-4">
             <h1 className="text-3xl font-bold mb-4">AI Seed</h1>
-            <p className="mb-4">{message}</p>
+            <p className="mb-4">{statusMessage}</p>
 
             <div className="relative w-64 h-64 rounded-full bg-slate-800 border-2 border-slate-700 overflow-hidden">
                 {renderParticles()}

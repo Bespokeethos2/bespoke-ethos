@@ -1,8 +1,22 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, RotateCcw, Activity, User, TrendingUp } from "lucide-react";
+
+const calculateWaste = (automation: number, marketing: number, hr: number): number => {
+  let waste = 0;
+  waste += Math.abs(automation - 60) * 5;
+  waste += Math.abs(marketing - 40) * 3;
+  waste += Math.abs(hr - 70) * 7;
+  return waste;
+};
+
+const calculateProfit = (automation: number, marketing: number, hr: number): number => {
+  let profit = 100;
+  profit -= calculateWaste(automation, marketing, hr);
+  return Math.max(0, profit);
+};
 
 const EfficiencyEngine = () => {
   const [automation, setAutomation] = useState(50);
@@ -12,31 +26,34 @@ const EfficiencyEngine = () => {
   const [profit, setProfit] = useState(calculateProfit(automation, marketing, hr));
   const [isRunning, setIsRunning] = useState(false);
   const [showParticles, setShowParticles] = useState(false);
+  const particleTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     if (isRunning) {
       const intervalId = setInterval(() => {
-        setWaste(calculateWaste(automation, marketing, hr));
-        setProfit(calculateProfit(automation, marketing, hr));
+        const nextWaste = calculateWaste(automation, marketing, hr);
+        const nextProfit = calculateProfit(automation, marketing, hr);
+        setWaste(nextWaste);
+        setProfit(nextProfit);
+
+        if (nextProfit > 95 && !particleTimeoutRef.current) {
+          setShowParticles(true);
+          particleTimeoutRef.current = setTimeout(() => {
+            setShowParticles(false);
+            particleTimeoutRef.current = null;
+          }, 2000);
+        }
       }, 250);
 
-      return () => clearInterval(intervalId);
+      return () => {
+        clearInterval(intervalId);
+        if (particleTimeoutRef.current) {
+          clearTimeout(particleTimeoutRef.current);
+          particleTimeoutRef.current = null;
+        }
+      };
     }
   }, [automation, marketing, hr, isRunning]);
-
-  function calculateWaste(automation: number, marketing: number, hr: number): number {
-    let waste = 0;
-    waste += Math.abs(automation - 60) * 5;
-    waste += Math.abs(marketing - 40) * 3;
-    waste += Math.abs(hr - 70) * 7;
-    return waste;
-  }
-
-  function calculateProfit(automation: number, marketing: number, hr: number): number {
-    let profit = 100;
-    profit -= calculateWaste(automation, marketing, hr);
-    return Math.max(0, profit);
-  }
 
   const handleAutomationChange = (event: any) => {
     setAutomation(parseInt(event.target.value));
@@ -60,16 +77,11 @@ const EfficiencyEngine = () => {
     setHr(50);
     setIsRunning(false);
     setShowParticles(false);
-  };
-
-  useEffect(() => {
-    if (profit > 95) {
-      setShowParticles(true);
-      setTimeout(() => {
-        setShowParticles(false);
-      }, 2000);
+    if (particleTimeoutRef.current) {
+      clearTimeout(particleTimeoutRef.current);
+      particleTimeoutRef.current = null;
     }
-  }, [profit]);
+  };
 
   const particleCount = 20;
 

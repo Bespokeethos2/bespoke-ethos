@@ -49,8 +49,9 @@ import { OrganizationJsonLd } from '@/app/_components/seo/organization-jsonld';
 
 // Homepage-specific metadata
 export const metadata = {
-  title: 'AI Automation Consulting for Small Businesses | Cleveland AI Workflow Expert',
-  description: 'Fixed-price AI automation for small business. AI Strategy Sprints, intelligent chatbots, and workflow rescue. LGBTQ-owned, Cleveland-based. 25% discount for LGBTQ businesses. Book free consult.',
+  title: "Cleveland AI Consulting & Automation | Bespoke Ethos",
+  description:
+    "Fixed-price AI automation for small business. Cleveland-based AI consulting including chatbots, workflow automation, and AI strategy. 25% discount for LGBTQ-owned businesses.",
   alternates: {
     canonical: 'https://www.bespokeethos.com',
   },

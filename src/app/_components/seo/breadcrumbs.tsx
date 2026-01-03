@@ -3,8 +3,20 @@ import Link from "next/link";
 
 type Crumb = { name: string; href?: string };
 
-export function Breadcrumbs({ items }: { items: Crumb[] }) {
+export function Breadcrumbs({
+  items,
+  className,
+}: {
+  items: Crumb[];
+  className?: string;
+}) {
   const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
+  const navClassName = [
+    "mb-4 text-sm text-text-tertiary dark:text-dark-text-tertiary",
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
   const json = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -17,7 +29,7 @@ export function Breadcrumbs({ items }: { items: Crumb[] }) {
   };
   return (
     <>
-      <nav aria-label="Breadcrumb" className="mb-4 text-sm text-text-tertiary dark:text-dark-text-tertiary">
+      <nav aria-label="Breadcrumb" className={navClassName}>
         {items.map((c, i) => (
           <span key={`${c.name}-${i}`}>
             {i > 0 ? " / " : null}

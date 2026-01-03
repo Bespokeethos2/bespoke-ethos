@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, RotateCcw, Pause, CheckCircle, XCircle } from 'lucide-react';
 
@@ -16,35 +16,49 @@ const TheAlgorithmicDilemma = () => {
   const [gameOver, setGameOver] = useState(false);
   const [moralBankruptcy, setMoralBankruptcy] = useState(false);
 
-  const calculateMetrics = useCallback(() => {
-    // Simplified calculations, adjust as needed
-    const newProfit = accuracy * 0.3 + efficiency * 0.4 - privacy * 0.1 + Math.random()*5;
-    const newSocietalImpact = accuracy * 0.2 + privacy * 0.5 - efficiency * 0.1 + Math.random()*5;
-    const newEthicalScore = privacy * 0.6 + societalImpact * 0.3 - accuracy * 0.2 + Math.random()*5;
-
-    setProfit(Math.max(0, Math.min(100, newProfit)));
-    setSocietalImpact(Math.max(0, Math.min(100, newSocietalImpact)));
-    setEthicalScore(Math.max(0, Math.min(100, newEthicalScore)));
-
-    if (ethicalScore < 10 && profit > 80) {
-      setMoralBankruptcy(true);
-      setIsRunning(false);
-      setGameOver(true);
-    }
-  }, [accuracy, efficiency, privacy, societalImpact]);
-
   useEffect(() => {
-    if (isRunning && timeRemaining > 0) {
+    if (!isRunning) {
+      return;
+    }
+
+    if (timeRemaining > 0) {
       const timer = setInterval(() => {
-        setTimeRemaining(prevTime => prevTime - 1);
-        calculateMetrics();
+        setTimeRemaining((prevTime) => {
+          const nextTime = prevTime - 1;
+          if (nextTime <= 0) {
+            setIsRunning(false);
+            setGameOver(true);
+            return 0;
+          }
+          return nextTime;
+        });
+
+        const nextProfit = Math.max(
+          0,
+          Math.min(100, accuracy * 0.3 + efficiency * 0.4 - privacy * 0.1 + Math.random() * 5)
+        );
+        const nextSocietalImpact = Math.max(
+          0,
+          Math.min(100, accuracy * 0.2 + privacy * 0.5 - efficiency * 0.1 + Math.random() * 5)
+        );
+        const nextEthicalScore = Math.max(
+          0,
+          Math.min(100, privacy * 0.6 + nextSocietalImpact * 0.3 - accuracy * 0.2 + Math.random() * 5)
+        );
+
+        setProfit(nextProfit);
+        setSocietalImpact(nextSocietalImpact);
+        setEthicalScore(nextEthicalScore);
+
+        if (nextEthicalScore < 10 && nextProfit > 80) {
+          setMoralBankruptcy(true);
+          setIsRunning(false);
+          setGameOver(true);
+        }
       }, 1000);
       return () => clearInterval(timer);
-    } else if (timeRemaining === 0) {
-      setIsRunning(false);
-      setGameOver(true);
     }
-  }, [isRunning, timeRemaining, calculateMetrics]);
+  }, [isRunning, timeRemaining, accuracy, efficiency, privacy]);
 
   const handleSliderChange = (setter: (value: number) => void) => (event: React.ChangeEvent<HTMLInputElement>) => {
     setter(parseInt(event.target.value, 10));

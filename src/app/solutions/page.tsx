@@ -88,26 +88,28 @@ export default function SolutionsPage() {
       <SolutionsItemListJsonLd />
       <SolutionsFaqJsonLd />
 
-      <Section className="relative z-10 pt-24 pb-16">
-        <div className="container mx-auto px-4 max-w-6xl space-y-12">
+      <Section className="relative z-10 pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-16 sm:pb-20 md:pb-24">
+        <div className="container mx-auto px-4 max-w-6xl space-y-10 sm:space-y-12 md:space-y-14">
           
           <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Solutions" }]} className="mb-4" />
           
           {/* Hero Content */}
-          <div className="max-w-3xl">
-            <span className="text-orange-500 font-mono text-sm tracking-widest mb-2 block">// THE ARMORY</span>
-            <h1 className="text-5xl md:text-7xl font-black text-white tracking-tight leading-[0.9] mb-6">
+          <div className="max-w-3xl space-y-4 sm:space-y-5">
+            <span className="text-orange-500 font-mono text-sm tracking-widest mb-1 block">
+              {"// THE ARMORY"}
+            </span>
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white tracking-tight leading-[0.92] sm:leading-[0.9]">
               PRECISION <br/> <span className="text-stroke-thin text-slate-800">TOOLS.</span>
             </h1>
-            <p className="text-xl text-slate-400 font-light leading-relaxed max-w-2xl">
-              NGLCC-certified automation studio. We don't sell "digital transformation." 
+            <p className="text-base sm:text-lg md:text-xl text-slate-400 font-light leading-relaxed max-w-2xl">
+              NGLCC-certified automation studio. We don&apos;t sell &ldquo;digital transformation.&rdquo;
               We sell <strong className="text-orange-200">finished inventory</strong> that works.
               Fixed scopes. 90-day warranties.
             </p>
           </div>
 
           {/* Solution Grid */}
-          <div className="grid md:grid-cols-2 gap-8 pt-8">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 pt-6 sm:pt-8">
             {solutions.map((s) => {
               // Map pricing dynamically
               let priceLabel = "Fixed Scope";
@@ -115,7 +117,7 @@ export default function SolutionsPage() {
               if (s.slug === "automation-skyway") priceLabel = "Starts at $1,997";
               
               return (
-                <PremiumContainer key={s.slug} variant={s.variant} className="p-8 group hover:scale-[1.01] transition-transform duration-300">
+                <PremiumContainer key={s.slug} variant={s.variant} className="p-6 sm:p-7 md:p-8 group hover:scale-[1.01] transition-transform duration-300">
                   <div className="flex items-start justify-between mb-6">
                     <div>
                       <h2 className="text-2xl font-bold text-white mb-1 group-hover:text-orange-400 transition-colors">{s.title}</h2>
@@ -132,7 +134,7 @@ export default function SolutionsPage() {
                     </div>
                   </div>
                   
-                  <p className="text-slate-300 leading-relaxed mb-8 min-h-[80px]">
+                  <p className="text-slate-300 leading-relaxed mb-7 sm:mb-8 min-h-[80px]">
                     {s.summary}
                   </p>
 
@@ -152,9 +154,11 @@ export default function SolutionsPage() {
           </div>
 
           {/* CTA Band */}
-          <div className="py-12 border-y border-white/5 text-center mt-8">
-             <h3 className="text-2xl font-bold text-white mb-4">Not sure what's broken?</h3>
-             <p className="text-slate-400 mb-6">Book a triage call. We'll tell you what we'd fix first, even if you don't hire us.</p>
+          <div className="py-10 sm:py-12 border-y border-white/5 text-center mt-6 sm:mt-8">
+             <h3 className="text-2xl font-bold text-white mb-3 sm:mb-4">Not sure what&apos;s broken?</h3>
+             <p className="text-slate-400 mb-6 max-w-2xl mx-auto">
+               Book a triage call. We&apos;ll tell you what we&apos;d fix first, even if you don&apos;t hire us.
+             </p>
              <div className="flex justify-center gap-4 flex-col sm:flex-row items-center">
                <ButtonLink intent="primary" href="/contact">Book Triage Call</ButtonLink>
                <ButtonLink intent="secondary" href="/pricing">View Pricing Menu</ButtonLink>
@@ -167,8 +171,8 @@ export default function SolutionsPage() {
           </div>
 
           {/* FAQ */}
-          <div className="pt-12 max-w-3xl mx-auto">
-             <h2 className="text-3xl font-bold text-white text-center mb-8 font-hero-accent">Standard Operating Procedure</h2>
+          <div className="pt-10 sm:pt-12 md:pt-14 max-w-3xl mx-auto">
+             <h2 className="text-3xl font-bold text-white text-center mb-7 sm:mb-8 font-hero-accent">Standard Operating Procedure</h2>
              {/* Forced high-contrast wrapper for Accordion text */}
              <div className="text-slate-200 [&_button]:text-white [&_div[data-state=open]]:text-slate-300">
                <Accordion items={solutionsFaqItems} />

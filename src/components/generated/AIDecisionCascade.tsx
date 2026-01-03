@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, createContext, useContext, useEffect } from 'react';
-import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
-import { Play, RotateCcw, CheckCircle, XCircle } from 'lucide-react';
+import React, { useState, createContext, useContext } from 'react';
+import { motion } from 'framer-motion';
+import { RotateCcw, CheckCircle, XCircle } from 'lucide-react';
 
 // Styled Components (using Tailwind classes directly)
 const Button = ({ children, onClick, className }: { children: React.ReactNode, onClick: () => void, className?: string }) => (
@@ -39,6 +39,24 @@ const useGame = () => {
   return context;
 };
 
+const PROCESSES = [
+  {
+    name: "Loan Application",
+    steps: ["Data Input", "Credit Check", "Risk Assessment", "Approval"],
+    intervention: 2, // Risk Assessment
+  },
+  {
+    name: "Hiring Process",
+    steps: ["Resume Screening", "Initial Interview", "Technical Assessment", "Final Interview"],
+    intervention: 0, // Resume Screening
+  },
+  {
+    name: "Medical Diagnosis",
+    steps: ["Symptom Collection", "Initial Tests", "AI Analysis", "Doctor Review"],
+    intervention: 3, // Doctor Review
+  },
+];
+
 // Game Provider
 interface GameProviderProps {
   children: React.ReactNode;
@@ -47,41 +65,14 @@ interface GameProviderProps {
 const GameProvider: React.FC<GameProviderProps> = ({ children }) => {
   const [score, setScore] = useState(0);
   const [level, setLevel] = useState(1);
-  const [interventionPoints, setInterventionPoints] = useState<number[]>([]);
-  const [currentProcess, setCurrentProcess] = useState<string[]>([]);
   const [selectedIntervention, setSelectedIntervention] = useState<number | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
 
-  // Game Processes (Example)
-  const processes = [
-    {
-      name: "Loan Application",
-      steps: ["Data Input", "Credit Check", "Risk Assessment", "Approval"],
-      intervention: 2, // Risk Assessment
-    },
-    {
-      name: "Hiring Process",
-      steps: ["Resume Screening", "Initial Interview", "Technical Assessment", "Final Interview"],
-      intervention: 0, // Resume Screening
-    },
-    {
-        name: "Medical Diagnosis",
-        steps: ["Symptom Collection", "Initial Tests", "AI Analysis", "Doctor Review"],
-        intervention: 3, // Doctor Review
-    }
-  ];
-
-  useEffect(() => {
-    startLevel(level);
-  }, [level]);
-
-  const startLevel = (level: number) => {
-    const processIndex = (level - 1) % processes.length;
-    setInterventionPoints([processes[processIndex].intervention]);
-    setCurrentProcess(processes[processIndex].steps);
-    setSelectedIntervention(null);
-    setIsCorrect(null);
-  }
+  const processIndex = (level - 1) % PROCESSES.length;
+  const currentProcess = PROCESSES[processIndex]?.steps ?? [];
+  const interventionPoints = PROCESSES[processIndex]
+    ? [PROCESSES[processIndex].intervention]
+    : [];
 
   const addScore = (points: number) => {
     setScore((prevScore) => prevScore + points);
@@ -90,11 +81,14 @@ const GameProvider: React.FC<GameProviderProps> = ({ children }) => {
   const resetGame = () => {
     setScore(0);
     setLevel(1);
-    startLevel(1);
+    setSelectedIntervention(null);
+    setIsCorrect(null);
   };
 
   const nextLevel = () => {
     setLevel((prevLevel) => prevLevel + 1);
+    setSelectedIntervention(null);
+    setIsCorrect(null);
   };
 
   const value: GameContextType = {

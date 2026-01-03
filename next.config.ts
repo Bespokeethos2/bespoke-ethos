@@ -74,7 +74,15 @@ const nextConfig = {
   async headers() {
     const headerConfigs: { source: string; headers: { key: string; value: string }[] }[] = [];
 
-    const isProd = process.env.VERCEL_ENV === "production";
+    // Check if this is a production environment
+    // Allow indexing if:
+    // 1. VERCEL_ENV is "production", OR
+    // 2. NODE_ENV is "production" AND we're not explicitly in preview/development
+    // 3. The site URL exactly matches the production domain
+    const isProduction = 
+      process.env.VERCEL_ENV === "production" ||
+      (process.env.NODE_ENV === "production" && process.env.VERCEL_ENV !== "preview") ||
+      process.env.NEXT_PUBLIC_SITE_URL === "https://www.bespokeethos.com";
 
     // Noindex for /chat routes (AI chatbot - not for search engines)
     headerConfigs.push({
@@ -99,7 +107,7 @@ const nextConfig = {
       headers: [
         {
           key: "X-Robots-Tag",
-          value: isProd
+          value: isProduction
             ? "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
             : "noindex, nofollow",
         },

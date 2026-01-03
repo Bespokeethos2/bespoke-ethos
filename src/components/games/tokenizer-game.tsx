@@ -27,7 +27,7 @@ export function TokenizerGame() {
       </div>
       
       <p className="text-sm text-slate-400 mb-6">
-        AI doesn't read words. It reads "tokens" (chunks of characters). 
+        AI doesn&apos;t read words. It reads &ldquo;tokens&rdquo; (chunks of characters).
         Type below to see how the machine slices your text.
       </p>
 

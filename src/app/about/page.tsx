@@ -45,16 +45,16 @@ export default function AboutPage() {
       <AboutFaqJsonLd />
       <AboutVideoJsonLd />
 
-      <Section className="relative z-10 pt-24 pb-16">
-        <div className="container mx-auto px-4 max-w-6xl space-y-12">
+      <Section className="relative z-10 pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-16 sm:pb-20 md:pb-24">
+        <div className="container mx-auto px-4 max-w-6xl space-y-12 sm:space-y-14 md:space-y-16">
           
-          <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "About" }]} className="mb-8" />
+          <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "About" }]} className="mb-6 sm:mb-8" />
 
           {/* SOTA Hero Section */}
-          <PremiumContainer variant="obsidian" className="p-8 md:p-12 overflow-hidden relative">
+          <PremiumContainer variant="obsidian" className="p-6 sm:p-8 md:p-12 overflow-hidden relative">
              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent pointer-events-none" />
-             
-             <div className="grid md:grid-cols-2 gap-12 items-center relative z-10">
+
+             <div className="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center relative z-10">
                {/* Image Side */}
                <div className="relative group">
                  <div className="absolute inset-0 bg-orange-500/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
@@ -72,22 +72,22 @@ export default function AboutPage() {
                </div>
 
                {/* Content Side */}
-               <div className="space-y-6">
+               <div className="space-y-5 sm:space-y-6">
                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-500/30 bg-orange-950/30">
                    <span className="w-1.5 h-1.5 bg-orange-500 rounded-full animate-pulse" />
                    <span className="text-xs font-bold text-orange-400 uppercase tracking-widest">Founder & AI Architect</span>
                  </div>
-                 
-                 <h1 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-none">
+
+                 <h1 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-[0.92] sm:leading-[0.9]">
                    UPTON <br/> <span className="text-stroke-thin text-slate-800">RAND</span>
                  </h1>
-                 
-                 <p className="text-xl text-slate-300 font-light leading-relaxed">
-                   I spent 5 years training AI models when they were still in the lab. Now, I use that experience to build 
+
+                 <p className="text-base sm:text-lg md:text-xl text-slate-300 font-light leading-relaxed">
+                   I spent 5 years training AI models when they were still in the lab. Now, I use that experience to build
                    <strong> precision tools</strong> for founders who are tired of the hype.
                  </p>
 
-                 <div className="grid grid-cols-3 gap-4 border-t border-white/10 pt-6">
+                 <div className="grid grid-cols-3 gap-4 sm:gap-6 border-t border-white/10 pt-6">
                    <div>
                      <div className="text-3xl font-bold text-white">5+</div>
                      <div className="text-xs text-slate-500 uppercase tracking-wider mt-1">Years Training AI</div>
@@ -106,24 +106,24 @@ export default function AboutPage() {
           </PremiumContainer>
 
           {/* The Manifesto */}
-          <div className="grid md:grid-cols-2 gap-8">
-            <PremiumContainer variant="glass" className="p-8">
-              <h2 className="text-2xl font-bold text-white mb-6 uppercase tracking-wide">The Mission</h2>
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
+            <PremiumContainer variant="glass" className="p-7 sm:p-8">
+              <h2 className="text-2xl font-bold text-white mb-5 uppercase tracking-wide">The Mission</h2>
               <div className="prose prose-invert text-slate-300">
                 <p>
-                  I live between two extremes: "the Torrent"—hyper-systemizing bursts where solutions click into place—and 
-                  the needing a steady anchor. I built Bespoke Ethos because I needed a 
+                  I live between two extremes: &ldquo;the Torrent&rdquo;&mdash;hyper-systemizing bursts where solutions click into place&mdash;and
+                  the needing a steady anchor. I built Bespoke Ethos because I needed a
                   <strong> cognitive prosthetic</strong> before I even knew what to call it.
                 </p>
                 <p>
-                  Our "Rust Belt" roots mean we hold tight tolerances. Audit trails, approvals, rollbacks, and documentation. 
+                  Our &ldquo;Rust Belt&rdquo; roots mean we hold tight tolerances. Audit trails, approvals, rollbacks, and documentation.
                   No black-box infrastructure. Just resilient workflows you can trust.
                 </p>
               </div>
             </PremiumContainer>
             
-            <div className="space-y-4">
-              <PremiumContainer variant="neon" className="p-6">
+            <div className="space-y-5">
+              <PremiumContainer variant="neon" className="p-6 sm:p-7">
                 <h3 className="text-lg font-bold text-white mb-4">Why Work With Us?</h3>
                 <ul className="space-y-3">
                   {[
@@ -133,16 +133,16 @@ export default function AboutPage() {
                     "Human-in-the-Loop Pedigree (Appen)"
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-3 text-slate-300 text-sm">
-                      <span className="text-orange-500 font-bold">✓</span>
+                      <span className="text-orange-500 font-bold">&#10003;</span>
                       {item}
                     </li>
                   ))}
                 </ul>
               </PremiumContainer>
 
-              <PremiumContainer variant="obsidian" className="p-6 flex flex-col justify-center items-center text-center h-full">
-                <p className="text-slate-400 mb-6 font-light">
-                  "There has never been a better time to be a builder. Let's get to work."
+              <PremiumContainer variant="obsidian" className="p-6 sm:p-7 flex flex-col justify-center items-center text-center h-full">
+                <p className="text-slate-400 mb-5 sm:mb-6 font-light">
+                  &ldquo;There has never been a better time to be a builder. Let&rsquo;s get to work.&rdquo;
                 </p>
                 <ButtonLink href="/contact" intent="primary" className="w-full justify-center">
                   Start Your Project
@@ -152,8 +152,8 @@ export default function AboutPage() {
           </div>
 
           {/* FAQ Section */}
-          <div className="pt-16 max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-white text-center mb-12 font-hero-accent">Plain Language Answers</h2>
+          <div className="pt-12 sm:pt-14 md:pt-16 max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold text-white text-center mb-8 sm:mb-10 font-hero-accent">Plain Language Answers</h2>
             <Accordion items={aboutFaqItems} />
           </div>
 

@@ -2,7 +2,7 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 
-import { chromium, firefox, webkit, devices } from "playwright";
+import { chromium, firefox, webkit, devices } from "@playwright/test";
 
 const ROUTES = [
   "/",
@@ -140,12 +140,15 @@ async function main() {
       };
 
       try {
-        const response = await page.goto(url, { waitUntil: "networkidle", timeout: 60000 });
+        const response = await page.goto(url, {
+          waitUntil: "domcontentloaded",
+          timeout: 120000,
+        });
         if (!response || response.status() >= 400) {
           throw new Error(`HTTP status ${response?.status() ?? "unknown"}`);
         }
 
-        await page.waitForLoadState("networkidle");
+        await page.waitForLoadState("load");
         await page.waitForTimeout(1500);
         const shotPaths = await captureScreens(page, screenshotPath);
         record.screenshots = shotPaths.map((p) => path.relative(process.cwd(), p).replace(/\\/g, "/"));

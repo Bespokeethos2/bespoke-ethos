@@ -12,7 +12,9 @@ const TimeTraveller = () => {
   const currentTrajectory = [100, 110, 121, 133, 146]; // Linear growth
   const aiAugmentedTrajectory = [100, 130, 169, 220, 286]; // Exponential growth
 
-  const projectedDifference = Math.round((aiAugmentedTrajectory[4] / currentTrajectory[4]));
+  const currentLast = currentTrajectory[currentTrajectory.length - 1] ?? 1;
+  const augmentedLast = aiAugmentedTrajectory[aiAugmentedTrajectory.length - 1] ?? 1;
+  const projectedDifference = Math.round(augmentedLast / currentLast);
 
   return (
     <motion.div

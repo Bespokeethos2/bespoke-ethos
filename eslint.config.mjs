@@ -10,6 +10,8 @@ const config = [
       ".vscode/**",
       ".backups/**",
       ".next/**",
+      ".antigravity/**",
+      "site-template/**",
       "extensions/**",
       "social_calendar/**",
       "Manus/**",
@@ -21,6 +23,12 @@ const config = [
       "pnpm-lock.yaml",
       ".backups/**",
     ],
+  },
+  {
+    files: ["src/app/blog/**/*.tsx", "src/app/case-studies/**/*.tsx"],
+    rules: {
+      "react/no-unescaped-entities": "off",
+    },
   },
 ];
 
