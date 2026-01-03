@@ -56,6 +56,17 @@ export const metadata = {
   alternates: {
     canonical: 'https://www.bespokeethos.com',
   },
+  openGraph: {
+    title: 'AI Automation That Works | Bespoke Ethos',
+    description: 'Ship working code, not slide decks. Fixed-price AI consulting for small businesses in Cleveland.',
+    type: 'website',
+    url: 'https://www.bespokeethos.com',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AI Automation That Works | Bespoke Ethos',
+    description: 'Ship working code, not slide decks. Fixed-price AI consulting for small businesses.',
+  },
 };
 
 const homeFaqItems = [
