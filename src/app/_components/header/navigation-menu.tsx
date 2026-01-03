@@ -69,7 +69,7 @@ function NavigationMenuLink({
     <NavigationMenuLinkPrimitive
       asChild
       className={clsx(
-        "hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary inline-flex h-6 shrink-0 items-center justify-center gap-1 rounded-full px-4 pb-px tracking-tight lg:h-7 transition-colors duration-200",
+        "hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary inline-flex h-6 shrink-0 items-center justify-center gap-1 rounded-full px-4 pb-px tracking-tight lg:h-7 transition-colors duration-200 text-slate-700 dark:text-slate-200 font-medium",
         className,
       )}
       {...props}
@@ -129,8 +129,8 @@ function NavigationMenuLinkWithMenu({ _title, href, sublinks }: HeaderNavLink) {
           ) : (
             <Button
               unstyled
-            className="hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary inline-flex items-center gap-1 rounded-full pr-2 pb-px pl-4 tracking-tight lg:h-7 transition-colors duration-200"
-            icon={<ChevronDownIcon className="text-text-tertiary dark:text-dark-text-tertiary" />}
+            className="hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary inline-flex items-center gap-1 rounded-full pr-2 pb-px pl-4 tracking-tight lg:h-7 transition-colors duration-200 text-slate-700 dark:text-slate-200 font-medium"
+            icon={<ChevronDownIcon className="text-slate-500 dark:text-slate-400" />}
           >
             {_title}
           </Button>
@@ -143,7 +143,7 @@ function NavigationMenuLinkWithMenu({ _title, href, sublinks }: HeaderNavLink) {
               if (sublink.children?.length) {
                 return (
                   <li key={sublink._id} className="px-2 py-2">
-                    <p className="text-[10px] uppercase tracking-[0.35em] text-text-tertiary dark:text-dark-text-tertiary">
+                    <p className="text-[10px] uppercase tracking-[0.35em] text-slate-500 dark:text-slate-400">
                       {sublink._title}
                     </p>
                     <ul className="mt-2 flex flex-col gap-1">
@@ -171,7 +171,7 @@ function renderLeaf(item: HeaderNavLinkItem, getPreviewSrc: (href: string) => st
       <NavigationMenuLinkPrimitive asChild>
         <ButtonLink
           unstyled
-          className="hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary flex w-full items-center gap-3 rounded-md px-3 py-2 transition-colors duration-150"
+          className="hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary flex w-full items-center gap-3 rounded-md px-3 py-2 transition-colors duration-150 text-slate-700 dark:text-slate-200"
           href={hrefValue}
         >
                       <span className="truncate">{label}</span>
@@ -320,7 +320,7 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
                         loading="lazy"
                         decoding="async"
                       />
-                      <figcaption className="mt-1 text-center text-[8pt] text-text-tertiary dark:text-dark-text-tertiary">
+                      <figcaption className="mt-1 text-center text-[8pt] text-slate-500 dark:text-slate-400">
                         Gay Mens Field Guide LLC.
                       </figcaption>
                     </figure>
@@ -412,7 +412,7 @@ function ItemWithSublinks({
   return (
     <div key={_id}>
       <button
-        className="flex items-center gap-2 px-3 py-2.5 text-base font-medium"
+        className="flex items-center gap-2 px-3 py-2.5 text-base font-medium text-slate-700 dark:text-slate-200"
         onClick={handleToggle}
         aria-expanded={ariaExpanded(isOn)}
         aria-controls={submenuId}
@@ -421,7 +421,7 @@ function ItemWithSublinks({
         {_title}
         <ChevronDownIcon
           className={clsx(
-            "text-text-tertiary dark:text-dark-text-tertiary h-min transform transition-transform",
+            "text-slate-500 dark:text-slate-400 h-min transform transition-transform",
             isOn ? "rotate-180" : "rotate-0",
           )}
         />
@@ -439,7 +439,7 @@ function ItemWithSublinks({
           if (sublink.children?.length) {
             return (
               <li key={sublink._id} className="space-y-1">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-text-tertiary dark:text-dark-text-tertiary">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-slate-500 dark:text-slate-400">
                   {sublink._title}
                 </p>
                 <ul className="flex flex-col gap-1 pl-1">
@@ -450,7 +450,7 @@ function ItemWithSublinks({
                     return (
                       <li key={child._id}>
                         <Link
-                          className="text-text-tertiary dark:text-dark-text-tertiary flex items-center gap-2 rounded-md px-3 py-2 text-sm"
+                          className="text-slate-600 dark:text-slate-300 flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:text-slate-900 dark:hover:text-white"
                           href={hrefValue}
                           onClick={onClick}
                         >
@@ -470,7 +470,7 @@ function ItemWithSublinks({
           return (
             <li key={sublink._id}>
               <Link
-                className="text-text-tertiary dark:text-dark-text-tertiary flex items-center gap-2 rounded-md px-3 py-2 text-sm"
+                className="text-slate-600 dark:text-slate-300 flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:text-slate-900 dark:hover:text-white"
                 href={hrefValue}
                 onClick={onClick}
               >
