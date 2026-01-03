@@ -7,6 +7,12 @@
 
 @layer base {
   :root {
+    /* Bespoke Ethos Button & CTA Colors */
+    --amber-cta: #f97316;       /* Orange CTA buttons */
+    --gold-accent: #f39c12;     /* Trust / Awards / Hover */
+    --charcoal-text: #1e293b;   /* Dark text on light buttons */
+    --header-height: 56px;
+
     /* Base Colors - Deep Charcoal & Obsidian */
     --background: 220 16% 12%; 
     --foreground: 0 0% 98%;
@@ -225,8 +231,8 @@
   }
 
   .be-glass-card {
-    backdrop-filter: blur(12px) saturate(160%);
     -webkit-backdrop-filter: blur(12px) saturate(160%);
+    backdrop-filter: blur(12px) saturate(160%);
     background: rgba(15, 23, 42, 0.65);
     box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
   }
@@ -278,6 +284,7 @@
     box-shadow:
       0 24px 60px rgba(0, 0, 0, 0.5),
       0 2px 0 rgba(255, 255, 255, 0.05) inset;
+    -webkit-backdrop-filter: blur(10px) saturate(120%);
     backdrop-filter: blur(10px) saturate(120%);
   }
 
@@ -359,6 +366,7 @@
     box-shadow:
       0 28px 72px rgba(0, 0, 0, 0.55),
       0 2px 0 rgba(255, 255, 255, 0.05) inset;
+    -webkit-backdrop-filter: blur(12px) saturate(120%);
     backdrop-filter: blur(12px) saturate(120%);
   }
 
@@ -489,12 +497,11 @@
       radial-gradient(circle at 10% 0%, rgba(15, 23, 42, 0.45), transparent 60%),
       radial-gradient(circle at 90% 100%, rgba(15, 23, 42, 0.55), transparent 60%),
       rgba(15, 23, 42, 0.55);
-    backdrop-filter: blur(18px) saturate(150%);
     -webkit-backdrop-filter: blur(18px) saturate(150%);
+    backdrop-filter: blur(18px) saturate(150%);
     position: fixed;
     inset: 0;
     z-index: 120;
-    -webkit-overflow-scrolling: touch;
     transform: translateZ(0);
     will-change: transform;
   }
@@ -585,6 +592,7 @@
   }
 
   .mask-radial-faded {
+    -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
     mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
   }
   
@@ -643,6 +651,7 @@
   .text-glass-container {
     @apply relative px-6 py-4 rounded-xl;
     background: rgba(15, 23, 42, 0.6);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
     backdrop-filter: blur(12px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 
@@ -747,5 +756,31 @@
     min-height: 100vh !important;
     padding: 0 !important;
     margin: 0 !important;
+  }
+
+  /* ==========================================================================
+     MARQUEE ANIMATION - For Testimonial Carousel
+     ========================================================================== */
+  
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 40s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee {
+      animation: none;
+      transform: none;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+    }
   }
 }
