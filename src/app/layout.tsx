@@ -51,12 +51,13 @@ const FALLBACK_METADATA = {
   manifest: "/site.webmanifest",
 };
 
-// Inter for body text
+// Inter for body text - optimized weights for performance
+// Only load weights actually used: 400 (body), 500 (medium), 600 (semibold)
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-sans",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
   fallback: [
     "-apple-system",
     "BlinkMacSystemFont",
@@ -65,14 +66,17 @@ const inter = Inter({
     "Helvetica Neue",
     "sans-serif",
   ],
+  preload: true,
 });
 
 // Playfair Display as accent / hero font (serif)
+// Only load weights actually used: 400 (regular), 700 (bold)
 const playfair = Playfair_Display({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-accent",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "700"],
+  preload: true,
 });
 
 export const generateMetadata = async (): Promise<Metadata> => {

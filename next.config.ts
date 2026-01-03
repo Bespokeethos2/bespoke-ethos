@@ -55,6 +55,18 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
 
+  // Performance optimizations
+  experimental: {
+    // Tree-shake unused exports from these packages
+    optimizePackageImports: ['framer-motion', '@radix-ui/react-dialog', '@radix-ui/react-navigation-menu'],
+  },
+
+  // Enable React compiler optimizations (reduces main thread work)
+  compiler: {
+    // Remove console.log in production
+    removeConsole: process.env.NODE_ENV === 'production' ? { exclude: ['error', 'warn'] } : false,
+  },
+
   logging: {
     fetches: {
       fullUrl: true,

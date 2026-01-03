@@ -5,6 +5,7 @@ import { PremiumContainer } from "@/components/ui/premium-container";
 import { AI101Modal } from "@/components/ai-explainer/AI101Modal";
 
 // Dynamic imports for below-the-fold components to improve initial page load
+// Framer Motion tree-shaking is handled via next.config.ts optimizePackageImports
 const TestimonialMarquee = dynamic(() => import("@/components/ui/testimonial-marquee").then(mod => ({ default: mod.TestimonialMarquee })), {
   loading: () => <div className="h-32 animate-pulse bg-slate-100" />,
 });
