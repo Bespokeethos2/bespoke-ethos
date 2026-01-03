@@ -194,7 +194,7 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
 
         {/* CTA Button */}
         <div className="text-center">
-          <a href="#book" className="inline-flex px-8 sm:px-10 py-3 sm:py-4 text-lg sm:text-xl font-bold bg-orange-600 hover:bg-orange-500 text-white rounded-full shadow-[0_0_25px_rgba(249,115,22,0.4)] hover:shadow-[0_0_40px_rgba(249,115,22,0.6)] transition-all">
+          <a href="#book" className="inline-flex px-8 sm:px-10 py-3 sm:py-4 text-lg sm:text-xl font-bold bg-orange-700 hover:bg-orange-600 text-white rounded-full shadow-[0_0_25px_rgba(249,115,22,0.4)] hover:shadow-[0_0_40px_rgba(249,115,22,0.6)] transition-all">
             Get Answers — Book Free Consultation
           </a>
           <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-slate-300">

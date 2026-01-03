@@ -49,7 +49,7 @@ export function AI101Modal({ triggerText, explainerKey, className = "" }: AI101M
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>
         <button
-          className={`inline-flex items-center gap-1.5 text-orange-300 hover:text-orange-200 underline decoration-dotted underline-offset-4 transition-colors ${className}`}
+          className={`inline-flex items-center gap-1.5 text-orange-700 hover:text-orange-800 underline decoration-dotted underline-offset-4 transition-colors ${className}`}
           aria-label={`Learn more about ${content.term}`}
         >
           <span className="text-xs font-mono">?</span>

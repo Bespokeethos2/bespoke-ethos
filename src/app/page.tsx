@@ -105,13 +105,13 @@ export default function HomePage() {
             <div className="flex flex-wrap gap-3 justify-start">
               <ButtonLink 
                 href="/contact" 
-                className="inline-flex items-center justify-center min-h-12 px-8 py-3 text-sm sm:text-base font-semibold rounded-md bg-orange-600 hover:bg-orange-700 text-white transition-colors shadow-md"
+                className="inline-flex items-center justify-center min-h-12 px-8 py-3 text-sm sm:text-base font-semibold rounded-md bg-orange-700 hover:bg-orange-800 text-white transition-colors shadow-md"
               >
                 Get Free Assessment
               </ButtonLink>
               <ButtonLink 
                 href="/solutions/consensus-engine" 
-                className="inline-flex items-center justify-center min-h-12 px-8 py-3 text-sm sm:text-base font-semibold rounded-md bg-orange-600 hover:bg-orange-700 text-white transition-colors shadow-md"
+                className="inline-flex items-center justify-center min-h-12 px-8 py-3 text-sm sm:text-base font-semibold rounded-md bg-orange-700 hover:bg-orange-800 text-white transition-colors shadow-md"
               >
                 Get Free Consensus Engine Answer
               </ButtonLink>
@@ -214,10 +214,10 @@ export default function HomePage() {
                  </div>
                  <p className="text-xs sm:text-sm md:text-base text-slate-800 mb-4 sm:mb-6 md:mb-8 max-w-md">
                    Includes full scoping decision brief, build, deployment, and documentation. 
-                   <span className="block mt-2 text-orange-800 font-bold">LGBTQ-owned businesses pay $1,122.</span>
+                   <span className="block mt-2 text-orange-900 font-bold">LGBTQ-owned businesses pay $1,122.</span>
                  </p>
                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                   <ButtonLink href="/pricing" className="bg-orange-600 text-white hover:bg-orange-700 font-bold shadow-md hover:shadow-lg transition-all min-h-11 px-6 py-3 rounded-full">
+                   <ButtonLink href="/pricing" className="bg-orange-700 text-white hover:bg-orange-800 font-bold shadow-md hover:shadow-lg transition-all min-h-11 px-6 py-3 rounded-full">
                      View The Menu
                    </ButtonLink>
                    <ButtonLink href="/contact" className="bg-white hover:bg-slate-50 text-slate-900 font-bold border-2 border-slate-300 hover:border-slate-400 shadow-md min-h-11 px-6 py-3 rounded-full">
