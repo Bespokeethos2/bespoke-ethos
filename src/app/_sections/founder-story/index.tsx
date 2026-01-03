@@ -22,7 +22,7 @@ export function FounderStory() {
           {/* Content Column */}
           <div className="space-y-6 sm:space-y-7">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.25em] sm:tracking-[0.3em] text-orange-600 mb-3">
+              <p className="text-xs font-bold uppercase tracking-[0.25em] sm:tracking-[0.3em] text-orange-700 mb-3">
                 Meet the Founder
               </p>
               <h2 className="text-balance text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-slate-900 dark:text-white">

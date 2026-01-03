@@ -129,7 +129,7 @@ export default function HomePage() {
              
              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold font-hero-accent text-slate-900 mb-4 sm:mb-6 md:mb-8 leading-tight text-center md:text-left">
                <span className="text-slate-900">It&apos;s not about the model.</span>{" "}
-               <span className="text-orange-600">It&apos;s about the tolerance.</span>
+               <span className="text-orange-700">It&apos;s about the tolerance.</span>
              </h2>
 
              <div className="space-y-3 sm:space-y-4 md:space-y-6 text-sm sm:text-base md:text-lg lg:text-xl text-slate-800 leading-relaxed font-light">
@@ -159,7 +159,7 @@ export default function HomePage() {
         <div className="container mx-auto max-w-7xl">
           <div className="mb-16 sm:mb-20 md:mb-24 md:flex md:items-end md:justify-between md:gap-8">
             <div className="max-w-2xl">
-              <span className="text-orange-600 font-mono text-xs sm:text-sm tracking-tight mb-2 sm:mb-3 md:mb-4 block">{`// SYSTEM CAPABILITIES`}</span>
+              <span className="text-orange-700 font-mono text-xs sm:text-sm tracking-tight mb-2 sm:mb-3 md:mb-4 block">{`// SYSTEM CAPABILITIES`}</span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none">
                 <span className="text-slate-900">BUILT TO</span> <span className="text-slate-600">LAST.</span>
               </h2>
@@ -181,12 +181,12 @@ export default function HomePage() {
 
             <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 relative z-10">
               <div className="space-y-4 sm:space-y-6 md:space-y-8">
-                 <div className="inline-block px-3 py-1.5 rounded bg-orange-500/20 border border-orange-500/40 text-orange-800 text-xs font-bold uppercase tracking-widest shadow-sm">
+                 <div className="inline-block px-3 py-1.5 rounded bg-orange-100 border border-orange-300 text-orange-900 text-xs font-bold uppercase tracking-widest shadow-sm">
                    The Anti-Consulting Offer
                  </div>
                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-hero-accent leading-tight">
                    <span className="text-slate-900 drop-shadow-lg">Stop paying for</span>{" "}
-                   <span className="line-through decoration-orange-400/60 decoration-2 text-slate-600">slide decks.</span>
+                   <span className="line-through decoration-orange-500 decoration-2 text-slate-700">slide decks.</span>
                  </h2>
                  <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-800 leading-relaxed">
                    Enterprise firms charge $300/hr to &quot;delve&quot; into your problems. 
@@ -208,13 +208,13 @@ export default function HomePage() {
               </div>
 
               <div className="flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-slate-200 pt-6 sm:pt-8 lg:pt-0 lg:pl-10 xl:pl-12">
-                 <div className="text-xs sm:text-sm font-bold text-slate-700 uppercase tracking-widest mb-1.5 sm:mb-2">Builds Starting At</div>
+                 <div className="text-xs sm:text-sm font-bold text-slate-800 uppercase tracking-widest mb-1.5 sm:mb-2">Builds Starting At</div>
                  <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 tracking-tight mb-2 sm:mb-3 md:mb-4">
                    $1,497
                  </div>
                  <p className="text-xs sm:text-sm md:text-base text-slate-800 mb-4 sm:mb-6 md:mb-8 max-w-md">
                    Includes full scoping decision brief, build, deployment, and documentation. 
-                   <span className="block mt-2 text-orange-700 font-bold">LGBTQ-owned businesses pay $1,122.</span>
+                   <span className="block mt-2 text-orange-800 font-bold">LGBTQ-owned businesses pay $1,122.</span>
                  </p>
                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                    <ButtonLink href="/pricing" className="bg-orange-600 text-white hover:bg-orange-700 font-bold shadow-md hover:shadow-lg transition-all min-h-11 px-6 py-3 rounded-full">
@@ -262,7 +262,7 @@ export default function HomePage() {
       <section className="relative z-10 py-24 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6 bg-white">
         <div className="container mx-auto max-w-3xl">
            <div className="text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24">
-            <span className="text-orange-600 font-mono text-xs tracking-widest mb-2 sm:mb-3 md:mb-4 block font-bold">01001000 01000101 01001100 01010000</span>
+            <span className="text-orange-700 font-mono text-xs tracking-widest mb-2 sm:mb-3 md:mb-4 block font-bold">01001000 01000101 01001100 01010000</span>
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-slate-900 font-hero-accent">
               Quick Answers. No Fluff.
             </h2>

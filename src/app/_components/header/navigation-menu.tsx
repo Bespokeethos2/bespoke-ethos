@@ -261,7 +261,7 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
   // Menu content to be portaled
   const menuContent = isOn ? (
     <div
-      className="be-mobile-menu-backdrop fixed inset-0 z-[120] bg-surface-primary/95 dark:bg-dark-surface-primary/95 be-mobile-menu-fullscreen"
+      className="be-mobile-menu-backdrop fixed inset-0 z-120 bg-surface-primary/95 dark:bg-dark-surface-primary/95 be-mobile-menu-fullscreen"
       onClick={handleOff}
     >
             <div
