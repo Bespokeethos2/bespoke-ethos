@@ -261,12 +261,12 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
   // Menu content to be portaled
   const menuContent = isOn ? (
     <div
-      className="be-mobile-menu-backdrop fixed inset-0 z-120 bg-surface-primary/95 dark:bg-dark-surface-primary/95 be-mobile-menu-fullscreen"
+      className="be-mobile-menu-backdrop fixed inset-0 z-120 bg-black/40 dark:bg-black/60"
       onClick={handleOff}
     >
             <div
               id="mobile-navigation-panel"
-              className="be-mobile-menu-card absolute left-0 right-0 top-2 bottom-4 mx-auto max-w-md sm:max-w-lg rounded-2xl border border-border bg-surface-primary text-text-primary shadow-xl dark:border-dark-border dark:bg-dark-surface-primary dark:text-dark-text-primary"
+              className="be-mobile-menu-card absolute left-4 right-4 top-20 max-h-[70vh] mx-auto max-w-md sm:max-w-lg rounded-2xl border border-slate-200 bg-white text-slate-900 shadow-2xl dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100"
               role="dialog"
               aria-modal="true"
               aria-label="Mobile navigation menu"
@@ -287,7 +287,7 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
                       ) : (
                         <Link
                           key={link._id}
-                          className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-base font-medium hover:bg-surface-secondary dark:hover:bg-dark-surface-secondary"
+                          className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-base font-medium text-slate-900 hover:bg-slate-100 dark:text-slate-100 dark:hover:bg-slate-700"
                           href={link.href ?? "#"}
                           onClick={handleOff}
                         >
@@ -297,7 +297,7 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
                     )}
                   </nav>
                 </div>
-                <div className="border-t border-border bg-surface-secondary/70 px-4 py-4 dark:border-dark-border dark:bg-dark-surface-secondary/70">
+                <div className="border-t border-slate-200 bg-slate-50 px-4 py-4 dark:border-slate-700 dark:bg-slate-900">
                   <div className="flex items-center justify-center gap-3 pb-3">
                     <figure className="flex flex-col items-center">
                       {/* light theme */}
@@ -412,7 +412,7 @@ function ItemWithSublinks({
   return (
     <div key={_id}>
       <button
-        className="flex items-center gap-2 px-3 py-2.5 text-base font-medium text-slate-700 dark:text-slate-200"
+        className="flex items-center gap-2 px-3 py-2.5 text-base font-medium text-slate-900 dark:text-slate-100"
         onClick={handleToggle}
         aria-expanded={ariaExpanded(isOn)}
         aria-controls={submenuId}
@@ -421,7 +421,7 @@ function ItemWithSublinks({
         {_title}
         <ChevronDownIcon
           className={clsx(
-            "text-slate-500 dark:text-slate-400 h-min transform transition-transform",
+            "text-slate-600 dark:text-slate-400 h-min transform transition-transform",
             isOn ? "rotate-180" : "rotate-0",
           )}
         />
@@ -439,7 +439,7 @@ function ItemWithSublinks({
           if (sublink.children?.length) {
             return (
               <li key={sublink._id} className="space-y-1">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-slate-500 dark:text-slate-400">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-slate-600 dark:text-slate-400">
                   {sublink._title}
                 </p>
                 <ul className="flex flex-col gap-1 pl-1">
@@ -450,7 +450,7 @@ function ItemWithSublinks({
                     return (
                       <li key={child._id}>
                         <Link
-                          className="text-slate-600 dark:text-slate-300 flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:text-slate-900 dark:hover:text-white"
+                          className="text-slate-700 dark:text-slate-300 flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-700 dark:hover:text-white"
                           href={hrefValue}
                           onClick={onClick}
                         >
@@ -470,7 +470,7 @@ function ItemWithSublinks({
           return (
             <li key={sublink._id}>
               <Link
-                className="text-slate-600 dark:text-slate-300 flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:text-slate-900 dark:hover:text-white"
+                className="text-slate-700 dark:text-slate-300 flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-700 dark:hover:text-white"
                 href={hrefValue}
                 onClick={onClick}
               >
