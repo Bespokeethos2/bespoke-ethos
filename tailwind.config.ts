@@ -11,6 +11,22 @@ const config: Config = {
       sans: "var(--font-sans)",
       mono: "var(--font-mono)",
     },
+    fontSize: {
+      // Enhanced font sizes with optimized line heights for readability
+      xs: ["0.75rem", { lineHeight: "1.5" }], // 12px
+      sm: ["0.875rem", { lineHeight: "1.5" }], // 14px
+      base: ["1rem", { lineHeight: "1.6" }], // 16px - optimal for body text
+      lg: ["1.125rem", { lineHeight: "1.6" }], // 18px
+      xl: ["1.25rem", { lineHeight: "1.6" }], // 20px
+      "2xl": ["1.5rem", { lineHeight: "1.4" }], // 24px
+      "3xl": ["1.875rem", { lineHeight: "1.3" }], // 30px
+      "4xl": ["2.25rem", { lineHeight: "1.2" }], // 36px
+      "5xl": ["3rem", { lineHeight: "1.1" }], // 48px
+      "6xl": ["3.75rem", { lineHeight: "1.1" }], // 60px
+      "7xl": ["4.5rem", { lineHeight: "1" }], // 72px
+      "8xl": ["6rem", { lineHeight: "1" }], // 96px
+      "9xl": ["8rem", { lineHeight: "1" }], // 128px
+    },
     extend: {
       colors: {
         // We extend the colors, we do NOT overwrite the defaults.
@@ -111,6 +127,16 @@ const config: Config = {
       },
       maxWidth: {
         prose: "75ch",
+        "readable": "65ch", // Optimal line length for body text
+      },
+      letterSpacing: {
+        tightest: "-0.05em",
+        tighter: "-0.025em",
+        tight: "-0.015em",
+        normal: "0",
+        wide: "0.01em",
+        wider: "0.025em",
+        widest: "0.05em",
       },
       gridTemplateColumns: {
         header: "1fr max-content 1fr",
