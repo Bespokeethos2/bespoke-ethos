@@ -18,9 +18,9 @@ export function PremiumContainer({
   const baseStyles = "relative overflow-hidden rounded-2xl transition-all duration-500 ease-out";
   
   const variants = {
-    glass: "border border-white/10 bg-slate-900/60 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.36)] hover:bg-slate-800/80 hover:-translate-y-1 hover:shadow-[0_0_0_1px_rgba(249,115,22,0.2),0_12px_40px_-8px_rgba(220,38,38,0.3)]",
-    obsidian: "border border-white/5 bg-black/40 backdrop-blur-md shadow-inner hover:border-white/10",
-    neon: "border border-orange-500/20 bg-slate-950/80 backdrop-blur-3xl shadow-[0_0_15px_-3px_rgba(249,115,22,0.1)] hover:shadow-[0_0_25px_-5px_rgba(249,115,22,0.3)] hover:border-orange-500/40"
+    glass: "border border-slate-200/20 bg-white/40 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.1)] hover:bg-white/50 hover:shadow-[0_12px_40px_-8px_rgba(249,115,22,0.15)]",
+    obsidian: "border border-slate-300/20 bg-slate-800/30 backdrop-blur-md shadow-lg hover:border-slate-300/30 hover:bg-slate-800/40",
+    neon: "border border-orange-500/20 bg-slate-950/20 backdrop-blur-3xl shadow-[0_0_15px_-3px_rgba(249,115,22,0.1)] hover:shadow-[0_0_25px_-5px_rgba(249,115,22,0.3)] hover:border-orange-500/40"
   };
 
   return (

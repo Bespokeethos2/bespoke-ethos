@@ -155,9 +155,9 @@ export default function HomePage() {
       </section>
 
       {/* 4. CAPABILITIES: Bento */}
-      <section className="relative z-10 py-24 sm:py-28 md:py-36 lg:py-44 bg-slate-50 px-4 sm:px-6">
+      <section className="relative z-10 py-28 sm:py-32 md:py-40 lg:py-48 bg-slate-50 px-4 sm:px-6">
         <div className="container mx-auto max-w-7xl">
-          <div className="mb-16 sm:mb-20 md:mb-24 md:flex md:items-end md:justify-between md:gap-8">
+          <div className="mb-20 sm:mb-24 md:mb-28 md:flex md:items-end md:justify-between md:gap-8">
             <div className="max-w-2xl">
               <span className="text-orange-700 font-mono text-xs sm:text-sm tracking-tight mb-2 sm:mb-3 md:mb-4 block">{`// SYSTEM CAPABILITIES`}</span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none">
@@ -173,9 +173,9 @@ export default function HomePage() {
       </section>
 
       {/* 5. PRICING: Fixed Price */}
-      <section className="relative z-10 py-24 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6 bg-white">
+      <section className="relative z-10 py-24 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6 bg-slate-50">
         <div className="container mx-auto max-w-6xl">
-          <PremiumContainer variant="obsidian" className="p-8 sm:p-10 md:p-12 lg:p-16 xl:p-20 relative overflow-hidden group">
+          <PremiumContainer variant="glass" className="p-8 sm:p-10 md:p-12 lg:p-16 xl:p-20 relative overflow-hidden group">
             {/* Background Glow - Enhanced */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/10 blur-[120px] rounded-full group-hover:bg-orange-500/15 transition-colors duration-700" />
 
@@ -234,9 +234,9 @@ export default function HomePage() {
       <AutomationOpportunityScan />
 
       {/* 6. AI STRATEGY SPRINTS (Formerly Consensus Engine) */}
-      <section className="relative z-10 py-20 sm:py-24 md:py-28 lg:py-36 bg-slate-50 px-4 sm:px-6">
+      <section className="relative z-10 py-20 sm:py-24 md:py-28 lg:py-36 bg-white px-4 sm:px-6">
         <div className="container mx-auto max-w-6xl">
-           <PremiumContainer variant="glass" className="p-8 sm:p-10 md:p-12 lg:p-16 xl:p-20 text-center border-slate-200 bg-white/40">
+           <PremiumContainer variant="glass" className="p-8 sm:p-10 md:p-12 lg:p-16 xl:p-20 text-center border-slate-200 bg-white/60">
              <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4 md:space-y-6">
                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold font-hero-accent text-slate-900">
                  AI Strategy Sprints™
