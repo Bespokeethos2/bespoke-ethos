@@ -78,39 +78,154 @@
   }
 
   /* ==========================================================================
-     IMPROVED READABILITY: Better text contrast and spacing
+     TYPOGRAPHY & READABILITY - WCAG AA COMPLIANT
+     
+     All text colors meet WCAG AA contrast ratios:
+     - text-slate-700 on white: 10.35:1 (Pass AA)
+     - text-slate-800 on white: 14.63:1 (Pass AA)
+     - text-slate-900 on white: 17.85:1 (Pass AA)
+     - text-orange-700 on white: 5.18:1 (Pass AA)
+     
+     Minimum font sizes ensure readability across all devices:
+     - Mobile: 16px minimum for body text (prevents zoom on iOS)
+     - Desktop: Comfortable reading sizes with proper scaling
      ========================================================================== */
+
+  /* Root font size - optimized for mobile-first */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Body text - enhanced readability */
+  body {
+    font-size: 1rem; /* 16px - optimal for body text */
+    line-height: 1.6; /* 1.6 for comfortable reading */
+    letter-spacing: 0.01em; /* Slight spacing for clarity */
+  }
+
+  /* Headings - improved hierarchy and readability */
   h1, h2, h3, h4, h5, h6 {
     @apply leading-tight;
     letter-spacing: -0.02em;
+    font-weight: 600; /* Ensure sufficient weight for visibility */
+    margin-bottom: 0.5em;
   }
 
-  p, li, span {
+  h1 {
+    font-size: clamp(2rem, 5vw + 1rem, 4rem); /* 32px to 64px - uses rem for better control */
+    line-height: 1.1;
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 4vw + 0.5rem, 3rem); /* 24px to 48px */
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 3vw + 0.25rem, 2rem); /* 20px to 32px */
+    line-height: 1.3;
+  }
+
+  h4 {
+    font-size: clamp(1.125rem, 2.5vw + 0.125rem, 1.5rem); /* 18px to 24px */
+    line-height: 1.4;
+  }
+
+  /* Paragraphs and lists - optimized spacing */
+  p {
     @apply leading-relaxed;
+    margin-bottom: 1em;
+    max-width: 65ch; /* Optimal line length for readability */
   }
 
-  /* Improved text readability on dark backgrounds */
-  .dark-text-readable {
-    color: rgb(226, 232, 240);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  li {
+    @apply leading-relaxed;
+    margin-bottom: 0.5em;
   }
 
-  /* Better mobile spacing for cards */
+  /* Prevent text overflow and ensure proper wrapping */
+  p, span, li, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* Small text - ensure minimum readable size */
+  small, .text-xs {
+    font-size: clamp(0.75rem, 2vw, 0.875rem); /* 12px to 14px */
+    line-height: 1.5;
+  }
+
+  /* Mobile typography enhancements */
   @media (max-width: 768px) {
+    /* Ensure minimum font size to prevent iOS zoom on focus */
+    input, textarea, select {
+      font-size: 16px;
+    }
+
+    body {
+      line-height: 1.65; /* Slightly more spacing on mobile */
+    }
+
+    /* Ensure touch targets for buttons and nav links */
+    button, 
+    [role="button"],
+    nav a {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    /* Better card spacing on mobile */
     .mobile-card-spacing {
       padding: 1.5rem;
     }
   }
 
-  /* Prevent text overflow and ensure proper wrapping */
-  p, span, li {
-    overflow-wrap: break-word;
-    word-wrap: break-word;
+  /* Tablet typography adjustments */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    html {
+      font-size: 17px; /* Slightly larger on tablets */
+    }
   }
 
-  /* Better line height for body text */
-  body {
-    line-height: 1.6;
+  /* Desktop typography - comfortable reading */
+  @media (min-width: 1024px) {
+    html {
+      font-size: 18px; /* Larger base for desktop comfort */
+    }
+  }
+
+  /* Text readability on dark backgrounds */
+  .dark-text-readable {
+    color: rgb(226, 232, 240);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  /* High contrast text for critical content */
+  .text-high-contrast {
+    color: rgb(15, 23, 42); /* slate-900 */
+    font-weight: 600;
+  }
+
+  /* Ensure sufficient contrast for interactive elements */
+  a, button, [role="button"] {
+    font-weight: 500; /* Medium weight for better visibility */
+  }
+
+  /* Link styling - clear and accessible */
+  a:not([class]):not(nav a):not(button a) {
+    color: rgb(194, 65, 12); /* orange-700 - 5.18:1 contrast */
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+
+  a:not([class]):not(nav a):not(button a):hover {
+    text-decoration-thickness: 2px;
   }
 
   /* ==========================================================================
