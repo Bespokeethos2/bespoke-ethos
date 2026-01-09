@@ -7,5 +7,12 @@
     "deploymentEnabled": {
       "main": true
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://alignment-ai.io/$1",
+      "permanent": true
+    }
+  ]
 }

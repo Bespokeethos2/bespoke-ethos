@@ -3,18 +3,12 @@ import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
   const url = request.nextUrl;
-  const host = url.host.toLowerCase();
   const pathname = url.pathname;
+  const searchParams = url.search;
 
-  // Ensure bare domain redirects to canonical www host for SEO
-  if (host === "bespokeethos.com") {
-    const redirectUrl = new URL(url.toString());
-    redirectUrl.host = "www.bespokeethos.com";
-    return NextResponse.redirect(redirectUrl, 308);
-  }
-
-  // X-Robots-Tag handled in next.config.ts headers() for consistency
-  return NextResponse.next();
+  // Redirect all requests to alignment-ai.io with 301 permanent redirect
+  const redirectUrl = new URL(`https://alignment-ai.io${pathname}${searchParams}`);
+  return NextResponse.redirect(redirectUrl, 301);
 }
 
 export const config = {

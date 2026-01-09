@@ -147,8 +147,13 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      { source: "/case-studies", destination: "/solutions", permanent: true },
-      { source: "/case-studies/:path*", destination: "/solutions", permanent: true },
+      // Redirect all traffic to alignment-ai.io
+      { 
+        source: "/:path*", 
+        destination: "https://alignment-ai.io/:path*", 
+        permanent: true,
+        basePath: false
+      },
     ];
   },
   async rewrites() {
