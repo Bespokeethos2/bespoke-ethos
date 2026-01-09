@@ -6,11 +6,11 @@ export function middleware(request: NextRequest) {
   const host = url.host.toLowerCase();
   const pathname = url.pathname;
 
-  // Ensure bare domain redirects to canonical www host for SEO
-  if (host === "bespokeethos.com") {
+  // Redirect all bespokeethos.com domains to alignment-ai.io with 301 permanent redirect
+  if (host === "bespokeethos.com" || host === "www.bespokeethos.com") {
     const redirectUrl = new URL(url.toString());
-    redirectUrl.host = "www.bespokeethos.com";
-    return NextResponse.redirect(redirectUrl, 308);
+    redirectUrl.host = "alignment-ai.io";
+    return NextResponse.redirect(redirectUrl, 301);
   }
 
   // X-Robots-Tag handled in next.config.ts headers() for consistency
