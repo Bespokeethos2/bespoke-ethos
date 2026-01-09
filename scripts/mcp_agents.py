@@ -35,7 +35,7 @@ Example usage:
         --mode stdio \\
         --config agents.json \\
         --server-name local-files \\
-        --server-params '{\"command\": \"npx\", \"args\": [\"-y\", \"@modelcontextprotocol/server-filesystem\", \"./data\"]}'
+        --server-params '{\"command\": \"npx\", \"args\": [\"-y\", \"@modelcontextprotocol/server-filesystem@2025.12.18\", \"./data\"]}'
 
 Notes:
 - Requires OPENAI_API_KEY in the environment.

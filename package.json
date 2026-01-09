@@ -81,7 +81,6 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
-    "@modelcontextprotocol/server-filesystem": "^2025.8.21",
     "@next/bundle-analyzer": "^16.0.5",
     "@playwright/test": "^1.47.0",
     "@tailwindcss/typography": "^0.5.19",

@@ -50,7 +50,7 @@ pnpm exec python scripts/mcp_agents.py hosted \
 Transport options map directly to the OpenAI guide:
 
 - `hosted` attaches a `HostedMCPTool`.
-- `stdio`, `streamable-http`, and `sse` spin up `MCPServerStdio`, `MCPServerStreamableHttp`, or `MCPServerSse` respectively. Pass `--server-params '{"command":"npx","args":["-y","@modelcontextprotocol/server-filesystem","."]}'` (or similar) to mirror the doc examples.
+- `stdio`, `streamable-http`, and `sse` spin up `MCPServerStdio`, `MCPServerStreamableHttp`, or `MCPServerSse` respectively. Pass `--server-params '{"command":"npx","args":["-y","@modelcontextprotocol/server-filesystem@2025.12.18","."]}'` (or similar) to mirror the doc examples.
 - Optional `--tool-allow/--tool-block` flags enable the “Tool filtering” flow; `--cache-tools` mirrors the caching guidance in the same doc.
 
 Each agent entry may define `instructions` and a kickoff `prompt`; otherwise the script falls back to `--default-prompt`.
