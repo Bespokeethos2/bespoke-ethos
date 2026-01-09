@@ -50,6 +50,8 @@ const securityHeaders = [
 ];
 
 const nextConfig = {
+  // Domain redirect: bespokeethos.com → alignment-ai.io (handled in middleware.ts and vercel.json)
+  
   // Ignore TypeScript/ESLint errors during build to unblock deployment
   typescript: {
     ignoreBuildErrors: true,

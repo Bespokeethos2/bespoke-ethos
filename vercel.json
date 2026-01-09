@@ -7,5 +7,13 @@
     "deploymentEnabled": {
       "main": true
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/:path*",
+      "destination": "https://alignment-ai.io/:path*",
+      "permanent": true,
+      "statusCode": 301
+    }
+  ]
 }
