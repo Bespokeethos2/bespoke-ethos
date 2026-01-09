@@ -5,8 +5,447 @@
   "outputDirectory": ".next",
   "redirects": [
     {
+      "source": "/",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/process",
+      "permanent": true
+    },
+    {
+      "source": "/pricing",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/products",
+      "permanent": true
+    },
+    {
+      "source": "/faq",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/process",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/research",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:slug*",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/research",
+      "permanent": true
+    },
+    {
+      "source": "/calendar",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/contact",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/contact",
+      "permanent": true
+    },
+    {
+      "source": "/lgbtq-discount",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/contact",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/contact",
+      "permanent": true
+    },
+    {
+      "source": "/terms",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/contact",
+      "permanent": true
+    },
+    {
+      "source": "/testimonials",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/work",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/work",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/:path*",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/work",
+      "permanent": true
+    },
+    {
+      "source": "/solutions",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/products",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/consensus-engine",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/research",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/redbridging",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/process",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/flowstack",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/products",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/essentials",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/products",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/chatbots",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/products",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/a-la-carte",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/products",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/automation-skyway",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/products",
+      "permanent": true
+    },
+    {
+      "source": "/products/cadence",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/products",
+      "permanent": true
+    },
+    {
+      "source": "/products",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/products",
+      "permanent": true
+    },
+    {
+      "source": "/services",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/products",
+      "permanent": true
+    },
+    {
+      "source": "/intelligence",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/research",
+      "permanent": true
+    },
+    {
+      "source": "/help",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/contact",
+      "permanent": true
+    },
+    {
+      "source": "/book",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/contact",
+      "permanent": true
+    },
+    {
+      "source": "/enterprise",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/contact",
+      "permanent": true
+    },
+    {
+      "source": "/enterprise/:slug*",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/contact",
+      "permanent": true
+    },
+    {
+      "source": "/changelog",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/research",
+      "permanent": true
+    },
+    {
+      "source": "/changelog/:slug*",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/research",
+      "permanent": true
+    },
+    {
+      "source": "/faces",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/",
+      "permanent": true
+    },
+    {
+      "source": "/brutus",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/",
+      "permanent": true
+    },
+    {
+      "source": "/splash",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/",
+      "permanent": true
+    },
+    {
+      "source": "/test-analytics",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
-      "destination": "https://alignment-ai.io/:path*",
+      "has": [{ "type": "host", "value": "www.bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/process",
+      "permanent": true
+    },
+    {
+      "source": "/pricing",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/products",
+      "permanent": true
+    },
+    {
+      "source": "/faq",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/process",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/research",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:slug*",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/research",
+      "permanent": true
+    },
+    {
+      "source": "/calendar",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/contact",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/contact",
+      "permanent": true
+    },
+    {
+      "source": "/lgbtq-discount",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/contact",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/contact",
+      "permanent": true
+    },
+    {
+      "source": "/terms",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/contact",
+      "permanent": true
+    },
+    {
+      "source": "/testimonials",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/work",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/work",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/:path*",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/work",
+      "permanent": true
+    },
+    {
+      "source": "/solutions",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/products",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/consensus-engine",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/research",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/redbridging",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/process",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/flowstack",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/products",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/essentials",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/products",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/chatbots",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/products",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/a-la-carte",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/products",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/automation-skyway",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/products",
+      "permanent": true
+    },
+    {
+      "source": "/products/cadence",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/products",
+      "permanent": true
+    },
+    {
+      "source": "/products",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/products",
+      "permanent": true
+    },
+    {
+      "source": "/services",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/products",
+      "permanent": true
+    },
+    {
+      "source": "/intelligence",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/research",
+      "permanent": true
+    },
+    {
+      "source": "/help",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/contact",
+      "permanent": true
+    },
+    {
+      "source": "/book",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/contact",
+      "permanent": true
+    },
+    {
+      "source": "/enterprise",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/contact",
+      "permanent": true
+    },
+    {
+      "source": "/enterprise/:slug*",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/contact",
+      "permanent": true
+    },
+    {
+      "source": "/changelog",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/research",
+      "permanent": true
+    },
+    {
+      "source": "/changelog/:slug*",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/research",
+      "permanent": true
+    },
+    {
+      "source": "/faces",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/",
+      "permanent": true
+    },
+    {
+      "source": "/brutus",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/",
+      "permanent": true
+    },
+    {
+      "source": "/splash",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/",
+      "permanent": true
+    },
+    {
+      "source": "/test-analytics",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "bespokeethos.com" }],
+      "destination": "https://www.alignment-ai.io/:path*",
       "permanent": true
     }
   ],
