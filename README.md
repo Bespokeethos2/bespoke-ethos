@@ -168,21 +168,23 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for full guidelines.
 
 See [LICENSE.md](./LICENSE.md) for details.
 
-**LGBTQ+ owned businesses get 30% off commercial licenses.** Contact sales@bespoke-ethos.com.
+**LGBTQ+ owned businesses get 30% off commercial licenses.** Contact sales@alignment-ai.io.
 
 ---
 
-## 🌈 About Bespoke Ethos
+## 🌈 About Alignment AI (formerly Bespoke Ethos)
 
 We build AI infrastructure for the LGBTQ+ community and pro-business innovators. NGLCC-certified. Community-first. No compromises.
+
+**Note:** All traffic from bespokeethos.com is permanently redirected (301) to alignment-ai.io as part of our rebranding.
 
 ---
 
 ## 📞 Support
 
 - **Documentation**: [Read the docs](./BRUTUS_API.md)
-- **Enterprise Sales**: sales@bespoke-ethos.com
-- **Technical Support**: support@bespoke-ethos.com
+- **Enterprise Sales**: sales@alignment-ai.io
+- **Technical Support**: support@alignment-ai.io
 - **GitHub Issues**: [Report bugs](https://github.com/bespoke-ethos/brutus/issues)
 
 ---

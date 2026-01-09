@@ -1,4 +1,4 @@
-const FALLBACK_HOST = "www.bespokeethos.com";
+const FALLBACK_HOST = "alignment-ai.io";
 
 // Prefer an explicit public site URL if provided,
 // otherwise fall back to the canonical custom domain.
