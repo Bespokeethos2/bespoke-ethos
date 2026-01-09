@@ -3,6 +3,13 @@
   "installCommand": "npm install",
   "buildCommand": "pnpm build",
   "outputDirectory": ".next",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "destination": "https://alignment-ai.io/:path*",
+      "permanent": true
+    }
+  ],
   "git": {
     "deploymentEnabled": {
       "main": true

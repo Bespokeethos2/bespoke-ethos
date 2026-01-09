@@ -6,7 +6,7 @@ This project runs as a single-production-branch deployment on Vercel. To keep th
 
 - **Main is production.** All commits land on `main`; do not create long-lived branches.
 - **Ship through CI.** Every push to `main` must pass the workflow at `.github/workflows/ci.yml` before it can be deployed.
-- **Deploy on merge.** Vercel is configured to deploy the latest `main` build only; preview deployments are disabled.
+- **Deploy on merge.** Vercel is configured to deploy the latest `main` build only; preview deployments are disabled to reduce deployment noise and control costs. To re-enable previews, update the Vercel project settings under **Settings → Git → Preview Deployments**.
 - **Image generation workflow.** Confirm desired model/size and projected cost with the requester before running scripts (see `docs/image-generation.md`).
 
 ## Change Workflow
@@ -14,7 +14,24 @@ This project runs as a single-production-branch deployment on Vercel. To keep th
 1. Verify locally with `pnpm run check` (type-safety and lint).
 2. Run `pnpm run dev` to spot regressions in the hero slideshow and navigation.
 3. Push to `main`; GitHub Actions will lint, type-check, and execute the build.
-4. Only trigger a manual Vercel redeploy once CI succeeds.
+<!-- 
+    Step 4: Feature Branch Push Workflow
+    
+    This step describes the CI/CD pipeline trigger for feature branches.
+    
+    When code is pushed to a feature branch:
+    - GitHub Actions workflow is automatically triggered
+    - The following checks are executed in sequence:
+        1. lint       - Code style and formatting validation
+        2. type-check - TypeScript/static type verification
+        3. build      - Compilation and build process validation
+    
+    All checks must pass before the branch can be merged to main.
+-->
+4. Push to a feature branch; GitHub Actions runs lint, type-check, and build checks.
+
+    > **Note:** If timing or scope requires bypassing checks, confirm with the requester before proceeding. Guardrails can be overridden when explicitly requested—document the rationale in the commit message.
+5. Merge to `main` after CI passes; Vercel auto-deploys with rollback protection enabled.
 5. Treat the Vogue product cards as design-locked elements—do **not** alter their layout, copy, or assets without explicit approval documented in sprint notes.
 
 ## Repository Layout

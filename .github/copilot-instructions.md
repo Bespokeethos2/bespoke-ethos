@@ -7,7 +7,7 @@
 
 ### THIS REPO (Vercel)
 - **Repo:** `Bespokeethos2/bespoke-ethos`
-- **Local:** `C:\vercel`
+- **Local:** `C:\Vercel`
 - **Deploy:** Vercel (B2B consulting site)
 - **Package Manager:** pnpm
 
@@ -22,38 +22,28 @@
 |-------|------------|
 | Framework | Next.js 15+ (App Router, Turbopack) |
 | Language | TypeScript (strict) |
-| AI | Vercel AI SDK + Anthropic + Google |
-| CMS | Sanity |
 | UI | Tailwind CSS + Radix UI |
-| Analytics | Vercel Analytics |
+| Analytics | Vercel Analytics + GA4 |
 | Package Manager | pnpm |
-
----
-
-## AI MODELS
-```typescript
-// Via Vercel AI SDK
-import { anthropic } from '@ai-sdk/anthropic';
-import { google } from '@ai-sdk/google';
-
-// Default models
-const claude = 'claude-sonnet-4';
-const gemini = 'gemini-2.5-flash';
-```
 
 ---
 
 ## ✅ CORRECT IMPORTS
 ```typescript
-// Vercel AI SDK
-import { generateText, streamText } from 'ai';
-import { anthropic } from '@ai-sdk/anthropic';
-import { google } from '@ai-sdk/google';
+// Next.js
+import Image from 'next/image';
+import dynamic from 'next/dynamic';
 
 // Radix UI
 import { Dialog } from '@radix-ui/react-dialog';
+```
 
-// Sanity
+---
+
+## ❌ DO NOT USE
+```typescript
+// REMOVED - Do not add back
+import { anthropic } from '@ai-sdk/anthropic';
 import { createClient } from '@sanity/client';
 ```
 
@@ -65,11 +55,29 @@ import { createClient } from '@sanity/client';
 | `pnpm dev` | Local dev with Turbopack |
 | `pnpm build` | Production build |
 | `pnpm lint` | ESLint check |
-| `pnpm deploy` | Deploy to Vercel |
 
 ---
 
 ## COST RULES
-- Default to `gemini-2.5-flash` for most tasks
-- Use Claude for complex content generation
-- Cache Sanity queries with ISR
+- Use ISR/static generation where possible
+- Optimize images with next/image
+- Dynamic imports for below-fold components
+
+---
+
+## FILES TO DELETE
+// Delete these files if they exist:
+C:\Vercel\src\lib\sanity\client.ts
+C:\Vercel\src\app\api\claude\batch\route.ts
+
+---
+
+# PLAYWRIGHT TEST
+import { test, expect } from '@playwright/test';
+
+test('homepage loads and shows Bespoke Ethos', async ({ page }) => {
+  await page.goto('http://localhost:3000');
+  // Adjust selector/text as needed for your homepage
+  await expect(page).toHaveTitle(/Bespoke Ethos/i);
+  await expect(page.locator('body')).toContainText(/Bespoke Ethos|AI|automation/i);
+});
