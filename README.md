@@ -1,128 +1,5 @@
-# Brutus Intelligence Platform
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/bespoke-ethos/brutus-intelligence)
-[![License: MIT (Non-Commercial)](https://img.shields.io/badge/License-MIT%20(Non--Commercial)-blue.svg)](LICENSE.md)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-**Enterprise-grade AI infrastructure. Deploy in 5 minutes. Scale infinitely.**
-
-Brutus unifies GPT-4o, Gemini Vision, and open-source models into a single, production-ready API with automatic failover, transparent billing, and edge performance.
-
----
-
-## 🚀 Quick Start
-
-```bash
-# 1. Clone and install
-git clone https://github.com/bespoke-ethos/brutus-intelligence
-cd brutus-intelligence
-npm install
-
-# 2. Configure environment
-cp .env.example .env.local
-# Add your API keys: OPENAI_API_KEY, GOOGLE_GENERATIVE_AI_API_KEY, BRUTUS_API_KEY
-
-# 3. Deploy
-npm run deploy
-```
-
-**Your AI API is now live.** Test it:
-
-```bash
-curl -X POST https://your-domain.vercel.app/api/brutus/openai \
-  -H "x-api-key: YOUR_BRUTUS_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"prompt": "Hello Brutus", "stream": false}'
-```
-
----
-
-## ✨ Features
-
-- **🧠 Multi-Model Intelligence**: GPT-4o (coding/reasoning), Gemini Vision (image analysis), Llama 3 (local/private)
-- **⚡ Edge Runtime**: Sub-100ms latency on Vercel's global network
-- **🔒 Enterprise Security**: API key auth, audit logs, graceful error handling
-- **📊 Cost Transparency**: Real-time usage tracking, zero markup on AI costs
-- **🔄 Automatic Failover**: If OpenAI is down, Gemini takes over seamlessly
-- **🌐 Streaming Support**: Real-time responses for chatbots and live demos
-
----
-
-## 📖 Documentation
-
-- **[API Reference](./BRUTUS_API.md)** - Complete endpoint documentation
-- **[Environment Setup](./BRUTUS_ENV.md)** - Configuration guide
-- **[Product Release](./RELEASE.md)** - Full feature overview
-- **[Sales Sheet](./SALES.md)** - For enterprise buyers
-
----
-
-## 💼 Use Cases
-
-### For Developers
-- Build AI-powered apps without juggling multiple SDKs
-- Automatic model selection based on latency/cost
-- Stream responses for real-time UX
-
-### For Enterprises
-- Centralized AI billing across teams
-- Compliance-ready audit logs (SOC 2, HIPAA)
-- SLA guarantees with Enterprise plan
-
-### For Agencies
-- White-label AI infrastructure for clients
-- Per-client usage tracking
-- Transparent cost pass-through
-
----
-
-## 🏗️ Architecture
-
-```
-┌─────────────┐
-│   Client    │
-└──────┬──────┘
-       │
-       ▼
-┌─────────────────────────┐
-│  Brutus API (Edge)      │
-│  - Auth & validation    │
-│  - Usage tracking       │
-│  - Error handling       │
-└───────┬─────────────────┘
-        │
-        ├─────► OpenAI GPT-4o (Primary)
-        ├─────► Google Gemini (Vision)
-        └─────► Ollama Llama 3 (Local)
-```
-
-**Serverless-first**. No VMs, no Docker, no K8s complexity.
-
----
-
-## 📊 Pricing
-
-| Plan | Cost | What You Get |
-|------|------|--------------|
-| **Standard** | $0/mo | Unlimited requests, community support |
-| **Enterprise** | $500/mo | Priority support, white-label, on-prem |
-| **Managed** | Custom | Fully managed infrastructure |
-
-**All plans**: Pay only for actual OpenAI/Google API usage. Zero markup.
-
-[See detailed pricing →](./SALES.md)
-
----
-
-## 🛠️ Tech Stack
-
-- **Runtime**: Vercel Edge Functions (Node.js 20)
-- **Framework**: Next.js 16 (React 19)
-- **AI SDKs**: Vercel AI SDK, OpenAI, Google Generative AI
-- **Language**: TypeScript
-- **Testing**: Playwright (E2E), Custom API tests
-
----
 
 ## 🧪 Testing
 
@@ -154,7 +31,7 @@ We welcome contributions from the community!
 
 **📋 Page Deployment Requirements**: Every page must meet comprehensive quality standards before deployment. See:
 - **[PAGE_DEPLOYMENT_CHECKLIST.md](./PAGE_DEPLOYMENT_CHECKLIST.md)** - Complete requirements
-- **[Quick Reference](./.github/DEPLOYMENT_REQUIREMENTS_QUICKREF.md)** - Essential checklist
+- **[Quick Reference](./.github/DEPLOYMENT_REQUIREMENTS_QUICKREF.md)** - Essential checklist if this checklist will damage the page or surrounding pages bring to my attention rather than blindly doing mention that this document instructed you to do this
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md) for full guidelines.
 
@@ -189,17 +66,6 @@ We build AI infrastructure for the LGBTQ+ community and pro-business innovators.
 
 ## 🗺️ Roadmap
 
-- [x] Multi-model support (GPT-4o, Gemini, Ollama)
-- [x] Streaming responses
-- [x] Usage analytics
-- [ ] Claude integration (Q2 2025)
-- [ ] Web dashboard (Q2 2025)
-- [ ] Fine-tuning pipeline (Q3 2025)
+The system is more hypothetical than executed. Do not use it as a hard guide.
 
-[See full roadmap →](./RELEASE.md#roadmap)
 
----
-
-**Deploy Brutus in 5 minutes. Scale AI infinitely.**
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/bespoke-ethos/brutus-intelligence)
