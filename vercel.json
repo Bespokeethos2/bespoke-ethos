@@ -12,8 +12,7 @@
     {
       "source": "/:path*",
       "destination": "https://alignment-ai.io/:path*",
-      "permanent": true,
-      "statusCode": 301
+      "permanent": true
     }
   ]
 }
