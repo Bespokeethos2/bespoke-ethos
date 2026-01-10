@@ -17,7 +17,7 @@ const securityHeaders = [
       "object-src 'none'",
       "frame-ancestors 'none'",
       // Turnstile + JSON-LD scripts
-      "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://*.cloudflare.com",
+      "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://*.cloudflare.com https://www.googletagmanager.com",
       // Styles are inline via Tailwind runtime classes
       "style-src 'self' 'unsafe-inline'",
       // Images from self and trusted HTTPS origins
@@ -55,21 +55,6 @@ const nextConfig = {
   // Ignore TypeScript/ESLint errors during build to unblock deployment
   typescript: {
     ignoreBuildErrors: true,
-  },
-
-  // Performance optimizations
-  experimental: {
-    // Tree-shake unused exports from these packages
-    optimizePackageImports: [
-      'framer-motion',
-      '@radix-ui/react-dialog',
-      '@radix-ui/react-navigation-menu',
-      '@radix-ui/react-accordion',
-      '@radix-ui/react-popover',
-      '@radix-ui/react-tooltip',
-      '@tabler/icons-react',
-      'lucide-react',
-    ],
   },
 
   // Enable React compiler optimizations (reduces main thread work)
